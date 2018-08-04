@@ -1,27 +1,8 @@
-import {BaseService} from './base.service';
-import {Component, OnInit} from '@angular/core';
-import {LoginService} from './login/login.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-  `,
-  styles: [`
-    app-navbar {
-      flex: 0 0 auto;
-    }`],
+  template: `<router-outlet></router-outlet>`,
 })
-export class AppComponent implements OnInit {
-
-  constructor(
-    private baseService: BaseService,
-    private loginService: LoginService,
-  ) {
-  }
-
-  ngOnInit() {
-    this.baseService.getCookie().subscribe();
-  }
+export class AppComponent {
 }

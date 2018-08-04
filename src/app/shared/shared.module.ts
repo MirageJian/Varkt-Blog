@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-    MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
-    MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
-    MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule,
-    MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule
+  MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
+  MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
+  MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule,
+  MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatDialogModule
 } from '@angular/material';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProgressDirective, DataProgressComponent } from './directives/progress.directive';
 import {RouterModule} from "@angular/router";
+import {DialogDataExampleDialogComponent} from "./components/alert-dialog/alert-dialog.component";
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import {RouterModule} from "@angular/router";
     // material-ui
     MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
-    MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule,
+    MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
     // cdk
     CdkTableModule,
@@ -35,7 +36,8 @@ import {RouterModule} from "@angular/router";
     FooterComponent,
     HeaderComponent,
     ProgressDirective,
-      DataProgressComponent,
+    DataProgressComponent,
+    DialogDataExampleDialogComponent
   ],
   exports: [
     CommonModule,
@@ -44,19 +46,21 @@ import {RouterModule} from "@angular/router";
     // material-ui
     MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
-    MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule,
+    MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
 
     FlexLayoutModule,
     FooterComponent,
     HeaderComponent,
-    ProgressDirective
+    ProgressDirective,
+    DialogDataExampleDialogComponent
   ],
   providers: [
     MediaMatcher,
   ],
   entryComponents: [
     DataProgressComponent,
+    DialogDataExampleDialogComponent,
   ],
 })
 export class SharedModule { }
