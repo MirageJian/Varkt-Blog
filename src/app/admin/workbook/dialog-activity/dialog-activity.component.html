@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Activity</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="theForm">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <input matInput placeholder="Title Or Name" formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Start of Time" formControlName="time_start">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="End of Time" formControlName="time_end">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Interruption" formControlName="interruption">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Net time" formControlName="net_time">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Remark" formControlName="remark">
+        </mat-form-field>
+        <mat-divider></mat-divider>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-button type="button" color="warn" (click)="deleteActivity()" *ngIf="data.id!=0">Delete</button>
+        <button mat-button type="submit" color="primary" [disabled]="!theForm.valid">Ok</button>
+    </div>
+</form>

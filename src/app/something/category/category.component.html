@@ -1,0 +1,26 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? 'false' : 'true'">
+    <mat-nav-list>
+      <mat-list-item class="pointer_cursor" [ngClass]="{'active':label=='Filter'}" (click)="checkOperationNav('Filter', sidenav)">
+        <mat-icon mat-list-icon>filter_list</mat-icon>
+        <h4 mat-line>Filter</h4>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Category</h3>
+      <!-- [class.selected]="hero.id === selectedId" -->
+      <mat-list-item *ngFor="let item of categories" [ngClass]="{'active':label==item.label}" (click)="checkOperationNav(item.label, sidenav)" class="pointer_cursor">
+        <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+        <h4 mat-line>{{item.label}}</h4>
+        <p mat-line> {{item.icon}} </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header [title]="label" [sidenav]="sidenav" [matches]="mobileQuery.matches"></app-header>
+    <router-outlet></router-outlet>
+    <app-assortment *ngIf="label=='Filter'"></app-assortment>
+    <app-list-articles *ngIf="label!='Filter'" [label]="label"></app-list-articles>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,45 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+               [opened]="mobileQuery.matches ? 'false' : 'true'" [fixedTopGap]="56">
+    <div class="user_background">
+      <img src="/assets/img/test_head.png" class="user_head">
+      <p class="user-info">{{username}}<br>Hello! Welcome to admin!</p>
+    </div>
+    <mat-nav-list>
+      <h3 mat-subheader>Admin</h3>
+      <mat-list-item [routerLink]="['./']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('Dashboard', sidenav)">
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <a> Dashboard</a>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['./writing']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('Writing', sidenav)">
+        <mat-icon mat-list-icon>create</mat-icon>
+        <a> Writing</a>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['./managing']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('Managing', sidenav)">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <a> Managing</a>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['./setting']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="title='Setting'">
+        <mat-icon mat-list-icon>settings</mat-icon>
+        <a> Setting</a>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Others</h3>
+      <mat-list-item [routerLink]="['./workbook']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('Workbook', sidenav)">
+        <mat-icon mat-list-icon>timeline</mat-icon>
+        <a> Workbook</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header [title]="title" [sidenav]="sidenav" [matches]="mobileQuery.matches"></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

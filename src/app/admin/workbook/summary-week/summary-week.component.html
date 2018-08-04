@@ -1,0 +1,54 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-card>
+      <mat-form-field>
+        <mat-select [(value)]="selected">
+          <mat-option *ngFor="let i of weekCount" [value]="i">第{{i+1}}周</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="width: 400px">
+        <input matInput (keyup)="applyFilter($event.target.value, weeks[selected])" placeholder="Filter">
+      </mat-form-field>
+    </mat-card>
+  </div>
+  <mat-table #table [dataSource]="weeks[selected]">
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> 标题</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="sun">
+      <mat-header-cell *matHeaderCellDef> 日</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sun}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mon">
+      <mat-header-cell *matHeaderCellDef> 一</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.mon}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="tue">
+      <mat-header-cell *matHeaderCellDef> 二</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.tue}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="wed">
+      <mat-header-cell *matHeaderCellDef> 三</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.wed}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="thu">
+      <mat-header-cell *matHeaderCellDef> 四</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.thu}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fri">
+      <mat-header-cell *matHeaderCellDef> 五</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fri}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="sat">
+      <mat-header-cell *matHeaderCellDef> 六</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sat}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="net">
+      <mat-header-cell *matHeaderCellDef> 总计</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.net}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

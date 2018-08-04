@@ -1,0 +1,17 @@
+.dash {
+  padding-top:30px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-bottom:30px;
+}
+@media (max-width: 600px){
+  .dash {
+    padding-top:15px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:15px;
+  }
+}
+.example-header-image {
+  background-size: cover;
+}

@@ -1,0 +1,48 @@
+<mat-toolbar style="font-size: 16px; padding-top:15px">
+  <mat-form-field>
+    <!--[(value)]="selected"-->
+    <mat-select placeholder="Options">
+      <mat-option>All</mat-option>
+      <mat-option value="stick">Stick</mat-option>
+      <mat-option value="collection">Collection</mat-option>
+      <mat-option value="about">About</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+    <input matInput type="text" placeholder="Search" [(ngModel)]="searchKeyword" (change)="searchArticle()">
+    <button mat-button *ngIf="searchKeyword" matSuffix mat-icon-button aria-label="Clear" (click)="searchKeyword=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-toolbar>
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let a of articles" (opened)="openPanel(a.id)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{a.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{a.author}} {{a.time}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{a.subhead}}</p>
+      <mat-nav-list *appProgress="comments">
+        <ng-container *ngFor="let c of comments">
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <p matLine><strong>{{c.author}}: </strong>{{c.content}}</p>
+            <p matLine>{{c.time}}</p>
+            <span>
+              <button mat-raised-button color="warn" (click)="deleteComment(c)">Delete</button>
+            </span>
+          </mat-list-item>
+        </ng-container>
+      </mat-nav-list>
+      <mat-action-row>
+        <button mat-button color="primary" (click)="toWriting(a)" >Modify Article</button>
+        <button mat-button color="warn" (click)="deleteArticle(a)">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

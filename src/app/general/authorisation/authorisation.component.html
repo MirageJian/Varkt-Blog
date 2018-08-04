@@ -1,0 +1,24 @@
+<mat-card fxLayout="column" fxLayoutAlign="space-around stretch">
+  <mat-card-header>
+    <h2>破样验证注册</h2>
+  </mat-card-header>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()" fxLayoutWrap>
+    <mat-form-field>
+      <input matInput placeholder="邀请码" [formControl]="code" required>
+      <mat-error *ngIf="code.invalid">{{getErrorMessage('code')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="姓名" [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="上网手机号" [formControl]="phone" required>
+      <mat-error *ngIf="phone.invalid">{{getErrorMessage('phone')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="设备id（app验证按钮左边的那一串号码）" [formControl]="imei" required>
+      <mat-error *ngIf="imei.invalid">{{getErrorMessage('imei')}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!authForm.valid">Submit</button>
+  </form>
+</mat-card>

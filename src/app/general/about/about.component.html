@@ -1,0 +1,14 @@
+<app-header [title]="article.title"></app-header>
+<mat-card class="container">
+  <!--<h5>{{article.author}}</h5>-->
+  <!--<img src="../../../assets/img/ceshi.jpg">-->
+  <div #editor></div>
+  <div *appProgress="article"></div>
+  <hr>
+  <mat-chip-list>
+    <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
+    <mat-chip color="primary" selected="true">{{article.time}}</mat-chip>
+    <mat-chip color="accent" selected="true">author:{{article.author}}</mat-chip>
+  </mat-chip-list>
+</mat-card>
+<app-footer></app-footer>

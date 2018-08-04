@@ -1,0 +1,54 @@
+body {
+    font-family: Roboto,Helvetica,sans-serif,Consolas;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+}
+app-root{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+/* horizontal/row */
+app-dashboard, app-something, app-admin{
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: auto;
+  flex: 1 1 auto;
+  -webkit-box-flex: 1;
+}
+/* vertical/column */
+app-login, app-authorisation{
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  overflow: auto;
+  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+}
+/* center */
+app-login, app-authorisation {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
