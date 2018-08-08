@@ -4,7 +4,7 @@ import { PoyoungAuth } from './authorisation/PoyoungAuth';
 import { BaseService } from '../../app-services/base.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ResModel } from '../../shared/models/index';
+import { ResModel } from '../../shared/models';
 
 @Injectable()
 export class AuthorisationService extends BaseService {

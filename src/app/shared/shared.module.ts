@@ -11,7 +11,6 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { CdkTableModule } from '@angular/cdk/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProgressDirective, DataProgressComponent } from './directives/progress.directive';
 import {RouterModule} from "@angular/router";
@@ -33,7 +32,6 @@ import {DialogDataExampleDialogComponent} from "./components/alert-dialog/alert-
     FlexLayoutModule,
   ],
   declarations: [
-    FooterComponent,
     HeaderComponent,
     ProgressDirective,
     DataProgressComponent,
@@ -50,7 +48,6 @@ import {DialogDataExampleDialogComponent} from "./components/alert-dialog/alert-
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
 
     FlexLayoutModule,
-    FooterComponent,
     HeaderComponent,
     ProgressDirective,
     DialogDataExampleDialogComponent

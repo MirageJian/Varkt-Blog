@@ -2,7 +2,7 @@
   <button mat-button [routerLink]="['/']"><span>Home</span></button>
   <button mat-button [routerLink]="['/something']"><span>Somethings</span></button>
   <button mat-button [routerLink]="['/about']"><span>About</span></button>
-  <div class="spacer"></div>
+  <div class="flex-spacer"></div>
   <button mat-icon-button [matMenuTriggerFor]="appMenu">
     <mat-icon aria-label="">more_vert</mat-icon>
   </button>
@@ -10,6 +10,10 @@
     <button mat-menu-item [routerLink]="['/admin']" routerLinkActive="router-link-active">
       <mat-icon>person</mat-icon>
       <span>{{loginService.userName}}</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>search</mat-icon>
+      <span>搜索</span>
     </button>
     <button mat-menu-item [routerLink]="['/admin/writing']" routerLinkActive="router-link-active">
       <mat-icon>create</mat-icon>
@@ -23,7 +27,7 @@
       <!--<mat-icon>lock</mat-icon>-->
       <!--<span>破样验证</span>-->
     <!--</button>-->
-    <button *ngIf="loginService.userName != '登陆'" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
+    <button mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
       <mat-icon>exit_to_app</mat-icon>
       <span>登出</span>
     </button>

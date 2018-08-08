@@ -1,0 +1,77 @@
+body {
+  font-family: Roboto,Helvetica,sans-serif,Consolas,"Microsoft YaHei UI";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+/* common var */
+:root {
+  --primaryColor: #607d8b;
+  --darkPrimaryColor: #37474f;
+  --accentColor: #43a047;
+}
+/* scrollbar css */
+::-webkit-scrollbar {width: 5px;height:5px;}
+::-webkit-scrollbar-track-piece{background-color: #eee;margin: -2px;}
+::-webkit-scrollbar-thumb{background: #aaa;min-height: 150px;min-width: 150px;border-radius: 10px;}
+::-webkit-scrollbar-thumb:vertical:hover{background: #555555}
+::-webkit-scrollbar-thumb:horizontal:hover{background: #555555}
+/* change selection color*/
+::selection{color:#fff;background: var(--accentColor);}
+::-moz-selection{color:#fff;background: var(--accentColor);}
+/* common class*/
+.container {
+  max-width: 1024px;
+  margin: 15px auto 15px auto;
+}
+@media (max-width: 959px){
+  .container {
+    margin: 8px 8px 8px 8px;
+  }
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.flex-spacer {
+  flex: 1 0 auto;
+}
+.flex-container {
+  display: flex;
+}
+
+/*!* horizontal/row *!*/
+/*app-dashboard, app-admin{*/
+/*position: relative;*/
+/*display: -webkit-box;*/
+/*display: -ms-flexbox;*/
+/*display: flex;*/
+/*overflow: auto;*/
+/*flex: 1 1 auto;*/
+/*-webkit-box-flex: 1;*/
+/*}*/
+/*!* vertical/column *!*/
+/*app-login, app-authorisation{*/
+/*position: relative;*/
+/*display: -webkit-box;*/
+/*display: -ms-flexbox;*/
+/*display: flex;*/
+/*-webkit-box-orient: vertical;*/
+/*-webkit-box-direction: normal;*/
+/*-ms-flex-direction: column;*/
+/*flex-direction: column;*/
+/*flex-wrap: nowrap;*/
+/*justify-content: flex-start;*/
+/*align-items: stretch;*/
+/*align-content: flex-start;*/
+/*overflow: auto;*/
+/*flex: 1 0 auto;*/
+/*-webkit-box-flex: 1;*/
+/*}*/
+/*!* center *!*/
+/*app-login, app-authorisation {*/
+/*position: relative;*/
+/*justify-content: center;*/
+/*align-items: center;*/
+/*}*/

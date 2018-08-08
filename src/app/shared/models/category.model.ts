@@ -1,6 +1,4 @@
-import {BaseModel} from './base.model';
-
-export class CategoryModel implements BaseModel{
+export class CategoryModel{
   id: number;
   label: string;
   icon: string;

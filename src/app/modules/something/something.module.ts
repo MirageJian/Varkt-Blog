@@ -1,6 +1,5 @@
 import { AssortmentComponent } from './category/assortment/assortment.component';
 import { ArticleComponent } from './article/article.component';
-import { SomethingComponent } from './something.component';
 import { SomethingService } from './something.service';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
@@ -16,7 +15,6 @@ import { CategoryComponent } from './category/category.component';
   ],
   exports: [],
   declarations: [
-    SomethingComponent,
     ArticleComponent,
     AssortmentComponent,
     ListArticlesComponent,

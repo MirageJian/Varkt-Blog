@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { LoginService } from '../../app-services/login.service';
-import {ResModel} from "../../shared/models/index";
+import {ResModel} from "../../shared/models";
 
 @Injectable()
 export class AdminGuard implements CanActivate {

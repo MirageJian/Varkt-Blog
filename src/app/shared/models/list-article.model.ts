@@ -1,6 +1,4 @@
-import {BaseModel} from './base.model';
-
-export class ListArticleModel implements BaseModel {
+export class ListArticleModel {
   id: number;
   author: string;
   title: string;

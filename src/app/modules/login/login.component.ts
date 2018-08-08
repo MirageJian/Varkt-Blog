@@ -7,7 +7,7 @@ import {LoginInfoModel} from '../../shared/models/login-info.model';
 import {MatDialog} from '@angular/material';
 import {DialogDataExampleDialogComponent} from '../../shared/components/alert-dialog/alert-dialog.component';
 import {Md5} from 'ts-md5';
-import {ResModel} from '../../shared/models/index';
+import {ResModel} from '../../shared/models';
 
 @Component({
   selector: 'app-login',

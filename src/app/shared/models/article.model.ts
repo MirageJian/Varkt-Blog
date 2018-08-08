@@ -1,6 +1,4 @@
-import {BaseModel} from './base.model';
-
-export class ArticleModel implements BaseModel {
+export class ArticleModel{
   constructor() {
     this.stick = false;
     this.collection = false;

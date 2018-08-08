@@ -6,6 +6,7 @@ import {BaseService} from "../app-services/base.service";
   template: `
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   `,
   styles: [`
     app-navbar {
