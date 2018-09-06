@@ -9,12 +9,11 @@ import {
 } from '@angular/material';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { CdkTableModule } from '@angular/cdk/table';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './components/header/header.component';
 import { ProgressDirective, DataProgressComponent } from './directives/progress.directive';
 import {RouterModule} from "@angular/router";
-import {DialogDataExampleDialogComponent} from "./components/alert-dialog/alert-dialog.component";
+import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.component";
 
 @NgModule({
   imports: [
@@ -29,13 +28,12 @@ import {DialogDataExampleDialogComponent} from "./components/alert-dialog/alert-
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
     // cdk
     CdkTableModule,
-    FlexLayoutModule,
   ],
   declarations: [
     HeaderComponent,
     ProgressDirective,
     DataProgressComponent,
-    DialogDataExampleDialogComponent
+    DialogAlertComponent
   ],
   exports: [
     CommonModule,
@@ -47,17 +45,16 @@ import {DialogDataExampleDialogComponent} from "./components/alert-dialog/alert-
     MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
 
-    FlexLayoutModule,
     HeaderComponent,
     ProgressDirective,
-    DialogDataExampleDialogComponent
+    DialogAlertComponent
   ],
   providers: [
     MediaMatcher,
   ],
   entryComponents: [
     DataProgressComponent,
-    DialogDataExampleDialogComponent,
+    DialogAlertComponent,
   ],
 })
 export class SharedModule { }

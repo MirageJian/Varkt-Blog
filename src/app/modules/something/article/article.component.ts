@@ -2,13 +2,11 @@ import {Component, OnInit, HostBinding, ViewChild, ElementRef, ViewEncapsulation
 
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {Location} from '@angular/common';
-import {slideInDownAnimation} from '../../../shared/animations/index';
+import {slideInDownAnimation} from '../../../shared/animations';
 import {SomethingService} from '../something.service';
-import {ArticleModel, ResModel} from '../../../shared/models/index';
+import {ArticleModel, ResModel, CommentModel} from '../../../shared/models';
 import {switchMap} from 'rxjs/operators';
-import {JsonHelperTool} from '../../../shared/tools/json-helper.tool';
-import {CommentModel} from "../../../shared/models/comment.model";
-import {allResolved} from "q";
+import {JsonHelper} from '../../../shared/tools';
 
 declare var require: any;
 const Quill = require('quill');
@@ -42,7 +40,7 @@ export class ArticleComponent implements OnInit {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.somethingService.getArticle(+params.get('id')))
     ).subscribe((article: ArticleModel) => {
-      JsonHelperTool.toAny(article, JsonHelperTool.articleMember);
+      JsonHelper.toAny(article, JsonHelper.articleMember);
       this.article = article;
       this.quillInit(this.article.content);
       this.somethingService.getComments(this.article.id).subscribe((res: CommentModel[]) => {

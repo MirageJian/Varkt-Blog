@@ -3,7 +3,7 @@ import {ArticleModel} from "../../../shared/models";
 import {Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {SomethingService} from "../../something/something.service";
-import {JsonHelperTool} from "../../../shared/tools/json-helper.tool";
+import {JsonHelper} from "../../../shared/tools";
 import {AboutService} from "../about.service";
 declare var require: any;
 const Quill = require('quill');
@@ -25,7 +25,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.generalService.getAbout().subscribe((res: ArticleModel) => {
       this.article = res ? res : {title: 'no about', category: [], content: ''} as ArticleModel;
-      JsonHelperTool.toAny(this.article, JsonHelperTool.articleMember);
+      JsonHelper.toAny(this.article, JsonHelper.articleMember);
       this.quillInit(this.article.content);
     })
   }

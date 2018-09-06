@@ -1,5 +1,6 @@
 body {
-  font-family: Roboto,Helvetica,sans-serif,Consolas,"Microsoft YaHei UI";
+  /* Consolas */
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft Yahei UI","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",Roboto,Helvetica,Arial,sans-serif;
   top: 0;
   bottom: 0;
   left: 0;
@@ -11,6 +12,10 @@ body {
   --primaryColor: #607d8b;
   --darkPrimaryColor: #37474f;
   --accentColor: #43a047;
+  --backgroundColor: #ffffff;
+  --darkBackgroundColor: #eeeeee;
+  --mobileWidth: 600px;
+  --tabletWidth: 960px;
 }
 /* scrollbar css */
 ::-webkit-scrollbar {width: 5px;height:5px;}
@@ -19,16 +24,26 @@ body {
 ::-webkit-scrollbar-thumb:vertical:hover{background: #555555}
 ::-webkit-scrollbar-thumb:horizontal:hover{background: #555555}
 /* change selection color*/
-::selection{color:#fff;background: var(--accentColor);}
-::-moz-selection{color:#fff;background: var(--accentColor);}
+::selection{color:#fff;background-color: var(--accentColor);}
+::-moz-selection{color:#fff;background-color: var(--accentColor);}
+::-webkit-keygen-select{color:#fff;background-color: var(--accentColor);}
 /* common class*/
 .container {
   max-width: 1024px;
-  margin: 15px auto 15px auto;
+  padding: 16px;
+  margin: 0 auto;
 }
-@media (max-width: 959px){
+.card-container {
+  margin: 16px;
+}
+@media (max-width: 960px){
   .container {
-    margin: 8px 8px 8px 8px;
+    width: auto;
+    padding: 8px;
+    margin: 0;
+  }
+  .card-container {
+    margin: 8px;
   }
 }
 .cursor-pointer{

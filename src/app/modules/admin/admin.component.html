@@ -1,9 +1,9 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
                [opened]="mobileQuery.matches ? 'false' : 'true'" [fixedTopGap]="56">
-    <div class="user_background">
-      <img src="/assets/img/test_head.png" class="user_head">
-      <p class="user-info">{{username}}<br>Hello! Welcome to admin!</p>
+    <div class="user">
+      <img src="../../../assets/img/test_head.png">
+      <p>{{username}}<br>Hello! Welcome to admin!</p>
     </div>
     <mat-nav-list>
       <h3 mat-subheader>Admin</h3>
@@ -30,6 +30,11 @@
 
       <mat-divider></mat-divider>
       <h3 mat-subheader>Others</h3>
+      <mat-list-item [routerLink]="['./po-young']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('PoYoung', sidenav)">
+        <mat-icon mat-list-icon>network_wifi</mat-icon>
+        <a> PoYoung</a>
+      </mat-list-item>
       <mat-list-item [routerLink]="['./workbook']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
                      (click)="clickNav('Workbook', sidenav)">
         <mat-icon mat-list-icon>timeline</mat-icon>

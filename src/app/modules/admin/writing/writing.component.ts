@@ -1,9 +1,9 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ArticleModel, CategoryModel, ResModel} from '../../../shared/models';
 import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
-import {JsonHelperTool} from '../../../shared/tools/json-helper.tool';
+import {JsonHelper} from '../../../shared/tools';
 
 declare var require: any;
 const Quill = require('quill');
@@ -11,7 +11,8 @@ const Quill = require('quill');
 @Component({
   selector: 'app-writing',
   templateUrl: './writing.component.html',
-  styleUrls: ['./writing.component.scss',]
+  styleUrls: ['./writing.component.scss',],
+  encapsulation: ViewEncapsulation.None,
 })
 export class WritingComponent implements OnInit {
   quill: any;
@@ -45,7 +46,7 @@ export class WritingComponent implements OnInit {
           [{'align': []}],
           ['clean', 'image']
         ]
-      }, theme: 'snow',
+      }, theme: 'snow', placeholder: 'Please write something right here...', debug: 'info',
     });
     // data init
     this.article = new ArticleModel();
@@ -56,7 +57,7 @@ export class WritingComponent implements OnInit {
       switchMap((params: ParamMap) => this.writingService.getArticle(+params.get('id')))
     ).subscribe((res: ArticleModel) => {
       if (res != null) {
-        JsonHelperTool.toAny(res, JsonHelperTool.articleMember);
+        JsonHelper.toAny(res, JsonHelper.articleMember);
         this.article = res;
         this.quill.setContents(this.article.content);
       }

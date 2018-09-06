@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentModel} from "../../../shared/models/comment.model";
+import {CommentModel} from "../../../shared/models";
 import {AdminDashboardService} from "./admin-dashboard.service";
 import {ResModel} from "../../../shared/models";
 

@@ -3,17 +3,28 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "codigo-web": {
+    "Holacode": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "css",
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/codigo-web",
+            "outputPath": "dist/Holacode",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -52,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "codigo-web:build"
+            "browserTarget": "Holacode:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "codigo-web:build:production"
+              "browserTarget": "Holacode:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "codigo-web:build"
+            "browserTarget": "Holacode:build"
           }
         },
         "test": {
@@ -97,7 +108,7 @@
         }
       }
     },
-    "codigo-web-e2e": {
+    "Holacode-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -105,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "codigo-web:serve"
+            "devServerTarget": "Holacode:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "codigo-web:serve:production"
+              "devServerTarget": "Holacode:serve:production"
             }
           }
         },
@@ -125,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "codigo-web"
+  "defaultProject": "Holacode"
 }

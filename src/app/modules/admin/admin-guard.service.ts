@@ -19,19 +19,19 @@ export class AdminGuard implements CanActivate {
     return this.canActivate(route, state);
   }
   checkLogin(url: string): boolean {
+    // Store the attempted URL for redirecting
+    this.loginService.redirectUrl = url;
     this.loginService.check().subscribe((res: ResModel) => {
       if (res.errcode === 0) {
         this.loginService.isLoggedIn = true;
+        this.loginService.userName = res.data;
         this.router.navigate([url]);
       } else {
         this.loginService.isLoggedIn = false;
+        // Navigate to the login page with extras
+        this.router.navigate(['/login']);
       }
     });
-    if (this.loginService.isLoggedIn) { return true; }
-    // Store the attempted URL for redirecting
-    this.loginService.redirectUrl = url;
-    // Navigate to the login page with extras
-    this.router.navigate(['/login']);
-    return false;
+    return this.loginService.isLoggedIn;
   }
 }

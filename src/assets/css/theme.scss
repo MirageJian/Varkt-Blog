@@ -6,7 +6,10 @@ $candy-app-warn:    mat-palette($mat-red);
 $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 @include angular-material-theme($candy-app-theme);
 
-$mat-font-family: Microsoft YaHei,微软雅黑,Roboto, 'Helvetica Neue', sans-serif !default;
+$mat-font-family: '-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft Yahei UI,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Roboto,Helvetica,Arial,sans-serif';
+$candy-app-font: mat-typography-config($mat-font-family);
+@include angular-material-typography($candy-app-font);
+
 @mixin candy-sidenav-theme($theme) {
   // Extract whichever individual palettes you need from the theme.
   $primary: map-get($theme, primary);
@@ -15,7 +18,7 @@ $mat-font-family: Microsoft YaHei,微软雅黑,Roboto, 'Helvetica Neue', sans-se
   $text: mat-palette($mat-grey,800);
   // Use mat-color to extract individual colors from a palette as necessary.
   .mat-sidenav-container {
-    background-color: mat-color($background);
+    //background-color: mat-color($background);
     //color: mat-color($text);
   }
 }

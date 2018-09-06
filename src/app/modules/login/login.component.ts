@@ -3,9 +3,9 @@ import {LoginService} from '../../app-services/login.service';
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, NgForm} from '@angular/forms';
 
-import {LoginInfoModel} from '../../shared/models/login-info.model';
+import {LoginInfoModel} from '../../shared/models';
 import {MatDialog} from '@angular/material';
-import {DialogDataExampleDialogComponent} from '../../shared/components/alert-dialog/alert-dialog.component';
+import {DialogAlertComponent} from '../../shared/components/alert-dialog/dialog-alert.component';
 import {Md5} from 'ts-md5';
 import {ResModel} from '../../shared/models';
 
@@ -29,9 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   openAlertDialog(msg) {
-    this.dialog.open(DialogDataExampleDialogComponent, {
-      data: {msg: msg},
-    });
+    this.dialog.open(DialogAlertComponent, {data:{msg: msg}});
   }
 
   // for submit log information

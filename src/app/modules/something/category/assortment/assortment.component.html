@@ -1,4 +1,4 @@
-<mat-card class="container">
+<mat-card>
   <mat-card-header>
     <mat-card-title><h2>Search</h2></mat-card-title>
     <mat-card-subtitle>you can search everything such as author, title, category and title.</mat-card-subtitle>
@@ -13,7 +13,7 @@
   <mat-card-actions>
   </mat-card-actions>
 </mat-card>
-<mat-card class="container" *ngFor="let a of listArticle">
+<mat-card *ngFor="let a of listArticle">
   <mat-card-header>
     <mat-card-title><h2>{{a.title}}</h2></mat-card-title>
     <mat-card-subtitle>{{a.time}}</mat-card-subtitle>
@@ -32,4 +32,8 @@
     </mat-action-row>
   </mat-card-actions>
 </mat-card>
+<div class="container">
+  <div style="display: flex;flex-direction:column;align-items:stretch">
 
+  </div>
+</div>

@@ -5,7 +5,7 @@ import {ActivityInfo} from './activity-info';
 import {MatDialog} from '@angular/material';
 import {DialogProjectComponent} from '../dialog-project/dialog-project.component';
 import {DialogActivityComponent} from '../dialog-activity/dialog-activity.component';
-import {FormatDate} from '../../../../shared/tools/format-date';
+import {FormatDate} from '../../../../shared/tools/';
 
 @Component({
     selector: 'app-project',

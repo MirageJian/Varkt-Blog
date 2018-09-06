@@ -3,7 +3,7 @@ mat-sidenav {
   z-index: 3;
   min-width: 300px;
   position: fixed;
-  top: 60px;
+  top: 56px;
   bottom: 0;
 }
 mat-sidenav-content {
@@ -20,6 +20,7 @@ mat-sidenav-content {
 //  overflow: auto;
 //}
 mat-sidenav-container{
+  position: static;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -29,6 +30,6 @@ mat-sidenav-container{
   overflow: auto;
 }
 .active{
-  background: #eeeeee;
-  color: #607d8b;
+  background: var(--darkBackgroundColor);
+  color: var(--primaryColor);
 }

@@ -3,5 +3,9 @@
   margin-bottom: 30px;
 }
 .quill-editor > .text-box {
-  height: 480px
+  min-height: 480px
+}
+.quill-editor > .ql-toolbar.ql-snow {
+  position: sticky;
+  top: 100px;
 }

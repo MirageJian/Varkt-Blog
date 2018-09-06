@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {DialogProjectComponent} from '../dialog-project/dialog-project.component';
 import {ProjectService} from '../project/project.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {FormatDate} from '../../../../shared/tools/format-date';
+import {FormatDate} from '../../../../shared/tools/';
 
 @Component({
   selector: 'app-dialog-activity',

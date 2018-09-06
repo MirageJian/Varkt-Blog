@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() sidenav: any;
   @Input() matches: boolean;
-  @Input() is_article: boolean;
+  @Input() is_article: false;
   // @Output() changeRoute: EventEmitter<string> = new EventEmitter<string>();
   subscriptionRouter: Subscription;
 

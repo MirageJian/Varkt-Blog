@@ -11,6 +11,7 @@ import {WritingService} from './writing/writing.service';
 import {ManagingService} from './managing/managing.service';
 import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
 import { SettingComponent } from './setting/setting.component';
+import { PoYoungComponent } from './po-young/po-young.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { SettingComponent } from './setting/setting.component';
     ManagingComponent,
     WritingComponent,
     SettingComponent,
+    PoYoungComponent,
   ],
   entryComponents: [],
   providers: [

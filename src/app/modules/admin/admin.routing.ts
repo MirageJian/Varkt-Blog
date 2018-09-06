@@ -8,15 +8,17 @@ import { WritingComponent } from './writing/writing.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {SettingComponent} from "./setting/setting.component";
 import { WorkbookComponent } from './workbook/workbook.component';
+import {PoYoungComponent} from "./po-young/po-young.component";
 
 const routes: Routes = [
   {
-    path: '', component: AdminComponent, canActivate: [AdminGuard], canActivateChild: [AdminGuard],
+    path: '', component: AdminComponent, canActivate: [AdminGuard],// canActivateChild: [AdminGuard],
     children: [
       { path: '', component: AdminDashboardComponent},
       { path: 'managing', component: ManagingComponent },
       { path: 'writing', component: WritingComponent },
       { path: 'setting', component: SettingComponent },
+      { path: 'po-young', component: PoYoungComponent },
       { path: 'workbook', component: WorkbookComponent },
     ]
   }

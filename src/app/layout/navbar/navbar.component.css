@@ -10,5 +10,5 @@ mat-toolbar{
   flex-wrap: wrap;
   background: var(--darkPrimaryColor);
   color: white;
-  height: 60px;
+  height: 56px;
 }

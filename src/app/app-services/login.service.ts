@@ -1,12 +1,9 @@
-import { HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
 import { BaseService } from './base.service';
-import { LoginInfoModel } from '../shared/models/login-info.model';
+import { LoginInfoModel } from '../shared/models';
 
 @Injectable()
 export class LoginService extends BaseService {
@@ -32,6 +29,6 @@ export class LoginService extends BaseService {
   }
   check() {
     const url = `/apis/login`;
-    return this.http.get(url).pipe(catchError(this.handleError));
+    return this.http.get(url, {}).pipe(catchError(this.handleError));
   }
 }

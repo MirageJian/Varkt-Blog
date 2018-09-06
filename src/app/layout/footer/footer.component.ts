@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  openRecordWeb() {
+  openGitHub() {
     window.open('http://www.miitbeian.gov.cn/');
   }
 

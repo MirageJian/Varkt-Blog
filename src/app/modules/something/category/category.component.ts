@@ -2,7 +2,8 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SomethingService} from '../something.service';
-import {CategoryModel} from '../../../shared/models/category.model';
+import {CategoryModel} from '../../../shared/models';
+import {WebConfig} from "../../../shared/tools";
 
 @Component({
   selector: 'app-category',
@@ -10,7 +11,7 @@ import {CategoryModel} from '../../../shared/models/category.model';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit, OnDestroy {
-  label: String;
+  label: string;
   categories: Array<CategoryModel>;
   // check if the device is mobile
   mobileQuery: MediaQueryList;
@@ -23,7 +24,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
     media: MediaMatcher,
     changeDetectorRef: ChangeDetectorRef
   ) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia(WebConfig.mobileWidth);
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
@@ -44,7 +45,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
   //   this.router.navigate(['../', item.id, { foo: 'foo' }], { relativeTo: this.route });
   //   this.checkOperationNav(sidenav, item.title);
   // }
-  checkOperationNav(title: String, sidenav: any) {
+  checkOperationNav(title: string, sidenav: any) {
     if (this.mobileQuery.matches) {
       sidenav.close();
     }

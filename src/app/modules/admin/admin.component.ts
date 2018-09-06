@@ -2,6 +2,7 @@ import {ChangeDetectorRef, Component, OnInit, OnDestroy} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {LoginService} from '../../app-services/login.service';
 import {Router} from '@angular/router';
+import {WebConfig} from "../../shared/tools";
 
 @Component({
   selector: 'app-admin',
@@ -22,7 +23,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
   ) {
-    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = this.media.matchMedia(WebConfig.mobileWidth);
     this.mobileQueryListener = () => {
       this.changeDetectorRef.detectChanges();
     };
@@ -37,6 +38,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       case '/admin/managing': this.title = 'Managing'; break;
       case '/admin/workbook': this.title = 'Workbook'; break;
       case '/admin/setting': this.title = 'Setting'; break;
+      case '/admin/po-young': this.title = 'PoYoung'; break;
     }
   }
 

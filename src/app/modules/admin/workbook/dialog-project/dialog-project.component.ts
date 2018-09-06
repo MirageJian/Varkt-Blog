@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {ProjectService} from '../project/project.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {FormatDate} from '../../../../shared/tools/format-date';
+import {FormatDate} from '../../../../shared/tools/';
 
 @Component({
     selector: 'app-dialog-project',

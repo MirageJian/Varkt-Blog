@@ -27,7 +27,7 @@
       <!--<mat-icon>lock</mat-icon>-->
       <!--<span>破样验证</span>-->
     <!--</button>-->
-    <button mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
+    <button *ngIf="loginService.userName!='登陆'" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
       <mat-icon>exit_to_app</mat-icon>
       <span>登出</span>
     </button>

@@ -26,9 +26,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       if (res.errcode === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
-        if (this.router.url === '/login') {
-          this.router.navigateByUrl(this.loginService.redirectUrl).catch();
-        }
         // const nowPath = result ? result[result.length - 1] : '';
       }
     });

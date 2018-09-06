@@ -1,9 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { slideInDownAnimation } from '../../../../shared/animations/index';
+import { slideInDownAnimation } from '../../../../shared/animations';
 import {FormControl} from '@angular/forms';
 import {SomethingService} from "../../something.service";
-import {ArticleModel, ListArticleModel} from "../../../../shared/models/index";
-import {JsonHelperTool} from "../../../../shared/tools/json-helper.tool";
+import {ListArticleModel} from "../../../../shared/models";
+import {JsonHelper} from "../../../../shared/tools";
 
 @Component({
   selector: 'app-assortment',
@@ -37,7 +37,7 @@ export class AssortmentComponent implements OnInit {
     this.somethingService.getSearchResult(this.keyword).subscribe((res: ListArticleModel[]) => {
       this.listArticle = res;
       for (const a of this.listArticle) {
-        JsonHelperTool.toAny(a, ['category']);
+        JsonHelper.toAny(a, ['category']);
       }
     })
   }

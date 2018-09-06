@@ -1,14 +1,10 @@
 mat-sidenav-container{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  position: static;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: flex-start;
   align-content: flex-start;
   overflow: auto;
 }
@@ -16,23 +12,26 @@ mat-sidenav {
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
   z-index: 3;
   min-width: 300px;
+  position: fixed;
+  top: 56px;
+  bottom: 0;
 }
 
 mat-sidenav-content{
   width: 100%;
 }
-.user_background{
+.user{
   padding: 30px;
   height: 100px;
-  background: url("/assets/img/background_user.png") no-repeat;
+  background: url("../../../assets/img/background_user.png") no-repeat;
   background-size:100%;
 }
-.user_head{
+.user > img{
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-.user-info{
+.user > *{
   color: #ffffff;
 }
 .active {

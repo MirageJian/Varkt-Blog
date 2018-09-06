@@ -2,7 +2,7 @@ import { AuthorisationService } from '../authorisation.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { DialogDataExampleDialogComponent } from '../../../shared/components/alert-dialog/alert-dialog.component';
+import { DialogAlertComponent } from '../../../shared/components/alert-dialog/dialog-alert.component';
 import { PoyoungAuth } from './PoyoungAuth';
 import { ResModel } from '../../../shared/models';
 
@@ -16,10 +16,12 @@ export class AuthorisationComponent implements OnInit {
   animal: string;
   name2: string;
 
-  constructor(private authorisation: AuthorisationService, public dialog: MatDialog) { }
+  constructor(private authorisation: AuthorisationService, public dialog: MatDialog) {
+    document.title="破样信息注册"
+  }
 
   openAlertDialog(msg) {
-    this.dialog.open(DialogDataExampleDialogComponent, {
+    this.dialog.open(DialogAlertComponent, {
       data: { msg: msg },
     });
   }

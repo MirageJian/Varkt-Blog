@@ -1,0 +1,51 @@
+<mat-tab-group [dynamicHeight]="true">
+  <mat-tab label="Apk Upload">
+    <mat-card class="card-container">
+      <form>
+        <input name="PoYoungApk" type="file" (change)="changeFile($event)">
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Users Management">
+    <div class="container">
+      <table mat-table [dataSource]="users" class="mat-elevation-z8">
+        <ng-container matColumnDef="{{column}}" *ngFor="let column of usersColumns.slice(0, -1)">
+          <th mat-header-cell *matHeaderCellDef> {{column}}</th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}}</td>
+        </ng-container>
+        <ng-container matColumnDef="operation">
+          <th mat-header-cell *matHeaderCellDef> operation</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" type="button" (click)="deleteUser(element)">删除</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="usersColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: usersColumns;"></tr>
+      </table>
+    </div>
+  </mat-tab>
+  <mat-tab label="Records Management">
+    <div class="container">
+      <table mat-table [dataSource]="records" class="mat-elevation-z8">
+        <ng-container matColumnDef="{{column}}" *ngFor="let column of recordsColumns.slice(0, -1)">
+          <th mat-header-cell *matHeaderCellDef> {{column}}</th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}}</td>
+        </ng-container>
+        <ng-container matColumnDef="operation">
+          <th mat-header-cell *matHeaderCellDef> operation</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" type="button" (click)="deleteRecord(element)">下线</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="recordsColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: recordsColumns;"></tr>
+      </table>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+<span class="flex-spacer"></span>
+<mat-toolbar>
+  <p>这里是测试</p>
+</mat-toolbar>
+
+<!--<button mat-raised-button type="button" color="warn">Delete</button>-->

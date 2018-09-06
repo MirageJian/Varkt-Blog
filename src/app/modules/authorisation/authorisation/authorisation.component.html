@@ -1,8 +1,9 @@
-<mat-card fxLayout="column" fxLayoutAlign="space-around stretch">
+<div class="flex-container">
+<mat-card style="display: flex;flex-direction:column;justify-content:space-around;align-items:stretch">
   <mat-card-header>
     <h2>破样验证注册</h2>
   </mat-card-header>
-  <form [formGroup]="authForm" (ngSubmit)="onSubmit()" fxLayoutWrap>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input matInput placeholder="邀请码" [formControl]="code" required>
       <mat-error *ngIf="code.invalid">{{getErrorMessage('code')}}</mat-error>
@@ -22,3 +23,4 @@
     <button mat-raised-button color="accent" type="submit" [disabled]="!authForm.valid">Submit</button>
   </form>
 </mat-card>
+</div>

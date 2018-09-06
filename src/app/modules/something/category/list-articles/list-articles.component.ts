@@ -1,8 +1,8 @@
 import {Component, OnInit, OnChanges, OnDestroy, Input, SimpleChanges} from '@angular/core';
 import {SomethingService} from '../../something.service';
-import {ListArticleModel} from '../../../../shared/models/index';
+import {ListArticleModel} from '../../../../shared/models';
 import {ActivatedRoute} from '@angular/router';
-import {JsonHelperTool} from "../../../../shared/tools/json-helper.tool";
+import {JsonHelper} from "../../../../shared/tools";
 
 @Component({
   selector: 'app-list-articles',
@@ -26,7 +26,7 @@ export class ListArticlesComponent implements OnInit, OnChanges {
     this.somethingService.getListArticle(this.label).subscribe(res => {
       this.articles = res;
       for (const a of this.articles) {
-        JsonHelperTool.toAny(a, ['category']);
+        JsonHelper.toAny(a, ['category']);
       }
     });
     console.log(changes);

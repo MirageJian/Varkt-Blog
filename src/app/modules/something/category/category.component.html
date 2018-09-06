@@ -21,6 +21,5 @@
     <router-outlet></router-outlet>
     <app-assortment *ngIf="label=='Filter'"></app-assortment>
     <app-list-articles *ngIf="label!='Filter'" [label]="label"></app-list-articles>
-
   </mat-sidenav-content>
 </mat-sidenav-container>

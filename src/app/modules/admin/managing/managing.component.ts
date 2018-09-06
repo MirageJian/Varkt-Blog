@@ -1,10 +1,7 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {SomethingService} from '../../something/something.service';
-import {ArticleModel, CategoryModel, ListArticleModel, ResModel} from '../../../shared/models/index';
+import {ListArticleModel, ResModel, CommentModel} from '../../../shared/models';
 import {ManagingService} from './managing.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {JsonHelperTool} from '../../../shared/tools/json-helper.tool';
-import {CommentModel} from "../../../shared/models/comment.model";
 
 @Component({
   selector: 'app-manage',
@@ -35,7 +32,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
       }
     });
     this.managingService.getAllArticle().subscribe((res: ListArticleModel[]) => {
-      // JsonHelperTool.toAny(res, ['category']);
+      // JsonHelper.toAny(res, ['category']);
       this.articles = res;
       this.originalArticles = res;
     });

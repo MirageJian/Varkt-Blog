@@ -1,4 +1,4 @@
-export class JsonHelperTool {
+export class JsonHelper {
   public static articleMember = ['category', 'content'];
 
   public static toJson<T>(obj: T, member: string[]): void {

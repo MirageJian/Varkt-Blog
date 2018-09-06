@@ -6,14 +6,14 @@ header{
   color: white;
 }
 .desktop {
-  padding: 40px 70px 40px 70px;
+  padding: 37px 70px 37px 70px;
 }
 
 .mobile {
   padding: 0 15px 0 15px;
 }
 
-@media (max-width: 959px){
+@media (max-width: 960px){
   header>h1{
     padding: 0 15px 0 15px;
   }
