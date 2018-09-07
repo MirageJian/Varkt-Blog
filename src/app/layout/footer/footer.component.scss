@@ -23,6 +23,7 @@ a:visited, a:link{
   }
 }
 .flex-container{
+  display: flex;
   position: relative;
   background-color: #1976d2;
   color: #fafafa;
@@ -32,6 +33,7 @@ a:visited, a:link{
   font-weight: 300;
 }
 .flex-container::after {
+  display: flex;
   content: "";
   position: absolute;
   z-index: -1;

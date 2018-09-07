@@ -14,8 +14,13 @@ header{
 }
 
 @media (max-width: 960px){
-  header>h1{
+  header>h2{
     padding: 0 15px 0 15px;
+  }
+}
+@media (max-width: 600px){
+  header>h2{
+    padding: 0 0;
   }
 }
 

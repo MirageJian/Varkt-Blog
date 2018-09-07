@@ -1,17 +1,16 @@
 <form (ngSubmit)="onSubmit()" #writing="ngForm" class="container">
   <mat-form-field style="width: 100%">
-    <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" required autocomplete="off">
+    <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" #title="ngModel" required autocomplete="off">
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Choose Categories" name="category" [(ngModel)]="article.category" [multiple]="true"
-                [required]="true">
+    <mat-select placeholder="Choose Categories" [name]="'category'" [(ngModel)]="article.category" [multiple]="true"
+                [required]="true" #category="ngModel">
       <mat-option *ngFor="let c of categories" [value]="c.label">
         <mat-icon>{{c.icon}}</mat-icon>
         {{c.label}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button type="button" color="primary">Add</button>
   <div class="quill-editor">
     <div #editor class="text-box"></div>
   </div>
@@ -20,11 +19,10 @@
     <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
     <mat-checkbox name="about" [(ngModel)]="article.about">About Article</mat-checkbox>
   </div>
-  <p style="display: flex">
+  <mat-toolbar style="background-color: transparent;padding: 0;">
     <span class="flex-spacer"></span>
-    <button mat-raised-button color="accent" type="submit">Submit</button>
-    <button mat-raised-button type="button" *ngIf="article.hasOwnProperty('id')" [routerLink]="['../managing']">Cancel
-    </button>
-    <!--<button mat-raised-button type="button" color="warn">Delete</button>-->
-  </p>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!writing.form.valid">Submit</button>
+    <button mat-raised-button type="button" *ngIf="article.id!=0" [routerLink]="['../managing']">Cancel</button>
+  </mat-toolbar>
+  <!--<button mat-raised-button type="button" color="warn">Delete</button>-->
 </form>

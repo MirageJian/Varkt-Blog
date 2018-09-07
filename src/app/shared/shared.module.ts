@@ -5,7 +5,8 @@ import {
   MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
   MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
   MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule,
-  MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatDialogModule
+  MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatDialogModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -25,7 +26,7 @@ import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.compo
     MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
     MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
-    MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
+    MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatSnackBarModule,
     // cdk
     CdkTableModule,
   ],
@@ -43,7 +44,7 @@ import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.compo
     MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
     MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
-    MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule,
+    MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatSnackBarModule,
 
     HeaderComponent,
     ProgressDirective,

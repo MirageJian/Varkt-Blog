@@ -49,11 +49,15 @@ body {
 .cursor-pointer{
   cursor: pointer;
 }
+/* right float css*/
+.flex-container {
+  display: flex;
+}
 .flex-spacer {
   flex: 1 0 auto;
 }
-.flex-container {
-  display: flex;
+.float-right {
+  float: right;
 }
 
 /*!* horizontal/row *!*/

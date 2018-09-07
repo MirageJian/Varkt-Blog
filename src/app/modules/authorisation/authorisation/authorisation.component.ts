@@ -33,6 +33,7 @@ export class AuthorisationComponent implements OnInit {
       'name' : new FormControl('', [Validators.required]),
       'imei' : new FormControl('', [Validators.required]),
     });
+    this.authorisation.getCookie().subscribe();
   }
   get code() { return this.authForm.get('code'); }
   get phone() { return this.authForm.get('phone'); }
@@ -41,13 +42,13 @@ export class AuthorisationComponent implements OnInit {
 
   getErrorMessage(type) {
     if (type === 'code') {
-      return this.code.hasError('required') ? 'You must enter the code of invitation.' : '';
+      return this.code.hasError('required') ? '请填入邀请码.' : '';
     } else if (type === 'phone') {
-      return this.phone.hasError('required') ? 'You must enter the phone number.' : '';
+      return this.phone.hasError('required') ? '请填入上网手机号.' : '';
     } else if (type === 'name') {
-      return this.name.hasError('required') ? 'You must enter your title.' : '';
+      return this.name.hasError('required') ? '请填入姓名或其他可以识别名字.' : '';
     } else {
-      return this.imei.hasError('required') ? 'You must enter the code of your device.' : '';
+      return this.imei.hasError('required') ? '请填入设备ID.' : '';
     }
   }
   onSubmit() {

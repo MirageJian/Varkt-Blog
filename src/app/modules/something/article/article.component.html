@@ -14,7 +14,7 @@
 
     <mat-card *ngFor="let c of comments" class="card-container">
       <mat-card-header>
-        <mat-card-title><h2>{{c.author}}</h2></mat-card-title>
+        <mat-card-title><h3>{{c.author}}</h3></mat-card-title>
         <mat-card-subtitle>{{c.time}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
@@ -30,11 +30,11 @@
 
     <mat-card class="card-container">
       <mat-card-header>
-        <mat-card-title><h2>Leave a comment</h2></mat-card-title>
+        <mat-card-title><h3>Leave a comment</h3></mat-card-title>
       </mat-card-header>
       <form #form="ngForm" (submit)="onSubmit()">
         <mat-card-header>
-          <mat-card-title><h2></h2></mat-card-title>
+          <mat-card-title><h3></h3></mat-card-title>
           <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>

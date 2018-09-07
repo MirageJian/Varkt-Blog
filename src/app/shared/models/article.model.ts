@@ -1,5 +1,6 @@
 export class ArticleModel{
   constructor() {
+    this.id = 0;
     this.stick = false;
     this.collection = false;
     this.about = false;

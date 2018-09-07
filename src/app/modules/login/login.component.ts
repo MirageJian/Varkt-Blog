@@ -4,8 +4,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, NgForm} from '@angular/forms';
 
 import {LoginInfoModel} from '../../shared/models';
-import {MatDialog} from '@angular/material';
-import {DialogAlertComponent} from '../../shared/components/alert-dialog/dialog-alert.component';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {Md5} from 'ts-md5';
 import {ResModel} from '../../shared/models';
 
@@ -18,18 +17,14 @@ export class LoginComponent implements OnInit {
   info = new LoginInfoModel();
 
   constructor(
+    private matSnackBar: MatSnackBar,
     private loginService: LoginService,
-    public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router
   ) {
   }
 
   ngOnInit() {
-  }
-
-  openAlertDialog(msg) {
-    this.dialog.open(DialogAlertComponent, {data:{msg: msg}});
   }
 
   // for submit log information
@@ -39,13 +34,14 @@ export class LoginComponent implements OnInit {
       if (res.errcode === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
-        this.openAlertDialog(res.errmsg);
+        this.matSnackBar.open(res.errmsg, 'Close');
         this.router.navigate([this.loginService.redirectUrl, {}], {relativeTo: this.route}).catch();
       } else {
-        this.openAlertDialog(res.errmsg);
+        this.matSnackBar.open(res.errmsg, 'Close');
+
       }
     }, error => {
-      this.openAlertDialog(error);
+      this.matSnackBar.open(error, 'Close');
     });
   }
 }

@@ -1,4 +1,4 @@
-class PyRecordModel{
+export class PyRecordModel{
   id: number;
   ip: string;
   time_log: string;

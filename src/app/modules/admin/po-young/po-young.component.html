@@ -24,6 +24,40 @@
       </table>
     </div>
   </mat-tab>
+  <mat-tab label="Py Code">
+    <div class="container">
+      <mat-card style="margin-bottom: 16px;">
+        <mat-card-header>
+          <mat-card-title><h3>Add Py Code</h3></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #timesForm="ngForm" (submit)="addCode(newCode)">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Times" name="times" [(ngModel)]="newCode.times" #times="ngModel" required autocomplete="off">
+            </mat-form-field>
+            <div class="flex-container">
+              <span class="flex-spacer"></span>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!timesForm.form.valid">Add New Code</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+      <table mat-table [dataSource]="codes" class="mat-elevation-z8">
+        <ng-container matColumnDef="{{column}}" *ngFor="let column of codesColumns.slice(0, -1)">
+          <th mat-header-cell *matHeaderCellDef> {{column}}</th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}}</td>
+        </ng-container>
+        <ng-container matColumnDef="operation">
+          <th mat-header-cell *matHeaderCellDef> operation</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" type="button" (click)="deleteCode(element)">Delete</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="codesColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: codesColumns;"></tr>
+      </table>
+    </div>
+  </mat-tab>
   <mat-tab label="Records Management">
     <div class="container">
       <table mat-table [dataSource]="records" class="mat-elevation-z8">
@@ -43,7 +77,6 @@
     </div>
   </mat-tab>
 </mat-tab-group>
-<span class="flex-spacer"></span>
 <mat-toolbar>
   <p>这里是测试</p>
 </mat-toolbar>

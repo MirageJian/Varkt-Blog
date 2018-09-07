@@ -4,6 +4,7 @@ import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
 import {JsonHelper} from '../../../shared/tools';
+import {MatSnackBar} from "@angular/material";
 
 declare var require: any;
 const Quill = require('quill');
@@ -25,6 +26,7 @@ export class WritingComponent implements OnInit {
     private writingService: WritingService,
     private router: Router,
     private route: ActivatedRoute,
+    private matSnackBar: MatSnackBar,
   ) {
   }
 
@@ -46,7 +48,7 @@ export class WritingComponent implements OnInit {
           [{'align': []}],
           ['clean', 'image']
         ]
-      }, theme: 'snow', placeholder: 'Please write something right here...', debug: 'info',
+      }, theme: 'snow', placeholder: 'Please write something right here...', //debug: 'info',
     });
     // data init
     this.article = new ArticleModel();
@@ -66,7 +68,7 @@ export class WritingComponent implements OnInit {
 
   onSubmit() {
     this.article.content = this.quill.getContents();
-    if (this.article.hasOwnProperty('id')) {
+    if (this.article.id!=0) {
       this.writingService.postArticle(this.article, this.quill.getText()).subscribe((res: ResModel) => {
         if (res.errcode === 0) {
           this.router.navigate(['../managing'], {relativeTo: this.route}).then();
@@ -84,6 +86,7 @@ export class WritingComponent implements OnInit {
       });
     }
   }
+
   goBack() {
       this.router.navigate(['../managing'], {relativeTo: this.route}).then();
   }

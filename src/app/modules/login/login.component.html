@@ -3,14 +3,16 @@
     <mat-card style="display: flex;flex-direction:column;justify-content:space-around;align-items:stretch">
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-card-header>
-          <h2>Codigo~</h2>
+          <h2>Holacode</h2>
         </mat-card-header>
         <mat-card-content>
           <mat-form-field>
-            <input type="text" matInput placeholder="Name or Email" [(ngModel)]="info.account" name="account" required>
+            <input type="text" matInput placeholder="Name or Email" [(ngModel)]="info.account" name="account"
+                   #account="ngModel" required>
           </mat-form-field>
           <mat-form-field>
-            <input type="password" matInput placeholder="Password" [(ngModel)]="info.password" name="password" required>
+            <input type="password" matInput placeholder="Password" [(ngModel)]="info.password" name="password"
+                   #password="ngModel" required>
           </mat-form-field>
           <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent">Log
             in

@@ -1,4 +1,4 @@
-class PyUserModel{
+export class PyUserModel{
   id: number;
   imei: string;
   phone: string;
