@@ -2,7 +2,7 @@ from handlers.base import BaseHandler
 import tools.file_helper
 
 
-class AuthorisationHandler(BaseHandler):
+class AuthorizationHandler(BaseHandler):
     def get(self):
         imei = self.get_argument("imei", "")
         try:

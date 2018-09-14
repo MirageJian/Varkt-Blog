@@ -34,7 +34,7 @@ class PyUserHandler(BaseHandler):
     # admin get user
     def get(self):
         self.get_login_user()
-        self.db.cursor.execute("SELECT * FROM py_user;")
+        self.db.cursor.execute("SELECT * FROM py_user ORDER BY id DESC;")
         data = self.db.cursor.fetchall()
         self.write(self.json_encode(data))
 

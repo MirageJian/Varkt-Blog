@@ -26,7 +26,7 @@ class PyRecordHandler(BaseHandler):
         self.get_login_user()
         self.db.cursor.execute(
             "SELECT r.id,r.ip,r.time_log,u.py_name,u.phone,r.remark "
-            "FROM py_records r JOIN py_user u on r.id_py_user = u.id ORDER BY r.id;")
+            "FROM py_records r JOIN py_user u on r.id_py_user = u.id ORDER BY r.id DESC;")
         data = self.db.cursor.fetchall()
         self.write(self.json_encode(data))
 
