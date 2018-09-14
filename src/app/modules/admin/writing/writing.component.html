@@ -11,9 +11,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div class="quill-editor">
-    <div #editor class="text-box"></div>
-  </div>
+
+  <app-editor [(quill)]="quill"></app-editor>
+
   <div style="display: flex;flex-direction:row;justify-content:space-around;align-items:center">
     <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
     <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>

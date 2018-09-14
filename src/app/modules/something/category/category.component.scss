@@ -17,7 +17,6 @@ mat-sidenav-content {
 //  align-items: stretch;
 //  align-content: flex-start;
 //  flex: 1 1 auto;
-//  overflow: auto;
 //}
 mat-sidenav-container{
   position: static;
@@ -27,7 +26,6 @@ mat-sidenav-container{
   justify-content: flex-start;
   align-items: start;
   align-content: flex-start;
-  overflow: auto;
 }
 .active{
   background: var(--darkBackgroundColor);

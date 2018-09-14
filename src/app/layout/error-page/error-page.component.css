@@ -1,0 +1,10 @@
+h1 {
+  font-size: 48px;
+  color: #1976d2;
+  text-transform: uppercase;
+  margin: 8px 0;
+}
+a:visited, a:link{
+  color: #1976d2;
+  text-decoration: none;
+}

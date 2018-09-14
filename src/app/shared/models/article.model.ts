@@ -8,6 +8,7 @@ export class ArticleModel{
   public id: number;
   public author: string;
   public title: string;
+  public img: string;
   public subhead: string;
   public content: string | any;
   public category: string | any;

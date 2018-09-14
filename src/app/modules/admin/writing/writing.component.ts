@@ -2,12 +2,9 @@ import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angu
 import {ArticleModel, CategoryModel, ResModel} from '../../../shared/models';
 import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {map, switchMap} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '../../../shared/tools';
 import {MatSnackBar} from "@angular/material";
-
-declare var require: any;
-const Quill = require('quill');
 
 @Component({
   selector: 'app-writing',
@@ -18,10 +15,12 @@ const Quill = require('quill');
 export class WritingComponent implements OnInit {
   quill: any;
   @ViewChild('editor') editor: ElementRef;
+  @ViewChild('quillImgField') quillImgField: ElementRef;
+
   article: ArticleModel;
   categories: CategoryModel[];
 
-  constructor(
+  public constructor(
     private elementRef: ElementRef,
     private writingService: WritingService,
     private router: Router,
@@ -30,26 +29,7 @@ export class WritingComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
-    // quill init
-    this.quill = new Quill(this.editor.nativeElement, {
-      modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-          ['blockquote', 'code-block'],
-          [{'list': 'ordered'}, {'list': 'bullet'}],
-          [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
-          [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
-          [{'direction': 'rtl'}],                         // text direction
-          [{'size': [false, 'small', 'large', 'huge']}],  // custom dropdown
-          [{'header': [false, 1, 2, 3, 4, 5, 6]}],
-          [{'color': []}, {'background': []}],          // dropdown with defaults from theme
-          [{'font': []}],
-          [{'align': []}],
-          ['clean', 'image']
-        ]
-      }, theme: 'snow', placeholder: 'Please write something right here...', //debug: 'info',
-    });
+  public ngOnInit() {
     // data init
     this.article = new ArticleModel();
     this.writingService.getListCategory().subscribe((res: CategoryModel[]) => {
@@ -65,9 +45,9 @@ export class WritingComponent implements OnInit {
       }
     });
   }
-
-  onSubmit() {
+  public onSubmit() {
     this.article.content = this.quill.getContents();
+    console.log(this.article.content);
     if (this.article.id!=0) {
       this.writingService.postArticle(this.article, this.quill.getText()).subscribe((res: ResModel) => {
         if (res.errcode === 0) {

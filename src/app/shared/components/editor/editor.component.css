@@ -1,0 +1,10 @@
+.quill-editor {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.quill-editor > .ql-toolbar {
+  position: sticky;
+  top: 56px;
+  z-index: 2;
+  background-color: #fafafa;
+}

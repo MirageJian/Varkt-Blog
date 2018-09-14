@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LayoutComponent} from "./layout.component";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     ]
   },
   {path: 'authorisation', loadChildren: '../modules/authorisation/authorisation.module#AuthorisationModule'},
+  {path: 'error-page', component: ErrorPageComponent},
 ];
 
 @NgModule({

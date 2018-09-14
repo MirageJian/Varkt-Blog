@@ -6,6 +6,7 @@
         <mat-card-subtitle>{{a.time}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+        <img *ngIf="a.img" src="{{a.img}}" style="width: 100%">
         <p>{{a.subhead}}</p>
         <mat-chip-list>
           <mat-chip *ngFor="let c of a.category">{{c}}</mat-chip>

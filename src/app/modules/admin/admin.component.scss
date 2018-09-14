@@ -6,7 +6,7 @@ mat-sidenav-container{
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  overflow: auto;
+  overflow: inherit;
 }
 mat-sidenav {
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
@@ -19,6 +19,7 @@ mat-sidenav {
 
 mat-sidenav-content{
   width: 100%;
+  overflow: inherit;
 }
 .user{
   padding: 30px;

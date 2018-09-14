@@ -23,7 +23,9 @@ export class BaseService {
     py_code: `${this.baseUrl}/py_code`,
   };
 
-  constructor(protected http: HttpClient) {
+  constructor(
+    protected http: HttpClient,
+  ) {
   }
 
   // request the xsrf cookies.

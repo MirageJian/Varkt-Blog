@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {SomethingService} from '../../something/something.service';
-import {catchError} from 'rxjs/internal/operators';
+import {catchError} from 'rxjs/operators';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ResModel} from '../../../shared/models';
 
 @Injectable()
 export class ManagingService extends SomethingService {

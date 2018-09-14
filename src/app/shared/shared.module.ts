@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProgressDirective, DataProgressComponent } from './directives/progress.directive';
 import {RouterModule} from "@angular/router";
 import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.component";
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.compo
     HeaderComponent,
     ProgressDirective,
     DataProgressComponent,
-    DialogAlertComponent
+    DialogAlertComponent,
+    EditorComponent
   ],
   exports: [
     CommonModule,
@@ -48,7 +50,8 @@ import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.compo
 
     HeaderComponent,
     ProgressDirective,
-    DialogAlertComponent
+    DialogAlertComponent,
+    EditorComponent
   ],
   providers: [
     MediaMatcher,

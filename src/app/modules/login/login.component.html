@@ -1,6 +1,6 @@
 <div class="container">
   <div style="display: flex;flex-direction:column;justify-content:space-around;align-items:center">
-    <mat-card style="display: flex;flex-direction:column;justify-content:space-around;align-items:stretch">
+    <mat-card>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-card-header>
           <h2>Holacode</h2>
@@ -14,8 +14,8 @@
             <input type="password" matInput placeholder="Password" [(ngModel)]="info.password" name="password"
                    #password="ngModel" required>
           </mat-form-field>
-          <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent">Log
-            in
+          <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent">
+            Log in
           </button>
         </mat-card-content>
         <mat-card-actions>

@@ -8,6 +8,7 @@
       </mat-card-header>
       <!--<img mat-card-image src="assets/img/ceshi.jpg">-->
       <mat-card-content>
+        <img *ngIf="a.img" src="{{a.img}}" style="width: 100%">
         <p>{{a.subhead}}</p>
         <!--<hr>-->
       </mat-card-content>
