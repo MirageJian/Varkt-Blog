@@ -13,7 +13,7 @@ export class PoYoungComponent implements OnInit {
   records = [];
   recordsColumns: string[] = ['id','ip','time_log','remark','py_name','phone','operation'];
   users = [];
-  usersColumns: string[] = ['id','imei','phone','py_name','operation'];
+  usersColumns: string[] = ['id','imei','phone','py_name', 'created_time','operation'];
   codes = [];
   codesColumns: string[] = ['id', 'code', 'times','operation'];
   newCode: PyCodeModel = new PyCodeModel();

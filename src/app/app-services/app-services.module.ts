@@ -10,7 +10,7 @@ import {HttpInterceptorProviders} from "./http-interceptors";
   providers: [
     BaseService,
     LoginService,
-    HttpInterceptorProviders
+    // HttpInterceptorProviders
   ]
 })
 export class AppServicesModule { }

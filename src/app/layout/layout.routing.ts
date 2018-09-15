@@ -13,7 +13,7 @@ const routes: Routes = [
       {path: 'something', loadChildren: '../modules/something/something.module#SomethingModule'},
     ]
   },
-  {path: 'authorisation', loadChildren: '../modules/authorisation/authorisation.module#AuthorisationModule'},
+  {path: 'authorization', loadChildren: '../modules/authorization/authorization.module#AuthorizationModule'},
   {path: 'error-page', component: ErrorPageComponent},
 ];
 
