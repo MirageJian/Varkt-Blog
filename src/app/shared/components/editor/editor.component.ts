@@ -17,6 +17,7 @@ export class EditorComponent implements OnInit {
   @Input() quill: any;
   // async update quill, if use sync, it will occur the check error
   @Output() quillChange = new EventEmitter(true);
+  @Output() onQuillInit = new EventEmitter(true);
   @Input() readonly: boolean = false;
   @ViewChild('editor') editor: ElementRef;
   @ViewChild('quillImgField') quillImgField: ElementRef;
@@ -73,6 +74,7 @@ export class EditorComponent implements OnInit {
       this.quillImgField.nativeElement.click();
     });
     this.quillChange.emit(this.quill);
+    this.onQuillInit.emit();
   }
 
   private readonlyQuillInit() {
@@ -84,7 +86,8 @@ export class EditorComponent implements OnInit {
       theme: 'snow'
     };
     this.quill = new Quill(this.editor.nativeElement, options);
-    // quill.setContents(content);
+    this.quillChange.emit(this.quill);
+    this.onQuillInit.emit();
   }
 
 }

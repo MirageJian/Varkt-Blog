@@ -35,6 +35,8 @@ export class WritingComponent implements OnInit {
     this.writingService.getListCategory().subscribe((res: CategoryModel[]) => {
       this.categories = res;
     });
+  }
+  onQuillInit(){
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.writingService.getArticle(+params.get('id')))
     ).subscribe((res: ArticleModel) => {

@@ -2,13 +2,14 @@
 <div class="container">
   <div  style="display: flex;flex-direction:column;align-items:stretch">
     <mat-card class="card-container">
-      <div #editor></div>
-      <div *appProgress="article"></div>
-      <hr>
+      <mat-card-header>
+        <mat-card-subtitle>{{article.author}} Published On {{article.time}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <hr><app-editor [(quill)]="quill" (onQuillInit)="onQuillInit()" [readonly]="true"></app-editor><hr>
+      <!--<div *appProgress="article"></div>-->
       <mat-chip-list>
         <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
-        <mat-chip color="primary" selected="true">{{article.time}}</mat-chip>
-        <mat-chip color="accent" selected="true">{{article.author}}</mat-chip>
       </mat-chip-list>
     </mat-card>
 

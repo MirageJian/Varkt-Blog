@@ -21,6 +21,9 @@ $candy-app-font: mat-typography-config($mat-font-family);
     //background-color: mat-color($background);
     //color: mat-color($text);
   }
+  .mat-card-content {
+    font-size: 1em;
+  }
 }
 @include candy-sidenav-theme($candy-app-theme);
 

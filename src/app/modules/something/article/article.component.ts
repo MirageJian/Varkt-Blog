@@ -24,7 +24,7 @@ export class ArticleComponent implements OnInit {
   @HostBinding('style.flex-direction') direction = 'column';
   @HostBinding('style.width') width = '100%';
   // @HostBinding('style.position')  position = 'absolute';
-  @ViewChild('editor') editor: ElementRef;
+  quill: any;
   article = new ArticleModel();
   comments: CommentModel[];
   newComment = new CommentModel();
@@ -37,30 +37,21 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newComment.author = '';
+  }
+  onQuillInit() {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.somethingService.getArticle(+params.get('id')))
     ).subscribe((article: ArticleModel) => {
       JsonHelper.toAny(article, JsonHelper.articleMember);
       this.article = article;
-      this.quillInit(this.article.content);
+      this.quill.setContents(article.content);
       this.somethingService.getComments(this.article.id).subscribe((res: CommentModel[]) => {
         this.comments = res;
       })
     });
     // let id = this.route.snapshot.paramMap.get('id');
     // this.hero$ = this.services.getHero(id);
-    this.newComment.author = '';
-  }
-  quillInit(content: any) {
-    const options = {
-      modules: {
-        toolbar: false    // Snow includes toolbar by default
-      },
-      readOnly: true,
-      theme: 'snow'
-    };
-    const quill = new Quill(this.editor.nativeElement, options);
-    quill.setContents(content);
   }
   onSubmit() {
     this.newComment.id_article = this.article.id;

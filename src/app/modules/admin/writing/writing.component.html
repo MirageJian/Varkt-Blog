@@ -1,28 +1,31 @@
-<form (ngSubmit)="onSubmit()" #writing="ngForm" class="container">
-  <mat-form-field style="width: 100%">
-    <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" #title="ngModel" required autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select placeholder="Choose Categories" [name]="'category'" [(ngModel)]="article.category" [multiple]="true"
-                [required]="true" #category="ngModel">
-      <mat-option *ngFor="let c of categories" [value]="c.label">
-        <mat-icon>{{c.icon}}</mat-icon>
-        {{c.label}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #writing="ngForm" class="card-container">
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" #title="ngModel" required
+             autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Choose Categories" [name]="'category'" [(ngModel)]="article.category" [multiple]="true"
+                  [required]="true" #category="ngModel">
+        <mat-option *ngFor="let c of categories" [value]="c.label">
+          <mat-icon>{{c.icon}}</mat-icon>
+          {{c.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <app-editor [(quill)]="quill"></app-editor>
+    <app-editor [(quill)]="quill" (onQuillInit)="onQuillInit()"></app-editor>
 
-  <div style="display: flex;flex-direction:row;justify-content:space-around;align-items:center">
-    <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
-    <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
-    <mat-checkbox name="about" [(ngModel)]="article.about">About Article</mat-checkbox>
-  </div>
-  <mat-toolbar style="background-color: transparent;padding: 0;">
-    <span class="flex-spacer"></span>
-    <button mat-raised-button color="accent" type="submit" [disabled]="!writing.form.valid">Submit</button>
-    <button mat-raised-button type="button" *ngIf="article.id!=0" [routerLink]="['../managing']">Cancel</button>
-  </mat-toolbar>
-  <!--<button mat-raised-button type="button" color="warn">Delete</button>-->
-</form>
+    <div style="display: flex;flex-direction:row;justify-content:space-around;align-items:center">
+      <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
+      <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
+      <mat-checkbox name="about" [(ngModel)]="article.about">About Article</mat-checkbox>
+    </div>
+    <mat-toolbar style="background-color: transparent;padding: 0;">
+      <span class="flex-spacer"></span>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!writing.form.valid">Submit</button>
+      <button mat-raised-button type="button" *ngIf="article.id!=0" [routerLink]="['../managing']">Cancel</button>
+    </mat-toolbar>
+    <!--<button mat-raised-button type="button" color="warn">Delete</button>-->
+  </form>
+</div>

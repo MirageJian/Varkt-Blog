@@ -17,6 +17,8 @@ export class PoYoungComponent implements OnInit {
   codes = [];
   codesColumns: string[] = ['id', 'code', 'times','operation'];
   newCode: PyCodeModel = new PyCodeModel();
+  // display upload filename
+  filename: string = null;
 
   constructor(
     private poYoungService: PoYoungService,
@@ -25,7 +27,7 @@ export class PoYoungComponent implements OnInit {
 
   ngOnInit() {
     this.poYoungService.getPyUsers().subscribe((res:PyUserModel[]) => this.users = res);
-    this.poYoungService.getPyRecords().subscribe((res:PyRecordModel[]) => this.records = res);
+    this.poYoungService.getPyRecords().subscribe((res:PyRecordModel[]) => this.records = [{id:0, ip: '删除全部'} ,...res]);
     this.poYoungService.getCodes().subscribe((res:PyCodeModel[]) => this.codes = res);
   }
 
@@ -34,6 +36,7 @@ export class PoYoungComponent implements OnInit {
     const file: File = fileList[0];
     let formData = new FormData();
     formData.append('PoYoungApk', file, file.name);
+    this.filename = file.name;
     this.poYoungService.uploadApk(formData).subscribe(res => {
       this.matSnackBar.open('Uploaded Successfully', "Close");
     });

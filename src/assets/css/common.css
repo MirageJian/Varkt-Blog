@@ -6,6 +6,8 @@ body {
   left: 0;
   right: 0;
   margin: 0;
+  font-size: 1em;
+  line-height: 1.7;
 }
 /* common var */
 :root {
@@ -39,11 +41,11 @@ body {
 @media (max-width: 960px){
   .container {
     width: auto;
-    padding: 8px;
+    padding: 4px;
     margin: 0;
   }
   .card-container {
-    margin: 8px;
+    margin: 4px;
   }
 }
 .cursor-pointer{
