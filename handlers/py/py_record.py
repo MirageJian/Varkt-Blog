@@ -49,6 +49,10 @@ class PyRecordHandler(BaseHandler):
         #     'User-Agent': data["remark"]
         # })
         # urllib.request.urlopen(request)
-        self.db.cursor.execute("DELETE FROM py_records WHERE id=%s;", id_record)
-        self.db.conn.commit()
+        if id_record == '0':
+            self.db.cursor.execute("TRUNCATE TABLE py_records;")
+            self.db.conn.commit()
+        else:
+            self.db.cursor.execute("DELETE FROM py_records WHERE id=%s;", id_record)
+            self.db.conn.commit()
         self.write_res(1, 'delete successfully', None)

@@ -33,6 +33,7 @@ class ArticleHandler(BaseHandler):
     def put(self, *args, **kwargs):
         id_user = self.get_login_user()
         body = self.json_decode(self.request.body)
+        print(body)
         self.db.cursor.execute(
             "INSERT INTO article (id_user,title,img,subhead,content,category,stick,collection,about,time) "
             "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (

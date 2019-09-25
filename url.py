@@ -33,6 +33,7 @@ path = [
     (r"/searching", SearchingHandler),
 
     (r"/authorization", AuthorizationHandler),
+    (r"/authorisation", AuthorizationHandler),
     (r"/py_record", PyRecordHandler),
     (r"/py_user", PyUserHandler),
     (r"/py_code", PyCodeHandler),
