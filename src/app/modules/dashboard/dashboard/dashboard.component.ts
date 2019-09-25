@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleModel, ListArticleModel} from "../../../shared/models";
 import {DashboardService} from "../dashboard.service";
+import {slideFromBottom} from "../../../shared/animations";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  animations: [slideFromBottom()]
 })
 export class DashboardComponent implements OnInit {
   listArticle: ListArticleModel[];

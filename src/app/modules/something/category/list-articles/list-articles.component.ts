@@ -3,11 +3,13 @@ import {SomethingService} from '../../something.service';
 import {ListArticleModel} from '../../../../shared/models';
 import {ActivatedRoute} from '@angular/router';
 import {JsonHelper} from "../../../../shared/tools";
+import {slideFromBottom} from "../../../../shared/animations";
 
 @Component({
   selector: 'app-list-articles',
   templateUrl: './list-articles.component.html',
-  styleUrls: ['./list-articles.component.scss']
+  styleUrls: ['./list-articles.component.scss'],
+  animations: [slideFromBottom()]
 })
 export class ListArticlesComponent implements OnInit, OnChanges {
   @Input() private label: string;

@@ -4,11 +4,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SomethingService} from '../something.service';
 import {CategoryModel} from '../../../shared/models';
 import {WebConfig} from "../../../shared/tools";
+import {slideFromBottom} from "../../../shared/animations";
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: ['./category.component.scss'],
+  animations: []
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   label: string;

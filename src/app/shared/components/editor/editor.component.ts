@@ -11,7 +11,7 @@ import {NgModel} from "@angular/forms";
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class EditorComponent implements OnInit {
   @Input() quill: any;

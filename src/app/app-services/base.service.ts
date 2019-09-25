@@ -29,7 +29,7 @@ export class BaseService {
   }
 
   // request the xsrf cookies.
-  public getCookie() {
+  public getXsrfCookie() {
     return this.http.get(this.baseUrl).pipe(catchError(this.handleError));
   }
 

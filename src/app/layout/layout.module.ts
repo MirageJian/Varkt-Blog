@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import {LayoutRouting} from "./layout.routing";
 import {LayoutComponent} from "./layout.component";
 import {NavbarComponent} from "./navbar/navbar.component";
-import {MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule} from "@angular/material";
+import {MatButtonModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule} from "@angular/material";
 import {CommonModule} from "@angular/common";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {FooterComponent} from "./footer/footer.component";
@@ -16,6 +16,7 @@ import {FooterComponent} from "./footer/footer.component";
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
+    MatSnackBarModule,
   ],
   declarations: [
     LayoutComponent,
