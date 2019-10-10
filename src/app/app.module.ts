@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {AppServicesModule} from "./app-services/app-services.module";
+import {AuthorizationModule} from "./modules/authorization/authorization.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import {AppServicesModule} from "./app-services/app-services.module";
     }),
     AppRoutingModule, // the root module should always be the last one
     AppServicesModule, // common and general service
+    AuthorizationModule
   ],
   bootstrap: [AppComponent]
 })

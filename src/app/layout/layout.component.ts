@@ -31,9 +31,9 @@ export class LayoutComponent implements OnInit {
       // redirect to error page
       this.router.navigate(['/error-page', {type: ErrorPageEnum.notResponded}]).then();
     });
-    this.snackBar.open(
-      "Google serves cookies to analyze traffic to this site. Information about your use of our site is shared with Google for that purpose.",
-      "acknowledge"
-    );
+    // this.snackBar.open(
+    //   "This site uses cookies to analyze for some Machine Learning tests and fun things",
+    //   "OK"
+    // );
   }
 }
