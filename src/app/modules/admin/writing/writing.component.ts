@@ -4,7 +4,7 @@ import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '../../../shared/tools';
-import {MatSnackBar} from "@angular/material";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-writing',

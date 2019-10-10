@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PoYoungService} from "./po-young.service";
 import {DialogAlertComponent} from "../../../shared/components/alert-dialog/dialog-alert.component";
 import {PyCodeModel, PyRecordModel, PyUserModel, ResModel} from "../../../shared/models";
-import {MatSnackBar} from "@angular/material";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-po-young',

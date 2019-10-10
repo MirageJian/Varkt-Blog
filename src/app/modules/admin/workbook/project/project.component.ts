@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProjectService} from './project.service';
 import {ProjectInfo} from './project-info';
 import {ActivityInfo} from './activity-info';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {DialogProjectComponent} from '../dialog-project/dialog-project.component';
 import {DialogActivityComponent} from '../dialog-activity/dialog-activity.component';
 import {FormatDate} from '../../../../shared/tools/';

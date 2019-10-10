@@ -4,7 +4,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, NgForm} from '@angular/forms';
 
 import {LoginInfoModel} from '../../shared/models';
-import {MatDialog, MatSnackBar} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {Md5} from 'ts-md5';
 import {ResModel} from '../../shared/models';
 

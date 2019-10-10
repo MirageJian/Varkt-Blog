@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BaseService} from "../app-services/base.service";
 import {ErrorPageEnum} from "./error-page/error-page.enum";
 import {Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import {AuthorizationService} from "../modules/authorization/authorization.service";
 
 @Component({

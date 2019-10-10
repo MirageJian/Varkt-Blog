@@ -1,4 +1,4 @@
-import {NativeDateAdapter} from '@angular/material';
+import { NativeDateAdapter } from '@angular/material/core';
 import {FormControl} from '@angular/forms';
 
 export class ActivityInfo {

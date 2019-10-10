@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryModel, ResModel} from "../../../shared/models";
 import {SettingService} from "./setting.service";
-import {MatSnackBar} from "@angular/material";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-setting',
