@@ -19,8 +19,8 @@ export class EditorComponent implements OnInit {
   @Output() quillChange = new EventEmitter(true);
   @Output() onQuillInit = new EventEmitter(true);
   @Input() readonly: boolean = false;
-  @ViewChild('editor') editor: ElementRef;
-  @ViewChild('quillImgField') quillImgField: ElementRef;
+  @ViewChild('editor', { static: true }) editor: ElementRef;
+  @ViewChild('quillImgField', { static: true }) quillImgField: ElementRef;
 
   constructor(
     private fileUpload: FileUploadService,

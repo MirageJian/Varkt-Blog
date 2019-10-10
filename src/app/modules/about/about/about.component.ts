@@ -15,7 +15,7 @@ const Quill = require('quill');
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  @ViewChild('editor') editor: ElementRef;
+  @ViewChild('editor', { static: true }) editor: ElementRef;
   article = new ArticleModel();
 
   constructor(

@@ -14,8 +14,8 @@ import {MatSnackBar} from "@angular/material";
 })
 export class WritingComponent implements OnInit {
   quill: any;
-  @ViewChild('editor') editor: ElementRef;
-  @ViewChild('quillImgField') quillImgField: ElementRef;
+  @ViewChild('editor', { static: false }) editor: ElementRef;
+  @ViewChild('quillImgField', { static: false }) quillImgField: ElementRef;
 
   article: ArticleModel;
   categories: CategoryModel[];
