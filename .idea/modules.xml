@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/HolacodeServer.iml" filepath="$PROJECT_DIR$/.idea/HolacodeServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/holacodes_server.iml" filepath="$PROJECT_DIR$/.idea/holacodes_server.iml" />
     </modules>
   </component>
 </project>
