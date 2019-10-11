@@ -9,8 +9,7 @@ import {slideFromBottom} from "../../../shared/animations";
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss'],
-  animations: []
+  styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   label: string;

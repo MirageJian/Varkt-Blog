@@ -17,6 +17,6 @@ export class ManagingService extends SomethingService {
   deleteComment(id: number) {
     let params = new HttpParams();
     params = params.set('id', id.toString());
-    return this.http.delete(this.url.comment, {params: params}).pipe(catchError(this.handleError));
+    return this.http.delete(this.url.comment_managing, {params: params}).pipe(catchError(this.handleError));
   }
 }

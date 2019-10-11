@@ -2,11 +2,13 @@ import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import {slideFromRight} from "../../animations/animations";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  animations: [slideFromRight]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;
