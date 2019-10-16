@@ -23,7 +23,7 @@ class ArticleHandler(BaseHandler):
         body = self.json_decode(self.request.body)
         self.db.cursor.execute(
             "UPDATE article SET id_user=%s,title=%s,img=%s,subhead=%s,content=%s,category=%s,stick=%s,collection=%s,"
-            "about=%s,`time`=%s WHERE id=%s", (
+            "about=%s,update_time=%s WHERE id=%s", (
                 id_user, body["title"], body["img"], body["subhead"], body["content"], body["category"], body["stick"],
                 body["collection"], body["about"], common_helper.get_now(), body["id"]
             ))
