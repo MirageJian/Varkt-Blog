@@ -18,6 +18,7 @@ export class BaseService {
     comment_managing: `${this.baseUrl}/comment_managing`,
     category: `${this.baseUrl}/category`,
     searching: `${this.baseUrl}/searching`,
+    password: `${this.baseUrl}/password`,
     py_user: `${this.baseUrl}/py_user`,
     py_record: `${this.baseUrl}/py_record`,
     py_code: `${this.baseUrl}/py_code`,
