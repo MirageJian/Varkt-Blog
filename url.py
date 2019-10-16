@@ -9,6 +9,7 @@ from handlers.comment import CommentHandler
 from handlers.comment_managing import CommentManagingHandler
 from handlers.category import CategoryHandler
 from handlers.searching import SearchingHandler
+from handlers.password import PsswordHandler
 
 from handlers.py.py_auth import AuthorizationHandler
 from handlers.py.py_record import PyRecordHandler
@@ -31,6 +32,7 @@ path = [
     (r"/comment_managing", CommentManagingHandler),
     (r"/category", CategoryHandler),
     (r"/searching", SearchingHandler),
+    (r"/password", PsswordHandler),
 
     (r"/authorization", AuthorizationHandler),
     (r"/authorisation", AuthorizationHandler),
