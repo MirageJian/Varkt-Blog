@@ -6,7 +6,7 @@ import { AdminComponent } from './admin.component';
 import { ManagingComponent } from './managing/managing.component';
 import { WritingComponent } from './writing/writing.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import {SettingComponent} from "./setting/setting.component";
+import {SettingsComponent} from "./settings/settings.component";
 import { WorkbookComponent } from './workbook/workbook.component';
 import {PoYoungComponent} from "./po-young/po-young.component";
 
@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: '', component: AdminDashboardComponent},
       { path: 'managing', component: ManagingComponent },
       { path: 'writing', component: WritingComponent },
-      { path: 'setting', component: SettingComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: 'po-young', component: PoYoungComponent },
       { path: 'workbook', component: WorkbookComponent },
     ]

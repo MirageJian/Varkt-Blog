@@ -8,7 +8,7 @@ import {JsonHelper} from "../../../shared/tools";
 @Injectable({
   providedIn: 'root'
 })
-export class SettingService extends SomethingService{
+export class SettingsService extends SomethingService{
   addCategory(c: CategoryModel) {
     return this.http.put(this.url.category, {...c}).pipe(catchError(this.handleError));
   }

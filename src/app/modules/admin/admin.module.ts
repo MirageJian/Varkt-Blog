@@ -10,8 +10,10 @@ import {WorkbookModule} from './workbook/workbook.module';
 import {WritingService} from './writing/writing.service';
 import {ManagingService} from './managing/managing.service';
 import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
-import { SettingComponent } from './setting/setting.component';
+import { SettingsComponent } from './settings/settings.component';
 import { PoYoungComponent } from './po-young/po-young.component';
+import { PasswordComponent } from './settings/password/password.component';
+import { CategoriesManagingComponent } from './settings/categories-managing/categories-managing.component';
 
 @NgModule({
   imports: [
@@ -23,8 +25,10 @@ import { PoYoungComponent } from './po-young/po-young.component';
     AdminComponent,
     ManagingComponent,
     WritingComponent,
-    SettingComponent,
+    SettingsComponent,
     PoYoungComponent,
+    PasswordComponent,
+    CategoriesManagingComponent,
   ],
   entryComponents: [],
   providers: [

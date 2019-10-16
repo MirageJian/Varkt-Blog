@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       case '/admin/writing': this.title = 'Writing'; break;
       case '/admin/managing': this.title = 'Managing'; break;
       case '/admin/workbook': this.title = 'Workbook'; break;
-      case '/admin/setting': this.title = 'Setting'; break;
+      case '/admin/settings': this.title = 'Setting'; break;
       case '/admin/po-young': this.title = 'PoYoung'; break;
     }
   }
