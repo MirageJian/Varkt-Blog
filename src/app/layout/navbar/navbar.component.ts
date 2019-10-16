@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         // const nowPath = result ? result[result.length - 1] : '';
       }
     });
-    // modify the admin center title
+    //
     this.subscriptionRouter = this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
     // .map(() => this.route)
     // .map(route => {

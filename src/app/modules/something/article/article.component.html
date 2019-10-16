@@ -2,8 +2,11 @@
 <div class="container">
   <div  style="display: flex;flex-direction:column;align-items:stretch">
     <mat-card class="card-container">
+      <!--head of article-->
       <mat-card-header>
-        <mat-card-subtitle>{{article.author}} Published On {{article.time}}</mat-card-subtitle>
+        <mat-card-subtitle>{{article.author}} Published on {{article.time}}
+          <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
+        </mat-card-subtitle>
       </mat-card-header>
 
       <hr><app-editor [(quill)]="quill" (onQuillInit)="onQuillInit()" [readonly]="true"></app-editor><hr>
