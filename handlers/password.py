@@ -10,6 +10,7 @@ class PsswordHandler(BaseHandler):
         user = self.db.cursor.fetchone()
         if user and user["password"] == body["oldPassword"]:
             self.db.cursor.execute("UPDATE user SET password=%s WHERE id=%s", (body["newPassword"], user_id))
+            self.db.conn.commit()
+            self.write_res(1, "password update successfully", None)
         else:
-            self.write_res(1, "the user cannot be found or password is wrong", None)
-        self.write_res(1, "password update successfully", None)
+            self.write_res(0, "the user cannot be found or password is wrong", None)
