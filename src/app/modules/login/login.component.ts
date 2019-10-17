@@ -35,14 +35,14 @@ export class LoginComponent implements OnInit {
       if (res.errcode === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
-        this.matSnackBar.open(res.errmsg, 'Close');
+        this.matSnackBar.open(res.errmsg, 'Close',{duration: 5_000});
         this.router.navigate([this.loginService.redirectUrl, {}], {relativeTo: this.route}).catch();
       } else {
-        this.matSnackBar.open(res.errmsg, 'Close');
+        this.matSnackBar.open(res.errmsg, 'Close', {duration: 5_000});
 
       }
     }, error => {
-      this.matSnackBar.open(error, 'Close');
+      this.matSnackBar.open(error, 'Close', {duration: 5_000});
     });
   }
 }

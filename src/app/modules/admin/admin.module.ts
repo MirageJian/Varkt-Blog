@@ -14,12 +14,14 @@ import { SettingsComponent } from './settings/settings.component';
 import { PoYoungComponent } from './po-young/po-young.component';
 import { PasswordComponent } from './settings/password/password.component';
 import { CategoriesManagingComponent } from './settings/categories-managing/categories-managing.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     SharedModule,
     AdminRoutingModule,
     WorkbookModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AdminComponent,
