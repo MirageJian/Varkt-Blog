@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "start_proxy": "ng serve --proxy-config proxy.conf.json --open",
-    "build": "ng build",
-    "build_prod": "ng build --prod --build-optimizer",
+    "start": "ng serve --proxy-config proxy.conf.json --open",
+    "start:zh": "ng serve --configuration=zh --proxy-config proxy.conf.json --open",
+    "build": "ng build --prod --build-optimizer",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "extract": "ng xi18n --output-path=src/locale"
   },
   "private": true,
   "dependencies": {

@@ -3,10 +3,10 @@
     <mat-nav-list>
       <mat-list-item class="cursor-pointer" [ngClass]="{'active':label=='Filter'}" (click)="checkOperationNav('Filter', sidenav)">
         <mat-icon mat-list-icon>filter_list</mat-icon>
-        <h4 mat-line>Filter</h4>
+        <h4 mat-line i18n>Filter</h4>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <h3 mat-subheader>Category</h3>
+      <h3 mat-subheader i18n>Category</h3>
       <!-- [class.selected]="hero.id === selectedId" -->
       <mat-list-item *ngFor="let item of categories" [ngClass]="{'active':label==item.label}" (click)="checkOperationNav(item.label, sidenav)" class="cursor-pointer">
         <mat-icon mat-list-icon>{{item.icon}}</mat-icon>

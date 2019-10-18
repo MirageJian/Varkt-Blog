@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="92eee6be6de0b11c924e3ab27db30257159c0a7c" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3b6143a528c6f4586e60e9af4ced8ac0fbe08251" datatype="html">
+        <source>Articles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
+        <source>About</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/something/category/assortment/assortment.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cb577a59eb9d1cd2ca4e726413b7cb354de78ea4" datatype="html">
+        <source>Write</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="366fbda5dfc35fc32fe27294667843e16ccd2b90" datatype="html">
+        <source>Workbook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
+        <source>Log out</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ea42960a9d0473e11bb9c74b1bc707f79e0dce40" datatype="html">
+        <source>Friends&apos; Links</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="38dc2ccc83375277dc9b9115a08de7cd5d9c6292" datatype="html">
+        <source>Open source Info</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8a23bb68835b69cc19c65e277c6a7e918dd2a2c0" datatype="html">
+        <source>By CJ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="470a95c9c14a667fb0f5376c0b2ecbd946729f5f" datatype="html">
+        <source>Star in Github</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="03354b2489337882c5a4fd033fec9b9f4b8d109f" datatype="html">
+        <source>Page Not Found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b121fbcff1726ab082565e9d990a6aab4184312" datatype="html">
+        <source>We&apos;re sorry. The page you are looking for cannot be found.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0192667f1edb889dca50d2a45b1e81bec92aa9f6" datatype="html">
+        <source>Back to main site.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7fbbb8f4a351f0b19630432990e337ef17a14055" datatype="html">
+        <source>Server Not Respond</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="30c6403c5301919e5c5c58c95b0de08302b723ea" datatype="html">
+        <source>We&apos;re sorry. The request was not responded by the server.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d459642a67223c7352eb1077cd9cafc7190158bb" datatype="html">
+        <source>Refresh and back to main site.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="077dd991369bb89f5c39dd14297abfb5509c62b4" datatype="html">
+        <source>See More</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dashboard/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9e16c61914798a2eca6ffd9a3d64d151c7ec3eb9" datatype="html">
+        <source>you can search everything such as author, title, category and title.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/something/category/assortment/assortment.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="984b1d8d2add42d6a99070ad6f2a63491a663de2" datatype="html">
+        <source>See More
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/something/category/list-articles/list-articles.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
+        <source>Filter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/something/category/category.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="607de17c2a755f65775881c19e276e7c933bcf94" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/something/category/category.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

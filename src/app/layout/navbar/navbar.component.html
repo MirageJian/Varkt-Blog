@@ -1,7 +1,7 @@
 <mat-toolbar>
-  <button mat-button [routerLink]="['/']"><span>Home</span></button>
-  <button mat-button [routerLink]="['/something']"><span>Articles</span></button>
-  <button mat-button [routerLink]="['/about']"><span>About</span></button>
+  <button mat-button [routerLink]="['/']"><span i18n>Home</span></button>
+  <button mat-button [routerLink]="['/something']"><span i18n>Articles</span></button>
+  <button mat-button [routerLink]="['/about']"><span i18n>About</span></button>
   <div class="flex-spacer"></div>
   <button mat-icon-button [matMenuTriggerFor]="appMenu">
     <mat-icon aria-label="">more_vert</mat-icon>
@@ -13,15 +13,15 @@
     </button>
     <button mat-menu-item>
       <mat-icon>search</mat-icon>
-      <span>搜索</span>
+      <span i18n>Search</span>
     </button>
     <button mat-menu-item [routerLink]="['/admin/writing']" routerLinkActive="router-link-active">
       <mat-icon>create</mat-icon>
-      <span>写东西</span>
+      <span i18n>Write</span>
     </button>
     <button mat-menu-item [routerLink]="['/admin/workbook']" routerLinkActive="router-link-active">
       <mat-icon>timeline</mat-icon>
-      <span>工作本</span>
+      <span i18n>Workbook</span>
     </button>
     <button mat-menu-item>
       <mat-icon>translate</mat-icon>
@@ -29,7 +29,7 @@
     </button>
     <button *ngIf="loginService.userName!='登陆'" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
       <mat-icon>exit_to_app</mat-icon>
-      <span>登出</span>
+      <span i18n>Log out</span>
     </button>
   </mat-menu>
 </mat-toolbar>

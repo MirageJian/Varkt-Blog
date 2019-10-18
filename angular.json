@@ -69,6 +69,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "zh": {
+              "aot": true,
+              "outputPath": "dist/zh/",
+              "i18nFile": "src/locale/messages.zh.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "zh",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -80,6 +88,9 @@
           "configurations": {
             "production": {
               "browserTarget": "Holacode:build:production"
+            },
+            "zh": {
+              "browserTarget": "Holacode:build:zh"
             }
           }
         },
