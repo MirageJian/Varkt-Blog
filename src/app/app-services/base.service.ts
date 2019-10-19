@@ -5,6 +5,7 @@ import {throwError} from 'rxjs';
 
 @Injectable()
 export class BaseService {
+  public static HOST = "holacodes.com";
   private baseUrl = '/apis';
   protected url = {
     login: `${this.baseUrl}/login`,

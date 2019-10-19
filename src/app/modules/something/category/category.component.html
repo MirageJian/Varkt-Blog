@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? 'false' : 'true'">
+  <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches">
     <mat-nav-list>
       <mat-list-item class="cursor-pointer" [ngClass]="{'active':label=='Filter'}" (click)="checkOperationNav('Filter', sidenav)">
         <mat-icon mat-list-icon>filter_list</mat-icon>

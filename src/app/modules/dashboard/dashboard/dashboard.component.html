@@ -6,14 +6,14 @@
         <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
         <mat-card-subtitle>{{a.time}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image *ngIf="a.img" src="{{a.img}}">
+      <img mat-card-image *ngIf="a.img" src="{{a.img}}" alt="dashboard image">
       <mat-card-content>
         <p>{{a.subhead}}</p>
         <!--<hr>-->
       </mat-card-content>
       <mat-card-actions>
         <mat-action-row>
-          <button mat-button color="primary" [routerLink]="['../something/', a.id]" i18n>See More</button>
+          <a mat-button color="primary" [routerLink]="['../something/', a.id]" i18n>See More</a>
         </mat-action-row>
       </mat-card-actions>
     </mat-card>
