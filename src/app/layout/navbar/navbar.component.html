@@ -23,9 +23,10 @@
       <mat-icon>timeline</mat-icon>
       <span i18n>Workbook</span>
     </button>
-    <button mat-menu-item>
+    <!--use zh to change the language-->
+    <button mat-menu-item [routerLink]="[localeId == 'zh' ? '/../' : '/zh/']">
       <mat-icon>translate</mat-icon>
-      <span>中文</span>
+      <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
     </button>
     <button *ngIf="loginService.userName!='登陆'" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
       <mat-icon>exit_to_app</mat-icon>

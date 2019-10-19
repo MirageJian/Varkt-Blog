@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '../../app-services/login.service';
 import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
@@ -16,11 +16,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public loginService: LoginService
+    public loginService: LoginService,
+    @Inject(LOCALE_ID) public localeId
   ) {
   }
 
   ngOnInit() {
+    console.log(this.localeId);
     // check login status for loging in automatically
     this.loginService.check().subscribe((res: ResModel) => {
       if (res.errcode === 0) {

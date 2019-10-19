@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json --open",
-    "start:zh": "ng serve --configuration=zh --proxy-config proxy.conf.json --open",
-    "build": "ng build --prod --build-optimizer",
+    "start:zh": "ng serve --configuration=zh --proxy-config proxy.conf.json --open --port 4201",
+    "build": "ng build --prod && npm run build:zh",
+    "build:zh": "ng build --configuration=production-zh --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
