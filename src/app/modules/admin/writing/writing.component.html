@@ -1,8 +1,10 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" #writing="ngForm" class="card-container">
     <mat-form-field style="width: 100%">
-      <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" #title="ngModel" required
-             autocomplete="off">
+      <label>
+        <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" required
+               autocomplete="off">
+      </label>
     </mat-form-field>
     <mat-form-field>
       <mat-select placeholder="Choose Categories" [name]="'category'" [(ngModel)]="article.category" [multiple]="true"
@@ -19,7 +21,6 @@
     <div style="display: flex;flex-direction:row;justify-content:space-around;align-items:center">
       <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
       <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
-      <mat-checkbox name="about" [(ngModel)]="article.about">About Article</mat-checkbox>
     </div>
     <mat-toolbar style="background-color: transparent;padding: 0;">
       <span class="flex-spacer"></span>

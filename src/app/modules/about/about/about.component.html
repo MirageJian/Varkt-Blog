@@ -8,9 +8,12 @@
     <!--Bottom part, such as time-->
     <mat-chip-list *ngIf="article">
       <mat-chip color="primary" selected="true">{{article.creation_time}}</mat-chip>
-      <mat-chip color="accent" selected="true">
-        Updated on {{article.update_time ? article.update_time : 'No updates'}}
+      <mat-chip color="accent" selected="true" *ngIf="article.update_time else noUpdate" i18n>
+        Updated on {{article.update_time}}
       </mat-chip>
+      <ng-template #noUpdate>
+        <mat-chip color="accent" selected="true" i18n>No updates</mat-chip>
+      </ng-template>
     </mat-chip-list>
   </mat-card>
 </div>

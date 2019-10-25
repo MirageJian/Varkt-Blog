@@ -1,8 +1,8 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
-               [opened]="mobileQuery.matches ? 'false' : 'true'" [fixedTopGap]="56">
+               [opened]="!mobileQuery.matches" [fixedTopGap]="56">
     <div class="user">
-      <img src="../../../assets/img/test_head.png">
+      <img src="../../../assets/img/test_head.png" alt="User head background">
       <p>{{username}}<br>Hello! Welcome to admin!</p>
     </div>
     <mat-nav-list>
@@ -21,6 +21,11 @@
                      (click)="clickNav('Managing', sidenav)">
         <mat-icon mat-list-icon>list</mat-icon>
         <a> Managing</a>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['./about-managing']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('About Managing', sidenav)">
+        <mat-icon mat-list-icon>account_box</mat-icon>
+        <a> About Managing</a>
       </mat-list-item>
       <mat-list-item [routerLink]="['./settings']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
                      (click)="clickNav('Setting', sidenav)">

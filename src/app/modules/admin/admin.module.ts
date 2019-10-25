@@ -15,6 +15,7 @@ import { PoYoungComponent } from './po-young/po-young.component';
 import { PasswordComponent } from './settings/password/password.component';
 import { CategoriesManagingComponent } from './settings/categories-managing/categories-managing.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { AboutManagingComponent } from './about-managing/about-managing.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     PoYoungComponent,
     PasswordComponent,
     CategoriesManagingComponent,
+    AboutManagingComponent,
   ],
   entryComponents: [],
   providers: [

@@ -3,7 +3,6 @@ export class ArticleModel{
     this.id = 0;
     this.stick = false;
     this.collection = false;
-    this.about = false;
   }
   public id: number;
   public author: string;
@@ -16,5 +15,4 @@ export class ArticleModel{
   public update_time: string;
   public stick: boolean;
   public collection: boolean;
-  public about: boolean;
 }
