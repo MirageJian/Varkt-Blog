@@ -26,12 +26,20 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="f093d9574ab746b231504bd2cbb65f04bd7b00db" datatype="html">
+        <source>Log in</source>
+        <target state="translated">登录</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
         <source>Search</source>
         <target state="translated">搜索</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category/assortment/assortment.component.html</context>
@@ -43,7 +51,7 @@
         <target state="translated">写东西</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="366fbda5dfc35fc32fe27294667843e16ccd2b90" datatype="html">
@@ -51,7 +59,7 @@
         <target state="translated">工作本</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
@@ -59,7 +67,7 @@
         <target state="translated">登出</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ea42960a9d0473e11bb9c74b1bc707f79e0dce40" datatype="html">
@@ -104,7 +112,7 @@
       </trans-unit>
       <trans-unit id="1b121fbcff1726ab082565e9d990a6aab4184312" datatype="html">
         <source>We're sorry. The page you are looking for cannot be found.</source>
-        <target state="translated">很抱歉。指定的页面不存在</target>
+        <target state="translated">很抱歉。指定的页面不存在。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">5</context>
@@ -112,7 +120,7 @@
       </trans-unit>
       <trans-unit id="0192667f1edb889dca50d2a45b1e81bec92aa9f6" datatype="html">
         <source>Back to main site.</source>
-        <target state="translated">回到主页</target>
+        <target state="translated">回到主页。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">6</context>
@@ -128,7 +136,7 @@
       </trans-unit>
       <trans-unit id="30c6403c5301919e5c5c58c95b0de08302b723ea" datatype="html">
         <source>We're sorry. The request was not responded by the server.</source>
-        <target state="translated">很抱歉。服务器未响应您的请求</target>
+        <target state="translated">很抱歉。服务器未响应您的请求。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">10</context>
@@ -136,10 +144,37 @@
       </trans-unit>
       <trans-unit id="d459642a67223c7352eb1077cd9cafc7190158bb" datatype="html">
         <source>Refresh and back to main site.</source>
-        <target state="translated">刷新并返回主页</target>
+        <target state="translated">刷新并返回主页。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eae41c6701c30490ff55947384ed7ef55413b452" datatype="html">
+        <source>About this, About me</source>
+        <target state="translated">关于博客，关于我</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="09d2d4b0b8fae295541d68fb9b31174c1e9edac1" datatype="html">
+        <source>
+        Updated on <x id="INTERPOLATION" equiv-text="{{article.update_time}}"/>
+      </source>
+        <target state="translated">
+        更新于 <x id="INTERPOLATION" equiv-text="{{article.update_time}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6261c4c1819494b58e11ecb90b993ea4478332af" datatype="html">
+        <source>No updates</source>
+        <target state="translated">无更新</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="077dd991369bb89f5c39dd14297abfb5509c62b4" datatype="html">
@@ -147,24 +182,25 @@
         <target state="translated">查看更多</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/dashboard/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9e16c61914798a2eca6ffd9a3d64d151c7ec3eb9" datatype="html">
         <source>you can search everything such as author, title, category and title.</source>
-        <target state="translated">你可以搜索任何东西，例如作者，标题，类别</target>
+        <target state="translated">你可以搜索任何东西，例如作者，标题，类别。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category/assortment/assortment.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="984b1d8d2add42d6a99070ad6f2a63491a663de2" datatype="html">
+      <trans-unit id="f18ee52bebeee46dce4ecac31c0c08a7f605baad" datatype="html">
         <source>See More
-            </source>
-        <target state="needs-adaptation">查看更多</target>
+          </source>
+        <target state="translated">查看更多
+          </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category/list-articles/list-articles.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">

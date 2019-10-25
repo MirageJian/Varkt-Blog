@@ -23,11 +23,18 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="f093d9574ab746b231504bd2cbb65f04bd7b00db" datatype="html">
+        <source>Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
         <source>Search</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category/assortment/assortment.component.html</context>
@@ -38,21 +45,21 @@
         <source>Write</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="366fbda5dfc35fc32fe27294667843e16ccd2b90" datatype="html">
         <source>Workbook</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
         <source>Log out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ea42960a9d0473e11bb9c74b1bc707f79e0dce40" datatype="html">
@@ -125,11 +132,34 @@
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="eae41c6701c30490ff55947384ed7ef55413b452" datatype="html">
+        <source>About this, About me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="09d2d4b0b8fae295541d68fb9b31174c1e9edac1" datatype="html">
+        <source>
+        Updated on <x id="INTERPOLATION" equiv-text="{{article.update_time}}"/>
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6261c4c1819494b58e11ecb90b993ea4478332af" datatype="html">
+        <source>No updates</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="077dd991369bb89f5c39dd14297abfb5509c62b4" datatype="html">
         <source>See More</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/dashboard/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9e16c61914798a2eca6ffd9a3d64d151c7ec3eb9" datatype="html">
@@ -139,12 +169,12 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="984b1d8d2add42d6a99070ad6f2a63491a663de2" datatype="html">
+      <trans-unit id="f18ee52bebeee46dce4ecac31c0c08a7f605baad" datatype="html">
         <source>See More
-            </source>
+          </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category/list-articles/list-articles.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
