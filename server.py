@@ -1,6 +1,8 @@
 import tornado
 from tornado import web, ioloop, httpserver
 from tornado.options import define, options
+
+import seeds
 from url import path
 import os
 
@@ -24,5 +26,7 @@ if __name__ == "__main__":
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(options.port)
-    print("http://localhost:8888")
+    # operations and information before starting
+    seeds.seed_default_db()
+    print("The server is now on http://localhost:8888")
     tornado.ioloop.IOLoop.instance().start()

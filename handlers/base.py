@@ -5,7 +5,7 @@ from tools import json_helper
 
 class BaseHandler(tornado.web.RequestHandler):
     def prepare(self):
-        self.db = DataBase()
+        self.db: DataBase = DataBase()
 
     def on_finish(self):
         self.db.cursor.close()

@@ -7,12 +7,12 @@ class ArticleHandler(BaseHandler):
         id_article = self.get_argument("id", None)
         if not id_article:
             self.db.cursor.execute(
-                "SELECT a.id,a.title,a.category,a.img,a.subhead,a.time,u.name,a.update_time as author FROM article a "
-                "JOIN user u on a.id_user = u.id  ORDER BY a.time DESC")
+                "SELECT a.id,a.title,a.category,a.img,a.subhead,a.time,u.username AS author,a.update_time "
+                "FROM article a JOIN user u on a.id_user = u.id  ORDER BY a.time DESC")
             data = self.db.cursor.fetchall()
         else:
             self.db.cursor.execute(
-                "SELECT a.id,u.name as author,a.title,a.content,a.category,a.time,a.stick,a.collection,a.about"
+                "SELECT a.id,u.username AS author,a.title,a.content,a.category,a.time,a.stick,a.collection,a.about"
                 ",a.update_time FROM article a JOIN user u on a.id_user = u.id where a.id=%s", id_article)
             data = self.db.cursor.fetchone()
         json = self.json_encode(data)
