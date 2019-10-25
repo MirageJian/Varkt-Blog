@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { BaseService } from './base.service';
 import { LoginInfoModel } from '../shared/models';
 
 @Injectable()
 export class LoginService extends BaseService {
   isLoggedIn = false;
-  userName = '登陆';
+  userName = null;
   // store the URL so we can redirect after logging in
   redirectUrl = '/admin';
   login(log: LoginInfoModel) {
@@ -23,7 +22,7 @@ export class LoginService extends BaseService {
   }
   logout() {
     this.isLoggedIn = false;
-    this.userName = '登陆';
+    this.userName = null;
     const url = `/apis/login`;
     return this.http.delete(url).pipe(catchError(this.handleError));
   }

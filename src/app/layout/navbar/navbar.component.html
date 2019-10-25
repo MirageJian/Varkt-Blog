@@ -9,7 +9,8 @@
   <mat-menu #appMenu="matMenu">
     <a mat-menu-item [routerLink]="['/admin']" routerLinkActive="router-link-active">
       <mat-icon>person</mat-icon>
-      <span>{{loginService.userName}}</span>
+      <span *ngIf="loginService.userName else showLogin">{{loginService.userName}}</span>
+      <ng-template #showLogin><span i18n>Log in</span></ng-template>
     </a>
     <button mat-menu-item>
       <mat-icon>search</mat-icon>
@@ -28,7 +29,7 @@
       <mat-icon>translate</mat-icon>
       <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
     </a>
-    <button *ngIf="loginService.userName!='登陆'" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
+    <button *ngIf="loginService.userName!=null" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
       <mat-icon>exit_to_app</mat-icon>
       <span i18n>Log out</span>
     </button>

@@ -5,5 +5,8 @@
   <button *ngIf="is_article" mat-button [routerLink]="['../']">
     <i class="material-icons mat-36">keyboard_backspace</i>
   </button>
-  <h2 [ngClass]="{'mobile': matches, 'desktop': !matches}"> {{title}} </h2>
+  <h2 [ngClass]="{'mobile': matches, 'desktop': !matches}">
+    <ng-container *ngIf="title else ngContent">{{title}}</ng-container>
+    <ng-template #ngContent><ng-content></ng-content></ng-template>
+  </h2>
 </header>
