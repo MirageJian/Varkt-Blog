@@ -2,11 +2,12 @@
   margin-top: 15px;
   margin-bottom: 30px;
 }
+
 ::ng-deep.quill-editor > .ql-toolbar {
   position: sticky;
   top: 56px;
   z-index: 2;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 
 @media (max-width: 600px){

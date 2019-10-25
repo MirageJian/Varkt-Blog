@@ -1,16 +1,14 @@
-import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ArticleModel, CategoryModel, ResModel} from '../../../shared/models';
 import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '../../../shared/tools';
-import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-writing',
   templateUrl: './writing.component.html',
-  styleUrls: ['./writing.component.scss',],
-  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./writing.component.scss']
 })
 export class WritingComponent implements OnInit {
   quill: any;
@@ -25,7 +23,6 @@ export class WritingComponent implements OnInit {
     private writingService: WritingService,
     private router: Router,
     private route: ActivatedRoute,
-    private matSnackBar: MatSnackBar,
   ) {
   }
 
