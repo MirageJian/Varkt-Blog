@@ -9,7 +9,7 @@ class LoginHandler(BaseHandler):
             self.db.cursor.execute("SELECT * FROM user WHERE id=%s",
                                    self.get_secure_cookie("admin_user"))
             user = self.db.cursor.fetchone()
-            self.write_res(0, "Success", user["name"])
+            self.write_res(0, "Success", user["username"])
 
     def post(self):
         self.set_header("Content-Type", "text/plain")
@@ -26,7 +26,7 @@ class LoginHandler(BaseHandler):
         if str(body["password"]) == str(user["password"]):
             # set_secure_cookie
             self.set_secure_cookie("admin_user", str(user["id"]), 3, httponly=True, secure=False)
-            self.write_res(0, "Hello " + user["name"], user["name"])
+            self.write_res(0, "Hello " + user["username"], user["username"])
             # self.redirect(self.get_argument("next", "/"))
         else:
             self.write_res(1, "incorrect password", None)

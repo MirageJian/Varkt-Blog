@@ -3,7 +3,7 @@ from database import DataBase
 
 # user default seed
 username = 'admin'
-password = ''
+password = 'e10adc3949ba59abbe56e057f20f883e'
 email = username + '@yourdomain.com'
 
 
@@ -18,7 +18,8 @@ def create_default_user(db: DataBase):
 
 
 # about default seed
-about_content = '{"ops":[{"insert":"Insert your about information here, any thing you want. You also can edit this about in admin dashboard"}]}'
+about_content = '{"ops":[{"insert":"Insert your about information here, any thing you want. ' \
+                'You also can edit this about in admin dashboard"}]}'
 
 
 def create_default_blog_about(db: DataBase):
