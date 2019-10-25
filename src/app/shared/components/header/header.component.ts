@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {slideFromRight} from "../../animations/animations";
@@ -15,21 +15,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() sidenav: MatSidenav;
   @Input() matches: boolean;
-  @Input() is_article: false;
+  @Input() is_article = false;
   // @Output() changeRoute: EventEmitter<string> = new EventEmitter<string>();
   subscriptionRouter: Subscription;
+  backUrl: string;
+
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
     // register the subscription of router
-    this.subscriptionRouter = this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe(() => {
-
-      });
+    this.subscriptionRouter = this.router.events.pipe(filter((event: any) =>
+      event instanceof NavigationEnd)).subscribe(() => {});
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.backUrl = paramMap.get('backUrl')
+    })
   }
 
   // destroy the subscription and listener.

@@ -2,7 +2,7 @@
   <button *ngIf="matches" mat-button (click)="sidenav.toggle()" style="width:64px;">
     <i class="material-icons mat-36">menu</i>
   </button>
-  <button *ngIf="is_article" mat-button [routerLink]="['../']">
+  <button *ngIf="is_article" mat-button [routerLink]="[backUrl ? backUrl : '../']">
     <i class="material-icons mat-36">keyboard_backspace</i>
   </button>
   <h2 [ngClass]="{'mobile': matches, 'desktop': !matches}">

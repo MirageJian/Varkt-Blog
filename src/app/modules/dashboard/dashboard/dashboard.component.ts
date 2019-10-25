@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleModel, ListArticleModel} from "../../../shared/models";
+import {ListArticleModel} from "../../../shared/models";
 import {DashboardService} from "../dashboard.service";
 import {slideFromBottom} from "../../../shared/animations";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private generalService: DashboardService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,5 +28,8 @@ export class DashboardComponent implements OnInit {
         this.listArticle.push(a);
       }
     })
+  }
+  public get routerUrl() {
+    return this.router.url;
   }
 }

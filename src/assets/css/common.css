@@ -1,3 +1,13 @@
+/* common var */
+:root {
+  --primaryColor: #607d8b;
+  --darkPrimaryColor: #37474f;
+  --accentColor: #43a047;
+  --backgroundColor: #ffffff;
+  --darkBackgroundColor: #eeeeee;
+  --mobileWidth: 600px;
+  --tabletWidth: 960px;
+}
 body {
   /* Consolas */
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft Yahei UI","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",Roboto,Helvetica,Arial,sans-serif;
@@ -8,16 +18,7 @@ body {
   margin: 0;
   font-size: 1em;
   line-height: 1.7;
-}
-/* common var */
-:root {
-  --primaryColor: #607d8b;
-  --darkPrimaryColor: #37474f;
-  --accentColor: #43a047;
-  --backgroundColor: #ffffff;
-  --darkBackgroundColor: #eeeeee;
-  --mobileWidth: 600px;
-  --tabletWidth: 960px;
+  background-color: #fafafa;
 }
 /* scrollbar css */
 ::-webkit-scrollbar {width: 5px;height:5px;}

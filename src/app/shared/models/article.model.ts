@@ -10,7 +10,7 @@ export class ArticleModel{
   public img: string;
   public subhead: string;
   public content: string | any;
-  public category: string | any;
+  public category: string | [];
   public time: string;
   public update_time: string;
   public stick: boolean;

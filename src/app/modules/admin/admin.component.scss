@@ -36,6 +36,6 @@ mat-sidenav-content{
   color: #ffffff;
 }
 .active {
-  background: #eeeeee;
-  color: #607d8b;
+  background-color: var(--darkBackgroundColor);
+  color: var(--primaryColor);
 }

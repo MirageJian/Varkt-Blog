@@ -14,7 +14,7 @@
         <!--<hr>-->
       </mat-card-content>
       <mat-card-actions align="end">
-        <a mat-button color="primary" [routerLink]="['../something/', a.id]" i18n>See More</a>
+        <a mat-button color="primary" [routerLink]="['../something/', a.id, {backUrl:routerUrl}]" i18n>See More</a>
       </mat-card-actions>
     </mat-card>
   </div>
