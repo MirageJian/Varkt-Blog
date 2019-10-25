@@ -1,10 +1,10 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {SomethingService} from '../something.service';
 import {CategoryModel} from '../../../shared/models';
 import {WebConfig} from "../../../shared/tools";
-import {slideFromBottom} from "../../../shared/animations";
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-category',
@@ -16,7 +16,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
   categories: Array<CategoryModel>;
   // check if the device is mobile
   mobileQuery: MediaQueryList;
-  private _mobileQueryListener: () => void;
+  private readonly _mobileQueryListener: () => void;
+  @ViewChild('sidenav', {static: true}) sidenav: MatSidenav;
 
   constructor(
     private router: Router,
@@ -27,7 +28,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
   ) {
     this.mobileQuery = media.matchMedia(WebConfig.mobileWidth);
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQuery.addEventListener('mobileQuery', this._mobileQueryListener);
   }
 
   ngOnInit() {
@@ -35,22 +36,26 @@ export class CategoryComponent implements OnInit, OnDestroy {
     this.somethingService.getListCategory().subscribe(res => {
       this.categories = res;
     });
-    const param = this.route.snapshot.paramMap.get('label');
-    this.label = param ? param : 'Filter';
+    this.route.paramMap.pipe().subscribe((paramMap: ParamMap) => {
+      const param = paramMap.get('label');
+      this.label = param ? param : 'Filter';
+      // try to close the sidenav when mobile
+      if (this.mobileQuery.matches) {
+        this.sidenav.close().then();
+      }
+    });
   }
   ngOnDestroy() {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeEventListener('mobileQuery', this._mobileQueryListener);
   }
+  // // this is the stupidest way to change list of articles!!
   // // this is the complex way of goto article. you need 'selected' to active what you just sleceted.
   // gotoArticle(sidenav: any, item: SomethingListModel) {
   //   this.router.navigate(['../', item.id, { foo: 'foo' }], { relativeTo: this.route });
   //   this.checkOperationNav(sidenav, item.title);
   // }
-  checkOperationNav(title: string, sidenav: any) {
-    if (this.mobileQuery.matches) {
-      sidenav.close();
-    }
-    this.label = title;
-    this.router.navigate(['./', {label: this.label}]).then();
-  }
+  // checkOperationNav(title: string, sidenav: any) {
+  //   this.label = title;
+  //   this.router.navigate(['./', {label: this.label}]).then();
+  // }
 }

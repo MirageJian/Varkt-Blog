@@ -1,15 +1,15 @@
-import {Component, OnInit, HostBinding, ViewChild, ElementRef, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, HostBinding, ViewEncapsulation, OnDestroy} from '@angular/core';
 
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {Location} from '@angular/common';
 import {slideInDownAnimation} from '../../../shared/animations';
 import {SomethingService} from '../something.service';
 import {ArticleModel, ResModel, CommentModel} from '../../../shared/models';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '../../../shared/tools';
+import {AppConst} from "../../../shared/app-const";
 
-declare var require: any;
-const Quill = require('quill');
+// declare var require: any;
+// const Quill = require('quill');
 
 @Component({
   selector: 'app-article',
@@ -18,7 +18,7 @@ const Quill = require('quill');
   animations: slideInDownAnimation,
   encapsulation: ViewEncapsulation.None,
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit, OnDestroy {
   @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display') display = 'flex';
   @HostBinding('style.flex-direction') direction = 'column';
@@ -32,7 +32,6 @@ export class ArticleComponent implements OnInit {
   constructor(
     private somethingService: SomethingService,
     private route: ActivatedRoute,
-    private location: Location
   ) {
   }
 
@@ -45,6 +44,8 @@ export class ArticleComponent implements OnInit {
     ).subscribe((article: ArticleModel) => {
       JsonHelper.toAny(article, JsonHelper.articleMember);
       this.article = article;
+      // Set page tile
+      document.title = this.article.title;
       this.quill.setContents(article.content);
       this.somethingService.getComments(this.article.id).subscribe((res: CommentModel[]) => {
         this.comments = res;
@@ -68,5 +69,9 @@ export class ArticleComponent implements OnInit {
   }
   likeComment(c: CommentModel) {
     c.likes += 1;
+  }
+  ngOnDestroy() {
+    // Reset page tile
+    document.title = AppConst.APP_TILE;
   }
 }

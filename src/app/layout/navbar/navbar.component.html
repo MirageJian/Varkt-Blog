@@ -29,9 +29,9 @@
       <mat-icon>translate</mat-icon>
       <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
     </a>
-    <button *ngIf="loginService.userName!=null" mat-menu-item (click)="logout()" routerLinkActive="router-link-active">
+    <a *ngIf="loginService.userName!=null" mat-menu-item (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span i18n>Log out</span>
-    </button>
+    </a>
   </mat-menu>
 </mat-toolbar>
