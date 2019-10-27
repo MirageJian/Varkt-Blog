@@ -3,6 +3,12 @@
   <a mat-button [routerLink]="['/something']"><span i18n>Articles</span></a>
   <a mat-button [routerLink]="['/about']"><span i18n>About</span></a>
   <div class="flex-spacer"></div>
+  <label class="search-container">
+    <button mat-icon-button class="search-button">
+      <mat-icon>search</mat-icon>
+    </button>
+    <input class="search-box">
+  </label>
   <button mat-icon-button [matMenuTriggerFor]="appMenu">
     <mat-icon aria-label="">more_vert</mat-icon>
   </button>

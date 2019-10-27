@@ -12,3 +12,25 @@ mat-toolbar{
   color: white;
   height: 56px;
 }
+.search-box {
+  height: 40px;
+  width: 240px;
+  border-radius: 20px;
+  border-style: none;
+  padding: 0 10px;
+}
+.search-box:focus {
+  border: none;
+  background-color: #ffffff;
+}
+.search-button {
+  color: black;
+  position: absolute;
+  right: 0;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+  position: relative;
+}

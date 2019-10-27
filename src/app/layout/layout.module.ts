@@ -10,6 +10,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import {CommonModule} from "@angular/common";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {FooterComponent} from "./footer/footer.component";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import {FooterComponent} from "./footer/footer.component";
     MatIconModule,
     MatToolbarModule,
     MatSnackBarModule,
+    SharedModule,
   ],
   declarations: [
     LayoutComponent,
