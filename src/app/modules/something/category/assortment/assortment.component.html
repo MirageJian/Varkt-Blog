@@ -6,7 +6,9 @@
   <mat-card-content>
     <!--<hr>-->
     <mat-form-field>
-      <input matInput placeholder="Search" name="search" [(ngModel)]="keyword" (change)="searchArticle()">
+      <label>
+        <input matInput placeholder="Search" name="search" [(ngModel)]="keyword" (change)="searchArticle(keyword)">
+      </label>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </mat-card-content>

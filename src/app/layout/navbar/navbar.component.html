@@ -3,14 +3,16 @@
   <a mat-button [routerLink]="['/something']"><span i18n>Articles</span></a>
   <a mat-button [routerLink]="['/about']"><span i18n>About</span></a>
   <div class="flex-spacer"></div>
-    <form (ngSubmit)="submitSearch()" class="search-container" [@searchBox] *ngIf="isShownSearch">
-    <button mat-icon-button class="search-button" type="submit">
+  <form (ngSubmit)="submitSearch()" class="search-container" *ngIf="isShownSearch" [@searchBox] (@searchBox.start)="searchBox.focus()">
+    <button mat-icon-button class="search-button">
       <mat-icon>search</mat-icon>
     </button>
     <button mat-icon-button class="search-cancel" (click)="isShownSearch=false" type="button">
       <mat-icon>cancel</mat-icon>
     </button>
-      <input class="search-box">
+    <label>
+      <input #searchBox class="search-box" name="searchContent" [(ngModel)]="searchContent">
+    </label>
   </form>
   <button mat-icon-button (click)="isShownSearch=true" *ngIf="!isShownSearch">
     <mat-icon>search</mat-icon>
@@ -24,10 +26,6 @@
       <span *ngIf="loginService.userName else showLogin">{{loginService.userName}}</span>
       <ng-template #showLogin><span i18n>Log in</span></ng-template>
     </a>
-    <button mat-menu-item (click)="isShownSearch=true">
-      <mat-icon>search</mat-icon>
-      <span i18n>Search</span>
-    </button>
     <a mat-menu-item [routerLink]="['/admin/writing']" routerLinkActive="router-link-active">
       <mat-icon>create</mat-icon>
       <span i18n>Write</span>

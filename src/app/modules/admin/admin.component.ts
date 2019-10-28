@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, OnInit, OnDestroy} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {LoginService} from '../../app-services/login.service';
 import {Router} from '@angular/router';
-import {AppConst} from "../../shared/app-const";
+import {MOBILE_WIDTH} from "../../shared/app-const";
 
 @Component({
   selector: 'app-admin',
@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
   ) {
-    this.mobileQuery = this.media.matchMedia(AppConst.MOBILE_WIDTH);
+    this.mobileQuery = this.media.matchMedia(MOBILE_WIDTH);
     this.mobileQueryListener = () => {
       this.changeDetectorRef.detectChanges();
     };

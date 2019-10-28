@@ -4,6 +4,8 @@ import {FormControl} from '@angular/forms';
 import {SomethingService} from "../../something.service";
 import {ListArticleModel} from "../../../../shared/models";
 import {JsonHelper} from "../../../../shared/tools";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-assortment',
@@ -28,17 +30,24 @@ export class AssortmentComponent implements OnInit {
   ];
   constructor(
     private somethingService: SomethingService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.route.queryParamMap.pipe(switchMap((paramMap: ParamMap) => {
+      return this.somethingService.getSearchResult(paramMap.get('keyword'));
+    })).subscribe(this.searchCallback)
   }
 
-  searchArticle() {
-    this.somethingService.getSearchResult(this.keyword).subscribe((res: ListArticleModel[]) => {
-      this.listArticle = res;
-      for (const a of this.listArticle) {
-        JsonHelper.toAny(a, ['category']);
-      }
-    })
+  searchArticle(keyword: string) {
+    this.somethingService.getSearchResult(keyword).subscribe(this.searchCallback);
   }
+  // use callback function to improve code reuse
+  private readonly searchCallback = (res: ListArticleModel[]) => {
+    if (!res) return;
+    this.listArticle = res;
+    for (const a of this.listArticle) {
+      JsonHelper.toAny(a, ['category']);
+    }
+  };
 }

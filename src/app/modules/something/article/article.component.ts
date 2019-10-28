@@ -6,7 +6,7 @@ import {SomethingService} from '../something.service';
 import {ArticleModel, ResModel, CommentModel} from '../../../shared/models';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '../../../shared/tools';
-import {AppConst} from "../../../shared/app-const";
+import {APP_TILE} from "../../../shared/app-const";
 
 // declare var require: any;
 // const Quill = require('quill');
@@ -72,6 +72,6 @@ export class ArticleComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     // Reset page tile
-    document.title = AppConst.APP_TILE;
+    document.title = APP_TILE;
   }
 }

@@ -1,12 +1,12 @@
-import {ChangeDetectorRef, Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '../../app-services/login.service';
 import {Router, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ResModel} from '../../shared/models';
 import {filter} from 'rxjs/operators';
 import {searchBox} from "./navbar-search.animation";
-import {AppConst} from "../../shared/app-const";
-import {BreakpointObserver, Breakpoints, MediaMatcher} from "@angular/cdk/layout";
+import {MOBILE_BREAKPOINT} from "../../shared/app-const";
+import {BreakpointObserver} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +16,9 @@ import {BreakpointObserver, Breakpoints, MediaMatcher} from "@angular/cdk/layout
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   subscriptionRouter: Subscription;
+  subscriptionBreakpoint: Subscription;
   isShownSearch = false;
+  searchContent: string;
 
   constructor(
     private router: Router,
@@ -25,10 +27,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver
   ) {
     // if in the desktop width
-    breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait]).subscribe(result => {
-      if (!result.matches) {
-        this.isShownSearch = true;
-      }
+    this.subscriptionBreakpoint = breakpointObserver.observe(MOBILE_BREAKPOINT).subscribe(result => {
+        this.isShownSearch = !result.matches;
     });
 
   }
@@ -59,6 +59,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.loginService.userName = null;
         }
       });
+    // do not open the search box
   }
 
   logout() {
@@ -67,12 +68,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   submitSearch() {
-    if (this.breakpointObserver.isMatched([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])) {
-      this.isShownSearch = false;
-    }
+    if (this.checkIsMobile) this.isShownSearch = false;
+    this.router.navigate(['/something'], {queryParams: {keyword: this.searchContent}}).then();
   }
 
   ngOnDestroy() {
     this.subscriptionRouter.unsubscribe();
+    this.subscriptionBreakpoint.unsubscribe();
+  }
+
+  private get checkIsMobile() {
+    return this.breakpointObserver.isMatched(MOBILE_BREAKPOINT);
   }
 }

@@ -12,6 +12,7 @@ mat-toolbar{
   color: white;
   height: 56px;
 }
+/*input aka search box*/
 .search-box {
   height: 40px;
   width: 240px;
@@ -20,11 +21,11 @@ mat-toolbar{
   padding: 0 10px;
   outline: none;
   box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
-}
-.search-box:focus {
+}.search-box:focus {
   border: none;
   background-color: #ffffff;
 }
+/*button style*/
 .search-button {
   color: black;
   position: absolute;
@@ -33,11 +34,14 @@ mat-toolbar{
 .search-cancel {
   display: none;
 }
+/*container and label*/
 .search-container {
   display: flex;
   align-items: center;
   margin: 0 16px;
   position: relative;
+}.search-container > label {
+  width: calc(100% - 80px);
 }
 @media (max-width: 960px) {
   .search-container {

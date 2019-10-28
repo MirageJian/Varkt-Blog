@@ -4,7 +4,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {SomethingService} from '../something.service';
 import {CategoryModel} from '../../../shared/models';
 import {MatSidenav} from "@angular/material/sidenav";
-import {AppConst} from "../../../shared/app-const";
+import {MOBILE_WIDTH} from "../../../shared/app-const";
 
 @Component({
   selector: 'app-category',
@@ -26,7 +26,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
     media: MediaMatcher,
     changeDetectorRef: ChangeDetectorRef
   ) {
-    this.mobileQuery = media.matchMedia(AppConst.MOBILE_WIDTH);
+    this.mobileQuery = media.matchMedia(MOBILE_WIDTH);
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('mobileQuery', this._mobileQueryListener);
   }
