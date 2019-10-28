@@ -3,12 +3,18 @@
   <a mat-button [routerLink]="['/something']"><span i18n>Articles</span></a>
   <a mat-button [routerLink]="['/about']"><span i18n>About</span></a>
   <div class="flex-spacer"></div>
-  <label class="search-container">
-    <button mat-icon-button class="search-button">
+    <form (ngSubmit)="submitSearch()" class="search-container" [@searchBox] *ngIf="isShownSearch">
+    <button mat-icon-button class="search-button" type="submit">
       <mat-icon>search</mat-icon>
     </button>
-    <input class="search-box">
-  </label>
+    <button mat-icon-button class="search-cancel" (click)="isShownSearch=false" type="button">
+      <mat-icon>cancel</mat-icon>
+    </button>
+      <input class="search-box">
+  </form>
+  <button mat-icon-button (click)="isShownSearch=true" *ngIf="!isShownSearch">
+    <mat-icon>search</mat-icon>
+  </button>
   <button mat-icon-button [matMenuTriggerFor]="appMenu">
     <mat-icon aria-label="">more_vert</mat-icon>
   </button>
@@ -18,7 +24,7 @@
       <span *ngIf="loginService.userName else showLogin">{{loginService.userName}}</span>
       <ng-template #showLogin><span i18n>Log in</span></ng-template>
     </a>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="isShownSearch=true">
       <mat-icon>search</mat-icon>
       <span i18n>Search</span>
     </button>
@@ -35,9 +41,9 @@
       <mat-icon>translate</mat-icon>
       <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
     </a>
-    <a *ngIf="loginService.userName!=null" mat-menu-item (click)="logout()">
+    <button *ngIf="loginService.userName!=null" mat-menu-item (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span i18n>Log out</span>
-    </a>
+    </button>
   </mat-menu>
 </mat-toolbar>

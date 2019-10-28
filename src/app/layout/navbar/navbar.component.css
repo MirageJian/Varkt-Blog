@@ -18,6 +18,8 @@ mat-toolbar{
   border-radius: 20px;
   border-style: none;
   padding: 0 10px;
+  outline: none;
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
 }
 .search-box:focus {
   border: none;
@@ -28,9 +30,29 @@ mat-toolbar{
   position: absolute;
   right: 0;
 }
+.search-cancel {
+  display: none;
+}
 .search-container {
   display: flex;
   align-items: center;
   margin: 0 16px;
   position: relative;
+}
+@media (max-width: 960px) {
+  .search-container {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    left: 0
+  }
+  .search-cancel {
+    position: absolute;
+    color: black;
+    display: block;
+  }
+  .search-box {
+    width: 100%;
+    padding: 0 40px;
+  }
 }
