@@ -5,7 +5,7 @@ import {ActivityInfo} from './activity-info';
 import { MatDialog } from '@angular/material/dialog';
 import {DialogProjectComponent} from '../dialog-project/dialog-project.component';
 import {DialogActivityComponent} from '../dialog-activity/dialog-activity.component';
-import {FormatDate} from '../../../../shared/tools/';
+import {FormatDate} from '@shared/tools/';
 
 @Component({
     selector: 'app-project',
@@ -47,7 +47,7 @@ export class ProjectComponent implements OnInit {
                 type: type,
             },
         });
-        dialogRef.afterClosed().subscribe(result => {
+        dialogRef.afterClosed().subscribe(() => {
             this.initData();
         });
     }

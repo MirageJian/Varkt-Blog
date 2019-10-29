@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {SomethingService} from "../../something/something.service";
-import {CategoryModel} from "../../../shared/models";
+import {CategoryModel} from "@shared/models";
 import {HttpParams} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
-import {JsonHelper} from "../../../shared/tools";
 import {Md5} from 'ts-md5';
 
 
@@ -23,7 +22,7 @@ export class SettingsService extends SomethingService{
       oldPassword: Md5.hashStr(password.oldPassword).toString(),
       newPassword: Md5.hashStr(password.newPassword).toString(),
       confirmedPassword: Md5.hashStr(password.confirmedPassword).toString()
-    }
+    };
     return this.http.put(this.url.password, password).pipe(catchError(this.handleError));
   }
 }

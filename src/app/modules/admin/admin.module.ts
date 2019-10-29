@@ -5,7 +5,7 @@ import {AdminComponent} from './admin.component';
 import {AdminRoutingModule} from './admin.routing';
 import {ManagingComponent} from './managing/managing.component';
 import {WritingComponent} from './writing/writing.component';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '@shared/shared.module';
 import {WorkbookModule} from './workbook/workbook.module';
 import {WritingService} from './writing/writing.service';
 import {ManagingService} from './managing/managing.service';

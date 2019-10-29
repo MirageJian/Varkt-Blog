@@ -16,4 +16,4 @@ export const searchBox = trigger('searchBox', [
       style({opacity: 0, left: 'calc(100% - 152px)', right: 40, offset: 1}),
     ])),
   ])
-])
+]);

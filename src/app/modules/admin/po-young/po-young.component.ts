@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PoYoungService} from "./po-young.service";
-import {DialogAlertComponent} from "../../../shared/components/alert-dialog/dialog-alert.component";
-import {PyCodeModel, PyRecordModel, PyUserModel, ResModel} from "../../../shared/models";
+import {PyCodeModel, PyRecordModel, PyUserModel, ResModel} from "@shared/models";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
@@ -37,7 +36,7 @@ export class PoYoungComponent implements OnInit {
     let formData = new FormData();
     formData.append('PoYoungApk', file, file.name);
     this.filename = file.name;
-    this.poYoungService.uploadApk(formData).subscribe(res => {
+    this.poYoungService.uploadApk(formData).subscribe(() => {
       this.matSnackBar.open('Uploaded Successfully', "Close");
     });
   }

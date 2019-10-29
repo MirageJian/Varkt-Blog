@@ -1,23 +1,24 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { slideInDownAnimation } from '../../../../shared/animations';
+import {slideFromBottom, routeAnimation} from '@shared/animations';
 import {FormControl} from '@angular/forms';
 import {SomethingService} from "../../something.service";
-import {ListArticleModel} from "../../../../shared/models";
-import {JsonHelper} from "../../../../shared/tools";
+import {ListArticleModel} from "@shared/models";
+import {JsonHelper} from "@shared/tools";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {switchMap} from "rxjs/operators";
+import {ToolsService} from "@app-services/tools.service";
 
 @Component({
   selector: 'app-assortment',
   templateUrl: './assortment.component.html',
   styleUrls: ['./assortment.component.scss'],
-  animations: slideInDownAnimation
+  animations: [slideFromBottom(), routeAnimation]
 })
 export class AssortmentComponent implements OnInit {
-  @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display')   display = 'block';
+  @HostBinding('@routeAnimation')
+  @HostBinding('style.display') display = 'block';
   keyword = '';
-  listArticle = [];
+  listArticle: ListArticleModel[];
     toppings = new FormControl();
 
     toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
@@ -30,12 +31,14 @@ export class AssortmentComponent implements OnInit {
   ];
   constructor(
     private somethingService: SomethingService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public tools: ToolsService
   ) { }
 
   ngOnInit() {
     this.route.queryParamMap.pipe(switchMap((paramMap: ParamMap) => {
-      return this.somethingService.getSearchResult(paramMap.get('keyword'));
+      this.keyword = paramMap.get('keyword');
+      return this.somethingService.getSearchResult(this.keyword);
     })).subscribe(this.searchCallback)
   }
 
@@ -50,4 +53,6 @@ export class AssortmentComponent implements OnInit {
       JsonHelper.toAny(a, ['category']);
     }
   };
+
+
 }

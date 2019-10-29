@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {ProjectService} from '../project/project.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {FormatDate} from '../../../../shared/tools/';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormatDate} from '@shared/tools/';
 
 @Component({
     selector: 'app-dialog-project',
@@ -37,9 +37,9 @@ export class DialogProjectComponent implements OnInit {
             date_end: FormatDate.hansDatetime(this.theForm.value.date_end),
         });
         if (this.data.type === 1) {
-            this.projectService.putProject(this.theForm.value).subscribe(res => {});
+            this.projectService.putProject(this.theForm.value).subscribe();
         } else {
-            this.projectService.postProject(this.theForm.value).subscribe(res => {});
+            this.projectService.postProject(this.theForm.value).subscribe();
         }
         this.dialogRef.close();
     }

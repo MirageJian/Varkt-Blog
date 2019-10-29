@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BaseService} from "../app-services/base.service";
 import {ErrorPageEnum} from "./error-page/error-page.enum";
 import {Router} from "@angular/router";
-import { MatSnackBar } from "@angular/material/snack-bar";
 import {AuthorizationService} from "../modules/authorization/authorization.service";
 
 @Component({
@@ -21,8 +19,7 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private _authorization: AuthorizationService,
-    private router: Router,
-    private snackBar: MatSnackBar
+    private router: Router
   ) {
   }
 

@@ -1,7 +1,7 @@
 import {trigger, state, style, animate, transition} from '@angular/animations';
 
 // Component transition animations
-export const slideInDownAnimation = [
+export const routeAnimation = [
   trigger('routeAnimation', [
     state('*',
       style({
@@ -25,7 +25,7 @@ export const slideInDownAnimation = [
   ])
 ];
 export function slideFromBottom() {
-  return trigger('routerTransition', [
+  return trigger('slideFromBottom', [
     state('void', style({ 'padding-top': '20px', opacity: '0' })),
     state('*', style({ 'padding-top': '0px', opacity: '1' })),
     transition(':enter', [

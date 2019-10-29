@@ -1,12 +1,12 @@
 import {Component, OnInit, HostBinding, ViewEncapsulation, OnDestroy} from '@angular/core';
 
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {slideInDownAnimation} from '../../../shared/animations';
+import {routeAnimation} from '@shared/animations';
 import {SomethingService} from '../something.service';
-import {ArticleModel, ResModel, CommentModel} from '../../../shared/models';
+import {ArticleModel, ResModel, CommentModel} from '@shared/models';
 import {switchMap} from 'rxjs/operators';
-import {JsonHelper} from '../../../shared/tools';
-import {APP_TILE} from "../../../shared/app-const";
+import {JsonHelper} from '@shared/tools';
+import {APP_TILE} from "@shared/app-const";
 
 // declare var require: any;
 // const Quill = require('quill');
@@ -15,7 +15,7 @@ import {APP_TILE} from "../../../shared/app-const";
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
-  animations: slideInDownAnimation,
+  animations: routeAnimation,
   encapsulation: ViewEncapsulation.None,
 })
 export class ArticleComponent implements OnInit, OnDestroy {

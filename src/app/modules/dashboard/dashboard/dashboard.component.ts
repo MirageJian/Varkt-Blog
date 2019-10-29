@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ListArticleModel} from "../../../shared/models";
+import {ListArticleModel} from "@shared/models";
 import {DashboardService} from "../dashboard.service";
-import {slideFromBottom} from "../../../shared/animations";
+import {slideFromBottom} from "@shared/animations";
 import {Router} from "@angular/router";
 
 @Component({

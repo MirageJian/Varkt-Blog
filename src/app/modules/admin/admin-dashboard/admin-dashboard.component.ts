@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentModel} from "../../../shared/models";
+import {CommentModel} from "@shared/models";
 import {AdminDashboardService} from "./admin-dashboard.service";
-import {ResModel} from "../../../shared/models";
+import {ResModel} from "@shared/models";
 
 @Component({
   selector: 'app-dashboard',

@@ -1,8 +1,7 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ResModel} from "../../models";
 import * as Quill from 'quill';
-import {FileUploadService} from "../../../app-services/file-upload.service";
-import {NgModel} from "@angular/forms";
+import {FileUploadService} from "@app-services/file-upload.service";
 
 // declare var require: any;
 // const Quill = require('quill');

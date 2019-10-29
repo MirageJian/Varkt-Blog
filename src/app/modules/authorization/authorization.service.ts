@@ -1,10 +1,9 @@
 import { catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { PoyoungAuth } from './authorization/PoyoungAuth';
-import { BaseService } from '../../app-services/base.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BaseService } from '@app-services/base.service';
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ResModel } from '../../shared/models';
+import { ResModel } from '@shared/models';
 
 @Injectable()
 export class AuthorizationService extends BaseService {

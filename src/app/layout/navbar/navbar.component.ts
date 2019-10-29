@@ -1,11 +1,11 @@
 import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
-import {LoginService} from '../../app-services/login.service';
+import {LoginService} from '@app-services/login.service';
 import {Router, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {ResModel} from '../../shared/models';
+import {ResModel} from '@shared/models';
 import {filter} from 'rxjs/operators';
 import {searchBox} from "./navbar-search.animation";
-import {MOBILE_BREAKPOINT} from "../../shared/app-const";
+import {MOBILE_BREAKPOINT} from "@shared/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
 
 @Component({

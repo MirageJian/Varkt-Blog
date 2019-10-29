@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {JsonHelper} from "../../../shared/tools";
+import {JsonHelper} from "@shared/tools";
 import {AboutService} from "../about.service";
-import {AboutModel} from "../../../shared/models/about.model";
-import {slideFromBottom} from "../../../shared/animations";
+import {AboutModel} from "@shared/models/about.model";
+import {slideFromBottom} from "@shared/animations";
 declare var require: any;
 const Quill = require('quill');
 

@@ -32,8 +32,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscriptionRouter = this.router.events.pipe(filter((event: any) =>
       event instanceof NavigationEnd)).subscribe(() => {});
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      this.backUrl = paramMap.get('backUrl')
+      this.backUrl = paramMap.get('backUrl');
     })
+  }
+
+  goBack() {
+    if (this.backUrl) this.router.navigateByUrl(this.backUrl).then();
+    else this.router.navigate(['../']).then();
   }
 
   // destroy the subscription and listener.

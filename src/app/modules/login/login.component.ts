@@ -1,13 +1,11 @@
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginService} from '../../app-services/login.service';
+import {LoginService} from '@app-services/login.service';
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators, NgForm} from '@angular/forms';
 
-import {LoginInfoModel} from '../../shared/models';
-import { MatDialog } from '@angular/material/dialog';
+import {LoginInfoModel} from '@shared/models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {Md5} from 'ts-md5';
-import {ResModel} from '../../shared/models';
+import {ResModel} from '@shared/models';
 
 @Component({
   selector: 'app-login',

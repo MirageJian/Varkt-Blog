@@ -1,6 +1,6 @@
 export class SpanModel {
   id: number;
-  lable: string;
+  label: string;
   icon: string;
   primary: boolean;
 }

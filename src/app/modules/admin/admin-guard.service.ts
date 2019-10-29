@@ -4,8 +4,8 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { LoginService } from '../../app-services/login.service';
-import {ResModel} from "../../shared/models";
+import { LoginService } from '@app-services/login.service';
+import {ResModel} from "@shared/models";
 
 @Injectable()
 export class AdminGuard implements CanActivate {
@@ -25,11 +25,11 @@ export class AdminGuard implements CanActivate {
       if (res.errcode === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
-        this.router.navigate([url]);
+        this.router.navigate([url]).then();
       } else {
         this.loginService.isLoggedIn = false;
         // Navigate to the login page with extras
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login']).then();
       }
     });
     return this.loginService.isLoggedIn;

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {BaseService} from "./base.service";
 import {LoginService} from "./login.service";
-import {HttpInterceptorProviders} from "./http-interceptors";
+import {ToolsService} from "./tools.service";
 
 @NgModule({
   imports: [
@@ -11,6 +11,7 @@ import {HttpInterceptorProviders} from "./http-interceptors";
     BaseService,
     LoginService,
     // HttpInterceptorProviders
+    ToolsService
   ]
 })
 export class AppServicesModule { }

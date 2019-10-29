@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {BaseService} from "../../../app-services/base.service";
+import {BaseService} from "@app-services/base.service";
 import {catchError} from 'rxjs/operators';
-import {HttpHeaders, HttpParams, HttpRequest} from "@angular/common/http";
-import {PyCodeModel, PyUserModel, PyRecordModel} from "../../../shared/models";
+import {HttpHeaders, HttpParams} from "@angular/common/http";
+import {PyCodeModel, PyUserModel, PyRecordModel} from "@shared/models";
 
 @Injectable({
   providedIn: 'root'

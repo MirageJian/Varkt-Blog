@@ -1,5 +1,5 @@
-import {BaseService} from '../../app-services/base.service';
-import {HttpHeaders, HttpParams} from '@angular/common/http';
+import {BaseService} from '@app-services/base.service';
+import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
@@ -27,6 +27,7 @@ export class SomethingService extends BaseService {
     return this.http.get(this.url.comment, {params: params}).pipe(catchError(this.handleError));
   }
   getSearchResult(keyword: string) {
+    // input validation, return observable of null
     if (!keyword || keyword.length < 1) return of(null); //
     let params = new HttpParams();
     params = params.set('keyword', keyword);

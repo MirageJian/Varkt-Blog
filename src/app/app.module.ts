@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {AppServicesModule} from "./app-services/app-services.module";
+import {AppServicesModule} from "@app-services/app-services.module";
 import {AuthorizationModule} from "./modules/authorization/authorization.module";
 @NgModule({
   declarations: [

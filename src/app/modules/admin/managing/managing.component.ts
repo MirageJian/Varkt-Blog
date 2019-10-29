@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {ListArticleModel, ResModel, CommentModel} from '../../../shared/models';
+import {ListArticleModel, ResModel, CommentModel} from '@shared/models';
 import {ManagingService} from './managing.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -41,7 +41,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
     this.destroyer();
   }
   deleteArticle(a: ListArticleModel): void {
-    this.managingService.deleteArticle(a.id).subscribe(res => {
+    this.managingService.deleteArticle(a.id).subscribe(() => {
       this.articles.splice(this.articles.findIndex((ff) => ff.id === a.id), 1);
       this.originalArticles = this.articles;
     });

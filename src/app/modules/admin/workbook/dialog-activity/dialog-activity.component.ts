@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {DialogProjectComponent} from '../dialog-project/dialog-project.component';
 import {ProjectService} from '../project/project.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {FormatDate} from '../../../../shared/tools/';
+import {FormatDate} from '@shared/tools/';
 
 @Component({
   selector: 'app-dialog-activity',
@@ -40,9 +40,9 @@ export class DialogActivityComponent implements OnInit {
             date: FormatDate.hansDatetime(this.theForm.value.date),
         });
         if (this.data.type === 1) {
-            this.projectService.putActivity(this.theForm.value).subscribe(res => {});
+            this.projectService.putActivity(this.theForm.value).subscribe();
         } else {
-            this.projectService.postActivity(this.theForm.value).subscribe(res => {});
+            this.projectService.postActivity(this.theForm.value).subscribe();
         }
         this.dialogRef.close();
     }

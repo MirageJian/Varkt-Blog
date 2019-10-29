@@ -1,9 +1,9 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ArticleModel, CategoryModel, ResModel} from '../../../shared/models';
+import {ArticleModel, CategoryModel, ResModel} from '@shared/models';
 import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {JsonHelper} from '../../../shared/tools';
+import {JsonHelper} from '@shared/tools';
 
 @Component({
   selector: 'app-writing',

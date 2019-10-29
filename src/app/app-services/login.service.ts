@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { BaseService } from './base.service';
-import { LoginInfoModel } from '../shared/models';
+import { LoginInfoModel } from '@shared/models';
 
 @Injectable()
 export class LoginService extends BaseService {

@@ -2,9 +2,9 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angul
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {SomethingService} from '../something.service';
-import {CategoryModel} from '../../../shared/models';
+import {CategoryModel} from '@shared/models';
 import {MatSidenav} from "@angular/material/sidenav";
-import {MOBILE_WIDTH} from "../../../shared/app-const";
+import {MOBILE_WIDTH} from "@shared/app-const";
 
 @Component({
   selector: 'app-category',

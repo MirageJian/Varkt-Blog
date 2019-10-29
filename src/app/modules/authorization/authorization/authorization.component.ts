@@ -1,10 +1,10 @@
 import { AuthorizationService } from '../authorization.service';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogAlertComponent } from '../../../shared/components/alert-dialog/dialog-alert.component';
+import { DialogAlertComponent } from '@shared/components/alert-dialog/dialog-alert.component';
 import { PoyoungAuth } from './PoyoungAuth';
-import { ResModel } from '../../../shared/models';
+import { ResModel } from '@shared/models';
 
 @Component({
   selector: 'app-authorization',

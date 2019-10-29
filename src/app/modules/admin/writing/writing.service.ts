@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import {SomethingService} from '../../something/something.service';
 import {catchError} from 'rxjs/operators';
-import {ArticleModel, CategoryModel} from '../../../shared/models';
-import {JsonHelper} from '../../../shared/tools';
-import {HttpParams} from "@angular/common/http";
-import {HttpHeaders} from "@angular/common/http";
+import {ArticleModel} from '@shared/models';
+import {JsonHelper} from '@shared/tools';
 
 @Injectable()
 export class WritingService extends SomethingService {

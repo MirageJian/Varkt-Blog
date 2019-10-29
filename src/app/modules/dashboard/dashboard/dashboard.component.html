@@ -1,6 +1,6 @@
 <div class="container">
   <div style="display: flex;flex-direction:column;align-items:stretch">
-    <mat-card *ngFor="let a of listArticle" class="card-container" [@routerTransition]>
+    <mat-card *ngFor="let a of listArticle" class="card-container" [@slideFromBottom]>
       <mat-card-header>
         <!--<div mat-card-avatar></div>-->
         <mat-card-title><h3>{{a.title}}</h3></mat-card-title>

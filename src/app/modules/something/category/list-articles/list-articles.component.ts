@@ -1,9 +1,9 @@
-import {Component, OnInit, OnChanges, OnDestroy, Input, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, Input, SimpleChanges} from '@angular/core';
 import {SomethingService} from '../../something.service';
-import {ListArticleModel} from '../../../../shared/models';
+import {ListArticleModel} from '@shared/models';
 import {ActivatedRoute} from '@angular/router';
-import {JsonHelper} from "../../../../shared/tools";
-import {slideFromBottom} from "../../../../shared/animations";
+import {JsonHelper} from "@shared/tools";
+import {slideFromBottom} from "@shared/animations";
 
 @Component({
   selector: 'app-list-articles',

@@ -6,7 +6,7 @@ import {WorkbookComponent} from './workbook.component';
 import {ProjectComponent} from './project/project.component';
 import {DialogActivityComponent} from './dialog-activity/dialog-activity.component';
 import {AdminDashboardComponent} from '../admin-dashboard/admin-dashboard.component';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '@shared/shared.module';
 import {ProjectService} from './project/project.service';
 import { SummaryWeekComponent } from './summary-week/summary-week.component';
 import { EstimationWeekComponent } from './estimation-week/estimation-week.component';
