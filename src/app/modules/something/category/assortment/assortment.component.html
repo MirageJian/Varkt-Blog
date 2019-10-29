@@ -1,13 +1,12 @@
 <div class="container">
   <mat-card class="card-container">
     <mat-card-header>
-      <mat-card-title><h3 i18n>Search</h3></mat-card-title>
       <mat-card-subtitle i18n>Use enter to search. You can search everything such as title, category and author.</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <!--<hr>-->
       <mat-form-field appearance="standard" style="width: 100%">
-        <mat-label>Search</mat-label>
+        <mat-label i18n>Search</mat-label>
         <label>
           <input matInput name="search" [(ngModel)]="keyword" (change)="searchArticle(keyword)">
         </label>

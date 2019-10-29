@@ -5,7 +5,7 @@
       <!--head of article-->
       <mat-card-header>
         <mat-card-subtitle i18n>{{article.author}} Published on {{article.time}}
-          <ng-container *ngIf="article.update_time" i18n>Update on {{article.update_time}}</ng-container>
+          <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>

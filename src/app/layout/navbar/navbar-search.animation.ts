@@ -12,7 +12,7 @@ export const searchBox = trigger('searchBox', [
   transition(':leave', [
     animate('0.25s ease-out', keyframes([
       style({opacity: 1, left: 0, right: 0, offset: 0}),
-      style({opacity: 1, left: 'calc(70% - 152px)', right: 28, offset: 0.7}),
+      style({opacity: 1, left: 'calc(30% - 152px)', right: 28, offset: 0.7}),
       style({opacity: 0, left: 'calc(100% - 152px)', right: 40, offset: 1}),
     ])),
   ])
