@@ -38,7 +38,9 @@ body {
 }
 .card-container {
   margin: 16px;
-}
+}.card-container > mat-card-content {
+   margin: 0 16px;
+ }
 @media (max-width: 960px){
   .container {
     width: auto;

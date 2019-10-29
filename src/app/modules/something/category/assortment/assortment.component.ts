@@ -1,6 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import {slideFromBottom, routeAnimation} from '@shared/animations';
-import {FormControl} from '@angular/forms';
 import {SomethingService} from "../../something.service";
 import {ListArticleModel} from "@shared/models";
 import {JsonHelper} from "@shared/tools";
@@ -19,16 +18,7 @@ export class AssortmentComponent implements OnInit {
   @HostBinding('style.display') display = 'block';
   keyword = '';
   listArticle: ListArticleModel[];
-    toppings = new FormControl();
 
-    toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-  selectedValue: string;
-
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
   constructor(
     private somethingService: SomethingService,
     private route: ActivatedRoute,
@@ -43,6 +33,7 @@ export class AssortmentComponent implements OnInit {
   }
 
   searchArticle(keyword: string) {
+    this.listArticle = null;
     this.somethingService.getSearchResult(keyword).subscribe(this.searchCallback);
   }
   // use callback function to improve code reuse
@@ -53,6 +44,5 @@ export class AssortmentComponent implements OnInit {
       JsonHelper.toAny(a, ['category']);
     }
   };
-
 
 }

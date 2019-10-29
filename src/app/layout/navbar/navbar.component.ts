@@ -59,7 +59,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.loginService.userName = null;
         }
       });
-    // do not open the search box
   }
 
   logout() {
@@ -68,6 +67,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   submitSearch() {
+    if (!this.searchContent || this.searchContent.length < 1) return;
     if (this.checkIsMobile) this.isShownSearch = false;
     this.router.navigate(['/something'], {queryParams: {keyword: this.searchContent}}).then();
   }
