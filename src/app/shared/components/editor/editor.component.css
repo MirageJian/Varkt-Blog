@@ -1,6 +1,5 @@
 .quill-editor {
-  margin-top: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
 ::ng-deep.quill-editor > .ql-toolbar {

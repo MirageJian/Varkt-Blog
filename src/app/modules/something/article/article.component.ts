@@ -1,4 +1,4 @@
-import {Component, OnInit, HostBinding, ViewEncapsulation, OnDestroy} from '@angular/core';
+import {Component, OnInit, HostBinding, OnDestroy} from '@angular/core';
 
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {routeAnimation} from '@shared/animations';
@@ -15,8 +15,7 @@ import {APP_TILE} from "@shared/app-const";
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
-  animations: routeAnimation,
-  encapsulation: ViewEncapsulation.None,
+  animations: routeAnimation
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   @HostBinding('@routeAnimation') routeAnimation = true;

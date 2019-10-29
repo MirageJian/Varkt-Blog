@@ -1,3 +1,9 @@
-.ql-container.ql-snow {
-  border: 0 solid #ccc;
+::ng-deep.quill-editor > .ql-container {
+  border: none;
+}
+::ng-deep.ql-editor {
+  padding: 0;
+}
+textarea {
+  height: 100px;
 }

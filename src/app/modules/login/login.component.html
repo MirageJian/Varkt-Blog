@@ -1,20 +1,26 @@
 <div class="container">
   <div style="display: flex;flex-direction:column;justify-content:space-around;align-items:center">
-    <mat-card>
+    <mat-card class="card-container">
       <mat-card-header>
-        <h2>Holacode</h2>
+        <mat-card-title><h2 i18n>Holacode admin login</h2></mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <form #loginForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
-          <mat-form-field>
-            <input type="text" matInput placeholder="Name or Email" [(ngModel)]="info.account" name="account"
-                   #account="ngModel" required>
+          <mat-form-field appearance="standard">
+            <mat-label i18n>Name or Email</mat-label>
+            <label>
+              <input type="text" matInput [(ngModel)]="info.account" name="account"
+                     #account="ngModel" required>
+            </label>
           </mat-form-field>
-          <mat-form-field>
-            <input type="password" matInput placeholder="Password" [(ngModel)]="info.password" name="password"
-                   #password="ngModel" required>
+          <mat-form-field appearance="standard">
+            <mat-label i18n>Password</mat-label>
+            <label>
+              <input type="password" matInput [(ngModel)]="info.password" name="password"
+                     #password="ngModel" required>
+            </label>
           </mat-form-field>
-          <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent">
+          <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent" i18n>
             Log in
           </button>
         </form>
