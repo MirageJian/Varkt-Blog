@@ -27,7 +27,8 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.mobileQueryListener = () => {
       this.changeDetectorRef.detectChanges();
     };
-    this.mobileQuery.addEventListener('mobileQuery', this.mobileQueryListener);
+    // this.mobileQuery.addEventListener('mobileQuery', this.mobileQueryListener);
+    this.mobileQuery.addListener(this.mobileQueryListener);
   }
 
   ngOnInit() {
@@ -44,7 +45,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.mobileQuery.removeEventListener('mobileQuery', this.mobileQueryListener);
+    // this.mobileQuery.removeEventListener('mobileQuery', this.mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
   clickNav(title: string, sidenav: any) {

@@ -28,7 +28,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
   ) {
     this.mobileQuery = media.matchMedia(MOBILE_WIDTH);
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('mobileQuery', this._mobileQueryListener);
+    // this.mobileQuery.addEventListener('mobileQuery', this._mobileQueryListener);
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit() {
@@ -46,7 +47,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
     });
   }
   ngOnDestroy() {
-    this.mobileQuery.removeEventListener('mobileQuery', this._mobileQueryListener);
+    // this.mobileQuery.removeEventListener('mobileQuery', this._mobileQueryListener);
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   // // this is the stupidest way to change list of articles!!
   // // this is the complex way of goto article. you need 'selected' to active what you just sleceted.
