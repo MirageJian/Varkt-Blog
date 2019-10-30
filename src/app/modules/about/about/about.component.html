@@ -4,6 +4,7 @@
     <!--<h5>{{article.author}}</h5>-->
     <!--<img src="../../../assets/img/ceshi.jpg">-->
     <div #editor></div>
+    <app-editor (onQuillInit)="quill=$event" [readonly]="true"></app-editor>
     <div *appProgress="!!article"></div>
     <!--Bottom part, such as time-->
     <mat-chip-list *ngIf="article">

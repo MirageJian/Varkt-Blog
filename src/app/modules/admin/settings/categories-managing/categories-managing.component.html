@@ -1,22 +1,26 @@
 <div class="container">
   <mat-card class="card-container">
-    <mat-card-header>
+    <mat-card-header class="no-avatar-card">
       <mat-card-title><h3>Add Categories</h3></mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form #theForm="ngForm" (submit)="addCategory(category)">
-        <table cellspacing="0">
+        <table>
           <tr>
             <td>
               <mat-form-field style="width: 100%">
-                <input matInput placeholder="Icon" [(ngModel)]="category.icon" name="icon" #icon="ngModel" required
-                       autocomplete="off">
+                <label>
+                  <input matInput placeholder="Icon" [(ngModel)]="category.icon" name="icon" #icon="ngModel" required
+                         autocomplete="off">
+                </label>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field style="width: 100%">
-                <input matInput placeholder="Label" [(ngModel)]="category.label" name="label" #label="ngModel"
-                       required autocomplete="off">
+                <label>
+                  <input matInput placeholder="Label" [(ngModel)]="category.label" name="label" #label="ngModel"
+                         required autocomplete="off">
+                </label>
               </mat-form-field>
             </td>
           </tr>

@@ -3,13 +3,13 @@
   <div style="display: flex;flex-direction:column;align-items:stretch">
     <mat-card class="card-container">
       <!--head of article-->
-      <mat-card-header>
+      <mat-card-header class="no-avatar-card">
         <mat-card-subtitle i18n>{{article.author}} Published on {{article.time}}
           <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <app-editor [(quill)]="quill" (onQuillInit)="onQuillInit()" [readonly]="true"></app-editor>
+        <app-editor (onQuillInit)="onQuillInit($event)" [readonly]="true"></app-editor>
         <mat-chip-list>
           <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
         </mat-chip-list>
@@ -19,7 +19,7 @@
     </mat-card>
 
     <mat-card *ngFor="let c of comments" class="card-container">
-      <mat-card-header>
+      <mat-card-header class="no-avatar-card">
         <mat-card-title><h3>{{c.author}}</h3></mat-card-title>
         <mat-card-subtitle>{{c.time}}</mat-card-subtitle>
       </mat-card-header>
@@ -36,12 +36,8 @@
 
     <form #form="ngForm" (submit)="onSubmit()">
       <mat-card class="card-container">
-        <mat-card-header>
+        <mat-card-header class="no-avatar-card">
           <mat-card-title><h3 i18n>Leave a comment</h3></mat-card-title>
-        </mat-card-header>
-        <mat-card-header>
-          <mat-card-title><h3></h3></mat-card-title>
-          <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <mat-form-field style="width: 100%;" appearance="outline">

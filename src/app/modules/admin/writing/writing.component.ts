@@ -33,7 +33,8 @@ export class WritingComponent implements OnInit {
       this.categories = res;
     });
   }
-  onQuillInit(){
+  onQuillInit(quill) {
+    this.quill = quill;
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.writingService.getArticle(+params.get('id')))
     ).subscribe((res: ArticleModel) => {

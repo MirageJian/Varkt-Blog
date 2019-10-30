@@ -39,7 +39,7 @@ body {
 .card-container {
   margin: 16px;
 }
-.card-container > mat-card-content {
+mat-card.card-container > mat-card-content {
   margin: 0 16px;
 }
 @media (max-width: 960px){
@@ -51,10 +51,10 @@ body {
   .card-container {
     margin: 4px;
   }
-  .card-container .mat-card-header-text {
+  mat-card-header.no-avatar-card > .mat-card-header-text {
     margin: 0;
   }
-  .card-container > mat-card-content {
+  mat-card.card-container > mat-card-content {
     margin: 0;
   }
 }

@@ -1,7 +1,7 @@
 <div class="container" style="display: flex;flex-direction:column;align-items:stretch">
   <div *ngFor="let a of articles" [@slideFromBottom]>
     <mat-card class="card-container">
-        <mat-card-header>
+        <mat-card-header class="no-avatar-card">
           <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
           <mat-card-subtitle>{{a.time}}</mat-card-subtitle>
         </mat-card-header>

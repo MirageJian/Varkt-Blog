@@ -13,13 +13,12 @@ import {FileUploadService} from "@app-services/file-upload.service";
   // encapsulation: ViewEncapsulation.None,
 })
 export class EditorComponent implements OnInit {
+  @Input() readonly: boolean = false;
   @Input() quill: any;
   // async update quill, if use sync, it will occur the check error
-  @Output() quillChange = new EventEmitter(true);
-  @Output() onQuillInit = new EventEmitter(true);
-  @Input() readonly: boolean = false;
-  @ViewChild('editor', { static: true }) editor: ElementRef;
-  @ViewChild('quillImgField', { static: true }) quillImgField: ElementRef;
+  @Output() private onQuillInit = new EventEmitter(true);
+  @ViewChild('editor', { static: true }) private editor: ElementRef;
+  @ViewChild('quillImgField', { static: true }) private quillImgField: ElementRef;
 
   constructor(
     private fileUpload: FileUploadService,
@@ -72,8 +71,7 @@ export class EditorComponent implements OnInit {
       };
       this.quillImgField.nativeElement.click();
     });
-    this.quillChange.emit(this.quill);
-    this.onQuillInit.emit();
+    this.onQuillInit.emit(this.quill);
   }
 
   private readonlyQuillInit() {
@@ -85,8 +83,7 @@ export class EditorComponent implements OnInit {
       theme: 'snow'
     };
     this.quill = new Quill(this.editor.nativeElement, options);
-    this.quillChange.emit(this.quill);
-    this.onQuillInit.emit();
+    this.onQuillInit.emit(this.quill);
   }
 
 }

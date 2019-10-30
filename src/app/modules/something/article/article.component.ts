@@ -37,7 +37,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.newComment.author = '';
   }
-  onQuillInit() {
+  onQuillInit(quill) {
+    this.quill = quill;
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.somethingService.getArticle(+params.get('id')))
     ).subscribe((article: ArticleModel) => {

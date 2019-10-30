@@ -34,7 +34,8 @@ export class AboutManagingComponent implements OnInit {
       }
     });
   }
-  onQuillInit(){
+  onQuillInit(quill) {
+    this.quill = quill;
     this.aboutManagingServer.getAbout().subscribe((res: AboutModel) => {
       if (res != null) {
         JsonHelper.toAny(res, JsonHelper.ABOUT_MEMBER);

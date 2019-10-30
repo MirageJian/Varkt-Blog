@@ -1,7 +1,7 @@
 <div class="container">
   <div  style="display: flex;flex-direction:row;align-items:stretch;flex-wrap:wrap">
     <mat-card *ngFor="let c of comments" class="card-container">
-      <mat-card-header>
+      <mat-card-header class="no-avatar-card">
         <mat-card-title><h3>{{c.author}}</h3></mat-card-title>
         <mat-card-subtitle>{{c.time}}</mat-card-subtitle>
       </mat-card-header>
