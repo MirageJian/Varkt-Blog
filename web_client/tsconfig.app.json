@@ -3,21 +3,21 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [],
-    "baseUrl": "..", // This must be specified if "paths" is.
+    "baseUrl": ".", // This must be specified if "paths" is.
     "paths": {
       "@shared/*": [ "./src/app/shared/*" ], // This mapping is relative to "baseUrl"
       "@app-services/*": [ "./src/app/app-services/*" ]
     }
   },
   "files": [
-    "../src/main.ts",
+    "src/main.ts",
     "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
-    "../src/test.ts",
+    "src/test.ts",
     "src/**/*.spec.ts"
   ]
 }

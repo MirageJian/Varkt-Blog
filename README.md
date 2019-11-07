@@ -1,14 +1,12 @@
-# Holacode_blog_server
+# Welcome to an undeveloped blog
 
-[click go to client code](https://github.com/MirageJian/Holacode_blog)
+it's an project currently under heavily developing.  
+Based on Angular as front-end, Tornado as back-end.  
 
-it's an project currently developing.
+## Web client
 
-## How to run
+[click go to client code](./web_client/README.md)
 
-run `python server.py`
+## Server
 
-## Dependencies
-
-* tornado
-* pymysql
+[This is the server code](./server/README.md)
