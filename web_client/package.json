@@ -2,15 +2,15 @@
   "name": "holacode",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --open",
-    "start:zh": "ng serve --configuration=zh --proxy-config proxy.conf.json --open --port 4201",
-    "build": "ng build --prod && npm run build:zh",
-    "build:zh": "ng build --configuration=production-zh --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "extract": "ng xi18n --output-path=src/locale"
+    "ng": "../node_modules/.bin/ng",
+    "start": "../node_modules/.bin/ng serve --proxy-config proxy.conf.json --open",
+    "start:zh": "../node_modules/.bin/ng serve --configuration=zh --proxy-config proxy.conf.json --open --port 4201",
+    "build": "../node_modules/.bin/ng build --prod && npm run build:zh",
+    "build:zh": "../node_modules/.bin/ng build --configuration=production-zh --prod",
+    "test": "../node_modules/.bin/ng test",
+    "lint": "../node_modules/.bin/ng lint",
+    "e2e": "../node_modules/.bin/ng e2e",
+    "extract": "../node_modules/.bin/ng xi18n --output-path=src/locale"
   },
   "private": true,
   "dependencies": {
