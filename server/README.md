@@ -1,14 +1,11 @@
-# Holacode_blog_server
+[Go Back](../)
 
-[click go to client code](https://github.com/MirageJian/Holacode_blog)
-
-it's an project currently developing.
+This is server code for holacodes.com.
 
 ## How to run
+Use sql file to create database. Then run `python server.py`.
 
-run `python server.py`
-
-## Dependencies
+## Pip dependencies
 
 * tornado
 * pymysql
