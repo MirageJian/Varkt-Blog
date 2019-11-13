@@ -1,4 +1,6 @@
-[Go Back](../)
+# Holacodes server
+
+[Go Back](https://github.com/MirageJian/holacodes)
 
 This is server code for holacodes.com.
 

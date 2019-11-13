@@ -1,4 +1,6 @@
-[Go Back](../)
+# Holacodes web client
+
+[Go Back](https://github.com/MirageJian/holacodes)
 ## How to build
 run `npm build` in console.
 
