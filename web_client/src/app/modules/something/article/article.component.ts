@@ -1,5 +1,4 @@
 import {Component, OnInit, HostBinding, OnDestroy} from '@angular/core';
-
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {routeAnimation} from '@shared/animations';
 import {SomethingService} from '../something.service';
@@ -7,6 +6,7 @@ import {ArticleModel, ResModel, CommentModel} from '@shared/models';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '@shared/tools';
 import {APP_TILE} from "@shared/app-const";
+
 
 // declare var require: any;
 // const Quill = require('quill');

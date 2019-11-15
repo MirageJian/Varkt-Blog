@@ -1,8 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ResModel} from "../../models";
-import * as Quill from 'quill';
+import Quill from 'quill';
 import {FileUploadService} from "@app-services/file-upload.service";
-
 // declare var require: any;
 // const Quill = require('quill');
 
@@ -14,7 +13,7 @@ import {FileUploadService} from "@app-services/file-upload.service";
 })
 export class EditorComponent implements OnInit {
   @Input() readonly: boolean = false;
-  @Input() quill: any;
+  @Input() quill: Quill;
   // async update quill, if use sync, it will occur the check error
   @Output() private onQuillInit = new EventEmitter(true);
   @ViewChild('editor', { static: true }) private editor: ElementRef;
@@ -23,6 +22,8 @@ export class EditorComponent implements OnInit {
   constructor(
     private fileUpload: FileUploadService,
   ) {
+    let yourModule = require('path/to/your/module');
+    yourModule.someFunction();
   }
 
   ngOnInit() {
@@ -38,6 +39,7 @@ export class EditorComponent implements OnInit {
     this.quill = new Quill(this.editor.nativeElement, {
       readOnly: false,
       modules: {
+        syntax: true,              // Include syntax module
         toolbar: [
           [{'header': [false, 1, 2, 3, 4, 5, 6]}],
           [{'font': []}],

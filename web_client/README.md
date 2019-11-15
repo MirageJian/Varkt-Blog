@@ -43,13 +43,15 @@ navigationUrls defines which kinds of url will be accepted, so I use those url c
 </code></pre>
 
 ## Dependencies
-Besides angular basic dependencies (npm, angular-cli, etc.).
+Besides angular basic dependencies (angular/common, angular/router, angular-cli, etc.).
 
-`quill`  
+`core-js`  
 `@angular/animations`  
 `@angular/cdk`  
 `@angular/material`  
 `@angular/pwa`  
 `@angular/service-worker`  
+ The package below need types to work better (or just use with api hint :D )   
+`quill`   
 `hammerjs`  
 `highlight.js`
