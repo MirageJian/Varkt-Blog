@@ -1,9 +1,10 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {ResModel} from "../../models";
+import {ResModel} from '../../models';
+import 'highlight.js';
 import Quill from 'quill';
-import {FileUploadService} from "@app-services/file-upload.service";
-// declare var require: any;
-// const Quill = require('quill');
+import {FileUploadService} from '@app-services/file-upload.service';
+import * as hljs from 'highlight.js';
+import Picker from 'quill/ui/picker'
 
 @Component({
   selector: 'app-editor',
@@ -22,8 +23,6 @@ export class EditorComponent implements OnInit {
   constructor(
     private fileUpload: FileUploadService,
   ) {
-    let yourModule = require('path/to/your/module');
-    yourModule.someFunction();
   }
 
   ngOnInit() {
@@ -35,6 +34,9 @@ export class EditorComponent implements OnInit {
   }
 
   private quillInit() {
+    hljs.configure({   // optionally configure hljs
+      languages: ['javascript', 'typescript', 'python']
+    });
     // quill init
     this.quill = new Quill(this.editor.nativeElement, {
       readOnly: false,

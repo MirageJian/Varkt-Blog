@@ -4,8 +4,17 @@ from tools import json_helper
 
 
 class BaseHandler(tornado.web.RequestHandler):
-    def prepare(self):
+    def __init__(self, application, request, **kwargs):
+        super().__init__(application, request, **kwargs)
         self.db: DataBase = DataBase()
+
+    # When data received, it will be called before PUT and POST
+    def data_received(self, chunk):
+        pass
+
+    # The connection start
+    def prepare(self):
+        pass
 
     def on_finish(self):
         self.db.cursor.close()

@@ -3,6 +3,7 @@ import {JsonHelper} from "@shared/tools";
 import {AboutService} from "../about.service";
 import {AboutModel} from "@shared/models/about.model";
 import {slideFromBottom} from "@shared/animations";
+import Quill from "quill";
 // declare var require: any;
 // const Quill = require('quill');
 
@@ -16,7 +17,7 @@ import {slideFromBottom} from "@shared/animations";
 export class AboutComponent implements OnInit {
   @ViewChild('editor', {static: false}) editor: ElementRef;
   article: AboutModel;
-  quill: any;
+  quill: Quill;
 
   constructor(
     private generalService: AboutService,

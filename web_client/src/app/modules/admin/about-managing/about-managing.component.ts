@@ -5,6 +5,7 @@ import {AboutManagingService} from "./about-managing.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ResModel} from "@shared/models";
 import {slideFromBottom} from "@shared/animations";
+import Quill from "quill";
 
 @Component({
   selector: 'app-about-managing',
@@ -13,7 +14,7 @@ import {slideFromBottom} from "@shared/animations";
   animations: [slideFromBottom()]
 })
 export class AboutManagingComponent implements OnInit {
-  quill: any;
+  quill: Quill;
   model: AboutModel;
 
   constructor(
@@ -34,7 +35,7 @@ export class AboutManagingComponent implements OnInit {
       }
     });
   }
-  onQuillInit(quill) {
+  onQuillInit(quill: Quill) {
     this.quill = quill;
     this.aboutManagingServer.getAbout().subscribe((res: AboutModel) => {
       if (res != null) {

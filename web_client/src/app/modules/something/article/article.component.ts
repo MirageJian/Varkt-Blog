@@ -6,6 +6,7 @@ import {ArticleModel, ResModel, CommentModel} from '@shared/models';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '@shared/tools';
 import {APP_TILE} from "@shared/app-const";
+import Quill from "quill";
 
 
 // declare var require: any;
@@ -23,7 +24,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   @HostBinding('style.flex-direction') direction = 'column';
   @HostBinding('style.width') width = '100%';
   // @HostBinding('style.position')  position = 'absolute';
-  quill: any;
+  quill: Quill;
   article = new ArticleModel();
   comments: CommentModel[];
   newComment = new CommentModel();
@@ -37,7 +38,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.newComment.author = '';
   }
-  onQuillInit(quill) {
+  onQuillInit(quill: Quill) {
     this.quill = quill;
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.somethingService.getArticle(+params.get('id')))

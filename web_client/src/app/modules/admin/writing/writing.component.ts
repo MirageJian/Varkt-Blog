@@ -4,6 +4,7 @@ import {WritingService} from './writing.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '@shared/tools';
+import Quill from "quill";
 
 @Component({
   selector: 'app-writing',
@@ -11,7 +12,7 @@ import {JsonHelper} from '@shared/tools';
   styleUrls: ['./writing.component.scss']
 })
 export class WritingComponent implements OnInit {
-  quill: any;
+  quill: Quill;
   @ViewChild('editor', { static: false }) editor: ElementRef;
   @ViewChild('quillImgField', { static: false }) quillImgField: ElementRef;
 
@@ -33,7 +34,7 @@ export class WritingComponent implements OnInit {
       this.categories = res;
     });
   }
-  onQuillInit(quill) {
+  onQuillInit(quill: Quill) {
     this.quill = quill;
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.writingService.getArticle(+params.get('id')))

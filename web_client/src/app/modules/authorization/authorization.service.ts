@@ -7,7 +7,7 @@ import { ResModel } from '@shared/models';
 
 @Injectable()
 export class AuthorizationService extends BaseService {
-  postPoyoungAuthInfo(auth: PoyoungAuth): any {
+  postPoyoungAuthInfo(auth: PoyoungAuth) {
     const body = {
       code: auth.code,
       phone: auth.phone,

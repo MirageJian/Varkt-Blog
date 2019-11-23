@@ -32,15 +32,17 @@ In `proxy.conf.json`, I define the port and how to rewrite the url like anti-pro
 
 ### About ngsw-config.json
 navigationUrls defines which kinds of url will be accepted, so I use those url config to make apis work properly
-<pre><code>
-"navigationUrls": [  
-  "/**",  
-  "!/**/*.*",  
-  "!/**/*__*",  
-  "!/**/*__*/**",  
-  "!/api/**"
-]
-</code></pre>
+```json
+{
+  "navigationUrls": [  
+    "/**",  
+    "!/**/*.*",  
+    "!/**/*__*",  
+    "!/**/*__*/**",  
+    "!/api/**"
+  ]
+}
+```
 
 ## Dependencies
 Besides angular basic dependencies (angular/common, angular/router, angular-cli, etc.).
