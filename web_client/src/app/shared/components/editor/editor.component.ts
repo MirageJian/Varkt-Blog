@@ -65,7 +65,7 @@ export class EditorComponent implements OnInit {
         const file = this.quillImgField.nativeElement.files[0];//
         // console.log(formData);
         this.fileUpload.uploadArticleImage(file, 'article').subscribe((res: ResModel) => {
-          if (res.errcode) {
+          if (!res.errcode) {
             const range = this.quill.getSelection();
             this.quill.insertEmbed(range ? range.index : 0, 'image', res.data);
             this.quill.setSelection(range ? range.index + 1 : 0, 0);

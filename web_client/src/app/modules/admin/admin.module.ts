@@ -16,6 +16,8 @@ import { PasswordComponent } from './settings/password/password.component';
 import { CategoriesManagingComponent } from './settings/categories-managing/categories-managing.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { AboutManagingComponent } from './about-managing/about-managing.component';
+import { PublicFilesComponent } from './public-files/public-files.component';
+import {PublicFilesService} from "./public-files/public-files.service";
 
 @NgModule({
   imports: [
@@ -33,6 +35,7 @@ import { AboutManagingComponent } from './about-managing/about-managing.componen
     PasswordComponent,
     CategoriesManagingComponent,
     AboutManagingComponent,
+    PublicFilesComponent,
   ],
   entryComponents: [],
   providers: [
@@ -40,6 +43,7 @@ import { AboutManagingComponent } from './about-managing/about-managing.componen
     WritingService,
     ManagingService,
     AdminDashboardService,
+    PublicFilesService
   ],
 })
 export class AdminModule {

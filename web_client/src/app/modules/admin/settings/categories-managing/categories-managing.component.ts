@@ -25,7 +25,7 @@ export class CategoriesManagingComponent implements OnInit {
   }
   deleteCategory(c: CategoryModel) {
     this.settingService.deleteCategory(c).subscribe((res: ResModel) => {
-      if (res.errcode) {
+      if (!res.errcode) {
         this.settingService.getListCategory().subscribe((res: CategoryModel[]) => {
           this.categories = res;
         });
@@ -37,8 +37,7 @@ export class CategoriesManagingComponent implements OnInit {
   }
   addCategory(c: CategoryModel) {
     this.settingService.addCategory(c).subscribe((res: ResModel) => {
-      if (res.errcode) {
-
+      if (!res.errcode) {
         this.settingService.getListCategory().subscribe((res: CategoryModel[]) => {
           this.categories = res;
         });

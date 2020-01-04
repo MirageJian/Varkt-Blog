@@ -28,11 +28,7 @@ export class AboutManagingComponent implements OnInit {
   public onSubmit() {
     this.model.content = this.quill.getContents();
     this.aboutManagingServer.putAbout(this.model).subscribe((res: ResModel) => {
-      if (res.errcode === 0) {
-        this.snackBar.open(res.errmsg, 'close', {duration: 5_000});
-      } else {
-        this.snackBar.open(res.errmsg, 'close', {duration: 5_000});
-      }
+      this.snackBar.open(res.errmsg, 'close', {duration: 5_000});
     });
   }
   onQuillInit(quill: Quill) {

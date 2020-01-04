@@ -31,6 +31,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this.mobileQueryListener);
   }
 
+  // Give title a value when browser was refreshed
   ngOnInit() {
     this.username = this.loginService.userName;
     switch (this.router.url) {
@@ -41,6 +42,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       case '/admin/settings': this.title = 'Setting'; break;
       case '/admin/po-young': this.title = 'PoYoung'; break;
       case '/admin/workbook': this.title = 'Workbook'; break;
+      case '/admin/public-files': this.title = 'Public Files'; break;
     }
   }
 
@@ -49,6 +51,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
+  // Tile value and Close navbar in Mobile mode
   clickNav(title: string, sidenav: any) {
     this.title = title;
     if (this.mobileQuery.matches) {

@@ -61,7 +61,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
   }
   deleteComment(c: CommentModel) {
     this.managingService.deleteComment(c.id).subscribe((res: ResModel) => {
-      if (res.errcode) {
+      if (!res.errcode) {
         this.comments.splice(this.comments.findIndex((ff) => ff.id === c.id), 1);
         alert('success');
       } else {
