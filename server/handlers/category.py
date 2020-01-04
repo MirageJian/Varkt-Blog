@@ -15,12 +15,12 @@ class CategoryHandler(BaseHandler):
             body["label"], body["icon"]
         ))
         self.db.conn.commit()
-        self.write_res(1, "post successfully", None)
+        self.write_res(0, "post successfully", None)
 
     def delete(self, *args, **kwargs):
         self.get_login_user()
         id_category = self.get_argument("id", None)
         self.db.cursor.execute("DELETE FROM category WHERE id=%s", id_category)
         self.db.conn.commit()
-        self.write_res(1, "delete successfully", None)
+        self.write_res(0, "delete successfully", None)
 

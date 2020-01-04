@@ -31,7 +31,7 @@ class BaseHandler(tornado.web.RequestHandler):
         return json_helper.loads(params)
 
     # standard response. success 0, fail other number.
-    def write_res(self, code, info, data):
+    def write_res(self, code, info=None, data=None):
         data = {
             "errcode": code, "errmsg": info, "data": data
         }

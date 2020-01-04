@@ -1,7 +1,6 @@
 import os
 import hashlib
 
-
 static_root_url = '/apis/static'
 
 
@@ -28,3 +27,27 @@ def write_upload_files(file_metas, folder):
         with open(os.path.join(path, meta["filename"]), 'wb') as up:
             up.write(meta['body'])
     return files_paths
+
+
+def list_files(folder):
+    path = os.path.join(os.getcwd(), "static", folder)
+    result = []
+    if os.path.exists(path):
+        dirs = os.listdir(path)
+        for f in dirs:
+            stat = os.stat(path + "/" + f)
+            result.append({
+                'filename': f,
+                'size': "%.3f" % (stat.st_size / (1024 * 1024)),
+                'change_time': stat.st_ctime,
+                'url': os.path.join(static_root_url, folder, f)
+            })
+    return result
+
+
+def delete_file(folder, filename):
+    path = os.path.join(os.getcwd(), "static", folder, filename)
+    if os.path.exists(path):
+        os.remove(path)
+        return True
+    return False

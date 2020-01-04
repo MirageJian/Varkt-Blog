@@ -2,14 +2,15 @@ from handlers.main import MainHandler
 from handlers.dashboard import DashboardHandler
 from handlers.something import SomethingHandler
 from handlers.about import AboutHandler
-from handlers.login import LoginHandler
-from handlers.image import ImageHandler
+from handlers.blog_admin.login import LoginHandler
+from handlers.blog_admin.image import ImageHandler
 from handlers.article import ArticleHandler
 from handlers.comment import CommentHandler
-from handlers.comment_managing import CommentManagingHandler
+from handlers.blog_admin.comment_managing import CommentManagingHandler
 from handlers.category import CategoryHandler
 from handlers.searching import SearchingHandler
-from handlers.password import PsswordHandler
+from handlers.blog_admin.password import PasswordHandler
+from handlers.files_management.public_files import PublicFilesHandler
 
 from handlers.py.py_auth import AuthorizationHandler
 from handlers.py.py_record import PyRecordHandler
@@ -32,7 +33,8 @@ path = [
     (r"/comment_managing", CommentManagingHandler),
     (r"/category", CategoryHandler),
     (r"/searching", SearchingHandler),
-    (r"/password", PsswordHandler),
+    (r"/password", PasswordHandler),
+    (r"/public_files", PublicFilesHandler),
 
     (r"/authorization", AuthorizationHandler),
     (r"/authorisation", AuthorizationHandler),
