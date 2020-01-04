@@ -1,0 +1,14 @@
+.card-table {
+  width: calc(100% + 30px);
+  margin: 0 -15px;
+}
+::ng-deep thead tr th {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.table-toolbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}

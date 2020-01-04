@@ -10,6 +10,7 @@ import {SettingsComponent} from "./settings/settings.component";
 import { WorkbookComponent } from './workbook/workbook.component';
 import {PoYoungComponent} from "./po-young/po-young.component";
 import {AboutManagingComponent} from "./about-managing/about-managing.component";
+import {PublicFilesComponent} from "./public-files/public-files.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'writing', component: WritingComponent },
       { path: 'about-managing', component: AboutManagingComponent },
       { path: 'settings', component: SettingsComponent },
+      { path: 'public-files', component: PublicFilesComponent },
       { path: 'po-young', component: PoYoungComponent },
       { path: 'workbook', component: WorkbookComponent },
     ]

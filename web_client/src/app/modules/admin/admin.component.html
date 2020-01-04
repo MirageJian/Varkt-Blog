@@ -32,8 +32,16 @@
         <mat-icon mat-list-icon>settings</mat-icon>
         <a> Setting</a>
       </mat-list-item>
-
       <mat-divider></mat-divider>
+
+      <h3 mat-subheader>Storage</h3>
+      <mat-list-item [routerLink]="['./public-files']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="clickNav('Public Files', sidenav)">
+        <mat-icon mat-list-icon>cloud</mat-icon>
+        <a> Public Files</a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
       <h3 mat-subheader>Others</h3>
       <mat-list-item [routerLink]="['./po-young']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
                      (click)="clickNav('PoYoung', sidenav)">
