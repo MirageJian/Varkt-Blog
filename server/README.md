@@ -12,3 +12,7 @@ Use sql file to create database. Then run `python server.py`.
 
 * tornado
 * pymysql
+
+## Error code illustration
+`0` - Everything ok  
+`1`, `-1`, `2`, `3` etc. - Something wrong, see the error detail in `errmsg`.
