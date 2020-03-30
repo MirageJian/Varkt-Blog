@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches">
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['./', {label: 'Filter'}]" routerLinkActive>
+      <a mat-list-item [routerLink]="['/something']" routerLinkActive (click)="label=null">
         <mat-icon mat-list-icon>filter_list</mat-icon>
         <h4 mat-line i18n>Filter</h4>
       </a>
@@ -17,9 +17,9 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header [sidenav]="sidenav" [matches]="mobileQuery.matches">{{label}}</app-header>
+    <app-header [sidenav]="sidenav" [matches]="mobileQuery.matches">{{label ? label : "Filter"}}</app-header>
     <router-outlet></router-outlet>
-    <app-assortment *ngIf="label=='Filter'"></app-assortment>
-    <app-list-articles *ngIf="label!='Filter'" [label]="label"></app-list-articles>
+    <app-assortment *ngIf="!label"></app-assortment>
+    <app-list-articles *ngIf="label" [label]="label"></app-list-articles>
   </mat-sidenav-content>
 </mat-sidenav-container>

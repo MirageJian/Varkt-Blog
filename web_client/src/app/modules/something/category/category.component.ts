@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angul
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {SomethingService} from '../something.service';
-import {CategoryModel} from '@shared/models';
+import {ArticleModel, CategoryModel} from '@shared/models';
 import {MatSidenav} from "@angular/material/sidenav";
 import {MOBILE_WIDTH} from "@shared/app-const";
 
@@ -38,8 +38,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
       this.categories = res;
     });
     this.route.paramMap.pipe().subscribe((paramMap: ParamMap) => {
-      const param = paramMap.get('label');
-      this.label = param ? param : 'Filter';
+      this.label = paramMap.get('label');
       // try to close the sidenav when mobile
       if (this.mobileQuery.matches) {
         this.sidenav.close().then();

@@ -13,9 +13,10 @@ import Picker from 'quill/ui/picker'
   // encapsulation: ViewEncapsulation.None,
 })
 export class EditorComponent implements OnInit {
-  @Input() readonly: boolean = false;
-  @Input() quill: Quill;
+  @Input() private readonly: boolean = false;
+  public quill: Quill;
   // async update quill, if use sync, it will occur the check error
+  // TODO delete event only use #editor.quill
   @Output() private onQuillInit = new EventEmitter(true);
   @ViewChild('editor', { static: true }) private editor: ElementRef;
   @ViewChild('quillImgField', { static: true }) private quillImgField: ElementRef;

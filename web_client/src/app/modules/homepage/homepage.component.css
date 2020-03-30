@@ -1,0 +1,11 @@
+.dash {
+  padding: 30px;
+}
+@media (max-width: 600px){
+  .dash {
+    padding: 15px;
+  }
+}
+.example-header-image {
+  background-size: cover;
+}

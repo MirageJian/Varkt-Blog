@@ -1,9 +1,10 @@
-import {Component, OnInit, OnChanges, Input, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, Input, SimpleChanges, OnDestroy} from '@angular/core';
 import {SomethingService} from '../../something.service';
 import {ListArticleModel} from '@shared/models';
 import {ActivatedRoute} from '@angular/router';
 import {JsonHelper} from "@shared/tools";
 import {slideFromBottom} from "@shared/animations";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-list-articles',
@@ -11,9 +12,10 @@ import {slideFromBottom} from "@shared/animations";
   styleUrls: ['./list-articles.component.scss'],
   animations: [slideFromBottom()]
 })
-export class ListArticlesComponent implements OnInit, OnChanges {
+export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
   @Input() private label: string;
   articles: ListArticleModel[];
+  private subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,15 +24,20 @@ export class ListArticlesComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.subscription = this.route.data.subscribe((res: {articles: ListArticleModel[]}) => {
+      this.articles = res.articles;
+      if (this.articles)
+        for (const a of this.articles) {
+          JsonHelper.toAny(a, ['category']);
+        }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.somethingService.getListArticle(this.label).subscribe(res => {
-      this.articles = res;
-      for (const a of this.articles) {
-        JsonHelper.toAny(a, ['category']);
-      }
-    });
-    console.log(changes);
+    // console.log(changes);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

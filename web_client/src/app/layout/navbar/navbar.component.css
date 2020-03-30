@@ -26,11 +26,7 @@ mat-toolbar{
   background-color: #ffffff;
 }
 /*button style*/
-.search-button {
-  color: black;
-  position: absolute;
-  right: 0;
-}
+
 .search-cancel {
   display: none;
 }
@@ -39,7 +35,6 @@ mat-toolbar{
   display: flex;
   align-items: center;
   margin: 0 16px;
-  position: relative;
 }.search-container > label {
   width: calc(100% - 80px);
 }
@@ -47,8 +42,6 @@ mat-toolbar{
   .search-container {
     z-index: 1;
     position: absolute;
-    right: 0;
-    left: 0
   }
   .search-cancel {
     position: absolute;
@@ -58,5 +51,10 @@ mat-toolbar{
   .search-box {
     width: 100%;
     padding: 0 40px;
+  }
+  .search-button {
+    color: black;
+    position: absolute;
+    right: 0;
   }
 }

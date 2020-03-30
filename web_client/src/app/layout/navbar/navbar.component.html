@@ -4,15 +4,13 @@
   <a mat-button [routerLink]="['/about']"><span i18n>About</span></a>
   <div class="flex-spacer"></div>
   <form (ngSubmit)="submitSearch()" class="search-container" *ngIf="isShownSearch" [@searchBox] (@searchBox.start)="searchBox.focus()">
-    <button mat-icon-button class="search-button">
-      <mat-icon>search</mat-icon>
-    </button>
     <button mat-icon-button class="search-cancel" (click)="isShownSearch=false" type="button">
       <mat-icon>cancel</mat-icon>
     </button>
-    <label>
-      <input #searchBox class="search-box" name="searchContent" [(ngModel)]="searchContent">
-    </label>
+    <input #searchBox class="search-box" name="searchContent" [(ngModel)]="searchContent">
+    <button mat-icon-button class="search-button">
+      <mat-icon>search</mat-icon>
+    </button>
   </form>
   <button mat-icon-button (click)="isShownSearch=true" *ngIf="!isShownSearch">
     <mat-icon>search</mat-icon>

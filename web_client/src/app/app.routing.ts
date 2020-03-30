@@ -3,7 +3,7 @@ import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', loadChildren: './layout/layout.module#LayoutModule'},
-  // { path: '**', redirectTo: 'dashboard', pathMatch: 'full'}, // here need 404 page
+  // { path: '**', redirectTo: 'homepage', pathMatch: 'full'}, // here need 404 page
 ];
 
 @NgModule({
