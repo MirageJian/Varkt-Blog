@@ -1,0 +1,28 @@
+:host {
+  position: fixed;
+  top: 100px;
+  right: calc(50% - 58px);
+  left: calc(50% - 58px);
+  z-index: 10;
+}
+
+.chip {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40px;
+  margin: auto;
+  padding: 0 16px;
+  background: #1976d2;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 2px 4px;
+  border-radius: 32px;
+  color: white;
+}
+
+.chip > span {
+  margin-right: 8px;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: white;
+}

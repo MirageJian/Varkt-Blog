@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { ArticleComponent } from './article/article.component';
+import {ArticleComponent} from './article/article.component';
 import {CategoryComponent} from './category/category.component';
-import {ArticlesResolveService} from "./something-resolve.service";
+import {ArticlesResolveService, ArticleResolveService} from "./something-resolve.service";
 
 const routes: Routes = [
-      { path: '', component: CategoryComponent, resolve: {articles: ArticlesResolveService}},
-      { path: ':id', component: ArticleComponent }
+  {path: '', component: CategoryComponent, resolve: {articles: ArticlesResolveService}},
+  {path: ':id', component: ArticleComponent, resolve: {data: ArticleResolveService}}
 ];
 
 @NgModule({
@@ -15,4 +15,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 
-export class SomethingRoutingModule { }
+export class SomethingRoutingModule {
+}

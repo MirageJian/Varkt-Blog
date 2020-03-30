@@ -6,13 +6,13 @@ import { SharedModule } from '@shared/shared.module';
 import { SomethingRoutingModule } from './something.routing';
 import { ListArticlesComponent } from './category/list-articles/list-articles.component';
 import { CategoryComponent } from './category/category.component';
-import {ArticlesResolveService} from "./something-resolve.service";
+import {ArticleResolveService, ArticlesResolveService} from "./something-resolve.service";
 
 
 @NgModule({
   imports: [
     SharedModule,
-    SomethingRoutingModule
+    SomethingRoutingModule,
   ],
   exports: [],
   declarations: [
@@ -23,7 +23,8 @@ import {ArticlesResolveService} from "./something-resolve.service";
   ],
   providers: [
     SomethingService,
-    ArticlesResolveService
+    ArticlesResolveService,
+    ArticleResolveService
   ],
 })
 export class SomethingModule { }

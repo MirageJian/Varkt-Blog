@@ -1,21 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ErrorPageEnum} from "./error-page/error-page.enum";
-import {Router} from "@angular/router";
+import {NavigationEnd, NavigationStart, Router} from "@angular/router";
 import {AuthorizationService} from "../modules/authorization/authorization.service";
+import {Subscription} from "rxjs";
+import {filter} from "rxjs/operators";
+import {loadingAni} from "./loadding/loading.animation";
 
 @Component({
   selector: 'app-layout',
   template: `
     <app-navbar></app-navbar>
+    <app-loading *ngIf="isLoading" [@loadingAni]></app-loading>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   `,
-  styles: [`
-    app-navbar {
-      flex: 0 0 auto;
-    }`],
+  animations: [loadingAni]
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnDestroy {
+  private subscriptionRouter: Subscription;
+  isLoading: boolean;
 
   constructor(
     private _authorization: AuthorizationService,
@@ -32,5 +35,16 @@ export class LayoutComponent implements OnInit {
     //   "This site uses cookies to analyze for some Machine Learning tests and fun things",
     //   "OK"
     // );
+    // Loading animation part
+    this.subscriptionRouter = this.router.events
+      .pipe(filter((event: any) => event instanceof NavigationEnd || event instanceof NavigationStart))
+      .subscribe((event: NavigationStart | NavigationEnd) => {
+        if (event instanceof NavigationStart) this.isLoading = true;
+        if (event instanceof NavigationEnd) this.isLoading = false;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionRouter.unsubscribe();
   }
 }

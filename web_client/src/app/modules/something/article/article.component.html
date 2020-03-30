@@ -9,7 +9,7 @@
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <app-editor (onQuillInit)="onQuillInit($event)" [readonly]="true"></app-editor>
+        <app-editor #editor [readonly]="true"></app-editor>
         <mat-chip-list>
           <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
         </mat-chip-list>

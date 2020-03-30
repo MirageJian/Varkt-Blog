@@ -5,12 +5,12 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
-import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {CommonModule} from "@angular/common";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {FooterComponent} from "./footer/footer.component";
 import {SharedModule} from "@shared/shared.module";
+import { LoadingComponent } from './loadding/loading.component';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import {SharedModule} from "@shared/shared.module";
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-    MatSnackBarModule,
+
     SharedModule,
   ],
   declarations: [
@@ -29,6 +29,7 @@ import {SharedModule} from "@shared/shared.module";
     NavbarComponent,
     FooterComponent,
     ErrorPageComponent,
+    LoadingComponent,
   ]
 })
 export class LayoutModule { }
