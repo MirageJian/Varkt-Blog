@@ -2,7 +2,7 @@ from handlers.base import BaseHandler
 
 
 class SomethingHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         category = '%' + self.get_argument("category") + '%'
         self.db.cursor.execute(
             "SELECT a.id,a.title,a.category,a.img,a.subhead,a.time,u.username as author FROM article a "

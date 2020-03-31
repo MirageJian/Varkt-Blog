@@ -7,7 +7,7 @@ class CommentManagingHandler(CommentHandler):
         super(CommentManagingHandler, self).prepare()
         self.get_login_user()
 
-    def get(self):
+    async def get(self):
         id_article = self.get_argument("id_article", None)
         if not id_article:
             self.db.cursor.execute("SELECT * FROM `comment` WHERE is_check=0")
@@ -19,15 +19,15 @@ class CommentManagingHandler(CommentHandler):
         json = self.json_encode(data)
         self.write(json)
 
-    def post(self, *args, **kwargs):
+    async def post(self, *args, **kwargs):
         body = self.json_decode(self.request.body)
         self.db.cursor.execute("UPDATE `comment` SET is_check=TRUE WHERE id=%s", (body["id"]))
         self.db.conn.commit()
-        self.write_res(0, "post successfully", None)
+        await self.write_res(0, "post successfully", None)
 
-    def delete(self, *args, **kwargs):
+    async def delete(self, *args, **kwargs):
         id_comment = self.get_argument("id", None)
         self.db.cursor.execute("DELETE FROM `comment` WHERE id=%s", id_comment)
         self.db.conn.commit()
-        self.write_res(0, "delete successfully", None)
+        await self.write_res(0, "delete successfully", None)
 

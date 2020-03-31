@@ -3,7 +3,7 @@ from tools import common_helper
 
 
 class ArticleHandler(BaseHandler):
-    def get(self, *args, **kwargs):
+    async def get(self, *args, **kwargs):
         id_article = self.get_argument("id", None)
         if not id_article:
             self.db.cursor.execute(
@@ -18,7 +18,7 @@ class ArticleHandler(BaseHandler):
         json = self.json_encode(data)
         self.write(json)
 
-    def post(self, *args, **kwargs):
+    async def post(self, *args, **kwargs):
         id_user = self.get_login_user()
         body = self.json_decode(self.request.body)
         self.db.cursor.execute(
@@ -28,9 +28,9 @@ class ArticleHandler(BaseHandler):
                 body["collection"], common_helper.get_now(), body["id"]
             ))
         self.db.conn.commit()
-        self.write_res(0, "post successfully", None)
+        await self.write_res(0, "post successfully", None)
 
-    def put(self, *args, **kwargs):
+    async def put(self, *args, **kwargs):
         id_user = self.get_login_user()
         body = self.json_decode(self.request.body)
         print(body)
@@ -41,7 +41,7 @@ class ArticleHandler(BaseHandler):
                 body["collection"], common_helper.get_now()
             ))
         self.db.conn.commit()
-        self.write_res(0, "put successfully", self.db.cursor.lastrowid)
+        await self.write_res(0, "put successfully", self.db.cursor.lastrowid)
 
     def delete(self, *args, **kwargs):
         self.get_login_user()

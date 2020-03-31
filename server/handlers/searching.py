@@ -2,7 +2,7 @@ from handlers.base import BaseHandler
 
 
 class SearchingHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         keyword = '%' + self.get_argument("keyword") + '%'
         if len(keyword) < 3:
             self.write(self.json_encode(None))

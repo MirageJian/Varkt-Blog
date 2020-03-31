@@ -20,10 +20,10 @@ class AboutHandler(BaseHandler):
         # time.sleep(10)
         data = self.db.cursor.fetchone()
         if not data:
-            self.write_res(1, "There is about info, please restart server", None)
+            await self.write_res(1, "There is about info, please restart server", None)
         self.db.cursor.execute(
             "UPDATE about SET content=%s,update_time=%s WHERE id=%s", (
                 body["content"], common_helper.get_now(), body["id"]
             ))
         self.db.conn.commit()
-        self.write_res(0, "put successfully", None)
+        await self.write_res(0, "put successfully", None)
