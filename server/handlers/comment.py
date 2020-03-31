@@ -1,9 +1,10 @@
 from handlers.base import BaseHandler
 from tools import common_helper
+import time
 
 
 class CommentHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         id_article = self.get_argument("id_article")
         self.db.cursor.execute("SELECT * FROM comment WHERE id_article=%s", id_article)
         data = self.db.cursor.fetchall()

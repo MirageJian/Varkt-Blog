@@ -19,7 +19,6 @@ import {EditorComponent} from "@shared/components/editor/editor.component";
 export class AboutComponent implements OnInit, AfterViewInit {
   @ViewChild('editor', {static: false}) private editor: EditorComponent;
   article: AboutModel;
-  quill: Quill;
 
   constructor(
     private generalService: AboutService,

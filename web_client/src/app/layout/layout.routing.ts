@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LayoutComponent} from "./layout.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
-import {AboutResolveService} from "../modules/about/about.resolve.service";
 
 const routes: Routes = [
   {

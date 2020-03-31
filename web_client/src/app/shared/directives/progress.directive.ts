@@ -29,7 +29,7 @@ export class ProgressDirective {
 @Component({
     template: `
         <div class="spinner-container">
-        <mat-spinner></mat-spinner>
+        <mat-spinner color="loading"></mat-spinner>
         </div>
     `,
     styles: [`

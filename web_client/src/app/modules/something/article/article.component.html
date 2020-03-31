@@ -18,6 +18,8 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
 
+    <!--Loading effects-->
+    <div *appProgress="!!comments"></div>
     <mat-card *ngFor="let c of comments" class="card-container">
       <mat-card-header class="no-avatar-card">
         <mat-card-title><h3>{{c.author}}</h3></mat-card-title>

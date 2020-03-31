@@ -19,7 +19,7 @@ export const routeAnimation = [
     transition(':leave', [
       animate('0s ease-out', style({
         opacity: 0,
-        // transform: 'translateY(100%)'
+        // transform: 'translateY(100%) scale(2, 2)'
       }))
     ])
   ])

@@ -39,6 +39,7 @@ body {
 .card-container {
   margin: 16px;
 }
+/* Mat card additional css modification */
 mat-card.card-container > mat-card-content {
   margin: 0 16px;
 }
@@ -58,6 +59,10 @@ mat-card.card-container > mat-card-content {
     margin: 0;
   }
 }
+mat-card-content > p {
+  overflow-wrap: break-word;
+}
+/* Others */
 .cursor-pointer{
   cursor: pointer;
 }
@@ -71,6 +76,7 @@ mat-card.card-container > mat-card-content {
 .float-right {
   float: right;
 }
+
 
 /*!* horizontal/row *!*/
 /*app-homepage, app-admin{*/

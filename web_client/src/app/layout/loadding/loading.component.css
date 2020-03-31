@@ -22,7 +22,3 @@
 .chip > span {
   margin-right: 8px;
 }
-
-::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
-  stroke: white;
-}

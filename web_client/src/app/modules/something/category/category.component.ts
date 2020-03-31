@@ -5,6 +5,7 @@ import {SomethingService} from '../something.service';
 import {ArticleModel, CategoryModel} from '@shared/models';
 import {MatSidenav} from "@angular/material/sidenav";
 import {MOBILE_WIDTH} from "@shared/app-const";
+import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-category',
@@ -34,15 +35,16 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // const id = +this.route.snapshot.firstChild.paramMap.get('id'); // firstChild is the first childer route
-    this.somethingService.getListCategory().subscribe(res => {
-      this.categories = res;
-    });
-    this.route.paramMap.pipe().subscribe((paramMap: ParamMap) => {
+    this.route.paramMap.pipe(switchMap((paramMap: ParamMap) => {
+      // Router parameter
       this.label = paramMap.get('label');
       // try to close the sidenav when mobile
       if (this.mobileQuery.matches) {
         this.sidenav.close().then();
       }
+      return this.somethingService.getListCategory()
+    })).subscribe(res => {
+      this.categories = res;
     });
   }
   ngOnDestroy() {

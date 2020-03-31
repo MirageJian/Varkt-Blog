@@ -4,7 +4,6 @@
     <!--<h5>{{article.author}}</h5>-->
     <!--<img src="../../../assets/img/ceshi.jpg">-->
     <app-editor #editor [readonly]="true"></app-editor>
-    <div *appProgress="!!article"></div>
     <!--Bottom part, such as time-->
     <mat-chip-list *ngIf="article">
       <mat-chip color="primary" selected="true">{{article.creation_time}}</mat-chip>
