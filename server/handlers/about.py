@@ -1,5 +1,3 @@
-import time
-
 from handlers.base import BaseHandler
 from tools import common_helper
 
@@ -7,7 +5,6 @@ from tools import common_helper
 class AboutHandler(BaseHandler):
     async def get(self):
         self.db.cursor.execute("SELECT * FROM about")
-        # time.sleep(10)
         data = self.db.cursor.fetchone()
         json = self.json_encode(data)
         self.write(json)
@@ -17,7 +14,6 @@ class AboutHandler(BaseHandler):
 
         body = self.json_decode(self.request.body)
         self.db.cursor.execute("SELECT * FROM about")
-        # time.sleep(10)
         data = self.db.cursor.fetchone()
         if not data:
             await self.write_res(1, "There is about info, please restart server", None)

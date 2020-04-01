@@ -1,9 +1,8 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ResModel} from '../../models';
-import 'highlight.js';
+import * as hljs from 'highlight.js';
 import Quill from 'quill';
 import {FileUploadService} from '@app-services/file-upload.service';
-import * as hljs from 'highlight.js';
 import Picker from 'quill/ui/picker'
 
 @Component({
@@ -17,7 +16,6 @@ export class EditorComponent implements OnInit {
   public quill: Quill;
   // async update quill, if use sync, it will occur the check error
   // TODO delete event only use #editor.quill
-  @Output() private onQuillInit = new EventEmitter(true);
   @ViewChild('editor', { static: true }) private editor: ElementRef;
   @ViewChild('quillImgField', { static: true }) private quillImgField: ElementRef;
 
@@ -27,17 +25,20 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.readonly) {
-      this.readonlyQuillInit();
-    } else {
-      this.quillInit();
-    }
+    import('highlight.js').then(hljs => {
+      hljs.configure({   // optionally configure hljs
+        languages: ['javascript', 'typescript', 'python']
+      });
+      if (this.readonly) {
+        this.readonlyQuillInit();
+      } else {
+        this.quillInit();
+      }
+    });
+
   }
 
   private quillInit() {
-    hljs.configure({   // optionally configure hljs
-      languages: ['javascript', 'typescript', 'python']
-    });
     // quill init
     this.quill = new Quill(this.editor.nativeElement, {
       readOnly: false,
@@ -76,7 +77,7 @@ export class EditorComponent implements OnInit {
       };
       this.quillImgField.nativeElement.click();
     });
-    this.onQuillInit.emit(this.quill);
+    // this.onQuillInit.emit(this.quill);
   }
 
   private readonlyQuillInit() {
@@ -88,7 +89,7 @@ export class EditorComponent implements OnInit {
       theme: 'snow'
     };
     this.quill = new Quill(this.editor.nativeElement, options);
-    this.onQuillInit.emit(this.quill);
+    // this.onQuillInit.emit(this.quill);
   }
 
 }

@@ -5,7 +5,6 @@ import asyncio
 
 class CommentHandler(BaseHandler):
     async def get(self):
-        await asyncio.sleep(1000)
         id_article = self.get_argument("id_article")
         self.db.cursor.execute("SELECT * FROM comment WHERE id_article=%s", id_article)
         data = self.db.cursor.fetchall()

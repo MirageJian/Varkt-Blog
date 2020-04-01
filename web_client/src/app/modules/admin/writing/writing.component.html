@@ -16,7 +16,7 @@
       </mat-select>
     </mat-form-field>
 
-    <app-editor (onQuillInit)="onQuillInit($event)"></app-editor>
+    <app-editor #editor></app-editor>
 
     <div style="display: flex;flex-direction:row;justify-content:space-around;align-items:center">
       <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
