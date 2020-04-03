@@ -1,10 +1,11 @@
-<i class="fab fa-gitlab fa-fw" style="color:rgb(252,109,38)"></i> Version: 0.0.0
 
 # Welcome to an undeveloped blog
 
-it's an project currently under heavily developing.
+Version: 0.0.0
 
-[Online Demo](https://holacodes.com)
+it's an project currently under heavily developing. [Online Demo](https://holacodes.com)
+
+This is the [Test Spacce](https://github.com/MirageJian/web-camera-for-angular) for Angula.
 
 ## Web client
 
