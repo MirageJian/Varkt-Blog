@@ -71,6 +71,12 @@
               ]
             },
             "production-zh": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -96,6 +102,12 @@
             },
             "zh": {
               "aot": true,
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "outputPath": "dist/zh",
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
