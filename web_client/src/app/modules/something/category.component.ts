@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {SomethingService} from '../something.service';
+import {SomethingService} from './something.service';
 import {ArticleModel, CategoryModel} from '@shared/models';
 import {MatSidenav} from "@angular/material/sidenav";
 import {MOBILE_WIDTH} from "@shared/app-const";
@@ -13,17 +13,15 @@ import {switchMap} from "rxjs/operators";
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit, OnDestroy {
-  label: string;
   categories: Array<CategoryModel>;
-  // check if the device is mobile
+  // Check if the device is mobile
   mobileQuery: MediaQueryList;
   private readonly _mobileQueryListener: () => void;
   @ViewChild('sidenav', {static: true}) sidenav: MatSidenav;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
-    private somethingService: SomethingService,
+    private _somethingService: SomethingService,
     media: MediaMatcher,
     changeDetectorRef: ChangeDetectorRef
   ) {
@@ -34,17 +32,9 @@ export class CategoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // const id = +this.route.snapshot.firstChild.paramMap.get('id'); // firstChild is the first childer route
-    this.route.paramMap.pipe(switchMap((paramMap: ParamMap) => {
-      // Router parameter
-      this.label = paramMap.get('label');
-      // try to close the sidenav when mobile
-      if (this.mobileQuery.matches) {
-        this.sidenav.close().then();
-      }
-      return this.somethingService.getListCategory()
-    })).subscribe(res => {
-      this.categories = res;
+    this.route.data.subscribe((res: {categories: CategoryModel[]}) => {
+      this.categories = res.categories;
+
     });
   }
   ngOnDestroy() {
@@ -61,4 +51,13 @@ export class CategoryComponent implements OnInit, OnDestroy {
   //   this.label = title;
   //   this.router.navigate(['./', {label: this.label}]).then();
   // }
+  get label() {
+    return this._somethingService.label;
+  }
+
+  sideNavAction() {
+    if (this.mobileQuery.matches) {
+      this.sidenav.close().then();
+    }
+  }
 }

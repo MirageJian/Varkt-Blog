@@ -27,7 +27,6 @@ export class AboutComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.route.data.subscribe((res: {data: AboutModel}) => {
-      console.log(res.data);
       this.article = res.data;
       JsonHelper.toAny(this.article, JsonHelper.ABOUT_MEMBER);
     });

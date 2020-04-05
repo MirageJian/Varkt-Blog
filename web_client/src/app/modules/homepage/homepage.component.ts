@@ -30,7 +30,4 @@ export class HomepageComponent implements OnInit {
       }
     });
   }
-  public get routerUrl() {
-    return this.router.url;
-  }
 }

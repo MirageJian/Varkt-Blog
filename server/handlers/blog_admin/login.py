@@ -13,7 +13,7 @@ class LoginHandler(BaseHandler):
 
     async def post(self):
         self.set_header("Content-Type", "text/plain")
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         self.db.cursor.execute("SELECT * FROM user WHERE username = %s || email = %s", (
             body["account"], body["account"]))
         user = self.db.cursor.fetchone()

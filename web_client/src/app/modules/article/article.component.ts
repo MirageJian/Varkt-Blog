@@ -1,7 +1,7 @@
 import {Component, OnInit, HostBinding, OnDestroy, ViewChild, AfterContentInit, AfterViewInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {routeAnimation} from '@shared/animations';
-import {SomethingService} from '../something.service';
+import {SomethingService} from '../something/something.service';
 import {ArticleModel, ResModel, CommentModel} from '@shared/models';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '@shared/tools';
@@ -9,6 +9,7 @@ import {APP_TILE} from "@shared/app-const";
 import Quill from "quill";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {EditorComponent} from "@shared/components/editor/editor.component";
+import {ArticleService} from "./article.service";
 
 
 // declare var require: any;
@@ -32,7 +33,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   newComment = new CommentModel();
 
   constructor(
-    private somethingService: SomethingService,
+    private _articleService: ArticleService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar
   ) {
@@ -46,7 +47,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
       // Set page tile
       document.title = this.article.title;
       // Get comments
-      this.somethingService.getComments(this.article.id).subscribe((res: CommentModel[]) => {
+      this._articleService.getComments(this.article.id).subscribe((res: CommentModel[]) => {
         this.comments = res;
       });
     });
@@ -65,7 +66,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   // Submit a new comment
   onSubmit() {
     this.newComment.id_article = this.article.id;
-    this.somethingService.putComment(this.newComment).subscribe((res: ResModel) => {
+    this._articleService.postComment(this.newComment).subscribe((res: ResModel) => {
       if (res.errcode === 0) {
         this.comments.push({...this.newComment});
         this.snackBar.open('Success', 'Close', {duration: 5_000});

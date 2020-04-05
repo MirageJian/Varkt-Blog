@@ -1,6 +1,8 @@
 from handlers.base import BaseHandler
 import datetime
 
+from tools import json_helper
+
 
 class WbProjectsHandler(BaseHandler):
     def get(self):
@@ -12,12 +14,12 @@ class WbProjectsHandler(BaseHandler):
         else:
             self.db.cursor.execute("SELECT * FROM wb_project WHERE id=%s", id_project)
             data = self.db.cursor.fetchone()
-        json = self.json_encode(data)
+        json = json_helper.dumps(data)
         self.write(json)
 
     def post(self, *args, **kwargs):
         id_user = self.get_login_user()
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         try:
             self.db.cursor.execute("UPDATE wb_project SET id_user=%s,theme=%s,date_start=%s,date_end=%s,remark=%s "
                                    "WHERE id=%s", (
@@ -30,7 +32,7 @@ class WbProjectsHandler(BaseHandler):
 
     def put(self, *args, **kwargs):
         id_user = self.get_login_user()
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         try:
             self.db.cursor.execute("INSERT INTO wb_project(id_user,theme,date_start,date_end,remark) "
                                    "VALUES(%s,%s,%s,%s,%s)", (

@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ErrorPageEnum} from "./error-page/error-page.enum";
-import {NavigationEnd, NavigationStart, Router} from "@angular/router";
-import {AuthorizationService} from "../modules/authorization/authorization.service";
+import {NavigationEnd, NavigationError, NavigationStart, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {filter} from "rxjs/operators";
 import {loadingAni} from "./loadding/loading.animation";
+import {BaseService} from "@app-services/base.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-layout',
@@ -21,29 +21,26 @@ export class LayoutComponent implements OnInit, OnDestroy {
   isLoading: boolean;
 
   constructor(
-    private _authorization: AuthorizationService,
-    private router: Router
+    private _baseService: BaseService,
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
   }
 
   ngOnInit() {
-    this._authorization.getXsrfCookie().subscribe(() =>{}, () => {
-      // redirect to error page
-      this.router.navigate(['/error-page', {type: ErrorPageEnum.notResponded}]).then();
-    });
-    // this.snackBar.open(
-    //   "This site uses cookies to analyze for some Machine Learning tests and fun things",
-    //   "OK"
-    // );
     // Loading animation part
     this.subscriptionRouter = this.router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd || event instanceof NavigationStart))
-      .subscribe((event: NavigationStart | NavigationEnd) => {
+      .pipe(filter((event: any) => event instanceof NavigationEnd || event instanceof NavigationStart || event instanceof NavigationError))
+      .subscribe((event: any) => {
         if (event instanceof NavigationStart) this.isLoading = true;
-        if (event instanceof NavigationEnd) this.isLoading = false;
+        else if (event instanceof NavigationEnd) this.isLoading = false;
+        else if (event instanceof NavigationError) {
+          this.isLoading = false;
+          this.snackBar.open('Navigation fails! Please try again.', 'OK')
+        }
       });
   }
-
+  // Destroy listener
   ngOnDestroy(): void {
     this.subscriptionRouter.unsubscribe();
   }

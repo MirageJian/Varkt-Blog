@@ -1,7 +1,8 @@
 import pymysql
 
 
-class DataBase:
+class Database:
+
     def __init__(self):
         # 每次数据库被实例的时候，打开数据库连接，加上charset='utf8'可以读取中文
         try:

@@ -1,16 +1,17 @@
 from handlers.base import BaseHandler
+from tools import json_helper
 
 
 class CategoryHandler(BaseHandler):
     async def get(self):
         self.db.cursor.execute("SELECT * FROM category ORDER BY id DESC")
         data = self.db.cursor.fetchall()
-        json = self.json_encode(data)
+        json = json_helper.dumps(data)
         self.write(json)
 
     async def put(self, *args, **kwargs):
         self.get_login_user()
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         self.db.cursor.execute("INSERT INTO category (label, icon) VALUES (%s,%s)", (
             body["label"], body["icon"]
         ))

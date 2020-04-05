@@ -18,6 +18,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { AboutManagingComponent } from './about-managing/about-managing.component';
 import { PublicFilesComponent } from './public-files/public-files.component';
 import {PublicFilesService} from "./public-files/public-files.service";
+import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {PublicFilesService} from "./public-files/public-files.service";
     CategoriesManagingComponent,
     AboutManagingComponent,
     PublicFilesComponent,
+    MarkdownEditorComponent,
   ],
   entryComponents: [],
   providers: [

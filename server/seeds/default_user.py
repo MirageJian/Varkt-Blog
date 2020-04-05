@@ -1,4 +1,4 @@
-from database import DataBase
+from database import Database
 
 
 # user default seed
@@ -7,7 +7,7 @@ password = 'e10adc3949ba59abbe56e057f20f883e'
 email = username + '@yourdomain.com'
 
 
-def create_default_user(db: DataBase):
+def create_default_user(db: Database):
     db.cursor.execute("SELECT * FROM user")
     users = db.cursor.fetchall()
     if not users or len(users) < 1:
@@ -22,7 +22,7 @@ about_content = '{"ops":[{"insert":"Insert your about information here, any thin
                 'You also can edit this about in admin dashboard"}]}'
 
 
-def create_default_blog_about(db: DataBase):
+def create_default_blog_about(db: Database):
     db.cursor.execute("SELECT * FROM about")
     abouts = db.cursor.fetchall()
     if not abouts or len(abouts) < 1:
@@ -35,7 +35,7 @@ category = 'New Category'
 icon = 'Add'
 
 
-def create_default_category(db: DataBase):
+def create_default_category(db: Database):
     db.cursor.execute("SELECT * FROM category")
     categories = db.cursor.fetchall()
     if not categories or len(categories) < 1:

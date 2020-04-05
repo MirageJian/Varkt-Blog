@@ -1,30 +1,34 @@
-import { AssortmentComponent } from './category/assortment/assortment.component';
-import { ArticleComponent } from './article/article.component';
-import { SomethingService } from './something.service';
-import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared/shared.module';
-import { SomethingRoutingModule } from './something.routing';
-import { ListArticlesComponent } from './category/list-articles/list-articles.component';
-import { CategoryComponent } from './category/category.component';
-import {ArticleResolveService, ArticlesResolveService} from "./something-resolve.service";
+import {AssortmentComponent} from './assortment/assortment.component';
+import {SomethingService} from './something.service';
+import {NgModule} from '@angular/core';
+import {SharedModule} from '@shared/shared.module';
+import {ListArticlesComponent} from './list-articles/list-articles.component';
+import {CategoryComponent} from './category.component';
+import {ArticlesResolveService, CategoriesResolveService} from "./something-resolve.service";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
   imports: [
     SharedModule,
-    SomethingRoutingModule,
+    RouterModule.forChild([
+      {path: '', component: CategoryComponent, resolve: {categories: CategoriesResolveService}, children: [
+        {path: '', component: AssortmentComponent},
+        {path: ':id', component: ListArticlesComponent, resolve: {articles: ArticlesResolveService}}
+      ]},
+    ])
   ],
-  exports: [],
+  exports: [RouterModule],
   declarations: [
-    ArticleComponent,
     AssortmentComponent,
     ListArticlesComponent,
     CategoryComponent
   ],
   providers: [
     SomethingService,
+    CategoriesResolveService,
     ArticlesResolveService,
-    ArticleResolveService
   ],
 })
-export class SomethingModule { }
+export class SomethingModule {
+}

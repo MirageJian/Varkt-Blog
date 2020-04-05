@@ -2,6 +2,8 @@ from handlers.base import BaseHandler
 import time
 import urllib.request
 
+from tools import json_helper
+
 
 class PyRecordHandler(BaseHandler):
     def post(self, *args, **kwargs):
@@ -35,7 +37,7 @@ class PyRecordHandler(BaseHandler):
             "SELECT r.id,r.ip,r.time_log,u.py_name,u.phone,r.remark "
             "FROM py_records r JOIN py_user u on r.id_py_user = u.id ORDER BY r.id DESC;")
         data = self.db.cursor.fetchall()
-        self.write(self.json_encode(data))
+        self.write(json_helper.dumps(data))
 
     # admin kick out
     def delete(self, *args, **kwargs):

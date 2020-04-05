@@ -3,9 +3,10 @@ import {SomethingService} from '../../something/something.service';
 import {catchError} from 'rxjs/operators';
 import {HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {ArticleService} from "../../article/article.service";
 
 @Injectable()
-export class ManagingService extends SomethingService {
+export class ManagingService extends ArticleService {
   getAllArticle() {
     return this.http.get(this.url.article).pipe(catchError(this.handleError));
   }

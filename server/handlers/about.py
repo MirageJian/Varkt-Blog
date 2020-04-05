@@ -1,18 +1,18 @@
 from handlers.base import BaseHandler
-from tools import common_helper
+from tools import common_helper, json_helper
 
 
 class AboutHandler(BaseHandler):
     async def get(self):
         self.db.cursor.execute("SELECT * FROM about")
         data = self.db.cursor.fetchone()
-        json = self.json_encode(data)
+        json = json_helper.dumps(data)
         self.write(json)
 
     async def put(self, *args, **kwargs):
         self.get_login_user()
 
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         self.db.cursor.execute("SELECT * FROM about")
         data = self.db.cursor.fetchone()
         if not data:

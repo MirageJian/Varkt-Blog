@@ -1,11 +1,10 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import {slideFromBottom, routeAnimation} from '@shared/animations';
-import {SomethingService} from "../../something.service";
+import {SomethingService} from "../something.service";
 import {ListArticleModel} from "@shared/models";
 import {JsonHelper} from "@shared/tools";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
-import {ToolsService} from "@app-services/tools.service";
 
 @Component({
   selector: 'app-assortment',
@@ -20,21 +19,22 @@ export class AssortmentComponent implements OnInit {
   listArticle: ListArticleModel[];
 
   constructor(
-    private somethingService: SomethingService,
+    private _somethingService: SomethingService,
     private route: ActivatedRoute,
-    public tools: ToolsService
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.route.queryParamMap.pipe(switchMap((paramMap: ParamMap) => {
       this.keyword = paramMap.get('keyword');
-      return this.somethingService.getSearchResult(this.keyword);
-    })).subscribe(this.searchCallback)
+      return this._somethingService.getSearchResult(this.keyword);
+    })).subscribe(this.searchCallback);
+    // Set label for header
+    this._somethingService.label = 'Filter';
   }
 
   searchArticle(keyword: string) {
-    this.listArticle = null;
-    this.somethingService.getSearchResult(keyword).subscribe(this.searchCallback);
+    this.router.navigate(['/something'], {queryParams: {keyword: keyword}}).then();
   }
   // use callback function to improve code reuse
   private readonly searchCallback = (res: ListArticleModel[]) => {

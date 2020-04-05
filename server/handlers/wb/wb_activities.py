@@ -1,4 +1,5 @@
 from handlers.base import BaseHandler
+from tools import json_helper
 
 
 class WbActivitiesHandler(BaseHandler):
@@ -21,12 +22,12 @@ class WbActivitiesHandler(BaseHandler):
                 "SELECT a.*,p.theme AS project FROM wb_activity a JOIN wb_project p ON a.id_project = p.id "
                 "WHERE a.id=%s", id_activity)
             data = self.db.cursor.fetchone()
-        json = self.json_encode(data)
+        json = json_helper.dumps(data)
         self.write(json)
 
     def post(self, *args, **kwargs):
         id_user = self.get_login_user()
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         try:
             self.db.cursor.execute("UPDATE wb_activity SET id_project=%s,title=%s,date=%s,time_start=%s,time_end=%s,"
                                    "interruption=%s,net_time=%s,num_week=%s,remark=%s WHERE id=%s", (
@@ -40,7 +41,7 @@ class WbActivitiesHandler(BaseHandler):
 
     def put(self, *args, **kwargs):
         id_user = self.get_login_user()
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         try:
             self.db.cursor.execute("REPLACE INTO wb_activity(id,id_project,title,date,time_start,time_end,interruption,"
                                    "net_time,num_week,remark) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (

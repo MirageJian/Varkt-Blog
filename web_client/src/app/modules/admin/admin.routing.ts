@@ -11,6 +11,7 @@ import { WorkbookComponent } from './workbook/workbook.component';
 import {PoYoungComponent} from "./po-young/po-young.component";
 import {AboutManagingComponent} from "./about-managing/about-managing.component";
 import {PublicFilesComponent} from "./public-files/public-files.component";
+import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: '', component: AdminDashboardComponent},
       { path: 'managing', component: ManagingComponent },
       { path: 'writing', component: WritingComponent },
+      { path: 'markdown-editor', component: MarkdownEditorComponent },
       { path: 'about-managing', component: AboutManagingComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'public-files', component: PublicFilesComponent },

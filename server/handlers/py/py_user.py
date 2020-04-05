@@ -1,10 +1,11 @@
 from handlers.base import BaseHandler
 import tools.file_helper
+from tools import json_helper
 
 
 class PyUserHandler(BaseHandler):
     def post(self, *args, **kwargs):
-        request = self.json_decode(self.request.body)
+        request = json_helper.loads(self.request.body)
         try:
             self.db.cursor.execute("select * from py_code where id=(select max(id) from py_code);")
         except():
@@ -36,7 +37,7 @@ class PyUserHandler(BaseHandler):
         self.get_login_user()
         self.db.cursor.execute("SELECT * FROM py_user ORDER BY id DESC;")
         data = self.db.cursor.fetchall()
-        self.write(self.json_encode(data))
+        self.write(json_helper.dumps(data))
 
     # admin upload apk
     def put(self, *args, **kwargs):

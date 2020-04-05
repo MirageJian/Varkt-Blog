@@ -25,17 +25,11 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit() {
-    import('highlight.js').then(hljs => {
-      hljs.configure({   // optionally configure hljs
-        languages: ['javascript', 'typescript', 'python']
-      });
-      if (this.readonly) {
-        this.readonlyQuillInit();
-      } else {
-        this.quillInit();
-      }
-    });
-
+    if (this.readonly) {
+      this.readonlyQuillInit();
+    } else {
+      this.quillInit();
+    }
   }
 
   private quillInit() {
@@ -43,7 +37,7 @@ export class EditorComponent implements OnInit {
     this.quill = new Quill(this.editor.nativeElement, {
       readOnly: false,
       modules: {
-        syntax: true,              // Include syntax module
+        //syntax: true,              // Include syntax module
         toolbar: [
           [{'header': [false, 1, 2, 3, 4, 5, 6]}],
           [{'font': []}],

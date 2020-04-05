@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {LayoutRouting} from "./layout.routing";
 import {LayoutComponent} from "./layout.component";
 import {NavbarComponent} from "./navbar/navbar.component";
@@ -7,7 +7,6 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {CommonModule} from "@angular/common";
-import { ErrorPageComponent } from './error-page/error-page.component';
 import {FooterComponent} from "./footer/footer.component";
 import {SharedModule} from "@shared/shared.module";
 import { LoadingComponent } from './loadding/loading.component';
@@ -28,8 +27,7 @@ import { LoadingComponent } from './loadding/loading.component';
     LayoutComponent,
     NavbarComponent,
     FooterComponent,
-    ErrorPageComponent,
     LoadingComponent,
   ]
 })
-export class LayoutModule { }
+export class LayoutModule {}

@@ -9,23 +9,24 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {AppServicesModule} from "@app-services/app-services.module";
-import {AuthorizationModule} from "./modules/authorization/authorization.module";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    // Serivce
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
     HttpClientXsrfModule.withOptions({
-      cookieName: '_xsrf', // define your title of xsrf param
+      cookieName: '_xsrf', // Define your title of xsrf param
       headerName: 'X-XSRFToken',
     }),
-    AppRoutingModule, // the root module should always be the last one
-    AppServicesModule, // common and general service
-    AuthorizationModule
+    AppRoutingModule, // The root module should always be the last one
+    AppServicesModule, // Common and general service
   ],
   bootstrap: [AppComponent]
 })

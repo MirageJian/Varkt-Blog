@@ -5,6 +5,8 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {JsonHelper} from '@shared/tools';
 import {EditorComponent} from "@shared/components/editor/editor.component";
+import {SomethingService} from "../../something/something.service";
+import {ArticleService} from "../../article/article.service";
 
 @Component({
   selector: 'app-writing',
@@ -21,6 +23,8 @@ export class WritingComponent implements OnInit, AfterViewInit {
   public constructor(
     private elementRef: ElementRef,
     private writingService: WritingService,
+    private _somethingService: SomethingService,
+    private _articleService: ArticleService,
     private router: Router,
     private route: ActivatedRoute,
   ) {
@@ -29,14 +33,14 @@ export class WritingComponent implements OnInit, AfterViewInit {
   public ngOnInit() {
     // data init
     this.article = new ArticleModel();
-    this.writingService.getListCategory().subscribe((res: CategoryModel[]) => {
+    this._somethingService.getListCategory().subscribe((res: CategoryModel[]) => {
       this.categories = res;
     });
   }
 
   ngAfterViewInit(): void {
     this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => this.writingService.getArticle(+params.get('id')))
+      switchMap((params: ParamMap) => this._articleService.getArticle(+params.get('id')))
     ).subscribe((res: ArticleModel) => {
       if (res != null) {
         JsonHelper.toAny(res, JsonHelper.articleMember);

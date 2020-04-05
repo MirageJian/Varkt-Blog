@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {ListArticleModel, ResModel, CommentModel} from '@shared/models';
 import {ManagingService} from './managing.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {SomethingService} from "../../something/something.service";
 
 @Component({
   selector: 'app-manage',
@@ -20,6 +21,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private managingService: ManagingService,
+    private _somethingService: SomethingService
   ) {
   }
 
@@ -50,7 +52,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
     this.router.navigate(['../writing', {id: a.id}], {relativeTo: this.route}).then();
   }
   searchArticle() {
-    this.managingService.getSearchResult(this.searchKeyword).subscribe((res: ListArticleModel[]) => {
+    this._somethingService.getSearchResult(this.searchKeyword).subscribe((res: ListArticleModel[]) => {
       this.articles = res;
     });
   }

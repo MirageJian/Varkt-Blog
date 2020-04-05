@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {SomethingService} from '../../something/something.service';
 import {catchError} from 'rxjs/operators';
 import {ArticleModel} from '@shared/models';
 import {JsonHelper} from '@shared/tools';
+import {BaseService} from "@app-services/base.service";
 
 @Injectable()
-export class WritingService extends SomethingService {
+export class WritingService extends BaseService {
   putArticle(article: ArticleModel, text: string) {
     const body = {...article} as ArticleModel;
     JsonHelper.toJson(body, ['category', 'content']);

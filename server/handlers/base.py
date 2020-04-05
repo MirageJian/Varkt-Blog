@@ -1,12 +1,13 @@
 import tornado.web
-from database import DataBase
+from sqlalchemy.orm import Session
+from database import Database
 from tools import json_helper
 
 
 class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
         super().__init__(application, request, **kwargs)
-        self.db: DataBase = DataBase()
+        self.db: Database = Database()
 
     # When data received, it will be called before PUT and POST
     def data_received(self, chunk):
@@ -20,17 +21,7 @@ class BaseHandler(tornado.web.RequestHandler):
         self.db.cursor.close()
         self.db.conn.close()
 
-    # to json data
-    @staticmethod
-    def json_encode(data):
-        return json_helper.dumps(data)
-
-    # to normal data
-    @staticmethod
-    def json_decode(params):
-        return json_helper.loads(params)
-
-    # standard response. success 0, fail other number.
+    # Standard response. success 0, fail other number.
     async def write_res(self, code, info=None, data=None):
         data = {
             "errcode": code, "errmsg": info, "data": data

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {BaseService} from "./base.service";
 import {LoginService} from "./login.service";
-import {ToolsService} from "./tools.service";
+import {FileUploadService} from "@app-services/file-upload.service";
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import {ToolsService} from "./tools.service";
     BaseService,
     LoginService,
     // HttpInterceptorProviders
-    ToolsService
+    FileUploadService
   ]
 })
 export class AppServicesModule { }

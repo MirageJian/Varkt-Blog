@@ -10,7 +10,7 @@ class PasswordHandler(BaseHandler):
         self.user_id = self.get_login_user()
 
     async def put(self, *args, **kwargs):
-        body = self.json_decode(self.request.body)
+        body = json_helper.loads(self.request.body)
         self.db.cursor.execute("SELECT * FROM user WHERE id=%s", self.user_id)
         user = self.db.cursor.fetchone()
         if user and user["password"] == body["oldPassword"]:
