@@ -208,5 +208,8 @@
       }
     }
   },
-  "defaultProject": "Holacode"
+  "defaultProject": "Holacode",
+  "cli": {
+    "analytics": "9ef1a37c-1c0e-44bd-b4dc-8fb7d1b26d5a"
+  }
 }
