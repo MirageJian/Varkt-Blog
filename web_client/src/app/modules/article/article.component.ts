@@ -27,7 +27,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding('style.flex-direction') direction = 'column';
   @HostBinding('style.width') width = '100%';
   // @HostBinding('style.position')  position = 'absolute';
-  @ViewChild('editor', {static: false}) private editor: EditorComponent;
+  @ViewChild('editor') private editor: EditorComponent;
   article: ArticleModel;
   comments: CommentModel[];
   newComment = new CommentModel();

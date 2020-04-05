@@ -14,8 +14,8 @@ import {ArticleService} from "../../article/article.service";
   styleUrls: ['./writing.component.scss']
 })
 export class WritingComponent implements OnInit, AfterViewInit {
-  @ViewChild('editor', {static: false}) private editor: EditorComponent;
-  @ViewChild('quillImgField', { static: false }) quillImgField: ElementRef;
+  @ViewChild('editor') private editor: EditorComponent;
+  @ViewChild('quillImgField') quillImgField: ElementRef;
 
   article: ArticleModel;
   categories: CategoryModel[];

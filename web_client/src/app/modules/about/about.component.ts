@@ -17,7 +17,7 @@ import {EditorComponent} from "@shared/components/editor/editor.component";
   animations: [slideFromBottom()]
 })
 export class AboutComponent implements OnInit, AfterViewInit {
-  @ViewChild('editor', {static: false}) private editor: EditorComponent;
+  @ViewChild('editor') private editor: EditorComponent;
   article: AboutModel;
 
   constructor(
