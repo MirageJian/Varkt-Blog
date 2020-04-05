@@ -32,6 +32,7 @@ import { ProgressDirective, DataProgressComponent } from './directives/progress.
 import {RouterModule} from "@angular/router";
 import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.component";
 import { EditorComponent } from './components/editor/editor.component';
+import {MarkdownModule} from "ngx-markdown";
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { EditorComponent } from './components/editor/editor.component';
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatSnackBarModule,
     // cdk
     CdkTableModule,
+    MarkdownModule.forRoot()
   ],
   declarations: [
     HeaderComponent,
@@ -63,6 +65,9 @@ import { EditorComponent } from './components/editor/editor.component';
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
     MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatSnackBarModule,
+    // cdk
+    CdkTableModule,
+    MarkdownModule,
 
     HeaderComponent,
     ProgressDirective,

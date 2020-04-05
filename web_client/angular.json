@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Holacode": {
+    "holacode": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -119,21 +119,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Holacode:build"
+            "browserTarget": "holacode:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Holacode:build:production"
+              "browserTarget": "holacode:build:production"
             },
             "zh": {
-              "browserTarget": "Holacode:build:zh"
+              "browserTarget": "holacode:build:zh"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Holacode:build"
+            "browserTarget": "holacode:build"
           }
         },
         "test": {
@@ -180,7 +180,7 @@
         }
       }
     },
-    "Holacode-e2e": {
+    "holacode-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -188,11 +188,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Holacode:serve"
+            "devServerTarget": "holacode:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Holacode:serve:production"
+              "devServerTarget": "holacode:serve:production"
             }
           }
         },
@@ -208,7 +208,7 @@
       }
     }
   },
-  "defaultProject": "Holacode",
+  "defaultProject": "holacode",
   "cli": {
     "analytics": "9ef1a37c-1c0e-44bd-b4dc-8fb7d1b26d5a"
   }

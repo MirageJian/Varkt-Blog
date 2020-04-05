@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./markdown-editor.component.css']
 })
 export class MarkdownEditorComponent implements OnInit {
+  content: string;
 
   constructor() { }
 

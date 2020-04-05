@@ -1,1 +1,5 @@
 <p>markdown-editor works!</p>
+<mat-form-field appearance="outline">
+  <textarea matInput [(ngModel)]="content"></textarea>
+</mat-form-field>
+<markdown [data]="content"></markdown>
