@@ -19,6 +19,7 @@ import { AboutManagingComponent } from './about-managing/about-managing.componen
 import { PublicFilesComponent } from './public-files/public-files.component';
 import {PublicFilesService} from "./public-files/public-files.service";
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import {SomethingService} from "../something/something.service";
 
 @NgModule({
   imports: [
@@ -45,7 +46,9 @@ import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.compo
     WritingService,
     ManagingService,
     AdminDashboardService,
-    PublicFilesService
+    PublicFilesService,
+    SomethingService,
+    WritingService
   ],
 })
 export class AdminModule {

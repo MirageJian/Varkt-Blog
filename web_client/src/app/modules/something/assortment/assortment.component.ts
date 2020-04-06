@@ -29,8 +29,6 @@ export class AssortmentComponent implements OnInit {
       this.keyword = paramMap.get('keyword');
       return this._somethingService.getSearchResult(this.keyword);
     })).subscribe(this.searchCallback);
-    // Set label for header
-    this._somethingService.label = 'Filter';
   }
 
   searchArticle(keyword: string) {

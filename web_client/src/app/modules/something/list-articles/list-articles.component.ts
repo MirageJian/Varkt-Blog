@@ -25,8 +25,6 @@ export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    // Set label for header
-    this.route.paramMap.subscribe(paramMap => this._somethingService.label = paramMap.get('id'));
     this.subscription = this.route.data.subscribe((res: {articles: ListArticleModel[]}) => {
       this.articles = res.articles;
       if (this.articles)

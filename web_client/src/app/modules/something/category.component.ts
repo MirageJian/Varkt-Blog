@@ -51,9 +51,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
   //   this.label = title;
   //   this.router.navigate(['./', {label: this.label}]).then();
   // }
-  get label() {
-    return this._somethingService.label;
-  }
 
   sideNavAction() {
     if (this.mobileQuery.matches) {

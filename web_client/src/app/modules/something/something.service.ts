@@ -6,7 +6,6 @@ import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class SomethingService extends BaseService {
-  private _label: string;
 
   getListCategory(): Observable<any> {
     return this.http.get(this.url.category).pipe(catchError(this.handleError));
@@ -24,12 +23,5 @@ export class SomethingService extends BaseService {
     let params = new HttpParams();
     params = params.set('keyword', keyword);
     return this.http.get(this.url.searching, {params: params}).pipe(catchError(this.handleError));
-  }
-
-  get label() {
-    return this._label;
-  }
-  set label(val) {
-    this._label = val;
   }
 }
