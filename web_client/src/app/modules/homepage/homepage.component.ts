@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private generalService: HomepageService,
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute
   ) { }
 

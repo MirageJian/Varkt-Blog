@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
 
   // for submit log information
   onSubmit() {
-    this.info.password = Md5.hashStr(this.info.password).toString();
     this.loginService.login(this.info).subscribe((res: ResModel) => {
       if (res.errcode === 0) {
         this.loginService.isLoggedIn = true;

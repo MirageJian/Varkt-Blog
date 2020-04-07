@@ -19,7 +19,7 @@ export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private _somethingService: SomethingService
   ) {
   }

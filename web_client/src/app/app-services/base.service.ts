@@ -2,10 +2,12 @@ import {catchError} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {throwError} from 'rxjs';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Injectable()
 export class BaseService {
-  public static HOST = "holacodes.com";
+  public static HOST = "https://holacodes.com";
+  // private baseUrl = "http://localhost:8888";
   private baseUrl = '/apis';
   protected url = {
     login: `${this.baseUrl}/login`,
@@ -37,20 +39,17 @@ export class BaseService {
     return this.http.get(this.baseUrl).pipe(catchError(this.handleError));
   }
 
-  protected handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
+  protected handleError(res: HttpErrorResponse) {
+    // A client-side or network error occurred. Handle it accordingly.
+    console.error('An error occurred:', res.error?.message);
+    // if (res.error instanceof ErrorEvent)
+    // The backend returned an unsuccessful response code.
+    // The response body may contain clues as to what went wrong,
+    console.error(`Backend returned code ${res.status}, ` + `body was: ${res.error}`);
+
     // return an ErrorObservable with a user-facing error message
     return throwError(
-      `Something bad happened. code ${error.status}`
+      `Something bad happened. code ${res.status}`
     );
   }
 }

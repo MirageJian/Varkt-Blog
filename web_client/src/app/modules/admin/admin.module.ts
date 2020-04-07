@@ -6,7 +6,6 @@ import {AdminRoutingModule} from './admin.routing';
 import {ManagingComponent} from './managing/managing.component';
 import {WritingComponent} from './writing/writing.component';
 import {SharedModule} from '@shared/shared.module';
-import {WorkbookModule} from './workbook/workbook.module';
 import {WritingService} from './writing/writing.service';
 import {ManagingService} from './managing/managing.service';
 import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
@@ -20,16 +19,17 @@ import { PublicFilesComponent } from './public-files/public-files.component';
 import {PublicFilesService} from "./public-files/public-files.service";
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import {SomethingService} from "../something/something.service";
+import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 
 @NgModule({
   imports: [
     SharedModule,
     AdminRoutingModule,
-    WorkbookModule,
     ReactiveFormsModule
   ],
   declarations: [
     AdminComponent,
+    AdminDashboardComponent,
     ManagingComponent,
     WritingComponent,
     SettingsComponent,

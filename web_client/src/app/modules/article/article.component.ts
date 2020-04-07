@@ -10,6 +10,7 @@ import Quill from "quill";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {EditorComponent} from "@shared/components/editor/editor.component";
 import {ArticleService} from "./article.service";
+import {Title} from "@angular/platform-browser";
 
 
 // declare var require: any;
@@ -35,7 +36,8 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private _articleService: ArticleService,
     private route: ActivatedRoute,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private titleService: Title
   ) {
   }
 
@@ -45,7 +47,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
       JsonHelper.toAny(res.data, JsonHelper.articleMember);
       this.article = res.data;
       // Set page tile
-      document.title = this.article.title;
+      this.titleService.setTitle(this.article.title);
       // Get comments
       this._articleService.getComments(this.article.id).subscribe((res: CommentModel[]) => {
         this.comments = res;
@@ -80,6 +82,6 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     // Reset page tile
-    document.title = APP_TILE;
+    this.titleService.setTitle(APP_TILE);
   }
 }

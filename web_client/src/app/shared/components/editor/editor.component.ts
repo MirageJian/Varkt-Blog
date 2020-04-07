@@ -1,6 +1,5 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ResModel} from '../../models';
-import * as hljs from 'highlight.js';
 import Quill from 'quill';
 import {FileUploadService} from '@app-services/file-upload.service';
 import Picker from 'quill/ui/picker'

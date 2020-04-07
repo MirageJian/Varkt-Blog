@@ -26,9 +26,11 @@ In order to build multi language apps, it has to config multi configurations in 
 Such as `"production-zh": {}`
 
 ### Proxy config
-When in the development mode, use `--proxy-config proxy.conf.json` parameter to start.
+When in the development mode, use `--proxy-config proxy.conf.json` parameter to start. (Deprecated)
 
 In `proxy.conf.json`, I define the port and how to rewrite the url like anti-proxy \(nginx\).
+
+**New way of using proxy file**: Proxy can be configured in `angular.json` file. Please see `...architect.serve.options.proxyConfig: 'proxy.conf.json'`
 
 ### About ngsw-config.json
 navigationUrls defines which kinds of url will be accepted, so I use those url config to make apis work properly
@@ -56,4 +58,3 @@ Besides angular basic dependencies (angular/common, angular/router, angular-cli,
  The package below need types to work better (or just use with api hint :D )   
 `quill`   
 `hammerjs`  
-`highlight.js`

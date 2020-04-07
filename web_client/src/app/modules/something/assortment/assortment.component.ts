@@ -21,7 +21,7 @@ export class AssortmentComponent implements OnInit {
   constructor(
     private _somethingService: SomethingService,
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
   ) { }
 
   ngOnInit() {

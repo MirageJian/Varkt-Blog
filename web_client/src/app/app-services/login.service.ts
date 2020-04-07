@@ -3,6 +3,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { BaseService } from './base.service';
 import { LoginInfoModel } from '@shared/models';
+import {Md5} from "ts-md5";
 
 @Injectable()
 export class LoginService extends BaseService {
@@ -17,8 +18,8 @@ export class LoginService extends BaseService {
       })
     };
     const url = `/apis/login`;
-    return this.http.post(url, log, httpOptions)
-    .pipe(catchError(this.handleError));
+    const body = {account: log.account, password: Md5.hashStr(log.password).toString()};
+    return this.http.post(url, body, httpOptions).pipe(catchError(this.handleError));
   }
   logout() {
     this.isLoggedIn = false;

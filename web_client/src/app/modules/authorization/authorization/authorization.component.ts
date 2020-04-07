@@ -1,10 +1,11 @@
 import { AuthorizationService } from '../authorization.service';
-import { Component, OnInit } from '@angular/core';
+import {Component, InjectionToken, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAlertComponent } from '@shared/components/alert-dialog/dialog-alert.component';
 import { PoyoungAuth } from './PoyoungAuth';
 import { ResModel } from '@shared/models';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-authorization',
@@ -13,11 +14,9 @@ import { ResModel } from '@shared/models';
 })
 export class AuthorizationComponent implements OnInit {
   authForm: FormGroup;
-  animal: string;
-  name2: string;
 
-  constructor(private authorization: AuthorizationService, public dialog: MatDialog) {
-    document.title="破样信息注册"
+  constructor(private authorization: AuthorizationService, public dialog: MatDialog, private title: Title) {
+    title.setTitle("破样信息注册");
   }
 
   openAlertDialog(msg) {
