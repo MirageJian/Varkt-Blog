@@ -17,18 +17,15 @@ export class LoginService extends BaseService {
         'Content-Type': 'text/plain'
       })
     };
-    const url = `/apis/login`;
     const body = {account: log.account, password: Md5.hashStr(log.password).toString()};
-    return this.http.post(url, body, httpOptions).pipe(catchError(this.handleError));
+    return this.http.post(this.url.login, body, httpOptions).pipe(catchError(this.handleError));
   }
   logout() {
     this.isLoggedIn = false;
     this.userName = null;
-    const url = `/apis/login`;
-    return this.http.delete(url).pipe(catchError(this.handleError));
+    return this.http.delete(this.url.login).pipe(catchError(this.handleError));
   }
   check() {
-    const url = `/apis/login`;
-    return this.http.get(url, {}).pipe(catchError(this.handleError));
+    return this.http.get(this.url.login, {}).pipe(catchError(this.handleError));
   }
 }

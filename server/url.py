@@ -16,34 +16,28 @@ from handlers.py.py_auth import AuthorizationHandler
 from handlers.py.py_record import PyRecordHandler
 from handlers.py.py_user import PyUserHandler
 from handlers.py.py_code import PyCodeHandler
-from handlers.wb.wb_projects import WbProjectsHandler
-from handlers.wb.wb_activities import WbActivitiesHandler
-from handlers.wb.wb_set_end_a import SetEndAHandler
 
+api_url = r"/api"
 
 path = [
-    (r"/", MainHandler),
-    (r"/dashboard", DashboardHandler),
-    (r"/something", SomethingHandler),
-    (r"/about", AboutHandler),
-    (r"/login", LoginHandler),
-    (r"/image", ImageHandler),
-    (r"/article", ArticleHandler),
-    (r"/comment", CommentHandler),
-    (r"/comment_managing", CommentManagingHandler),
-    (r"/category", CategoryHandler),
-    (r"/searching", SearchingHandler),
-    (r"/password", PasswordHandler),
-    (r"/public_files", PublicFilesHandler),
+    (api_url + r"/", MainHandler),
+    (api_url + r"/dashboard", DashboardHandler),
+    (api_url + r"/something", SomethingHandler),
+    (api_url + r"/about", AboutHandler),
+    (api_url + r"/login", LoginHandler),
+    (api_url + r"/image", ImageHandler),
+    (api_url + r"/article", ArticleHandler),
+    (api_url + r"/comment", CommentHandler),
+    (api_url + r"/comment_managing", CommentManagingHandler),
+    (api_url + r"/category", CategoryHandler),
+    (api_url + r"/searching", SearchingHandler),
+    (api_url + r"/password", PasswordHandler),
+    (api_url + r"/public_files", PublicFilesHandler),
 
-    (r"/authorization", AuthorizationHandler),
-    (r"/authorisation", AuthorizationHandler),
-    (r"/py_record", PyRecordHandler),
-    (r"/py_user", PyUserHandler),
-    (r"/py_code", PyCodeHandler),
-
-    (r"/wb_projects", WbProjectsHandler),
-    (r"/wb_activities", WbActivitiesHandler),
-    (r"/wb_set_end_a", SetEndAHandler),
+    (api_url + r"/authorization", AuthorizationHandler),
+    (api_url + r"/authorisation", AuthorizationHandler),
+    (api_url + r"/py_record", PyRecordHandler),
+    (api_url + r"/py_user", PyUserHandler),
+    (api_url + r"/py_code", PyCodeHandler),
 ]
 

@@ -15,7 +15,8 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # The connection start
     def prepare(self):
-        pass
+        print(self.request.headers.get('Host'))
+        self.set_header("Content-Type", "application/json")
 
     def on_finish(self):
         self.db.cursor.close()
@@ -30,14 +31,15 @@ class BaseHandler(tornado.web.RequestHandler):
         self.write(json)
         return json
 
-    # if in the development, you need this function.
-    # def set_default_headers(self):
-    #     self.set_header("Access-Control-Allow-Origin", "*")
-    #     self.set_header("Access-Control-Allow-Headers", "x-requested-with")
-    #     self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+    # If in the development, may need this function. For server side render
+    def set_default_headers(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        # self.set_header("Access-Control-Allow-Origin", "http://localhost:4000")
+        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
+        self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
 
     def get_current_user(self):
-        return self.get_secure_cookie("admin_user", None)
+        return self.get_secure_cookie("_user", None)
 
     # if no login send 403, else return id
     def get_login_user(self):

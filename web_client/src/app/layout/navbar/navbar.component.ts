@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     @Inject(LOCALE_ID) public localeId,
     private breakpointObserver: BreakpointObserver
   ) {
-    // if in the desktop width
+    // If width change, this observable will respond
     this.subscriptionBreakpoint = breakpointObserver.observe(MOBILE_BREAKPOINT).subscribe(result => {
         this.isShownSearch = !result.matches;
     });
@@ -77,6 +77,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptionBreakpoint.unsubscribe();
   }
 
+  // Check if is in mobile width
   private get checkIsMobile() {
     return this.breakpointObserver.isMatched(MOBILE_BREAKPOINT);
   }

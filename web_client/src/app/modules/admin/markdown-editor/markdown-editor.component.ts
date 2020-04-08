@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {slideFromBottom} from "@shared/animations";
 
 @Component({
@@ -10,7 +10,7 @@ import {slideFromBottom} from "@shared/animations";
 export class MarkdownEditorComponent implements OnInit {
   content: string;
 
-  constructor() { }
+  constructor(private render: Renderer2) { }
 
   ngOnInit() {
   }
@@ -18,9 +18,9 @@ export class MarkdownEditorComponent implements OnInit {
 
   }
 
-  resizeTextarea(text: HTMLTextAreaElement) {
-    text.style.height = 'auto';
-    text.style.height = text.scrollHeight+'px';
+  resizeTextarea(text: ElementRef) {
+    this.render.setStyle(text, 'height', 'auto');
+    this.render.setStyle(text, 'height', text.nativeElement.scrollHeight+'px');
   }
 
   insertImage() {

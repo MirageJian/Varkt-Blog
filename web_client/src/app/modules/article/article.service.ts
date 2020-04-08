@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {BaseService} from "@app-services/base.service";
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs";
@@ -10,8 +10,8 @@ import {catchError} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ArticleService extends BaseService implements Resolve<ArticleModel>{
-  constructor(http: HttpClient, private router: Router) {
-    super(http);
+  constructor(http: HttpClient, private router: Router, @Inject(PLATFORM_ID) platform) {
+    super(http, platform);
   }
 
   getArticle(id: number): Observable<any> {

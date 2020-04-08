@@ -1,4 +1,13 @@
-import {Component, OnInit, HostBinding, OnDestroy, ViewChild, AfterContentInit, AfterViewInit} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostBinding,
+  OnDestroy,
+  ViewChild,
+  AfterContentInit,
+  AfterViewInit,
+  ElementRef
+} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {routeAnimation} from '@shared/animations';
 import {SomethingService} from '../something/something.service';
@@ -11,6 +20,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {EditorComponent} from "@shared/components/editor/editor.component";
 import {ArticleService} from "./article.service";
 import {Title} from "@angular/platform-browser";
+import {HeaderComponent} from "@shared/components/header/header.component";
 
 
 // declare var require: any;
@@ -37,7 +47,8 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
     private _articleService: ArticleService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
-    private titleService: Title
+    private titleService: Title,
+    private el: ElementRef
   ) {
   }
 
@@ -62,7 +73,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.editor.quill.setContents(this.article.content);
-    window.scrollTo(0,0);
+    this.el.nativeElement.scrollIntoView();
   }
 
   // Submit a new comment

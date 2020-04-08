@@ -6,10 +6,11 @@ import {
 } from '@angular/router';
 import { LoginService } from '@app-services/login.service';
 import {ResModel} from "@shared/models";
+import {HttpXsrfTokenExtractor} from "@angular/common/http";
 
 @Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private tokenExtractor: HttpXsrfTokenExtractor) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const url: string = state.url;

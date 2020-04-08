@@ -32,6 +32,18 @@ In `proxy.conf.json`, I define the port and how to rewrite the url like anti-pro
 
 **New way of using proxy file**: Proxy can be configured in `angular.json` file. Please see `...architect.serve.options.proxyConfig: 'proxy.conf.json'`
 
+```json
+{
+  "/api": {
+    "target": "http://localhost:8888",
+    "secure": "false",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
+```
+
 ### About ngsw-config.json
 navigationUrls defines which kinds of url will be accepted, so I use those url config to make apis work properly
 ```json

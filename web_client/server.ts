@@ -8,6 +8,7 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
+import {environment} from './src/environments/environment'
 import {createProxyServer} from 'http-proxy';
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -26,18 +27,22 @@ export function app() {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+
+  // Proxy to back end
+  // if (!environment.production) {
+    const apiProxy = createProxyServer();
+    server.get('/api/**', (req, res) => {
+      apiProxy.web(req, res, { target: 'http://localhost:8888'})
+    });
+    server.get('/static/**', (req, res) => {
+      apiProxy.web(req, res, { target: 'http://localhost:8888'})
+    });
+  // }
+
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
-
-  // Use proxy map /apis to backend prot
-  const apiProxy = createProxyServer();
-  server.all('/apis**', (req, res) => {
-    req.url = req.url.replace('/apis', '');
-    apiProxy.web(req, res, { target: 'http://localhost:8888'})
-  });
-  // server.use('/apis', createProxyMiddleware({target: 'http://localhost:8888', changeOrigin: true, ws: true, pathRewrite: {'^/apis': '/'}}));
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
