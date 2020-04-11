@@ -5,4 +5,5 @@ export const APP_TILE = 'Hello there!';
 // Old way check if it is mobile width
 export const MOBILE_WIDTH = '(max-width: 960px)';
 export const MOBILE_BREAKPOINT = [Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait];
+export const SNACKBAR_DURATION = {long: 20_000, short: 5_000, middle: 10_000};
 

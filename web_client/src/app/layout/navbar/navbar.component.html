@@ -19,11 +19,16 @@
     <mat-icon aria-label="">more_vert</mat-icon>
   </button>
   <mat-menu #appMenu="matMenu">
-    <a mat-menu-item [routerLink]="['/admin']" routerLinkActive="router-link-active">
+    <a mat-menu-item [routerLink]="['/admin']" routerLinkActive="router-link-active" *ngIf="loginService.userName else showLogin">
       <mat-icon>person</mat-icon>
-      <span *ngIf="loginService.userName else showLogin">{{loginService.userName}}</span>
-      <ng-template #showLogin><span i18n>Log in</span></ng-template>
+      <span>{{loginService.userName}}</span>
     </a>
+    <ng-template #showLogin>
+      <a mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active">
+        <mat-icon>perm_identity</mat-icon>
+        <span i18n>Log In</span>
+      </a>
+    </ng-template>
     <a mat-menu-item [routerLink]="['/admin/writing']" routerLinkActive="router-link-active">
       <mat-icon>create</mat-icon>
       <span i18n>Write</span>
@@ -37,7 +42,7 @@
       <mat-icon>translate</mat-icon>
       <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
     </a>
-    <button *ngIf="loginService.userName!=null" mat-menu-item (click)="logout()">
+    <button *ngIf="loginService.userName" mat-menu-item (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span i18n>Log out</span>
     </button>

@@ -30,7 +30,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptionBreakpoint = breakpointObserver.observe(MOBILE_BREAKPOINT).subscribe(result => {
         this.isShownSearch = !result.matches;
     });
-
   }
 
   ngOnInit() {
