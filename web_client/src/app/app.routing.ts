@@ -4,8 +4,6 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const appRoutes: Routes = [
   {path: '', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)},
-  {path: 'authorization',
-    loadChildren: () => import('./modules/authorization/authorization.module').then((m => m.AuthorizationModule))},
   {path: 'error-page', component: ErrorPageComponent},
   {path: '**', component: ErrorPageComponent}, // here need 404 page
 ];

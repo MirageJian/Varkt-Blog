@@ -1,7 +1,7 @@
 import os
 import hashlib
 
-static_root_url = '/apis/static'
+static_root_url = '/static'
 
 
 def write_upload_img(file, folder):

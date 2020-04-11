@@ -10,7 +10,6 @@ import {WritingService} from './writing/writing.service';
 import {ManagingService} from './managing/managing.service';
 import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
 import { SettingsComponent } from './settings/settings.component';
-import { PoYoungComponent } from './po-young/po-young.component';
 import { PasswordComponent } from './settings/password/password.component';
 import { CategoriesManagingComponent } from './settings/categories-managing/categories-managing.component';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -33,7 +32,6 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
     ManagingComponent,
     WritingComponent,
     SettingsComponent,
-    PoYoungComponent,
     PasswordComponent,
     CategoriesManagingComponent,
     AboutManagingComponent,

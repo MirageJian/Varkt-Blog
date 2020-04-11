@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #37474f;
+  color: var(--accentColor);
   text-transform: uppercase;
   font-family: -apple-system,
   BlinkMacSystemFont,

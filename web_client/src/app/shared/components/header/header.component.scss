@@ -1,7 +1,7 @@
 header{
   display: flex;
   flex-direction: row;
-  background: #607d8b;
+  background: var(--primaryColor);
   color: white;
 }
 .desktop {

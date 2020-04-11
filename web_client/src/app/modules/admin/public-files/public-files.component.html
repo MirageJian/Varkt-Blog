@@ -2,8 +2,8 @@
   <mat-card class="card-container" style="padding: 0">
     <form class="table-toolbar">
       <input #fileInput type="file" (change)="changeFile($event)" style="display: none">
-      <button mat-button color="primary" type="button" (click)="fileInput.click()">Upload a File <mat-icon>publish</mat-icon></button>
-      <button mat-icon-button><mat-icon>more</mat-icon></button>
+      <button mat-button color="accent" type="button" (click)="fileInput.click()">Upload a File <mat-icon>publish</mat-icon></button>
+<!--      <button mat-icon-button><mat-icon>more</mat-icon></button>-->
     </form>
     <table mat-table [dataSource]="files" style="width: 100%;">
       <!--- Note that these columns can be defined in any order.

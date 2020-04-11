@@ -15,7 +15,6 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # The connection start
     def prepare(self):
-        print(self.request.headers.get('Host'))
         self.set_header("Content-Type", "application/json")
 
     def on_finish(self):
@@ -33,8 +32,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # If in the development, may need this function. For server side render
     def set_default_headers(self):
-        self.set_header("Access-Control-Allow-Origin", "*")
-        # self.set_header("Access-Control-Allow-Origin", "http://localhost:4000")
+        self.set_header("Access-Control-Allow-Origin", "http://localhost:4000")
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
 

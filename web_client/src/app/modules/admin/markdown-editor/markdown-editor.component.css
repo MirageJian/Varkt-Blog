@@ -19,3 +19,8 @@
 .writing-tools {
 
 }
+
+hr {
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+}

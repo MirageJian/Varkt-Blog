@@ -8,7 +8,7 @@ mat-toolbar{
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  background: var(--darkPrimaryColor);
+  background: var(--primaryColor);
   color: white;
   height: 56px;
 }

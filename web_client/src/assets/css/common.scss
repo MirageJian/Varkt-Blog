@@ -1,8 +1,10 @@
+@import '~@angular/material/theming';
+
 /* common var */
 :root {
-  --primaryColor: #607d8b;
-  --darkPrimaryColor: #37474f;
-  --accentColor: #43a047;
+  --primaryColor: #1976d2;
+  --darkPrimaryColor: #004ba0; // #37474f;
+  --accentColor: #fb8c00; // #43a047;
   --backgroundColor: #ffffff;
   --darkBackgroundColor: #eeeeee;
   --mobileWidth: 600px;

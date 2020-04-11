@@ -12,12 +12,9 @@ from handlers.searching import SearchingHandler
 from handlers.blog_admin.password import PasswordHandler
 from handlers.files_management.public_files import PublicFilesHandler
 
-from handlers.py.py_auth import AuthorizationHandler
-from handlers.py.py_record import PyRecordHandler
-from handlers.py.py_user import PyUserHandler
-from handlers.py.py_code import PyCodeHandler
 
 api_url = r"/api"
+
 
 path = [
     (api_url + r"/", MainHandler),
@@ -33,11 +30,5 @@ path = [
     (api_url + r"/searching", SearchingHandler),
     (api_url + r"/password", PasswordHandler),
     (api_url + r"/public_files", PublicFilesHandler),
-
-    (api_url + r"/authorization", AuthorizationHandler),
-    (api_url + r"/authorisation", AuthorizationHandler),
-    (api_url + r"/py_record", PyRecordHandler),
-    (api_url + r"/py_user", PyUserHandler),
-    (api_url + r"/py_code", PyCodeHandler),
 ]
 

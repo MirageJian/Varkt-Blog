@@ -13,7 +13,7 @@
   height: 40px;
   margin: auto;
   padding: 0 16px;
-  background: #1976d2;
+  background: var(--accentColor);
   box-shadow: rgba(0, 0, 0, 0.6) 0 2px 4px;
   border-radius: 32px;
   color: white;
