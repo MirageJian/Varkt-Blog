@@ -1,5 +1,4 @@
 import tornado.web
-from sqlalchemy.orm import Session
 from database import Database
 from tools import json_helper
 

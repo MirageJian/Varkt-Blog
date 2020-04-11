@@ -2,20 +2,25 @@
 <div class="container">
   <div style="display: flex;flex-direction:column;align-items:stretch">
     <mat-card class="card-container">
-      <!--head of article-->
-      <mat-card-header class="no-avatar-card">
-        <mat-card-subtitle i18n>{{article.author}} Published on {{article.time}}
-          <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
-        </mat-card-subtitle>
-      </mat-card-header>
+
+      <mat-card-header class="no-avatar-card"></mat-card-header>
+
       <mat-card-content>
         <app-editor #editor [readonly]="true"></app-editor>
+        <!--Categories -->
         <mat-chip-list>
           <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
         </mat-chip-list>
+        <!--Footer for author info and date-->
+        <mat-card-footer style="padding: 0 16px; text-align: right;">
+          <mat-card-subtitle i18n> {{article.author}} Published on {{article.time}}
+            <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
+          </mat-card-subtitle>
+        </mat-card-footer>
       </mat-card-content>
-      <!--<div *appProgress="article"></div>-->
+
       <mat-card-actions></mat-card-actions>
+
     </mat-card>
 
     <!--Comments Loading effects-->

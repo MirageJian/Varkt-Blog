@@ -11,10 +11,14 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     // RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
+    // RouterModule.forRoot(appRoutes, {
+    //   initialNavigation: 'enabled'
+    // }),
+    // <-- debugging purposes only)
     RouterModule.forRoot(appRoutes, {
-      initialNavigation: 'enabled'
+      initialNavigation: 'enabled',
+      enableTracing: true
     })
-    // RouterModule.forRoot(appRoutes, {enableTracing: true}) // <-- debugging purposes only),
   ],
   exports: [RouterModule]// 如果在导入Module中要使用router-outlet标签就必须导出
 })

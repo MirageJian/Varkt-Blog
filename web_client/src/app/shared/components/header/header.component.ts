@@ -4,6 +4,8 @@ import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {slideFromRight} from "../../animations/animations";
 import {MatSidenav} from "@angular/material/sidenav";
+import {MOBILE_BREAKPOINT} from "@shared/app-const";
+import {BreakpointObserver} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-header',
@@ -14,26 +16,28 @@ import {MatSidenav} from "@angular/material/sidenav";
 export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() sidenav: MatSidenav;
-  @Input() matches: boolean;
+  matches: boolean;
   @Input() is_article = false;
   // @Output() changeRoute: EventEmitter<string> = new EventEmitter<string>();
-  subscriptionRouter: Subscription;
+  subscription: Subscription;
   backUrl: string;
 
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private breakpointObserver: BreakpointObserver
   ) {
   }
 
   ngOnInit() {
     // register the subscription of router
-    this.subscriptionRouter = this.router.events.pipe(filter((event: any) =>
-      event instanceof NavigationEnd)).subscribe(() => {});
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.backUrl = paramMap.get('backUrl');
-    })
+    });
+    this.subscription = this.breakpointObserver.observe(MOBILE_BREAKPOINT).subscribe(result => {
+      this.matches = result.matches;
+    });
   }
 
   goBack() {
@@ -43,6 +47,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // destroy the subscription and listener.
   ngOnDestroy() {
-    this.subscriptionRouter.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

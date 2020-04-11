@@ -20,6 +20,7 @@ export class CategoriesManagingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.category.icon = 'code';
     this.settingService.getListCategory().subscribe((res: CategoryModel[]) => {
       this.categories = res;
     });

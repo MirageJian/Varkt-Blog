@@ -1,25 +1,24 @@
-header{
+header {
   display: flex;
   flex-direction: row;
   background: var(--primaryColor);
   color: white;
 }
+header > h2 {
+  display: flex;
+  align-items: center;
+}
+/*Button styles */
+.toggle {
+  width: 64px;
+  margin-right: -8px;
+}
+
+/*Matches default value*/
 .desktop {
   padding: 44px 70px 44px 70px;
 }
 
 .mobile {
-  padding: 0 15px 0 15px;
+  padding: 0 15px;
 }
-
-@media (max-width: 960px){
-  header>h2{
-    padding: 0 15px 0 15px;
-  }
-}
-@media (max-width: 600px){
-  header>h2{
-    padding: 0 0;
-  }
-}
-
