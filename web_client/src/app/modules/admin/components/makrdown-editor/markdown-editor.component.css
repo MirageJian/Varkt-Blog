@@ -1,0 +1,32 @@
+/*Editor body*/
+.writing-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.writing-body textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+}
+/*Toolbar*/
+.writing-tools {
+  position: sticky;
+  top: 56px;
+  background-color: var(--backgroundColor);
+  padding-top: 16px;
+  margin-top: -16px;
+}
+.writing-tools > .cursor-pointer {
+  margin-right: 8px;
+}.writing-tools > .cursor-pointer:hover {
+  color: var(--accentColor)
+}
+
+hr {
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+  margin-left: -16px;
+  margin-right: -16px;
+}

@@ -3,9 +3,7 @@ import {HttpParams} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {BaseService} from "./base.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FileUploadService extends BaseService{
 
   uploadArticleImage(file: File) {

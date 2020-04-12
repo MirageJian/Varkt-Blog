@@ -25,7 +25,7 @@ export class AboutManagingComponent implements OnInit {
   }
   public onSubmit() {
     this.aboutManagingServer.putAbout(this.model).subscribe((res: ResModel) => {
-      this.snackBar.open(res.errmsg, 'close', {duration: 5_000});
+      this.snackBar.open(res.message, 'close', {duration: 5_000});
     });
   }
 }

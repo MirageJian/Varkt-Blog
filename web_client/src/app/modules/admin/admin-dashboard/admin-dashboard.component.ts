@@ -24,10 +24,10 @@ export class AdminDashboardComponent implements OnInit {
 
   checkComment(id: number) {
     this.adminDashboardService.checkComment(id).subscribe((res: ResModel) => {
-      if (res.errcode == 0) {
+      if (res.code == 0) {
         this.comments[this.comments.findIndex(ff => ff.id === id)].is_check = true;
       } else {
-        alert(res.errmsg);
+        alert(res.message);
       }
     })
   }

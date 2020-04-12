@@ -3,6 +3,8 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {throwError} from 'rxjs';
 import {isPlatformServer} from "@angular/common";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogAlertComponent} from "@shared/components/alert-dialog/dialog-alert.component";
 
 @Injectable()
 export class BaseService {
@@ -36,19 +38,11 @@ export class BaseService {
     if (isPlatformServer(platformId)) this.baseUrl = 'http://localhost:8888/api';
   }
 
-  // request the xsrf cookies.
-  public getXsrfCookie() {
-    return this.http.get(this.url.main).pipe(catchError(this.handleError));
-  }
-
-  protected handleError(res: any | HttpErrorResponse) {
+  protected handleError(res: HttpErrorResponse) {
     // A client-side or network error occurred. Handle it accordingly.
-    console.error('An error occurred:', res.error?.message);
-    // if (res.error instanceof ErrorEvent)
     // The backend returned an unsuccessful response code.
     // The response body may contain clues as to what went wrong,
-    console.error(`Backend returned code ${res.status}, ` + `body was: ${res.error}`);
-
+    console.error(`An error occurred: Backend returned code ${res.status}, ` + `body was: ${res.error}`);
     // return an ErrorObservable with a user-facing error message
     return throwError(`Something bad happened. code ${res.status}`);
   }

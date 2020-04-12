@@ -27,24 +27,24 @@ export class CategoriesManagingComponent implements OnInit {
   }
   deleteCategory(c: CategoryModel) {
     this.settingService.deleteCategory(c).subscribe((res: ResModel) => {
-      if (!res.errcode) {
+      if (!res.code) {
         this.settingService.getListCategory().subscribe((res: CategoryModel[]) => {
           this.categories = res;
         });
-        this.matSnackBar.open('error' + res.errmsg, 'Close');
+        this.matSnackBar.open('error' + res.message, 'Close');
       } else {
-        this.matSnackBar.open('error' + res.errmsg, 'Close');
+        this.matSnackBar.open('error' + res.message, 'Close');
       }
     });
   }
   addCategory(c: CategoryModel) {
     this.settingService.addCategory(c).subscribe((res: ResModel) => {
-      if (!res.errcode) {
+      if (!res.code) {
         this.settingService.getListCategory().subscribe((res: CategoryModel[]) => {
           this.categories = res;
         });
       } else {
-        this.matSnackBar.open(res.errmsg, 'Close');
+        this.matSnackBar.open(res.message, 'Close');
       }
     });
   }

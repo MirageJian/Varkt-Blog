@@ -1,0 +1,19 @@
+<div class="writing-tools">
+  <input type="file" style="display: none" name="imgUpload" #imgUploadInput (change)="insertImage()">
+  <mat-icon (click)="imgUploadInput.click()" class="cursor-pointer">insert_photo</mat-icon>
+  <mat-icon class="cursor-pointer" (click)="insertCodeBlock()">code</mat-icon>
+  <mat-icon class="cursor-pointer" (click)="insertLink()">insert_link</mat-icon>
+  <mat-icon class="cursor-pointer">format_size</mat-icon>
+  <mat-icon class="cursor-pointer">format_list_numbered</mat-icon>
+  <mat-icon class="cursor-pointer">format_list_bulleted</mat-icon>
+  <mat-icon class="cursor-pointer">format_bold</mat-icon>
+  <mat-icon class="cursor-pointer">format_quote</mat-icon>
+  <mat-icon class="cursor-pointer">format_underlined</mat-icon>
+  <mat-icon class="cursor-pointer">format_strikethrough</mat-icon>
+  <mat-icon class="cursor-pointer">format_italic</mat-icon>
+  <hr>
+</div>
+<!--Up is tool bar, down is writing area-->
+<div class="writing-body">
+  <textarea [(ngModel)]="value" name="content" placeholder="Write here..." cdkTextareaAutosize #text (ngModelChange)="onChange(value)"></textarea>
+</div>

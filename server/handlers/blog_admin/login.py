@@ -3,7 +3,7 @@ from tools import json_helper
 
 
 class LoginHandler(BaseHandler):
-    async def get(self, *args, **kwargs):
+    async def get(self):
         if not self.get_current_user():
             await self.write_res(403, "Forbidden", False)
         else:
@@ -13,7 +13,6 @@ class LoginHandler(BaseHandler):
             await self.write_res(0, "Success", user["username"])
 
     async def post(self):
-        self.set_header("Content-Type", "text/plain")
         body = json_helper.loads(self.request.body)
         self.db.cursor.execute("SELECT * FROM user WHERE username = %s OR email = %s", (
             body["account"], body["account"]))

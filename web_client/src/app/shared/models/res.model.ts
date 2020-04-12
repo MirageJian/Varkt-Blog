@@ -1,5 +1,5 @@
 export interface ResModel<T = any> {
-  errcode: number;
-  errmsg: string;
+  code: number;
+  message: string;
   data: T;
 }

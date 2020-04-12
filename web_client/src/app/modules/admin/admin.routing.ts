@@ -8,7 +8,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import {SettingsComponent} from "./settings/settings.component";
 import {AboutManagingComponent} from "./about-managing/about-managing.component";
 import {PublicFilesComponent} from "./public-files/public-files.component";
-import {MarkdownEditorComponent} from "./markdown-editor/markdown-editor.component";
+import {GoMarkdownComponent} from "./go-markdown/go-markdown.component";
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminDashboardComponent},
       { path: 'managing', component: ManagingComponent },
-      { path: 'markdown-editor', component: MarkdownEditorComponent },
+      { path: 'go-markdown', component: GoMarkdownComponent },
       { path: 'about-managing', component: AboutManagingComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'public-files', component: PublicFilesComponent },

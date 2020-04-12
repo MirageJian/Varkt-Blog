@@ -3,6 +3,7 @@ export class ArticleModel{
     this.id = 0;
     this.stick = true;
     this.collection = false;
+    this.content = '';
   }
   public id: number;
   public author: string;

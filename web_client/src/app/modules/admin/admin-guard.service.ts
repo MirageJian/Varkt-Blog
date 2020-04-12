@@ -24,7 +24,7 @@ export class AdminGuard implements CanActivate {
     this.loginService.redirectUrl = url;
     this.loginService.check().subscribe((res: ResModel) => {
       console.log('Check in admin-guard');
-      if (res.errcode === 0) {
+      if (res.code === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
         this.router.navigate([url]).then();

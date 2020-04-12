@@ -32,18 +32,20 @@ import { ProgressDirective, DataProgressComponent } from './directives/progress.
 import {RouterModule} from "@angular/router";
 import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.component";
 import {MarkdownModule} from "ngx-markdown";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild([]),
     // material-ui
     MatFormFieldModule, MatButtonModule, MatSliderModule, MatMenuModule, MatListModule, MatCardModule,
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
     MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatSnackBarModule,
+    MatButtonToggleModule, MatSlideToggleModule,
     // cdk
     CdkTableModule,
     MarkdownModule.forRoot()
@@ -63,6 +65,7 @@ import {MarkdownModule} from "ngx-markdown";
     MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatToolbarModule,
     MatInputModule, MatSidenavModule, MatCheckboxModule, MatTabsModule, MatExpansionModule, MatDialogModule,
     MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatGridListModule, MatSnackBarModule,
+    MatButtonToggleModule, MatSlideToggleModule,
     // cdk
     CdkTableModule,
     MarkdownModule,

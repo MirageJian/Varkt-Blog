@@ -49,7 +49,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
     });
   }
   toWriting(a: ListArticleModel) {
-    this.router.navigate(['../markdown-editor', {id: a.id}], {relativeTo: this.route}).then();
+    this.router.navigate(['../go-markdown', {id: a.id}], {relativeTo: this.route}).then();
   }
   searchArticle() {
     this._somethingService.getSearchResult(this.searchKeyword).subscribe((res: ListArticleModel[]) => {
@@ -63,11 +63,11 @@ export class ManagingComponent implements OnInit, OnDestroy {
   }
   deleteComment(c: CommentModel) {
     this.managingService.deleteComment(c.id).subscribe((res: ResModel) => {
-      if (!res.errcode) {
+      if (!res.code) {
         this.comments.splice(this.comments.findIndex((ff) => ff.id === c.id), 1);
         alert('success');
       } else {
-        alert(res.errmsg);
+        alert(res.message);
       }
     })
   }

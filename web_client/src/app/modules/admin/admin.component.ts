@@ -36,7 +36,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.username = this.loginService.userName;
     switch (this.router.url) {
       case '/admin': this.title = 'Dashboard'; break;
-      case '/admin/markdown-editor': this.title = 'Go Markdown'; break;
+      case '/admin/go-markdown': this.title = 'Go Markdown'; break;
       case '/admin/managing': this.title = 'Managing'; break;
       case '/admin/about-managing': this.title = 'About Managing'; break;
       case '/admin/settings': this.title = 'Setting'; break;

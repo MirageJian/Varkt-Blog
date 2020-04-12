@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
   // for submit log information
   onSubmit() {
     this.loginService.login(this.info).subscribe((res: ResModel) => {
-      if (res.errcode === 0) {
+      if (res.code === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
-        this.matSnackBar.open(res.errmsg, 'Close',{duration: 5_000});
+        this.matSnackBar.open(res.message, 'Close',{duration: 5_000});
         this.router.navigate([this.loginService.redirectUrl, {}], {relativeTo: this.route}).catch();
       } else {
-        this.matSnackBar.open(res.errmsg, 'Close', {duration: 5_000});
+        this.matSnackBar.open(res.message, 'Close', {duration: 5_000});
 
       }
     }, error => {

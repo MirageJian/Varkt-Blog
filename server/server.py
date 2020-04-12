@@ -17,7 +17,7 @@ class Application(tornado.web.Application):
             cookie_secret="61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
             xsrf_cookies=True,
             login_url="/login",
-            debug=True,
+            debug=False,
             static_path=os.path.join(os.path.dirname(__file__), "static"),
         )
         super(Application, self).__init__(path, **settings)

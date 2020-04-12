@@ -2,6 +2,10 @@ textarea {
   height: 100px;
 }
 mat-card-footer {
-  padding: 16px 16px 0 16px;
+  padding: 0 16px;
   text-align: right;
+}
+mat-chip-list {
+  display: block;
+  padding: 8px 0;
 }

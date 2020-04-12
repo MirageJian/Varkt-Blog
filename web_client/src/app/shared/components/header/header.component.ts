@@ -1,8 +1,6 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {filter} from 'rxjs/operators';
-import {slideFromRight} from "../../animations/animations";
 import {MatSidenav} from "@angular/material/sidenav";
 import {MOBILE_BREAKPOINT} from "@shared/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
@@ -11,8 +9,7 @@ import {Location} from "@angular/common";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  animations: [slideFromRight]
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;

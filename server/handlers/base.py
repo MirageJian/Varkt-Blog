@@ -22,16 +22,17 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # Standard response. success 0, fail other number.
     async def write_res(self, code, info=None, data=None):
-        data = {
-            "errcode": code, "errmsg": info, "data": data
-        }
+        data = {"code": code, "message": info, "data": data}
         json = json_helper.dumps(data)
+        # Unacceptable situation
+        if code < 0:
+            self.set_status(500, info)
         self.write(json)
         return json
 
     # If in the development, may need this function. For server side render
     def set_default_headers(self):
-        self.set_header("Access-Control-Allow-Origin", "http://localhost:4000")
+        self.set_header("Access-Control-Allow-Origin", "http://localhost:4200")
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
 

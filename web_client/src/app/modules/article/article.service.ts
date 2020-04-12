@@ -5,12 +5,13 @@ import {Observable, of} from "rxjs";
 import {ArticleModel} from "@shared/models";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, map} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService extends BaseService implements Resolve<ArticleModel>{
-  constructor(http: HttpClient, private router: Router, @Inject(PLATFORM_ID) platform) {
+  constructor(http: HttpClient, private router: Router, @Inject(PLATFORM_ID) platform, dialog: MatDialog) {
     super(http, platform);
   }
 

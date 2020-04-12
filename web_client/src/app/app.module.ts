@@ -4,10 +4,9 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import {APP_ID, Inject, NgModule, PLATFORM_ID} from '@angular/core';
 import { AppRoutingModule } from './app.routing';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {AppServicesModule} from "@app-services/app-services.module";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {isPlatformBrowser} from "@angular/common";
 @NgModule({
@@ -24,8 +23,8 @@ import {isPlatformBrowser} from "@angular/common";
       cookieName: '_xsrf', // Define your title of xsrf param
       headerName: 'X-XSRFToken',
     }),
-    AppRoutingModule, // The root module should always be the last one
-    AppServicesModule, // Common and general service
+    // The root module should always be the last one. Common and general service. Error Dialog
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   providers: [Title]

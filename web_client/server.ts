@@ -31,7 +31,7 @@ export function app() {
   // Proxy to back end
   // if (!environment.production) {
     const apiProxy = createProxyServer();
-    server.get('/api/**', (req, res) => {
+    server.all('/api/**', (req, res) => {
       apiProxy.web(req, res, { target: 'http://localhost:8888'})
     });
     server.get('/static/**', (req, res) => {

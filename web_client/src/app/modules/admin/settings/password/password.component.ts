@@ -42,7 +42,7 @@ export class PasswordComponent implements OnInit {
     this.isDisableSubmit = true;
     this.settingsService.changePassword(password).subscribe((data: ResModel) => {
       this.isDisableSubmit = false;
-      this.snackBar.open(data.errmsg, 'OK', {duration: 5_000});
+      this.snackBar.open(data.message, 'OK', {duration: 5_000});
     }, () =>this.isDisableSubmit = false);
   }
 

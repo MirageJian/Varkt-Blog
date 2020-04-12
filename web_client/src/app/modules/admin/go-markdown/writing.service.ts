@@ -6,12 +6,11 @@ import {BaseService} from "@app-services/base.service";
 
 @Injectable()
 export class WritingService extends BaseService {
-  addArticle(article: ArticleModel, subhead: string) {
-    return this.http.post(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
-  }
-
-  updateArticle(article: ArticleModel, subhead: string) {
-    return this.http.put(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
+  addOrUpdateArticle(article: ArticleModel, subhead: string) {
+    if (article.id == 0)
+      return this.http.post(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
+    else
+      return this.http.put(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
   }
 
   // Get the fist image from the content
@@ -19,7 +18,7 @@ export class WritingService extends BaseService {
     const copyArticle = {...article};
     const images = article.content.match('<img[^>]*src="([^"]*)"[^>]*>');
     copyArticle.img = images && images.length > 1 ? images[1] : null;
-    copyArticle.subhead = '123';
+    if (!copyArticle.subhead) copyArticle.subhead = 'He is lazy! Nothing left on description.';
     // Use copy of article because writing component needs to keep original
     copyArticle.category = JSON.stringify(article.category);
     return copyArticle;

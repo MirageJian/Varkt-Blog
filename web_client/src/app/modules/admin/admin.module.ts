@@ -5,7 +5,7 @@ import {AdminComponent} from './admin.component';
 import {AdminRoutingModule} from './admin.routing';
 import {ManagingComponent} from './managing/managing.component';
 import {SharedModule} from '@shared/shared.module';
-import {WritingService} from './markdown-editor/writing.service';
+import {WritingService} from './go-markdown/writing.service';
 import {ManagingService} from './managing/managing.service';
 import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
 import { SettingsComponent } from './settings/settings.component';
@@ -15,9 +15,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { AboutManagingComponent } from './about-managing/about-managing.component';
 import { PublicFilesComponent } from './public-files/public-files.component';
 import {PublicFilesService} from "./public-files/public-files.service";
-import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import { GoMarkdownComponent } from './go-markdown/go-markdown.component';
 import {SomethingService} from "../something/something.service";
 import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
+import { MarkdownEditorComponent } from './components/makrdown-editor/markdown-editor.component';
+import {ArticleService} from "../article/article.service";
 
 @NgModule({
   imports: [
@@ -34,9 +36,11 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
     CategoriesManagingComponent,
     AboutManagingComponent,
     PublicFilesComponent,
+    GoMarkdownComponent,
     MarkdownEditorComponent,
   ],
-  entryComponents: [],
+  entryComponents: [
+  ],
   providers: [
     AdminGuard,
     WritingService,
@@ -44,7 +48,7 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
     AdminDashboardService,
     PublicFilesService,
     SomethingService,
-    WritingService
+    ArticleService
   ],
 })
 export class AdminModule {

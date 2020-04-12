@@ -6,6 +6,11 @@
         <mat-icon mat-list-icon>filter_list</mat-icon>
         <h4 mat-line i18n>Search</h4>
       </a>
+      <a mat-list-item [routerLink]="['all-articles']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+         (click)="sideNavAction()">
+        <mat-icon mat-list-icon>library_books</mat-icon>
+        <h4 mat-line i18n>All Articles</h4>
+      </a>
       <mat-divider></mat-divider>
       <h3 mat-subheader i18n>Category</h3>
       <!-- [class.selected]="hero.id === selectedId" -->

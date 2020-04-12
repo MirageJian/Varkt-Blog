@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     console.log(this.localeId);
     // check login status for loging in automatically
     this.loginService.check().subscribe((res: ResModel) => {
-      if (res.errcode === 0) {
+      if (res.code === 0) {
         this.loginService.isLoggedIn = true;
         this.loginService.userName = res.data;
         // const nowPath = result ? result[result.length - 1] : '';

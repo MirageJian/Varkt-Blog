@@ -20,11 +20,9 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding('style.display') display = 'flex';
   @HostBinding('style.flex-direction') direction = 'column';
   @HostBinding('style.width') width = '100%';
-  // @HostBinding('style.position')  position = 'absolute';
   article: ArticleModel;
   comments: CommentModel[];
   newComment = new CommentModel();
-  isMarkdown: boolean;
 
   constructor(
     private _articleService: ArticleService,
@@ -60,10 +58,10 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   onSubmit() {
     this.newComment.id_article = this.article.id;
     this._articleService.postComment(this.newComment).subscribe((res: ResModel) => {
-      if (res.errcode === 0) {
+      if (res.code === 0) {
         this.comments.push({...this.newComment});
         this.snackBar.open('Success', 'Close', {duration: 5_000});
-      } else this.snackBar.open(res.errmsg, 'Close', {duration: 5_000});
+      } else this.snackBar.open(res.message, 'Close', {duration: 5_000});
     });
   }
 

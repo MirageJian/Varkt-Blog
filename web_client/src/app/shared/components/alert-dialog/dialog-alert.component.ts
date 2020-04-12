@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-dialog-alert',
@@ -7,6 +8,15 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 
 export class DialogAlertComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {msg:string}) {}
+  alertType: AlertType;
+  AlertType = AlertType;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: string | HttpErrorResponse) {
+    if (data instanceof HttpErrorResponse) this.alertType = AlertType.httpError;
+    else this.alertType = AlertType.message
+  }
+}
+
+enum AlertType {
+  message, httpError
 }
 
