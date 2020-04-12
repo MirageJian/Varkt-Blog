@@ -1,7 +1,7 @@
 export class ArticleModel{
   constructor() {
     this.id = 0;
-    this.stick = false;
+    this.stick = true;
     this.collection = false;
   }
   public id: number;

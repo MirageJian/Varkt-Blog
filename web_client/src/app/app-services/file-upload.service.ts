@@ -8,10 +8,9 @@ import {BaseService} from "./base.service";
 })
 export class FileUploadService extends BaseService{
 
-  uploadArticleImage(file: File, folder: string) {
+  uploadArticleImage(file: File) {
     const formData = new FormData();
     formData.append('imgUpload', file, file.name);
-    let params = new HttpParams().append('folder', folder);
-    return this.http.post(this.url.image, formData, {params: params}).pipe(catchError(this.handleError));
+    return this.http.post(this.url.image, formData).pipe(catchError(this.handleError));
   }
 }

@@ -6,7 +6,7 @@
         <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
         <mat-card-subtitle>{{a.time}}</mat-card-subtitle>
       </mat-card-header>
-      <a [routerLink]="['../article/', a.id, {backUrl: router.url}]">
+      <a [routerLink]="['../article/', a.id]">
         <img mat-card-image *ngIf="a.img" src="{{a.img}}" alt="dashboard image">
       </a>
       <mat-card-content>
@@ -14,7 +14,7 @@
         <!--<hr>-->
       </mat-card-content>
       <mat-card-actions align="end">
-        <a mat-button color="accent" [routerLink]="['../article/', a.id, {backUrl: router.url}]" i18n>See More</a>
+        <a mat-button color="accent" [routerLink]="['../article/', a.id]" i18n>See More</a>
       </mat-card-actions>
     </mat-card>
   </div>

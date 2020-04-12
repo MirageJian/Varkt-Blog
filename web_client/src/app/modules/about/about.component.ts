@@ -3,11 +3,7 @@ import {JsonHelper} from "@shared/tools";
 import {AboutService} from "./about.service";
 import {AboutModel} from "@shared/models/about.model";
 import {slideFromBottom} from "@shared/animations";
-import Quill from "quill";
 import {ActivatedRoute} from "@angular/router";
-import {EditorComponent} from "@shared/components/editor/editor.component";
-// declare var require: any;
-// const Quill = require('quill');
 
 
 @Component({
@@ -17,7 +13,6 @@ import {EditorComponent} from "@shared/components/editor/editor.component";
   animations: [slideFromBottom()]
 })
 export class AboutComponent implements OnInit, AfterViewInit {
-  @ViewChild('editor') private editor: EditorComponent;
   article: AboutModel;
 
   constructor(
@@ -28,16 +23,10 @@ export class AboutComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.route.data.subscribe((res: {data: AboutModel}) => {
       this.article = res.data;
-      JsonHelper.toAny(this.article, JsonHelper.ABOUT_MEMBER);
     });
-    // this.generalService.getAbout().subscribe((res: AboutModel) => {
-    //   this.article = res;
-    //   JsonHelper.toAny(this.article, JsonHelper.ABOUT_MEMBER);
-    //   this.quill.setContents(res.content);
-    // })
   }
   ngAfterViewInit(): void {
-    this.editor.quill.setContents(this.article.content);
+
   }
 
 }

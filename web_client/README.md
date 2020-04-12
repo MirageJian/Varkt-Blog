@@ -68,5 +68,5 @@ Besides angular basic dependencies (angular/common, angular/router, angular-cli,
 `@angular/pwa`  
 `@angular/service-worker`  
  The package below need types to work better (or just use with api hint :D )   
-`quill`   
+`ngx-markdown`   
 `hammerjs`  

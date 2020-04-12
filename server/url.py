@@ -3,7 +3,7 @@ from handlers.dashboard import DashboardHandler
 from handlers.something import SomethingHandler
 from handlers.about import AboutHandler
 from handlers.blog_admin.login import LoginHandler
-from handlers.blog_admin.image import ImageHandler
+from handlers.files_management.image import ImageHandler
 from handlers.article import ArticleHandler
 from handlers.comment import CommentHandler
 from handlers.blog_admin.comment_managing import CommentManagingHandler
@@ -22,7 +22,7 @@ path = [
     (api_url + r"/something", SomethingHandler),
     (api_url + r"/about", AboutHandler),
     (api_url + r"/login", LoginHandler),
-    (api_url + r"/image", ImageHandler),
+    (api_url + r"/image", ImageHandler),  # TODO need to delete
     (api_url + r"/article", ArticleHandler),
     (api_url + r"/comment", CommentHandler),
     (api_url + r"/comment_managing", CommentManagingHandler),

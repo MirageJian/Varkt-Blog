@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from './admin-guard.service';
 import { AdminComponent } from './admin.component';
 import { ManagingComponent } from './managing/managing.component';
-import { WritingComponent } from './writing/writing.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {SettingsComponent} from "./settings/settings.component";
 import {AboutManagingComponent} from "./about-managing/about-managing.component";
@@ -17,7 +16,6 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminDashboardComponent},
       { path: 'managing', component: ManagingComponent },
-      { path: 'writing', component: WritingComponent },
       { path: 'markdown-editor', component: MarkdownEditorComponent },
       { path: 'about-managing', component: AboutManagingComponent },
       { path: 'settings', component: SettingsComponent },

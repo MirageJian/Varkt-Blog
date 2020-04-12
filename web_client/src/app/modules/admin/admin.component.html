@@ -12,11 +12,6 @@
         <mat-icon mat-list-icon>dashboard</mat-icon>
         <a> Dashboard</a>
       </mat-list-item>
-      <mat-list-item [routerLink]="['./writing']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-                     (click)="clickNav('Writing', sidenav)">
-        <mat-icon mat-list-icon>create</mat-icon>
-        <a> Writing</a>
-      </mat-list-item>
       <mat-list-item [routerLink]="['./markdown-editor']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
                      (click)="clickNav('Go Markdown', sidenav)">
         <mat-icon mat-list-icon>create</mat-icon>

@@ -31,7 +31,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProgressDirective, DataProgressComponent } from './directives/progress.directive';
 import {RouterModule} from "@angular/router";
 import {DialogAlertComponent} from "./components/alert-dialog/dialog-alert.component";
-import { EditorComponent } from './components/editor/editor.component';
 import {MarkdownModule} from "ngx-markdown";
 
 @NgModule({
@@ -54,7 +53,6 @@ import {MarkdownModule} from "ngx-markdown";
     ProgressDirective,
     DataProgressComponent,
     DialogAlertComponent,
-    EditorComponent
   ],
   exports: [
     CommonModule,
@@ -72,7 +70,6 @@ import {MarkdownModule} from "ngx-markdown";
     HeaderComponent,
     ProgressDirective,
     DialogAlertComponent,
-    EditorComponent
   ],
   providers: [
     MediaMatcher,

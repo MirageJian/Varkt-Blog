@@ -1,10 +1,10 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {BaseService} from "@app-services/base.service";
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {ArticleModel} from "@shared/models";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,13 @@ export class ArticleService extends BaseService implements Resolve<ArticleModel>
     super(http, platform);
   }
 
-  getArticle(id: number): Observable<any> {
+  getArticle(id: number): Observable<ArticleModel> {
     let params = new HttpParams();
     params = params.set('id', id.toString());
-    return this.http.get(this.url.article, {params: params}).pipe(catchError(this.handleError));
+    return this.http.get<ArticleModel>(this.url.article, {params: params}).pipe(map((a: ArticleModel) => {
+      a.category = JSON.parse(a.category as string);
+      return a;
+    }), catchError(this.handleError));
   }
   getComments(id_article: number) {
     let params = new HttpParams();

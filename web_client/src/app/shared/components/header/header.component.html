@@ -1,6 +1,6 @@
 <header>
   <button *ngIf="matches && sidenav" mat-button (click)="sidenav.toggle()" class="toggle">
-    <i class="material-icons mat-36">menu</i>
+    <mat-icon class="material-icons mat-36">menu</mat-icon>
   </button>
   <h2 [ngClass]="{'mobile': matches, 'desktop': !matches}">
     <button *ngIf="is_article" mat-icon-button (click)="goBack()">

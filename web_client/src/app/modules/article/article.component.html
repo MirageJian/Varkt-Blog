@@ -6,13 +6,13 @@
       <mat-card-header class="no-avatar-card"></mat-card-header>
 
       <mat-card-content>
-        <app-editor #editor [readonly]="true"></app-editor>
+        <markdown *ngIf="isMarkdown" [data]="article.content"></markdown>
         <!--Categories -->
         <mat-chip-list>
           <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
         </mat-chip-list>
         <!--Footer for author info and date-->
-        <mat-card-footer style="padding: 0 16px; text-align: right;">
+        <mat-card-footer>
           <mat-card-subtitle i18n> {{article.author}} Published on {{article.time}}
             <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
           </mat-card-subtitle>
@@ -24,6 +24,7 @@
     </mat-card>
 
     <!--Comments Loading effects-->
+    <h2 id="commentArea" class="card-container">Comments Area</h2>
     <div *appProgress="!!comments"></div>
     <mat-card *ngFor="let c of comments" class="card-container">
       <mat-card-header class="no-avatar-card">

@@ -49,7 +49,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
     });
   }
   toWriting(a: ListArticleModel) {
-    this.router.navigate(['../writing', {id: a.id}], {relativeTo: this.route}).then();
+    this.router.navigate(['../markdown-editor', {id: a.id}], {relativeTo: this.route}).then();
   }
   searchArticle() {
     this._somethingService.getSearchResult(this.searchKeyword).subscribe((res: ListArticleModel[]) => {

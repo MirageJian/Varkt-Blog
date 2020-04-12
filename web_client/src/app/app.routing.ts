@@ -5,18 +5,22 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
 const appRoutes: Routes = [
   {path: '', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)},
   {path: 'error-page', component: ErrorPageComponent},
-  {path: '**', component: ErrorPageComponent}, // here need 404 page
+  // {path: '**', component: ErrorPageComponent}, // here need 404 page
 ];
 
 @NgModule({
   imports: [
-    // RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
+    // RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
     // RouterModule.forRoot(appRoutes, {
-    //   initialNavigation: 'enabled'
+    //   initialNavigation: 'enabled',
+    //   scrollPositionRestoration: 'enabled',
+    //   anchorScrolling: 'enabled',
     // }),
     // <-- debugging purposes only)
     RouterModule.forRoot(appRoutes, {
       initialNavigation: 'enabled',
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
       enableTracing: true
     })
   ],

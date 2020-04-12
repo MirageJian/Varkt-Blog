@@ -1,9 +1,11 @@
+from datetime import datetime
+
 from handlers.base import BaseHandler
 from tools import common_helper, json_helper
 
 
 class ArticleHandler(BaseHandler):
-    async def get(self, *args, **kwargs):
+    async def get(self):
         id_article = self.get_argument("id", None)
         if not id_article:
             self.db.cursor.execute(
@@ -18,32 +20,32 @@ class ArticleHandler(BaseHandler):
         json = json_helper.dumps(data)
         self.write(json)
 
-    async def post(self, *args, **kwargs):
+    async def put(self):
         id_user = self.get_login_user()
         body = json_helper.loads(self.request.body)
         self.db.cursor.execute(
             "UPDATE article SET id_user=%s,title=%s,img=%s,subhead=%s,content=%s,category=%s,stick=%s,collection=%s,"
             "update_time=%s WHERE id=%s", (
                 id_user, body["title"], body["img"], body["subhead"], body["content"], body["category"], body["stick"],
-                body["collection"], common_helper.get_now(), body["id"]
+                body["collection"], datetime.now(), body["id"]
             ))
         self.db.conn.commit()
         await self.write_res(0, "post successfully", None)
 
-    async def put(self, *args, **kwargs):
+    async def post(self):
         id_user = self.get_login_user()
         body = json_helper.loads(self.request.body)
         print(body)
         self.db.cursor.execute(
-            "INSERT INTO article (id_user,title,img,subhead,content,category,stick,collection,time) "
-            "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", (
+            "INSERT INTO article (id_user,title,img,subhead,content,category,stick,collection) "
+            "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)", (
                 id_user, body["title"], body["img"], body["subhead"], body["content"], body["category"], body["stick"],
-                body["collection"], common_helper.get_now()
+                body["collection"]
             ))
         self.db.conn.commit()
         await self.write_res(0, "put successfully", self.db.cursor.lastrowid)
 
-    def delete(self, *args, **kwargs):
+    def delete(self):
         self.get_login_user()
         id_article = self.get_argument("id", None)
         self.db.cursor.execute("DELETE FROM article WHERE id=%s", id_article)

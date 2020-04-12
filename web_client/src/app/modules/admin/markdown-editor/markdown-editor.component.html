@@ -1,21 +1,42 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" #markdownForm="ngForm" [@slideFromBottom]>
+    <div class="card-container">
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" required
+               autocomplete="off">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Choose Categories</mat-label>
+        <mat-select placeholder="Choose Categories" name="category" [(ngModel)]="article.category" [multiple]="true" required>
+          <mat-option *ngFor="let c of categories" [value]="c.label">{{c.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!--Some checkboxes-->
+      <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
+      <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
+    </div>
     <mat-card class="card-container">
       <mat-card-content>
         <div class="writing-tools">
-          <button mat-icon-button><mat-icon>insert_photo</mat-icon></button>
-          <button mat-icon-button><mat-icon>remove_red_eye</mat-icon></button>
+          <input type="file" style="display: none" name="imgUpload" #imgUploadInput (change)="insertImage()">
+          <button type="button" mat-icon-button (click)="imgUploadInput.click()">
+            <mat-icon>insert_photo</mat-icon>
+          </button>
+          <button type="button" mat-icon-button>
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
         </div>
-        <hr>
+        <hr> <!--Up is tool bar, down is writing area-->
         <div class="writing-body">
-          <textarea [(ngModel)]="content" name="content" placeholder="Write here..." (ngModelChange)="resizeTextarea(text)" #text></textarea>
-          <markdown [data]="content"></markdown>
+          <textarea [(ngModel)]="article.content" name="content" placeholder="Write here..."
+                    (ngModelChange)="resizeTextarea()" #text></textarea>
+          <markdown [data]="article.content"></markdown>
         </div>
       </mat-card-content>
       <mat-card-actions align="end">
         <button mat-button color="accent" type="submit" [disabled]="!markdownForm.form.valid">Submit</button>
       </mat-card-actions>
-
     </mat-card>
   </form>
 </div>

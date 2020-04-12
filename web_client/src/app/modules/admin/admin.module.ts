@@ -4,9 +4,8 @@ import {AdminGuard} from './admin-guard.service';
 import {AdminComponent} from './admin.component';
 import {AdminRoutingModule} from './admin.routing';
 import {ManagingComponent} from './managing/managing.component';
-import {WritingComponent} from './writing/writing.component';
 import {SharedModule} from '@shared/shared.module';
-import {WritingService} from './writing/writing.service';
+import {WritingService} from './markdown-editor/writing.service';
 import {ManagingService} from './managing/managing.service';
 import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
 import { SettingsComponent } from './settings/settings.component';
@@ -30,7 +29,6 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
     AdminComponent,
     AdminDashboardComponent,
     ManagingComponent,
-    WritingComponent,
     SettingsComponent,
     PasswordComponent,
     CategoriesManagingComponent,
