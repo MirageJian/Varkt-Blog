@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {catchError} from 'rxjs/operators';
 import {ArticleModel} from '@shared/models';
-import {JsonHelper} from '@shared/tools';
-import {BaseService} from "@app-services/base.service";
+import {ArticleService} from "../../article/article.service";
 
 @Injectable()
-export class WritingService extends BaseService {
+export class WritingService extends ArticleService {
   addOrUpdateArticle(article: ArticleModel, subhead: string) {
     if (article.id == 0)
       return this.http.post(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));

@@ -10,20 +10,15 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./password.component.css']
 })
 export class PasswordComponent implements OnInit {
-  password: FormGroup;
-  passwordModel = {
-    oldPassword: '',
-    newPassword: '',
-    confirmedPassword: ''
-  };
+  passwordFormGroup: FormGroup;
   isDisableSubmit = false;
   constructor(
-    private settingsService: SettingsService,
+    private _settingsService: SettingsService,
     private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    this.password = new FormGroup({
+    this.passwordFormGroup = new FormGroup({
       oldPassword: new FormControl(),
       newPassword: new FormControl(),
       confirmedPassword: new FormControl(),
@@ -32,20 +27,18 @@ export class PasswordComponent implements OnInit {
       //   return controlValid ? null : {notMatch: true};
       // }),
     });
-    this.password.get('confirmedPassword').setValidators((control: FormControl): {[key: string]: any} | null => {
-      const controlValid = this.password.get('newPassword').value === control.value;
+    this.passwordFormGroup.get('confirmedPassword').setValidators((control: FormControl): {[key: string]: any} | null => {
+      const controlValid = this.passwordFormGroup.get('newPassword').value === control.value;
       return controlValid ? null : {notMatch: true};
     })
   }
 
-  changePassword(password) {
+  changePassword() {
     this.isDisableSubmit = true;
-    this.settingsService.changePassword(password).subscribe((data: ResModel) => {
+    this._settingsService.changePassword(this.passwordFormGroup).subscribe((data: ResModel) => {
       this.isDisableSubmit = false;
-      this.snackBar.open(data.message, 'OK', {duration: 5_000});
+      // If successfully and Click OK, it will reset.
+      this.snackBar.open(data.message, 'OK, reset the form').afterDismissed().subscribe(() => this.passwordFormGroup.reset());
     }, () =>this.isDisableSubmit = false);
   }
-
-
-
 }

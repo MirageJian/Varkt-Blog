@@ -2,7 +2,8 @@ import {BaseService} from '@app-services/base.service';
 import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
+import {ListArticleModel} from "@shared/models";
 
 @Injectable()
 export class SomethingService extends BaseService {
@@ -14,7 +15,11 @@ export class SomethingService extends BaseService {
   getListArticle(category: string): Observable<any> {
     let params = new HttpParams();
     params = params.set('category', category);
-    return this.http.get(this.url.something, {params: params}).pipe(catchError(this.handleError));
+    return this.http.get(this.url.something, {params: params}).pipe(this.preProcessForArticles(category), catchError(this.handleError));
+  }
+
+  getAllArticles(): Observable<ListArticleModel[]> {
+    return this.http.get<ListArticleModel[]>(this.url.dashboard).pipe(this.preProcessForArticles(), catchError(this.handleError));
   }
 
   getSearchResult(keyword: string) {
@@ -22,6 +27,16 @@ export class SomethingService extends BaseService {
     if (!keyword || keyword.length < 1) return of(null); //
     let params = new HttpParams();
     params = params.set('keyword', keyword);
-    return this.http.get(this.url.searching, {params: params}).pipe(catchError(this.handleError));
+    return this.http.get(this.url.searching, {params: params}).pipe(this.preProcessForArticles(), catchError(this.handleError));
+  }
+
+  private preProcessForArticles(category?: string) {
+    return map((list: ListArticleModel[]) => {
+      list.forEach((a: ListArticleModel) => {
+        a.category = JSON.parse(a.category as string);
+        if (category) a.category = (a.category as Array<string>).filter(c => c != category)
+      });
+      return list;
+    });
   }
 }

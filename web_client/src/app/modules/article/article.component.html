@@ -26,37 +26,36 @@
     </mat-card>
 
     <!--Comments Loading effects-->
-    <h2 id="commentArea" class="card-container">Comments Area</h2>
-    <div *appProgress="!!comments"></div>
-    <mat-card *ngFor="let c of comments" class="card-container">
-      <mat-card-header class="no-avatar-card">
-        <mat-card-title><h3>{{c.author}}</h3></mat-card-title>
-        <mat-card-subtitle>{{c.time}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{c.content}}</p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <!--<button mat-icon-button color="primary" (click)="likeComment(c)">
-          <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-          {{c.likes}}
-        </button>-->
-      </mat-card-actions>
-    </mat-card>
-
-    <form #form="ngForm" (submit)="onSubmit()">
-      <mat-card class="card-container">
+    <div class="card-container">
+      <h2 id="commentArea">Comments Area</h2>
+      <div *appProgress="!!comments"></div>
+      <mat-card *ngFor="let c of comments">
         <mat-card-header class="no-avatar-card">
-          <mat-card-title><h3 i18n>Leave a comment</h3></mat-card-title>
+          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time}}</span></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <mat-form-field style="width: 100%;" appearance="outline">
+          <p>{{c.content}}</p>
+        </mat-card-content>
+        <!--<mat-card-actions align="end">
+          <button mat-icon-button color="primary" (click)="likeComment(c)">
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+            {{c.likes}}
+          </button>
+        </mat-card-actions>-->
+      </mat-card>
+    </div>
+
+    <form #form="ngForm" (submit)="onSubmit()" class="card-container">
+      <h2 i18n>Leave a comment</h2>
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field style="width: 100%;" appearance="fill">
             <mat-label i18n>Say something</mat-label>
             <label>
               <textarea matInput [(ngModel)]="newComment.content" name="content" autocomplete="off" required></textarea>
             </label>
           </mat-form-field>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <mat-label i18n>Your Name</mat-label>
             <label>
               <input matInput [(ngModel)]="newComment.author" name="author" autocomplete="off">

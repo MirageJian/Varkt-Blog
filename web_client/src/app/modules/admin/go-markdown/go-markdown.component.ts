@@ -1,16 +1,13 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {slideFromBottom} from "@shared/animations";
 import {ArticleModel, CategoryModel, ResModel} from "@shared/models";
-import {FileUploadService} from "@app-services/file-upload.service";
 import {SomethingService} from "../../something/something.service";
-import {ArticleService} from "../../article/article.service";
 import {WritingService} from "./writing.service";
 import {switchMap} from "rxjs/operators";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {EMPTY} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SNACKBAR_DURATION} from "@shared/app-const";
-import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-go-markdown',
@@ -26,7 +23,6 @@ export class GoMarkdownComponent implements OnInit {
 
   constructor(
     private _somethingService: SomethingService,
-    private _articleService: ArticleService,
     private _writingService: WritingService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
@@ -41,7 +37,7 @@ export class GoMarkdownComponent implements OnInit {
     // Get article considering switch to router Resolve mode
     this.route.paramMap.pipe(switchMap((params: ParamMap) => {
       const id = +params.get('id');
-      return id ? this._articleService.getArticle(+params.get('id')) : EMPTY
+      return id ? this._writingService.getArticle(+params.get('id')) : EMPTY
     })).subscribe((res: ArticleModel) => {
       if (res) this.article = res;
     });

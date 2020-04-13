@@ -18,7 +18,7 @@ import {RouterModule} from "@angular/router";
       ]},
     ])
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, ListArticlesComponent],
   declarations: [
     AssortmentComponent,
     ListArticlesComponent,

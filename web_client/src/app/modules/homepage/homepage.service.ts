@@ -1,19 +1,20 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {BaseService} from "@app-services/base.service";
-import {catchError} from "rxjs/operators";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {ListArticleModel} from "@shared/models";
 import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {SomethingService} from "../something/something.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomepageService extends BaseService implements Resolve<ListArticleModel[]>{
-  getDashboard(): Observable<ListArticleModel[]> {
-    return this.http.get<ListArticleModel[]>(this.url.dashboard).pipe(catchError(this.handleError));
+  constructor(http: HttpClient, @Inject(PLATFORM_ID) platformId, private _somethingService: SomethingService) {
+    super(http, platformId);
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ListArticleModel[]> | Promise<ListArticleModel[]> | ListArticleModel[] {
-    return this.getDashboard();
+    return this._somethingService.getAllArticles();
   }
 }

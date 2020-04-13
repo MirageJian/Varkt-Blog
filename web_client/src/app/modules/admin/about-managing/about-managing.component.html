@@ -3,7 +3,8 @@
     <mat-card class="card-container">
       <mat-card-header class="no-avatar-card"></mat-card-header>
       <mat-card-content>
-        <markdown [data]="model.content"></markdown>
+        <app-markdown-editor [(ngModel)]="aboutModel.content" name="articleContent"></app-markdown-editor>
+        <markdown [data]="aboutModel.content"></markdown>
       </mat-card-content>
     <mat-card-actions align="end">
       <button mat-button color="accent" type="submit" [disabled]="!theForm.form.valid">Submit</button>

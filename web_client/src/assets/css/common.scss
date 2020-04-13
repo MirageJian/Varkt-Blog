@@ -20,7 +20,7 @@ body {
   right: 0;
   margin: 0;
   font-size: 0.875em;
-  /*line-height: 1.7;*/
+  line-height: 1.7;
   background-color: #fafafa;
 }
 /* scrollbar css */
@@ -43,7 +43,7 @@ body {
   margin: 16px;
 }
 /* Mat card additional css modification */
-mat-card.card-container > mat-card-content {
+mat-card.card-container > mat-card-content, .card-container > mat-card > mat-card-content {
   margin: 0 16px;
 }
 @media (max-width: 960px){
@@ -58,7 +58,7 @@ mat-card.card-container > mat-card-content {
   mat-card-header.no-avatar-card > .mat-card-header-text {
     margin: 0;
   }
-  mat-card.card-container > mat-card-content {
+  mat-card.card-container > mat-card-content, .card-container > mat-card > mat-card-content {
     margin: 0;
   }
 }

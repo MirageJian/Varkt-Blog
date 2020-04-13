@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {CategoryModel, ResModel} from "@shared/models";
 import {SettingsService} from "../settings.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-
+import {slideFromBottom} from "@shared/animations";
 
 @Component({
   selector: 'app-categories-managing',
   templateUrl: './categories-managing.component.html',
-  styleUrls: ['./categories-managing.component.css']
+  styleUrls: ['./categories-managing.component.css'],
+  animations: [slideFromBottom()]
 })
 export class CategoriesManagingComponent implements OnInit {
   category = new CategoryModel();

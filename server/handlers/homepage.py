@@ -4,7 +4,7 @@ from tornado.escape import json_encode
 from tools import json_helper
 
 
-class DashboardHandler(BaseHandler):
+class Homepage(BaseHandler):
     async def get(self):
         self.db.cursor.execute(
             "SELECT a.id,a.title,a.category,a.img,a.subhead,a.time,u.username as author FROM article a "

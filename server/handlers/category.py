@@ -9,7 +9,7 @@ class CategoryHandler(BaseHandler):
         json = json_helper.dumps(data)
         self.write(json)
 
-    async def put(self, *args, **kwargs):
+    async def post(self):
         self.get_login_user()
         body = json_helper.loads(self.request.body)
         self.db.cursor.execute("INSERT INTO category (label, icon) VALUES (%s,%s)", (
@@ -18,7 +18,11 @@ class CategoryHandler(BaseHandler):
         self.db.conn.commit()
         await self.write_res(0, "post successfully", None)
 
-    async def delete(self, *args, **kwargs):
+    async def put(self):
+        self.get_login_user()
+        # Change category, it will search category and article for changing
+
+    async def delete(self):
         self.get_login_user()
         id_category = self.get_argument("id", None)
         self.db.cursor.execute("DELETE FROM category WHERE id=%s", id_category)

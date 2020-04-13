@@ -9,9 +9,13 @@
       <a *ngIf="a.img" [routerLink]="['../article/', a.id]" class="img-block">
         <img mat-card-image src="{{a.img}}" alt="dashboard image">
       </a>
+      <!--Category part-->
       <mat-card-content>
         <p>{{a.subhead}}</p>
         <!--<hr>-->
+        <mat-chip-list>
+          <mat-chip *ngFor="let c of a.category" [routerLink]="['./something', c]">{{c}}</mat-chip>
+        </mat-chip-list>
       </mat-card-content>
       <mat-card-actions align="end">
         <a mat-button color="accent" [routerLink]="['../article/', a.id]" i18n>See More</a>

@@ -13,18 +13,21 @@ import {slideFromBottom} from "@shared/animations";
   animations: [slideFromBottom()]
 })
 export class AboutManagingComponent implements OnInit {
-  model: AboutModel;
+  aboutModel: AboutModel = new AboutModel();
 
   constructor(
     private elementRef: ElementRef,
-    private aboutManagingServer: AboutManagingService,
+    private _aboutService: AboutManagingService,
     private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
+    this._aboutService.getAbout().subscribe((res: AboutModel) => {
+      this.aboutModel = res;
+    })
   }
   public onSubmit() {
-    this.aboutManagingServer.putAbout(this.model).subscribe((res: ResModel) => {
+    this._aboutService.updateAbout(this.aboutModel).subscribe((res: ResModel) => {
       this.snackBar.open(res.message, 'close', {duration: 5_000});
     });
   }

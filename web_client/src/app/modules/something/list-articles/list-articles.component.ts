@@ -27,10 +27,6 @@ export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.data.subscribe((res: {articles: ListArticleModel[]}) => {
       this.articles = res.articles;
-      if (this.articles)
-        for (const a of this.articles) {
-          JsonHelper.toAny(a, ['category']);
-        }
     });
   }
 

@@ -3,6 +3,7 @@ import {RouterModule} from "@angular/router";
 import {HomepageComponent} from "./homepage.component";
 import {SharedModule} from "@shared/shared.module";
 import {HomepageService} from "./homepage.service";
+import {SomethingService} from "../something/something.service";
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import {HomepageService} from "./homepage.service";
     RouterModule.forChild([{ path: '', component: HomepageComponent, resolve: {data: HomepageService}}])
   ],
   declarations: [HomepageComponent],
-  providers: [HomepageService]
+  providers: [HomepageService, SomethingService]
 })
 export class HomepageModule { }
