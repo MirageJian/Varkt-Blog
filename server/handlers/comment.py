@@ -1,6 +1,5 @@
 from handlers.base import BaseHandler
 from tools import common_helper, json_helper
-import asyncio
 
 
 class CommentHandler(BaseHandler):

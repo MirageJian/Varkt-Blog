@@ -1,10 +1,10 @@
 /*Editor body*/
-.writing-body {
+.editor-area {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
 }
-.writing-body textarea {
+.editor-area textarea {
   min-height: 200px;
   width: 100%;
   resize: none;
@@ -12,16 +12,18 @@
   outline: none;
 }
 /*Toolbar*/
-.writing-tools {
+.markdown-toolbar {
   position: sticky;
+  position: -webkit-sticky;
   top: 56px;
   background-color: var(--backgroundColor);
+  z-index: 2;
   padding-top: 16px;
   margin-top: -16px;
 }
-.writing-tools > .cursor-pointer {
+.markdown-toolbar > .cursor-pointer {
   margin-right: 8px;
-}.writing-tools > .cursor-pointer:hover {
+}.markdown-toolbar > .cursor-pointer:hover {
   color: var(--accentColor)
 }
 

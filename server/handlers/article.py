@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from handlers.base import BaseHandler
-from tools import common_helper, json_helper
+from tools import json_helper
 
 
 class ArticleHandler(BaseHandler):

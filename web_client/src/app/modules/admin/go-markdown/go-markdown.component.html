@@ -23,7 +23,7 @@
       <!--Editor and Markdown preview element-->
       <mat-card-content>
         <app-markdown-editor [(ngModel)]="article.content" name="articleContent"></app-markdown-editor>
-        <markdown *ngIf="isPreview" [data]="article.content"></markdown>
+        <markdown *ngIf="isPreview" [data]="article.content" lineNumbers></markdown>
       </mat-card-content>
       <!--Action list-->
       <mat-card-actions align="end" style="align-items: center">

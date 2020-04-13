@@ -8,7 +8,7 @@
       </mat-card-header>
 
       <mat-card-content>
-        <markdown [data]="article.content"></markdown>
+        <markdown [data]="article.content" lineNumbers></markdown>
         <!--Categories -->
         <mat-chip-list>
           <mat-chip *ngFor="let c of article.category">{{c}}</mat-chip>
