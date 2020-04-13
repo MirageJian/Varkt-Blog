@@ -18,7 +18,6 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
     this.adminDashboardService.getCommentUnchecked().subscribe((res: CommentModel[]) => {
       this.comments = res.length ? res : [{content: 'no new comment'} as CommentModel];
-      console.log(this.comments);
     })
   }
 

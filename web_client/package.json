@@ -4,7 +4,7 @@
   "scripts": {
     "start": "ng serve --open",
     "start:zh": "ng serve --configuration=zh --open --port 4201",
-    "build": "ng build --prod && npm run build:zh",
+    "build": "ng build --prod && npm run build:zh && ng run holacode:server:production",
     "build:zh": "ng build --configuration=production-zh --prod",
     "test": "ng test",
     "lint": "ng lint",

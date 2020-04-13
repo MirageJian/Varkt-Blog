@@ -28,4 +28,3 @@ class CategoryHandler(BaseHandler):
         self.db.cursor.execute("DELETE FROM category WHERE id=%s", id_category)
         self.db.conn.commit()
         await self.write_res(0, "delete successfully", None)
-

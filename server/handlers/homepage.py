@@ -1,5 +1,4 @@
 from handlers.base import BaseHandler
-from tornado.escape import json_encode
 
 from tools import json_helper
 

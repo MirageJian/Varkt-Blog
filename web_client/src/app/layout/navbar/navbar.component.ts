@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.localeId);
+    console.log("Current language of browser: " + this.localeId);
     // check login status for loging in automatically
     this.loginService.check().subscribe((res: ResModel) => {
       if (res.code === 0) {

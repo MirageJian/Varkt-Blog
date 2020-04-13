@@ -18,8 +18,8 @@ def create_default_user(db: Database):
 
 
 # about default seed
-about_content = '{"ops":[{"insert":"Insert your about information here, any thing you want. ' \
-                'You also can edit this about in admin dashboard"}]}'
+about_content = 'Insert your about information here, any thing you want.' \
+                ' You also can edit this about in admin dashboard'
 
 
 def create_default_blog_about(db: Database):
