@@ -8,7 +8,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {SNACKBAR_DURATION} from "@shared/app-const";
 
 @Component({
-  selector: 'app-layout',
   template: `
     <app-navbar></app-navbar>
     <app-loading *ngIf="isLoading" [@loadingAni]></app-loading>

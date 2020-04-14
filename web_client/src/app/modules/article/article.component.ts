@@ -1,16 +1,13 @@
 import {Component, OnInit, HostBinding, OnDestroy, ViewChild, AfterViewInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ViewportScroller} from '@angular/common';
 import {routeAnimation} from '@shared/animations';
 import {ArticleModel, ResModel, CommentModel} from '@shared/models';
-import {JsonHelper} from '@shared/tools';
 import {APP_TILE} from "@shared/app-const";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ArticleService} from "./article.service";
 import {Title} from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
   animations: routeAnimation

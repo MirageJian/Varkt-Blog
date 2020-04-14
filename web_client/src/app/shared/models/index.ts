@@ -1,4 +1,3 @@
-
 export { AboutModel } from './about.model';
 export { ArticleModel } from './article.model';
 export { CategoryModel } from './category.model';

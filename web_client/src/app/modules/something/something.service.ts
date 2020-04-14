@@ -3,37 +3,42 @@ import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {ListArticleModel} from "@shared/models";
+import {CategoryModel, ListArticleModel} from "@shared/models";
 
 @Injectable()
 export class SomethingService extends BaseService {
 
-  getListCategory(): Observable<any> {
-    return this.http.get(this.url.category).pipe(catchError(this.handleError));
+  getListCategory(): Observable<CategoryModel[]> {
+    return this.http.get<CategoryModel[]>(this.url.category).pipe(catchError(this.handleError));
   }
 
-  getListArticle(category: string): Observable<any> {
+  getListArticle(category: string): Observable<ListArticleModel[]> {
+    // Set category that will be queried
     let params = new HttpParams();
     params = params.set('category', category);
-    return this.http.get(this.url.something, {params: params}).pipe(this.preProcessForArticles(category), catchError(this.handleError));
+    return this.http.get(this.url.something, {params: params}).pipe(
+      this.preProcessForArticles(category), catchError(this.handleError));
   }
 
   getAllArticles(): Observable<ListArticleModel[]> {
-    return this.http.get<ListArticleModel[]>(this.url.dashboard).pipe(this.preProcessForArticles(), catchError(this.handleError));
+    return this.http.get<ListArticleModel[]>(this.url.dashboard).pipe(
+      this.preProcessForArticles(), catchError(this.handleError));
   }
 
-  getSearchResult(keyword: string) {
+  getSearchResult(keyword: string): Observable<ListArticleModel[]> {
     // input validation, return observable of null
-    if (!keyword || keyword.length < 1) return of(null); //
-    let params = new HttpParams();
-    params = params.set('keyword', keyword);
-    return this.http.get(this.url.searching, {params: params}).pipe(this.preProcessForArticles(), catchError(this.handleError));
+    if (!keyword || keyword.length < 1) return of(null);
+    // Set search params
+    let params = new HttpParams().set('keyword', keyword);
+    return this.http.get(this.url.searching, {params: params}).pipe(
+      this.preProcessForArticles(), catchError(this.handleError));
   }
 
   private preProcessForArticles(category?: string) {
     return map((list: ListArticleModel[]) => {
       list.forEach((a: ListArticleModel) => {
         a.category = JSON.parse(a.category as string);
+        // Parse category to array and remove current one querying
         if (category) a.category = (a.category as Array<string>).filter(c => c != category)
       });
       return list;

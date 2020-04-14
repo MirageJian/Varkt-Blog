@@ -10,7 +10,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {SNACKBAR_DURATION} from "@shared/app-const";
 
 @Component({
-  selector: 'app-go-markdown',
   templateUrl: './go-markdown.component.html',
   styleUrls: ['./go-markdown.component.css'],
   animations: [slideFromBottom()]

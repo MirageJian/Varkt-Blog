@@ -6,7 +6,6 @@ import {MOBILE_WIDTH} from "@shared/app-const";
 import {UserInfoModel} from "@shared/models";
 
 @Component({
-  selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })

@@ -8,7 +8,6 @@ import {MOBILE_WIDTH} from "@shared/app-const";
 import {switchMap} from "rxjs/operators";
 
 @Component({
-  selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss']
 })

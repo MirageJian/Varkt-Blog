@@ -11,7 +11,7 @@ import {AdminDashboardService} from "./admin-dashboard/admin-dashboard.service";
 import {SettingsComponent} from './settings/settings.component';
 import {PasswordComponent} from './settings/password/password.component';
 import {CategoriesManagingComponent} from './settings/categories-managing/categories-managing.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AboutManagingComponent} from './about-managing/about-managing.component';
 import {PublicFilesComponent} from './public-files/public-files.component';
 import {PublicFilesService} from "./public-files/public-files.service";
@@ -21,12 +21,15 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
 import {MarkdownEditorComponent} from './components/makrdown-editor/markdown-editor.component';
 import {ArticleService} from "../article/article.service";
 import {AboutManagingService} from "./about-managing/about-managing.service";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
-    AdminRoutingModule,
-    ReactiveFormsModule
+    AdminRoutingModule
   ],
   declarations: [
     AdminComponent,

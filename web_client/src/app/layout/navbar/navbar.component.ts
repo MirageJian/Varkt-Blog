@@ -3,11 +3,9 @@ import {LoginService} from '@app-services/login.service';
 import {Router, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {ResModel, UserInfoModel} from '@shared/models';
-import {filter} from 'rxjs/operators';
 import {searchBox} from "./navbar-search.animation";
 import {MOBILE_BREAKPOINT} from "@shared/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {HttpXsrfTokenExtractor} from "@angular/common/http";
 
 @Component({
   selector: 'app-navbar',

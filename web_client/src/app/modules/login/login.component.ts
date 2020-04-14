@@ -4,11 +4,8 @@ import {Component, OnInit} from '@angular/core';
 
 import {UserInfoModel} from '@shared/models';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {Md5} from 'ts-md5';
-import {ResModel} from '@shared/models';
 
 @Component({
-  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

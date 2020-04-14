@@ -6,7 +6,6 @@ import {slideFromBottom} from "@shared/animations";
 import {Subscription} from "rxjs";
 
 @Component({
-  selector: 'app-list-articles',
   templateUrl: './list-articles.component.html',
   styleUrls: ['./list-articles.component.scss'],
   animations: [slideFromBottom()]

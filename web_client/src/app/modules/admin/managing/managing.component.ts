@@ -5,7 +5,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SomethingService} from "../../something/something.service";
 
 @Component({
-  selector: 'app-manage',
   templateUrl: './managing.component.html',
   styleUrls: ['./managing.component.scss']
 })

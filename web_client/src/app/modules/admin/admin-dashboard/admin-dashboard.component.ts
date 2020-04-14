@@ -4,7 +4,6 @@ import {AdminDashboardService} from "./admin-dashboard.service";
 import {ResModel} from "@shared/models";
 
 @Component({
-  selector: 'app-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })

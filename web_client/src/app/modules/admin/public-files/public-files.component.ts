@@ -5,7 +5,6 @@ import {FileStatModel} from "@shared/models/file-stat.model";
 import {ResModel} from "@shared/models";
 
 @Component({
-  selector: 'app-public-files',
   templateUrl: './public-files.component.html',
   styleUrls: ['./public-files.component.css']
 })

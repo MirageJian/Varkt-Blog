@@ -6,10 +6,14 @@ import {ListArticlesComponent} from './list-articles/list-articles.component';
 import {CategoryComponent} from './category.component';
 import {ArticlesResolveService, CategoriesResolveService} from "./something-resolve.service";
 import {RouterModule} from "@angular/router";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   imports: [
+    CommonModule,
+    FormsModule,
     SharedModule,
     RouterModule.forChild([
       {path: '', component: CategoryComponent, resolve: {categories: CategoriesResolveService}, children: [

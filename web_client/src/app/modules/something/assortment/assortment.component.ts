@@ -2,12 +2,10 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import {slideFromBottom, routeAnimation} from '@shared/animations';
 import {SomethingService} from "../something.service";
 import {ListArticleModel} from "@shared/models";
-import {JsonHelper} from "@shared/tools";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 
 @Component({
-  selector: 'app-assortment',
   templateUrl: './assortment.component.html',
   styleUrls: ['./assortment.component.scss'],
   animations: [slideFromBottom(), routeAnimation]
@@ -38,9 +36,6 @@ export class AssortmentComponent implements OnInit {
   private readonly searchCallback = (res: ListArticleModel[]) => {
     if (!res) return;
     this.listArticle = res;
-    for (const a of this.listArticle) {
-      JsonHelper.toAny(a, ['category']);
-    }
   };
 
 }

@@ -9,12 +9,13 @@ import { LoadingComponent } from './loadding/loading.component';
 import {BaseService} from "@app-services/base.service";
 import {LoginService} from "@app-services/login.service";
 import {FileUploadService} from "@app-services/file-upload.service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     LayoutRouting,
-
     SharedModule,
     // MatButtonModule,
     // MatMenuModule,
