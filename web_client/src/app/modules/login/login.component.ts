@@ -17,24 +17,25 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private matSnackBar: MatSnackBar,
-    private loginService: LoginService,
+    private _loginService: LoginService,
     private route: ActivatedRoute,
     private router: Router
   ) {
   }
 
   ngOnInit() {
+    // If logged, go to the admin page
+    this._loginService.userSubject.subscribe((user: UserInfoModel) => {
+      if (user) this.router.navigate(['./admin']).then()
+    });
   }
 
   // for submit log information
   onSubmit() {
-    this.loginService.login(this.info).subscribe((res: UserInfoModel) => {
+    this._loginService.login(this.info).subscribe((res: UserInfoModel) => {
       this.router.navigate(['./admin']).then(() => {
         this.matSnackBar.open('Hello there! ' + res.username, 'Close',{duration: 5_000});
       });
-
-    }, error => {
-      this.matSnackBar.open(error, 'Close', {duration: 5_000});
     });
   }
 }

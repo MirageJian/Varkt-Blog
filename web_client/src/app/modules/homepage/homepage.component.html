@@ -6,7 +6,7 @@
         <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
         <mat-card-subtitle>{{a.time}}</mat-card-subtitle>
       </mat-card-header>
-      <a *ngIf="a.img" [routerLink]="['../article/', a.id]" class="img-block">
+      <a *ngIf="a.img" [routerLink]="['./article', a.id]" class="img-block">
         <img mat-card-image src="{{a.img}}" alt="dashboard image">
       </a>
       <!--Category part-->
@@ -18,7 +18,7 @@
         </mat-chip-list>
       </mat-card-content>
       <mat-card-actions align="end">
-        <a mat-button color="accent" [routerLink]="['../article/', a.id]" i18n>See More</a>
+        <a mat-button color="accent" [routerLink]="['./article', a.id]" i18n>See More</a>
       </mat-card-actions>
     </mat-card>
   </div>

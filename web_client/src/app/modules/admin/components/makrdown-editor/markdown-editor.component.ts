@@ -16,7 +16,7 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl} from "@
 export class MarkdownEditorComponent implements ControlValueAccessor {
   @ViewChild('imgUploadInput') imgUploadInput: ElementRef;
   @ViewChild('text') textAreaElement: ElementRef;
-  private value: string;
+  public value: string;
 
   constructor(
     private render: Renderer2,

@@ -104,7 +104,7 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "serviceWorker": true,
-              "outputPath": "dist/zh",
+              "outputPath": "dist/holacode/browser/zh",
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "zh",

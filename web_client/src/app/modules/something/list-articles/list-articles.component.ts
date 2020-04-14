@@ -2,7 +2,6 @@ import {Component, OnInit, OnChanges, Input, SimpleChanges, OnDestroy} from '@an
 import {SomethingService} from '../something.service';
 import {ListArticleModel} from '@shared/models';
 import {ActivatedRoute, Router} from '@angular/router';
-import {JsonHelper} from "@shared/tools";
 import {slideFromBottom} from "@shared/animations";
 import {Subscription} from "rxjs";
 
@@ -19,7 +18,7 @@ export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    public router: Router,
+    private router: Router,
     private _somethingService: SomethingService
   ) {
   }

@@ -82,17 +82,9 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f093d9574ab746b231504bd2cbb65f04bd7b00db" datatype="html">
-        <source>Log in</source>
+      <trans-unit id="dcd47f4d6b26b045a1b041b2fc73123bc0cfc118" datatype="html">
+        <source>Log In</source>
         <target state="translated">登录</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="cb577a59eb9d1cd2ca4e726413b7cb354de78ea4" datatype="html">
-        <source>Write</source>
-        <target state="translated">写东西</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
           <context context-type="linenumber">29</context>
@@ -103,7 +95,7 @@
         <target state="translated">开始Markdown</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
@@ -111,7 +103,7 @@
         <target state="translated">登出</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/navbar/navbar.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ea42960a9d0473e11bb9c74b1bc707f79e0dce40" datatype="html">
@@ -151,7 +143,7 @@
         <target state="translated">查看更多</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/homepage/homepage.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="eae41c6701c30490ff55947384ed7ef55413b452" datatype="html">
@@ -169,7 +161,7 @@
         <target state="translated"> 更新于 <x id="INTERPOLATION" equiv-text="{{article.update_time}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/about/about.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6261c4c1819494b58e11ecb90b993ea4478332af" datatype="html">
@@ -177,7 +169,7 @@
         <target state="translated">无更新</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/about/about.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2bb1b52fba74e939d0667ccdb926dd8f9993d795" datatype="html">
@@ -201,17 +193,17 @@
         <target state="translated">密码</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c3d8513e4b6135023ed5f6ed0b6811d81fb0d70e" datatype="html">
         <source>
             Log in
           </source>
-        <target state="translated">登录</target>
+        <target state="translated">登出</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9cd6f14e313f0b627691974b3192328ffcd5f154" datatype="html">
@@ -231,7 +223,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f3f6a406fbd8a70eb22c0a2dd280f2922c40ae04" datatype="html">
@@ -264,17 +256,17 @@
         <target state="translated">分类</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/something/category.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="93640e87c30e273b389752f06221af4d6cc603ad" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{article.author}}"/> Published on <x id="INTERPOLATION_1" equiv-text="{{article.time}}"/>
-          <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/>Update on <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/>
-        </source>
+      <trans-unit id="662639ae1940df9cac1667a8bfe5d854d0d17a18" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{article.author}}"/> Published on <x id="INTERPOLATION_1" equiv-text="{{article.time}}"/>
+            <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/>Update on <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/>
+          </source>
         <target state="translated"><x id="INTERPOLATION" equiv-text="{{article.author}}"/> 发布于 <x id="INTERPOLATION_1" equiv-text="{{article.time}}"/><x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/>更新于 <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="961ce303d2c4674604bfcb7c648fb688a9edb304" datatype="html">
@@ -282,7 +274,7 @@
         <target state="translated">留下你的评论</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c325e568fcca9787699f45f8a32bf7ef6af84800" datatype="html">
@@ -290,7 +282,7 @@
         <target state="translated">写点什么吧</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6e3c5ff3699b5e53bdfdb0d9206f34bf811e8c58" datatype="html">
@@ -298,7 +290,7 @@
         <target state="translated">你的昵称</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="71c77bb8cecdf11ec3eead24dd1ba506573fa9cd" datatype="html">
@@ -306,7 +298,7 @@
         <target state="translated">提交</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
     </body>

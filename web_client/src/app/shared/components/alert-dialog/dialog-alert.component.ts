@@ -8,15 +8,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 
 export class DialogAlertComponent {
-  alertType: AlertType;
-  AlertType = AlertType;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string | HttpErrorResponse) {
-    if (data instanceof HttpErrorResponse) this.alertType = AlertType.httpError;
-    else this.alertType = AlertType.message
+  constructor(@Inject(MAT_DIALOG_DATA) public data: string) {
   }
-}
-
-enum AlertType {
-  message, httpError
 }
 

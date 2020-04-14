@@ -1,12 +1,6 @@
-<ng-container [ngSwitch]="alertType"></ng-container>
-<ng-container *ngSwitchCase="AlertType.httpError">
-  <h3 mat-dialog-title>Server Http Error</h3>
-  <mat-dialog-content>{{this.data.status}}: {{this.data.error}}</mat-dialog-content>
-</ng-container>
-<ng-container *ngSwitchCase="AlertType.message">
-  <h3 mat-dialog-title>返回结果</h3>
-  <mat-dialog-content>{{this.data}}</mat-dialog-content>
-</ng-container>
+<h3 mat-dialog-title>返回结果</h3>
+<mat-dialog-content>{{this.data}}</mat-dialog-content>
+
 <mat-dialog-actions>
   <button mat-button mat-dialog-close color="accent">OK</button>
   <!-- Can optionally provide a result for the closing dialog. -->
