@@ -21,4 +21,5 @@
 
 .chip > span {
   margin-right: 8px;
+  padding-bottom: 2px;
 }

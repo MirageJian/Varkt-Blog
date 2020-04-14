@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {routeAnimation} from '@shared/animations';
+import {routerTrans, slideFromBottom} from '@shared/animations';
 import {ArticleModel, CommentModel, ResModel} from '@shared/models';
 import {APP_TILE} from "@shared/app-const";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -10,10 +10,10 @@ import {Title} from "@angular/platform-browser";
 @Component({
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
-  animations: routeAnimation
+  animations: [routerTrans, slideFromBottom()]
 })
 export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
-  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('@routerTrans') routeAnimation = true;
   @HostBinding('style.display') display = 'flex';
   @HostBinding('style.flex-direction') direction = 'column';
   @HostBinding('style.width') width = '100%';

@@ -1,3 +1,5 @@
+import asyncio
+
 from handlers.base import BaseHandler
 from tools import common_helper, json_helper
 
@@ -7,6 +9,7 @@ class CommentHandler(BaseHandler):
         id_article = self.get_argument("id_article")
         self.db.cursor.execute("SELECT * FROM comment WHERE id_article=%s", id_article)
         data = self.db.cursor.fetchall()
+        await asyncio.sleep(5)
         json = json_helper.dumps(data)
         self.write(json)
 

@@ -29,20 +29,23 @@
     <div class="card-container">
       <h2 id="commentArea">Comments Area</h2>
       <div *appProgress="!!comments"></div>
-      <mat-card *ngFor="let c of comments">
-        <mat-card-header class="no-avatar-card">
-          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time}}</span></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{c.content}}</p>
-        </mat-card-content>
-        <!--<mat-card-actions align="end">
-          <button mat-icon-button color="primary" (click)="likeComment(c)">
-            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-            {{c.likes}}
-          </button>
-        </mat-card-actions>-->
-      </mat-card>
+      <div [@slideFromBottom] *ngFor="let c of comments">
+        <mat-card>
+          <mat-card-header class="no-avatar-card">
+            <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time}}</span></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{c.content}}</p>
+          </mat-card-content>
+          <!--<mat-card-actions align="end">
+            <button mat-icon-button color="primary" (click)="likeComment(c)">
+              <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              {{c.likes}}
+            </button>
+          </mat-card-actions>-->
+        </mat-card>
+      </div>
+
     </div>
 
     <form #form="ngForm" (submit)="onSubmit()" class="card-container">

@@ -1,5 +1,5 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-import {routeAnimation, slideFromBottom} from '@shared/animations';
+import {slideFromBottom} from '@shared/animations';
 import {SomethingService} from "../something.service";
 import {ListArticleModel} from "@shared/models";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
@@ -8,10 +8,10 @@ import {switchMap} from "rxjs/operators";
 @Component({
   templateUrl: './assortment.component.html',
   styleUrls: ['./assortment.component.scss'],
-  animations: [slideFromBottom(), routeAnimation]
+  animations: [slideFromBottom()]
 })
 export class AssortmentComponent implements OnInit {
-  @HostBinding('@routeAnimation')
+  @HostBinding('@slideFromBottom')
   @HostBinding('style.display') display = 'block';
   keyword = '';
   listArticle: ListArticleModel[];

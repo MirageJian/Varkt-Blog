@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {filter} from "rxjs/operators";
-import {loadingAni} from "./loadding/loading.animation";
 import {BaseService} from "@app-services/base.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SNACKBAR_DURATION} from "@shared/app-const";
@@ -10,11 +9,10 @@ import {SNACKBAR_DURATION} from "@shared/app-const";
 @Component({
   template: `
     <app-navbar></app-navbar>
-    <app-loading *ngIf="isLoading" [@loadingAni]></app-loading>
+    <app-loading *ngIf="isLoading"></app-loading>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   `,
-  animations: [loadingAni]
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   private subscriptionRouter: Subscription;
