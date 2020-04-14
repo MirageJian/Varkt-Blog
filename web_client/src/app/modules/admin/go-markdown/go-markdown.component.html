@@ -2,14 +2,14 @@
   <form (ngSubmit)="onSubmit()" #markdownForm="ngForm" [@slideFromBottom]>
     <div class="card-container">
       <mat-form-field appearance="outline" style="width: 100%">
-        <mat-label>Title</mat-label>
-        <input matInput placeholder="Title" [(ngModel)]="article.title" name="title" required
+        <mat-label>Article Title</mat-label>
+        <input matInput placeholder="Article Title" [(ngModel)]="article.title" name="title" required
                autocomplete="off">
       </mat-form-field>
       <!--Choose categories selection-->
       <mat-form-field appearance="outline">
         <mat-label>Choose Categories</mat-label>
-        <mat-select placeholder="Choose Categories" name="category" [(ngModel)]="article.category" [multiple]="true">
+        <mat-select placeholder="Choose Categories" name="category" [(ngModel)]="article.category" [multiple]="true" required>
           <mat-option *ngFor="let c of categories" [value]="c.label">{{c.label}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -36,7 +36,7 @@
     <div class="card-container">
     <mat-form-field appearance="outline" style="width: 100%">
       <mat-label>Subhead Description</mat-label>
-      <input matInput placeholder="Subhead Description" [(ngModel)]="article.subhead" name="subhead">
+      <input matInput placeholder="Subhead Description" [(ngModel)]="article.subhead" name="subhead" autocomplete="off">
     </mat-form-field>
     </div>
     <button mat-button color="warn" type="button" (click)="resetArticle()">RESET PAGE!</button>

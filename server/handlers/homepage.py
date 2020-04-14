@@ -1,3 +1,5 @@
+import asyncio
+
 from handlers.base import BaseHandler
 
 from tools import json_helper

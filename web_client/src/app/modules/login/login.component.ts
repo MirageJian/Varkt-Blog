@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // If logged, go to the admin page
     this._loginService.userSubject.subscribe((user: UserInfoModel) => {
-      if (user) this.router.navigate(['./admin']).then()
+      if (user) this.router.navigateByUrl(this._loginService.redirectUrl).then()
     });
   }
 
