@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {PublicFilesService} from "./public-files.service";
+import {PublicFilesService} from "../services/public-files.service";
 import {FileStatModel} from "@shared/models/file-stat.model";
 import {ResModel} from "@shared/models";
 

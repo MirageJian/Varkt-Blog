@@ -7,7 +7,7 @@ import {AppRoutingModule} from './app.routing';
 import {AppComponent} from './app.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
-import {ErrorPageComponent} from "./error-page/error-page.component";
+import {ErrorPageComponent} from "./layout/error-page/error-page.component";
 import {isPlatformBrowser} from "@angular/common";
 
 @NgModule({

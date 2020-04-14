@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {slideFromBottom} from "@shared/animations";
 import {ArticleModel, CategoryModel, ResModel} from "@shared/models";
 import {SomethingService} from "../../something/something.service";
-import {WritingService} from "./writing.service";
+import {WritingService} from "../services/writing.service";
 import {switchMap} from "rxjs/operators";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {EMPTY} from "rxjs";
@@ -43,7 +43,7 @@ export class GoMarkdownComponent implements OnInit {
   }
 
   onSubmit() {
-    this._writingService.addOrUpdateArticle(this.article, 'This is description').subscribe((res: ResModel) => {
+    this._writingService.addOrUpdateArticle(this.article).subscribe((res: ResModel) => {
       if (res && res.code === 0) {
         this.snackBar.open('Operation successful.', 'Ok', {duration: SNACKBAR_DURATION.short})
       }

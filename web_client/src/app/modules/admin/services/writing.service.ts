@@ -5,7 +5,7 @@ import {ArticleService} from "../../article/article.service";
 
 @Injectable()
 export class WritingService extends ArticleService {
-  addOrUpdateArticle(article: ArticleModel, subhead: string) {
+  addOrUpdateArticle(article: ArticleModel) {
     if (article.id == 0)
       return this.http.post(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
     else

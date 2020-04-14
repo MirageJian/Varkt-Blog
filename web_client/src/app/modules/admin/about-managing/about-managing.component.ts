@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {AboutModel} from "@shared/models/about.model";
-import {AboutManagingService} from "./about-managing.service";
+import {AboutManagingService} from "../services/about-managing.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ResModel} from "@shared/models";
 import {slideFromBottom} from "@shared/animations";
