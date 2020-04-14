@@ -2,7 +2,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '@app-services/login.service';
 import {Component, OnInit} from '@angular/core';
 
-import {LoginInfoModel} from '@shared/models';
+import {UserInfoModel} from '@shared/models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {Md5} from 'ts-md5';
 import {ResModel} from '@shared/models';
@@ -13,7 +13,7 @@ import {ResModel} from '@shared/models';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  info = new LoginInfoModel();
+  info = new UserInfoModel();
 
   constructor(
     private matSnackBar: MatSnackBar,
@@ -28,16 +28,11 @@ export class LoginComponent implements OnInit {
 
   // for submit log information
   onSubmit() {
-    this.loginService.login(this.info).subscribe((res: ResModel) => {
-      if (res.code === 0) {
-        this.loginService.isLoggedIn = true;
-        this.loginService.userName = res.data;
-        this.matSnackBar.open(res.message, 'Close',{duration: 5_000});
-        this.router.navigate([this.loginService.redirectUrl, {}], {relativeTo: this.route}).catch();
-      } else {
-        this.matSnackBar.open(res.message, 'Close', {duration: 5_000});
+    this.loginService.login(this.info).subscribe((res: UserInfoModel) => {
+      this.router.navigate(['./admin']).then(() => {
+        this.matSnackBar.open('Hello there! ' + res.username, 'Close',{duration: 5_000});
+      });
 
-      }
     }, error => {
       this.matSnackBar.open(error, 'Close', {duration: 5_000});
     });

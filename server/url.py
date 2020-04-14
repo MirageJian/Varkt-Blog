@@ -1,4 +1,3 @@
-from handlers.main import MainHandler
 from handlers.homepage import Homepage
 from handlers.something import SomethingHandler
 from handlers.about import AboutHandler
@@ -17,7 +16,6 @@ api_url = r"/api"
 
 
 path = [
-    (api_url + r"/", MainHandler),
     (api_url + r"/dashboard", Homepage),
     (api_url + r"/something", SomethingHandler),
     (api_url + r"/about", AboutHandler),

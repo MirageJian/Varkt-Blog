@@ -3,6 +3,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {LoginService} from '@app-services/login.service';
 import {Router} from '@angular/router';
 import {MOBILE_WIDTH} from "@shared/app-const";
+import {UserInfoModel} from "@shared/models";
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +12,7 @@ import {MOBILE_WIDTH} from "@shared/app-const";
 })
 export class AdminComponent implements OnInit, OnDestroy {
   title: string;
-  username: string;
+  loggedUser: UserInfoModel;
   // check if the device is mobile
   mobileQuery: MediaQueryList;
   mobileQueryListener: () => void;
@@ -33,7 +34,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   // Give title a value when browser was refreshed
   ngOnInit() {
-    this.username = this.loginService.userName;
+    this.loggedUser = this.loginService.loggedUser;
     switch (this.router.url) {
       case '/admin': this.title = 'Dashboard'; break;
       case '/admin/go-markdown': this.title = 'Go Markdown'; break;

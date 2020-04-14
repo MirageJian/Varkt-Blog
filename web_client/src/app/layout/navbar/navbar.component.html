@@ -19,9 +19,9 @@
     <mat-icon aria-label="">more_vert</mat-icon>
   </button>
   <mat-menu #appMenu="matMenu">
-    <a mat-menu-item [routerLink]="['/admin']" routerLinkActive="router-link-active" *ngIf="loginService.userName else showLogin">
+    <a mat-menu-item [routerLink]="['/admin']" routerLinkActive="router-link-active" *ngIf="loggedUser else showLogin">
       <mat-icon>person</mat-icon>
-      <span>{{loginService.userName}}</span>
+      <span>{{loggedUser.username}}</span>
     </a>
     <ng-template #showLogin>
       <a mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active">
@@ -38,7 +38,7 @@
       <mat-icon>translate</mat-icon>
       <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
     </a>
-    <button *ngIf="loginService.userName" mat-menu-item (click)="logout()">
+    <button *ngIf="loggedUser" mat-menu-item (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span i18n>Log out</span>
     </button>

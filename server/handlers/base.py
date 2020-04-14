@@ -31,10 +31,10 @@ class BaseHandler(tornado.web.RequestHandler):
         return json
 
     # If in the development, may need this function. For server side render
-    def set_default_headers(self):
-        self.set_header("Access-Control-Allow-Origin", "http://localhost:4200")
-        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
-        self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
+    # def set_default_headers(self):
+    #     self.set_header("Access-Control-Allow-Origin", "http://localhost:4200")
+    #     self.set_header("Access-Control-Allow-Headers", "x-requested-with")
+    #     self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
 
     def get_current_user(self):
         return self.get_secure_cookie("_user", None)

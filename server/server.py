@@ -24,7 +24,7 @@ class Application(tornado.web.Application):
 
 
 if __name__ == "__main__":
-    # For python3.8 change event loop policy for windows
+    # For python3.8 change event adminloop policy for windows
     if sys.platform == 'win32':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     tornado.options.parse_command_line()

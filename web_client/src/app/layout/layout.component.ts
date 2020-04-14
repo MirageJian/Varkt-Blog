@@ -31,11 +31,21 @@ export class LayoutComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Loading animation part
     this.subscriptionRouter = this.router.events.pipe(
+      // map(() => this.route),
+      // map(route => {
+      //   while (route.firstChild) {
+      //     route = route.firstChild;
+      //     console.log(route);
+      //   }
+      // }),
+      // filter(route => route.outlet === 'primary'),
+      // mergeMap(route => route.data),
       filter((event: any) => event instanceof NavigationEnd
         || event instanceof NavigationCancel
         || event instanceof NavigationStart
         || event instanceof NavigationError)
     ).subscribe((event: any) => {
+      // Check route event in which state
       if (event instanceof NavigationStart) this.isLoading = true;
       else if (event instanceof NavigationEnd) this.isLoading = false;
       else if (event instanceof NavigationCancel) {

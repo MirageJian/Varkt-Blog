@@ -11,7 +11,7 @@ def create_default_user(db: Database):
     db.cursor.execute("SELECT * FROM user")
     users = db.cursor.fetchall()
     if not users or len(users) < 1:
-        db.cursor.execute("INSERT INTO user(username, password, email, admin) VALUES (%s, %s, %s, 1)", (
+        db.cursor.execute("INSERT INTO user(username, password, email, is_admin) VALUES (%s, %s, %s, 1)", (
             username, password, email
         ))
         db.conn.commit()

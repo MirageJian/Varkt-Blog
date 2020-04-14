@@ -2,11 +2,12 @@ import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '@app-services/login.service';
 import {Router, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {ResModel} from '@shared/models';
+import {ResModel, UserInfoModel} from '@shared/models';
 import {filter} from 'rxjs/operators';
 import {searchBox} from "./navbar-search.animation";
 import {MOBILE_BREAKPOINT} from "@shared/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
+import {HttpXsrfTokenExtractor} from "@angular/common/http";
 
 @Component({
   selector: 'app-navbar',
@@ -15,16 +16,16 @@ import {BreakpointObserver} from "@angular/cdk/layout";
   animations: [searchBox]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  subscriptionRouter: Subscription;
   subscriptionBreakpoint: Subscription;
   isShownSearch = false;
   searchContent: string;
+  loggedUser: UserInfoModel;
 
   constructor(
     private router: Router,
-    public loginService: LoginService,
+    private loginService: LoginService,
     @Inject(LOCALE_ID) public localeId,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
   ) {
     // If width change, this observable will respond
     this.subscriptionBreakpoint = breakpointObserver.observe(MOBILE_BREAKPOINT).subscribe(result => {
@@ -35,33 +36,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log("Current language of browser: " + this.localeId);
     // check login status for loging in automatically
-    this.loginService.check().subscribe((res: ResModel) => {
-      if (res.code === 0) {
-        this.loginService.isLoggedIn = true;
-        this.loginService.userName = res.data;
-        // const nowPath = result ? result[result.length - 1] : '';
-      }
+    this.loginService.getLoggedUser()?.subscribe((res: UserInfoModel) => {
+      if (res) this.loggedUser = res;
     });
-    //
-    this.subscriptionRouter = this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
-    // .map(() => this.route)
-    // .map(route => {
-    //   while (route.firstChild) {
-    //     route = route.firstChild;
-    //     console.log(route);
-    //   }
-    // })
-    // .filter(route => route.outlet === 'primary')
-    // .mergeMap(route => route.data)
-      .subscribe(() => {
-        if (!this.loginService.isLoggedIn) {
-          this.loginService.userName = null;
-        }
-      });
   }
 
   logout() {
-    this.loginService.logout().subscribe(() => this.loginService.userName = null);
+    // Logout and delete logged user, then navigate
+    this.loginService.logout().subscribe(() => this.loggedUser = null);
     this.router.navigate(['/']).catch();
   }
 
@@ -72,7 +54,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscriptionRouter.unsubscribe();
     this.subscriptionBreakpoint.unsubscribe();
   }
 
