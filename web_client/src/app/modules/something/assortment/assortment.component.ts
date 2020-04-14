@@ -1,5 +1,5 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import {slideFromBottom, routeAnimation} from '@shared/animations';
+import {Component, HostBinding, OnInit} from '@angular/core';
+import {routeAnimation, slideFromBottom} from '@shared/animations';
 import {SomethingService} from "../something.service";
 import {ListArticleModel} from "@shared/models";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";

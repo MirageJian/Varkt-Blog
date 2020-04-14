@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges, Input, SimpleChanges, OnDestroy} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {SomethingService} from '../something.service';
 import {ListArticleModel} from '@shared/models';
 import {ActivatedRoute, Router} from '@angular/router';

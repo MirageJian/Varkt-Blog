@@ -1,7 +1,7 @@
-import {Component, OnInit, HostBinding, OnDestroy, ViewChild, AfterViewInit} from '@angular/core';
+import {AfterViewInit, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {routeAnimation} from '@shared/animations';
-import {ArticleModel, ResModel, CommentModel} from '@shared/models';
+import {ArticleModel, CommentModel, ResModel} from '@shared/models';
 import {APP_TILE} from "@shared/app-const";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ArticleService} from "./article.service";

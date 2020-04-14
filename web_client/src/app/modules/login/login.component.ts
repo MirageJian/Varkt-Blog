@@ -3,7 +3,7 @@ import {LoginService} from '@app-services/login.service';
 import {Component, OnInit} from '@angular/core';
 
 import {UserInfoModel} from '@shared/models';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   templateUrl: './login.component.html',

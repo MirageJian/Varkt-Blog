@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {ListArticleModel, ResModel, CommentModel} from '@shared/models';
+import {CommentModel, ListArticleModel, ResModel} from '@shared/models';
 import {ManagingService} from './managing.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SomethingService} from "../../something/something.service";

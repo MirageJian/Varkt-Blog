@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {MatSidenav} from "@angular/material/sidenav";
 import {MOBILE_BREAKPOINT} from "@shared/app-const";

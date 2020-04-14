@@ -1,7 +1,7 @@
-import {Component, ElementRef, forwardRef, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
-import {ArticleModel, ResModel} from "@shared/models";
+import {Component, ElementRef, forwardRef, Renderer2, ViewChild} from '@angular/core';
+import {ResModel} from "@shared/models";
 import {FileUploadService} from "@app-services/file-upload.service";
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl} from "@angular/forms";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
   selector: 'app-markdown-editor',

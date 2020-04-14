@@ -1,4 +1,12 @@
-import {Directive, Input, TemplateRef, ViewContainerRef, ElementRef, Component, ComponentFactoryResolver} from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  Directive,
+  ElementRef,
+  Input,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 
 @Directive({
   selector: '[appProgress]'

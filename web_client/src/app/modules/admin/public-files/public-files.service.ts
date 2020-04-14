@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {BaseService} from "@app-services/base.service";

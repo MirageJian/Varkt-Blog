@@ -1,11 +1,11 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams, HttpXsrfTokenExtractor} from '@angular/common/http';
-import {catchError, map, tap} from 'rxjs/operators';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, map} from 'rxjs/operators';
 import {BaseService} from './base.service';
 import {ResModel, UserInfoModel} from '@shared/models';
 import {Md5} from "ts-md5";
-import {DOCUMENT, isPlatformBrowser} from "@angular/common";
-import {EMPTY, Observable, of, Subject} from "rxjs";
+import {isPlatformBrowser} from "@angular/common";
+import {EMPTY, Observable, Subject} from "rxjs";
 
 @Injectable()
 export class LoginService extends BaseService {

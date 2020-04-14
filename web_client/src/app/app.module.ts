@@ -1,14 +1,15 @@
 import {BrowserModule, Title} from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import {APP_ID, Inject, NgModule, PLATFORM_ID} from '@angular/core';
-import { AppRoutingModule } from './app.routing';
+import {AppRoutingModule} from './app.routing';
 
 import {AppComponent} from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {isPlatformBrowser} from "@angular/common";
+
 @NgModule({
   declarations: [
     AppComponent,

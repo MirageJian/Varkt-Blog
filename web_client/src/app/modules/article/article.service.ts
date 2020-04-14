@@ -1,7 +1,7 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {BaseService} from "@app-services/base.service";
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {ArticleModel} from "@shared/models";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, map} from "rxjs/operators";

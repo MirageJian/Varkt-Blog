@@ -1,11 +1,6 @@
-import { Injectable } from '@angular/core';
-import {
-  CanActivate, Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot
-} from '@angular/router';
-import { LoginService } from '@app-services/login.service';
-import {ResModel} from "@shared/models";
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {LoginService} from '@app-services/login.service';
 import {HttpXsrfTokenExtractor} from "@angular/common/http";
 
 @Injectable()

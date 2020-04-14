@@ -1,10 +1,7 @@
-import {catchError} from 'rxjs/operators';
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {throwError} from 'rxjs';
 import {isPlatformServer} from "@angular/common";
-import {MatDialog} from "@angular/material/dialog";
-import {DialogAlertComponent} from "@shared/components/alert-dialog/dialog-alert.component";
 
 @Injectable()
 export class BaseService {

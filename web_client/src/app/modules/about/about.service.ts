@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "@app-services/base.service";
 import {catchError} from "rxjs/operators";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";

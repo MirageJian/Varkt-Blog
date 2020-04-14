@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AboutService} from "./about.service";
 import {AboutModel} from "@shared/models/about.model";
 import {slideFromBottom} from "@shared/animations";

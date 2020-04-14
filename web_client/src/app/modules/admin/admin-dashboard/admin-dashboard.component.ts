@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CommentModel} from "@shared/models";
+import {Component, OnInit} from '@angular/core';
+import {CommentModel, ResModel} from "@shared/models";
 import {AdminDashboardService} from "./admin-dashboard.service";
-import {ResModel} from "@shared/models";
 
 @Component({
   templateUrl: './admin-dashboard.component.html',

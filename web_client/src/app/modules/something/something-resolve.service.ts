@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {SomethingService} from "./something.service";
-import {ActivatedRouteSnapshot, ParamMap, Resolve, Router, RouterStateSnapshot} from "@angular/router";
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {EMPTY, Observable} from "rxjs";
 import {CategoryModel, ListArticleModel} from "@shared/models";
 

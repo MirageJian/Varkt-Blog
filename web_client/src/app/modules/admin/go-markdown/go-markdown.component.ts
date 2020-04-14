@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {slideFromBottom} from "@shared/animations";
 import {ArticleModel, CategoryModel, ResModel} from "@shared/models";
 import {SomethingService} from "../../something/something.service";

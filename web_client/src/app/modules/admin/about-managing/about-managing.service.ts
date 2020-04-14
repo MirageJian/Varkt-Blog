@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {catchError} from "rxjs/operators";
 import {AboutModel} from "@shared/models/about.model";
 import {AboutService} from "../../about/about.service";

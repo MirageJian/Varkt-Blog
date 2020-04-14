@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoryModel, ResModel} from "@shared/models";
 import {SettingsService} from "../settings.service";
 import {MatSnackBar} from "@angular/material/snack-bar";

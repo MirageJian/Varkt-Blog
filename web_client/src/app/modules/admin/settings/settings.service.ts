@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SomethingService} from "../../something/something.service";
 import {CategoryModel} from "@shared/models";
 import {HttpParams} from "@angular/common/http";
