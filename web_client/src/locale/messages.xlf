@@ -5,49 +5,49 @@
       <trans-unit id="03354b2489337882c5a4fd033fec9b9f4b8d109f" datatype="html">
         <source>Page Not Found</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1b121fbcff1726ab082565e9d990a6aab4184312" datatype="html">
         <source>We&apos;re sorry. The page you are looking for cannot be found.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0192667f1edb889dca50d2a45b1e81bec92aa9f6" datatype="html">
         <source>Back to main site.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7fbbb8f4a351f0b19630432990e337ef17a14055" datatype="html">
         <source>Server Not Respond</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="30c6403c5301919e5c5c58c95b0de08302b723ea" datatype="html">
         <source>We&apos;re sorry. The request was not responded by the server.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f6237d3f226b875412b0db7b99855454f2a94203" datatype="html">
         <source>The address: <x id="INTERPOLATION" equiv-text="{{url}}"/></source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c0286a7a99f2c98b810956089084d6e7d399c7c1" datatype="html">
         <source>Click here to try again.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
@@ -125,7 +125,7 @@
         <source>See More</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/homepage/homepage.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="eae41c6701c30490ff55947384ed7ef55413b452" datatype="html">
@@ -155,21 +155,21 @@
         <source>Holacode admin login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3514d75d3f546d3d58bb1d042de89b4b946168f4" datatype="html">
         <source>Name or Email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
         <source>Password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c3d8513e4b6135023ed5f6ed0b6811d81fb0d70e" datatype="html">
@@ -228,41 +228,41 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="662639ae1940df9cac1667a8bfe5d854d0d17a18" datatype="html">
+      <trans-unit id="2553bf6362bf2cd2afbb535cc6850b9a6776587c" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{article.author}}"/> Published on <x id="INTERPOLATION_1" equiv-text="{{article.time}}"/>
-            <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container&gt;"/>Update on <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container&gt;"/>
-          </source>
+          <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container&gt;"/>Update on <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container&gt;"/>
+        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="961ce303d2c4674604bfcb7c648fb688a9edb304" datatype="html">
         <source>Leave a comment</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c325e568fcca9787699f45f8a32bf7ef6af84800" datatype="html">
         <source>Say something</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6e3c5ff3699b5e53bdfdb0d9206f34bf811e8c58" datatype="html">
         <source>Your Name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="71c77bb8cecdf11ec3eead24dd1ba506573fa9cd" datatype="html">
         <source>Submit</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
     </body>

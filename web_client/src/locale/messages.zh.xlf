@@ -6,7 +6,7 @@
         <source>Page Not Found</source>
         <target state="translated">页面尚未找到</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
@@ -14,7 +14,7 @@
         <source>We're sorry. The page you are looking for cannot be found.</source>
         <target state="translated">很抱歉。指定的页面不存在。</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
@@ -22,7 +22,7 @@
         <source>Back to main site.</source>
         <target state="translated">回到主页。</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
@@ -30,7 +30,7 @@
         <source>Server Not Respond</source>
         <target state="translated">服务器未响应</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
@@ -38,7 +38,7 @@
         <source>We're sorry. The request was not responded by the server.</source>
         <target state="translated">很抱歉。服务器未响应您的请求。</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
@@ -46,7 +46,7 @@
         <source>The address: <x id="INTERPOLATION" equiv-text="{{url}}"/></source>
         <target state="translated">地址: <x id="INTERPOLATION" equiv-text="{{url}}"/></target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
@@ -54,7 +54,7 @@
         <source>Click here to try again.</source>
         <target state="translated">点击这里重试</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/error-page/error-page.component.html</context>
+          <context context-type="sourcefile">src/app/layout/error-page/error-page.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
@@ -143,7 +143,7 @@
         <target state="translated">查看更多</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/homepage/homepage.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="eae41c6701c30490ff55947384ed7ef55413b452" datatype="html">
@@ -177,7 +177,7 @@
         <target state="translated">Holacode管理登陆</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3514d75d3f546d3d58bb1d042de89b4b946168f4" datatype="html">
@@ -185,7 +185,7 @@
         <target state="translated">用户名或密码</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
@@ -193,7 +193,7 @@
         <target state="translated">密码</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c3d8513e4b6135023ed5f6ed0b6811d81fb0d70e" datatype="html">
@@ -259,14 +259,14 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="662639ae1940df9cac1667a8bfe5d854d0d17a18" datatype="html">
+      <trans-unit id="2553bf6362bf2cd2afbb535cc6850b9a6776587c" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{article.author}}"/> Published on <x id="INTERPOLATION_1" equiv-text="{{article.time}}"/>
-            <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/>Update on <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/>
-          </source>
+          <x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/>Update on <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/>
+        </source>
         <target state="translated"><x id="INTERPOLATION" equiv-text="{{article.author}}"/> 发布于 <x id="INTERPOLATION_1" equiv-text="{{article.time}}"/><x id="START_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;ng-container>"/>更新于 <x id="INTERPOLATION_2" equiv-text="{{article.update_time}}"/><x id="CLOSE_TAG_NG-CONTAINER" ctype="x-ng-container" equiv-text="&lt;/ng-container>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="961ce303d2c4674604bfcb7c648fb688a9edb304" datatype="html">
@@ -274,7 +274,7 @@
         <target state="translated">留下你的评论</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c325e568fcca9787699f45f8a32bf7ef6af84800" datatype="html">
@@ -282,7 +282,7 @@
         <target state="translated">写点什么吧</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6e3c5ff3699b5e53bdfdb0d9206f34bf811e8c58" datatype="html">
@@ -290,7 +290,7 @@
         <target state="translated">你的昵称</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="71c77bb8cecdf11ec3eead24dd1ba506573fa9cd" datatype="html">
@@ -298,7 +298,7 @@
         <target state="translated">提交</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/article/article.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
     </body>

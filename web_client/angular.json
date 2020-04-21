@@ -20,6 +20,12 @@
           "spec": false
         }
       },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "zh": "src/locale/messages.zh.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -82,12 +88,6 @@
               ]
             },
             "production-zh": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -112,18 +112,7 @@
               "baseHref": "/zh/"
             },
             "zh": {
-              "aot": true,
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "outputPath": "dist/zh",
-              "i18nFile": "src/locale/messages.zh.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "zh",
-              "i18nMissingTranslation": "error"
+              "localize": ["zh"]
             }
           }
         },

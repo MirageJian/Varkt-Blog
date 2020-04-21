@@ -1,6 +1,6 @@
 <app-header i18n>About this, About me</app-header>
-<div style="display: flex;flex-direction:column;align-items:stretch" class="container" [@slideFromBottom]>
-  <mat-card class="card-container">
+<div class="container">
+  <mat-card class="card-container" [@slideFromBottom]>
     <!--<h5>{{article.author}}</h5>-->
     <markdown [data]="article.content"></markdown>
     <!--Bottom part, such as time-->
