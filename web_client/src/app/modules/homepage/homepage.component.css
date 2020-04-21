@@ -18,3 +18,14 @@
 .mat-card-image:first-child {
   margin-bottom: -16px;
 }
+mat-chip-list {
+  padding: 4px;
+}
+mat-chip-list > ::ng-deep.mat-chip-list-wrapper {
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+mat-chip-list > ::ng-deep.mat-chip-list-wrapper::-webkit-scrollbar {
+  display: none;
+}

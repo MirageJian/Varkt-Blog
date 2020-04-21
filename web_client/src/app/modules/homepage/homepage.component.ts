@@ -11,9 +11,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class HomepageComponent implements OnInit {
   listArticle: ListArticleModel[];
+  chips: Set<string>;
 
   constructor(
-    private generalService: HomepageService,
+    private _homeService: HomepageService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -21,6 +22,8 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe((res: {data: ListArticleModel[]}) => {
       this.listArticle = res.data;
+      // Add chips/category on the top of articles
+      this.chips = this._homeService.getChips(this.listArticle);
       if (this.listArticle.length <= 0) {
         let a = new ListArticleModel();
         a.title = '啊咧？！';

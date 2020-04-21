@@ -17,4 +17,10 @@ export class HomepageService extends BaseService implements Resolve<ListArticleM
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ListArticleModel[]> | Promise<ListArticleModel[]> | ListArticleModel[] {
     return this._somethingService.getAllArticles();
   }
+
+  getChips(articles: ListArticleModel[]) {
+    const chips = new Set<string>();
+    for (let a of articles) for (let c of a.category) chips.add(c);
+    return chips;
+  }
 }

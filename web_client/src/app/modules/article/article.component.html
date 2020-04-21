@@ -13,8 +13,8 @@
       </mat-chip-list>
       <!--Footer for author info and date-->
       <mat-card-footer>
-        <mat-card-subtitle i18n> {{article.author}} Published on {{article.time}}
-          <ng-container *ngIf="article.update_time">Update on {{article.update_time}}</ng-container>
+        <mat-card-subtitle i18n> {{article.author}} Published on {{article.time|date}}
+          <ng-container *ngIf="article.update_time">Update on {{article.update_time|date}}</ng-container>
         </mat-card-subtitle>
       </mat-card-footer>
     </mat-card-content>
