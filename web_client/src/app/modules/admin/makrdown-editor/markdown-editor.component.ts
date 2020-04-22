@@ -16,6 +16,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewInit, OnDestroy {
   @ViewChild('imgUploadInput') imgUploadInput: ElementRef;
   @ViewChild('text') textAreaElement: ElementRef;
+  // The value for this editor
   public value: string;
   public imagePasteListener: () => void;
   public tabKeydownListener: () => void;
@@ -23,16 +24,16 @@ export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewI
   constructor(
     private renderer: Renderer2,
     private _fileUpload: FileUploadService,
-  ) {
-  }
+  ) {}
+
   ngAfterViewInit(): void {
     /** Register paste listener */
-    this.imagePasteListener = this.renderer.listen(this.textAreaElement.nativeElement, 'paste', e => {
+    this.imagePasteListener = this.renderer.listen(this.textArea, 'paste', e => {
       // We need to check if event.clipboardData is supported (Chrome & IE)
       if (e.clipboardData && e.clipboardData.items) {
         // Get the items from the clipboard and loop through all items, looking for any kind of image
         for (let item of e.clipboardData.items)
-          if (item.type.indexOf('image') !== -1)  {
+          if (item.type.indexOf('image') !== -1) {
             // We need to represent the image as a file
             this.insertImage(item.getAsFile())
             // Prevent the image (or URL) from being pasted into the contenteditable element
@@ -41,28 +42,28 @@ export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewI
       }
     });
     /** Register tab keydown listener */
-    this.tabKeydownListener = this.renderer.listen(this.textAreaElement.nativeElement, 'keydown', e => {
+    this.tabKeydownListener = this.renderer.listen(this.textArea, 'keydown', e => {
       if (e.code == 'Tab') {
         e.preventDefault();
         this.handleTab();
       }
     });
   }
+
   /** Keyboard event handles */
   handleTab() {
     let customTab = ' '.repeat(4);
-    const value = this.textArea.value, selStart = this.textArea.selectionStart, selEnd = this.textArea.selectionEnd;
-    if (selStart != selEnd) {
+    const editor = this.getEditor();
+    if (editor.selStart != editor.selEnd) {
       // If selected text, tab will insert into start of selection and before every line
-      const selection = value.substring(selStart, selEnd);
-      const lines = selection.split('\n');
+      const lines = editor.selection.split('\n');
       // Change the middle inserts
       customTab = customTab + lines.join('\n' + customTab)
     }
     // If nothings selected, insert intends on the cursor
-    this.textArea.value = value.substring(0, selStart) + customTab + value.substring(selEnd);
+    editor.concatStartEnd(customTab);
     // If selected text, selected range still
-    if (selStart != selEnd) this.textArea.setSelectionRange(selStart, selEnd + customTab.length);
+    if (editor.selStart != editor.selEnd) editor.setSelRange(editor.selStart, editor.selEnd + customTab.length)
     this.refreshValue();
   }
 
@@ -72,43 +73,46 @@ export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewI
     if (!file) file = this.imgUploadInput.nativeElement.files[0];
     // console.log(formData);
     this._fileUpload.uploadArticleImage(file).subscribe((res: ResModel) => {
-      if (!res.code) {
-        // Upload image successfully and get selection cursor
-        const selectionStart = this.textArea.selectionStart;
-        this.value = this.value.slice(0, selectionStart)
-          + `<img src=\"${res.data}\" width=\"100%\" alt=\"\">`
-          + this.value.slice(selectionStart);
-      }
+      // Upload image successfully and get selection cursor
+      this.getEditor().concatStartEnd(`<img src=\"${res.data}\" width=\"100%\" alt=\"\">`);
+      this.refreshValue();
     });
   }
 
   insertCodeBlock() {
-    const startTag = '```\n', endTag = '\n```';
-    const value = this.textArea.value, selStart = this.textArea.selectionStart, selEnd = this.textArea.selectionEnd;
-    this.textArea.value = value.substring(0, selStart) + (startTag + value.substring(selStart, selEnd) + endTag) + value.substring(selEnd);
-    this.textArea.setSelectionRange(selStart + 3, selStart + 3);
+    let startTag = '```javascript\n', endTag = '```\n';
+    const editor = this.getEditor();
+    // If there is section, add new line before end tag
+    if (editor.selection.length) endTag = '\n' + endTag;
+    // Concat all things
+    editor.concatStartEnd(startTag + editor.selection + endTag);
+    // Select code language label
+    editor.setSelRange(editor.selStart + 3, editor.selStart + startTag.length - 1)
     // Refresh after selecting text
     this.refreshValue();
   }
 
   insertLink() {
+    const editor = this.getEditor();
     let startTag = '[', endTag = ']()';
-    const value = this.textArea.value, selStart = this.textArea.selectionStart, selEnd = this.textArea.selectionEnd;
-    const selection = value.substring(selStart, selEnd);
+    let start = editor.selEnd + 3, end = editor.selEnd + 3;
     // If selected link
-    if (selection.match('://')) { startTag = '[]('; endTag = ')'; }
-    this.textArea.value = value.substring(0, selStart) + (startTag + selection + endTag) + value.substring(selEnd);
-    // If selected link
-    if (selection.match('://'))
-      this.textArea.setSelectionRange(selStart + 1, selStart + 1);
-    else this.textArea.setSelectionRange(selEnd + 3, selEnd + 3);
+    if (editor.selection.match('://')) {
+      // Put the cursor in round bracket
+      startTag = '[]('; endTag = ')';
+      start = editor.selStart + 1; end = editor.selStart + 1;
+    }
+    editor.concatStartEnd(startTag + editor.selection + endTag);
+    editor.setSelRange(start, end);
     // Refresh after selecting text
     this.refreshValue();
   }
+
   /** Frequently called methods */
   private get textArea(): HTMLTextAreaElement {
     return this.textAreaElement.nativeElement as HTMLTextAreaElement
   }
+
   // Refresh ngModel value and focus textarea
   private refreshValue() {
     this.textArea.focus();
@@ -117,23 +121,22 @@ export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewI
     this.onChange(this.value);
   }
 
-  // Example of insert paired tags
-  private insertMetachars(sStartTag, sEndTag?) {
-    const bDouble = arguments.length > 1,
-      oMsgInput = this.textArea,
-      nSelStart = oMsgInput.selectionStart,
-      nSelEnd = oMsgInput.selectionEnd,
-      sOldText = oMsgInput.value;
-    oMsgInput.value = sOldText.substring(0, nSelStart) + (bDouble ? sStartTag + sOldText.substring(nSelStart, nSelEnd) + sEndTag : sStartTag) + sOldText.substring(nSelEnd);
-    oMsgInput.setSelectionRange(bDouble || nSelStart === nSelEnd ? nSelStart + sStartTag.length : nSelStart, (bDouble ? nSelEnd : nSelStart) + sStartTag.length);
-    oMsgInput.focus();
+  // Get editor properties from textarea
+  private getEditor() {
+    const value = this.textArea.value, selStart = this.textArea.selectionStart, selEnd = this.textArea.selectionEnd;
+    return {
+      value: value, selStart: selStart, selEnd: selEnd, selection: value.substring(selStart, selEnd),
+      concatStartEnd: (insertValue: string) =>
+        this.textArea.value = value.substring(0, selStart) + insertValue + value.substring(selEnd),
+      setSelRange: (start, end) => this.textArea.setSelectionRange(start, end)
+    }
   }
 
-  /**
-   Ng model implementation
-   */
-  onChange: (_: any) => void = (_: any) => {
-  };
+  // Example of insert paired tags for textarea:
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement#Insert_HTML_tags_example
+
+  /** Ng model implementation */
+  onChange: (_: any) => void = (_: any) => {};
   onTouched: () => void;
 
   registerOnChange(fn: (_: any) => void): void {
@@ -148,8 +151,10 @@ export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewI
     this.value = value;
     this.onChange(this.value);
   }
+
   // Destroy listeners
   ngOnDestroy(): void {
     this.imagePasteListener();
+    this.tabKeydownListener();
   }
 }

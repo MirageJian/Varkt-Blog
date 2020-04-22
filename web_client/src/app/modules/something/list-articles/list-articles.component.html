@@ -9,7 +9,7 @@
         <mat-card-content>
           <p>{{a.subhead}}</p>
           <mat-chip-list>
-            <mat-chip *ngFor="let c of a.category" [routerLink]="['./', c]">{{c}}</mat-chip>
+            <mat-chip *ngFor="let c of a.category" [routerLink]="['../', c]">{{c}}</mat-chip>
           </mat-chip-list>
         </mat-card-content>
         <mat-card-actions align="end">
