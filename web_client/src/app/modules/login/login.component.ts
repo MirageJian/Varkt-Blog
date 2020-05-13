@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // for submit log information
+  // For submit log information. Default url for this._loginService.redirectUrl is './admin'
   onSubmit() {
     this._loginService.login(this.info).subscribe((res: UserInfoModel) => {
-      this.router.navigate(['./admin']).then(() => {
+      this.router.navigateByUrl(this._loginService.redirectUrl).then(() => {
         this.matSnackBar.open('Hello there! ' + res.username, 'Close',{duration: 5_000});
       });
     });

@@ -13,6 +13,7 @@ export class LoginService extends BaseService {
     super(http, platformId);
     this.userSubject = new Subject<UserInfoModel>();
   }
+
   userSubject: Subject<UserInfoModel>;
   private _loggedUser: UserInfoModel;
   set loggedUser(val) {
@@ -20,6 +21,7 @@ export class LoginService extends BaseService {
     // Send msg when changed
     this.userSubject.next(val);
   }
+
   get loggedUser() {
     return this._loggedUser;
   }
@@ -37,28 +39,27 @@ export class LoginService extends BaseService {
 
     return this.http.post<ResModel>(this.url.login, body, httpOptions).pipe(
       catchError(this.handleError), map(res => {
-        if (res.code == 0) {
-          return this.loggedUser = res?.data;
-        }
+        if (res.code == 0) return this.loggedUser = res?.data;
         // else alert(res.message);
       })
     );
   }
+
   // Get current logged in user
   getLoggedUser(): Observable<UserInfoModel> {
     if (!isPlatformBrowser(this.platformId)) return EMPTY;
     // Send http request for user information
-    else return this.http.get<ResModel>(this.url.login).pipe(catchError(this.handleError),
-      map((res: ResModel) => {
-        if (res.code == 0) {
-          return this.loggedUser = res?.data;
-        }
+    else return this.http.get<ResModel>(this.url.login).pipe(
+      catchError(this.handleError), map((res: ResModel) => {
+        if (res.code == 0) return this.loggedUser = res?.data;
         // else alert(res.message);
-      }));
+      })
+    );
   }
 
   logout() {
     this.loggedUser = null;
+    this.redirectUrl = '/admin';
     return this.http.delete(this.url.login).pipe(catchError(this.handleError));
   }
 }

@@ -3,6 +3,8 @@ import {AboutService} from "./about.service";
 import {AboutModel} from "@shared/models/about.model";
 import {slideFromBottom} from "@shared/animations";
 import {ActivatedRoute} from "@angular/router";
+import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 
 @Component({
@@ -11,17 +13,18 @@ import {ActivatedRoute} from "@angular/router";
   animations: [slideFromBottom()]
 })
 export class AboutComponent implements OnInit, AfterViewInit {
-  article: AboutModel;
+  // article: AboutModel;
+  about$: Observable<AboutModel>;
 
   constructor(
-    private generalService: AboutService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe((res: {data: AboutModel}) => {
-      this.article = res.data;
-    });
+    // this.route.data.subscribe((res: {data: AboutModel}) => {
+    //   this.article = res.data;
+    // });
+    this.about$ = this.route.data.pipe(map((res: {data: AboutModel}) => res.data));
   }
   ngAfterViewInit(): void {
 

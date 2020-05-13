@@ -29,7 +29,7 @@
     <div [@slideFromBottom] *ngFor="let c of comments">
       <mat-card>
         <mat-card-header class="no-avatar-card">
-          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time}}</span></mat-card-subtitle>
+          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time | date}}</span></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <p>{{c.content}}</p>

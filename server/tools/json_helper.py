@@ -23,10 +23,8 @@ class CJsonEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, decimal.Decimal):
             return float(obj)
-        elif isinstance(obj, datetime):
-            return obj.strftime('%Y-%m-%d %H:%M:%S')
-        elif isinstance(obj, date):
-            return obj.strftime('%Y-%m-%d')
+        elif isinstance(obj, datetime) or isinstance(obj, date):
+            return obj.isoformat()
         elif isinstance(obj, timedelta):
             return str(obj)
         else:

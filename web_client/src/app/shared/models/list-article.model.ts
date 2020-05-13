@@ -5,5 +5,5 @@ export class ListArticleModel {
   category: string | string[];
   img: string;
   subhead: string;
-  time: string;
+  time: Date;
 }

@@ -3,7 +3,6 @@ import {SomethingService} from '../something.service';
 import {ListArticleModel} from '@shared/models';
 import {ActivatedRoute, Router} from '@angular/router';
 import {slideFromBottom} from "@shared/animations";
-import {Subscription} from "rxjs";
 
 @Component({
   templateUrl: './list-articles.component.html',
@@ -11,9 +10,7 @@ import {Subscription} from "rxjs";
   animations: [slideFromBottom()]
 })
 export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
-  private label: string;
   articles: ListArticleModel[];
-  private subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +20,7 @@ export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.route.data.subscribe((res: {articles: ListArticleModel[]}) => {
+    this.route.data.subscribe((res: {articles: ListArticleModel[]}) => {
       this.articles = res.articles;
     });
   }
@@ -33,6 +30,5 @@ export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

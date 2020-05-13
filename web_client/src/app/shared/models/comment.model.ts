@@ -3,7 +3,7 @@ export class CommentModel {
   id_article: number;
   content: string;
   author: string;
-  time: string;
+  time: Date;
   likes: number;
   is_check: boolean;
 }

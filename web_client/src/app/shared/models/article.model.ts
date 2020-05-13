@@ -12,8 +12,8 @@ export class ArticleModel{
   public subhead: string;
   public content: string | any;
   public category: string | string[];
-  public time: string;
-  public update_time: string;
+  public time: Date;
+  public update_time: Date;
   public stick: boolean;
   public collection: boolean;
 }
