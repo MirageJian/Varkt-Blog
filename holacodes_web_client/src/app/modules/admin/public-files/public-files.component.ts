@@ -3,6 +3,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {PublicFilesService} from "../services/public-files.service";
 import {FileStatModel} from "@shared/models/file-stat.model";
 import {ResModel} from "@shared/models";
+import {DOMAIN_URL} from "@shared/app-const";
 
 @Component({
   templateUrl: './public-files.component.html',
@@ -34,6 +35,10 @@ export class PublicFilesComponent implements OnInit {
       this.matSnackBar.open(`\'${this.filename}\'Uploaded Successfully`, 'Close', {duration: 5_000});
       this.ngOnInit();
     });
+  }
+
+  copyUrl(file: FileStatModel) {
+    navigator.clipboard.writeText(DOMAIN_URL + file.url).then();
   }
 
 }
