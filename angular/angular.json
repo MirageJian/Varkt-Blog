@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "holacode": {
+    "varkt": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -30,7 +30,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/holacode/browser",
+            "outputPath": "dist/varkt/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -104,7 +104,7 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "serviceWorker": true,
-              "outputPath": "dist/holacode/browser/zh",
+              "outputPath": "dist/varkt/browser/zh",
               "i18nFile": "src/locale/messages.zh.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "zh",
@@ -119,22 +119,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "holacode:build",
+            "browserTarget": "varkt:build",
             "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "holacode:build:production"
+              "browserTarget": "varkt:build:production"
             },
             "zh": {
-              "browserTarget": "holacode:build:zh"
+              "browserTarget": "varkt:build:zh"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "holacode:build"
+            "browserTarget": "varkt:build"
           }
         },
         "test": {
@@ -182,7 +182,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/holacode/server",
+            "outputPath": "dist/varkt/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -203,21 +203,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "holacode:build",
-            "serverTarget": "holacode:server"
+            "browserTarget": "varkt:build",
+            "serverTarget": "varkt:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "holacode:build:production",
-              "serverTarget": "holacode:server:production"
+              "browserTarget": "varkt:build:production",
+              "serverTarget": "varkt:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "holacode:build:production",
-            "serverTarget": "holacode:server:production",
+            "browserTarget": "varkt:build:production",
+            "serverTarget": "varkt:server:production",
             "routes": [
               "/"
             ]
@@ -228,7 +228,7 @@
         }
       }
     },
-    "holacode-e2e": {
+    "varkt-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -236,11 +236,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "holacode:serve"
+            "devServerTarget": "varkt:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "holacode:serve:production"
+              "devServerTarget": "varkt:serve:production"
             }
           }
         },
@@ -256,7 +256,7 @@
       }
     }
   },
-  "defaultProject": "holacode",
+  "defaultProject": "varkt",
   "cli": {
     "analytics": "9ef1a37c-1c0e-44bd-b4dc-8fb7d1b26d5a"
   }

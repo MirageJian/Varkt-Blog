@@ -173,8 +173,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2bb1b52fba74e939d0667ccdb926dd8f9993d795" datatype="html">
-        <source>Holacode admin login</source>
-        <target state="translated">Holacode管理登陆</target>
+        <source>Varkt admin login</source>
+        <target state="translated">Varkt管理登陆</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/login.component.html</context>
           <context context-type="linenumber">4</context>
