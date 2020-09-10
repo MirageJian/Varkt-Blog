@@ -4,23 +4,23 @@ Version: 0.0.0
 
 it's an project currently under heavily developing. [Online Demo](https://varkt.com)
 
-This is the [Test Spacce](https://github.com/MirageJian/web-camera-for-angular) for Angula.
+This is the [Test Space](https://github.com/MirageJian/web-camera-for-angular) for Angular.
+
 ## Using introduction
 
 After preparing database, the server will use seeds to create default admin account.
 
-The default usename is `admin`. The default password is `123456`.
+The default username is `admin`. The default password is `123456`.
 
 There is no multi-users plan for this blog. But the password can be change in admin dashboard. Will consider adding user modification function.
 
 ## File description
 
-`database_structure.sql` is the database script.  
-`varkt.conf` is nginx conf file. It contains gzip config, https config and url handle.
+`varkt_db_struct.sql` is the database script.  
+`varkt.nginx.conf` is nginx conf file. It contains gzip config, https config and url handle.
 
 # Varkt web client
 
-[Go Back](https://github.com/MirageJian/varkt)
 ## How to build
 run `npm build` in console.
 
