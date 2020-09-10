@@ -14,6 +14,9 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # The connection start
     def prepare(self):
+        pass
+
+    def set_default_headers(self) -> None:
         self.set_header("Content-Type", "application/json")
 
     def on_finish(self):
