@@ -9,9 +9,10 @@ from url import path
 define("port", default=8888, help="run on the given port", type=int)
 settings = dict(
     cookie_secret="61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
+    debug=sys.platform == 'win32',
     xsrf_cookies=True,
+    xheaders=True,
     login_url="/login",
-    debug=False,
     static_path=os.path.join(os.path.dirname(__file__), "static"),
 )
 

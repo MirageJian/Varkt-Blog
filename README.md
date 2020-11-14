@@ -2,6 +2,8 @@
 
 Version: 0.0.0
 
+[Path routes and planning with Trello](https://trello.com/b/tbFeCRQb/varkt-blog-board)
+
 it's an project currently under heavily developing. [Online Demo](https://varkt.com)
 
 This is the [Test Space](https://github.com/MirageJian/web-camera-for-angular) for Angular.
@@ -92,10 +94,6 @@ Besides angular basic dependencies (angular/common, angular/router, angular-cli,
 `hammerjs`  
 
 # Varkt server
-
-[Go Back](https://github.com/MirageJian/varkt)
-
-This is server code for varkt.com.
 
 ## How to run
 

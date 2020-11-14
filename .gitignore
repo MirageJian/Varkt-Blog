@@ -1,5 +1,6 @@
-/backups
-/backup_zips
+/backup*
 /varkt_backup.sh
 /documents
 /.angulardoc.json
+*.pem
+/varkt-dist*
