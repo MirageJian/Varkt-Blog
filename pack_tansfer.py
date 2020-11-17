@@ -16,15 +16,6 @@ try:
     if os.path.exists(base_dir_tgz):
         os.remove(base_dir_tgz)
 
-    # # Move tornado server files
-    # server_dir = os.path.join(base_dir, 'server')
-    # for v in ['/handlers', '/tools', '/server.py', '/mongodbconnection.py', '/url.py']:
-    #     source = 'listening-test-server' + v
-    #     if os.path.isfile(source):
-    #         shutil.copyfile(source, server_dir + v)
-    #     else:
-    #         shutil.copytree(source, server_dir + v, ignore=shutil.ignore_patterns('*.pyc', '__pycache__'))
-
     print('Move server files...')
     server_dir = os.path.join(base_dir, 'tornado')
     shutil.copytree('tornado', server_dir, ignore=shutil.ignore_patterns('*.pyc', '__pycache__', '.idea', 'static', 'venv', '.gitignore'))
@@ -41,13 +32,11 @@ try:
     #     tar.add(base_dir, arcname=os.path.basename(base_dir))
 
     print('Transfer the files to server...')
-    # subprocess.run(f'scp -i ForStudy.pem -r {base_dir}/* ubuntu@varkt.com:/home/ubuntu/varkt/')
+    subprocess.run(f'scp -i ForStudy.pem -r {base_dir}/* ubuntu@varkt.com:/home/ubuntu/varkt/')
 
     print('Start ssh and run script...')
     # Install requirements
-    # subprocess.run('ssh -i ForStudy.pem ubuntu@63.34.10.16 "pip install tornado pymongo"')
-    # subprocess.run('ssh -i ForStudy.pem ubuntu@63.34.10.16 "sudo supervisorctl reload"')
-    # subprocess.run('ssh -i ForStudy.pem -t ubuntu@varkt.com "sudo supervisorctl restart varkt"')
+    subprocess.run('ssh -i ForStudy.pem -t ubuntu@varkt.com "sudo supervisorctl restart varkt"')
     input('You can close the window now')
 
 except Exception as ex:
