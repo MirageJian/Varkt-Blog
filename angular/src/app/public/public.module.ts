@@ -16,7 +16,6 @@ import {AssortmentComponent} from "./something/assortment/assortment.component";
 import {ListArticlesComponent} from "./something/list-articles/list-articles.component";
 import {FormsModule} from "@angular/forms";
 import {PublicRouting} from "./public.routing";
-import {httpInterceptorProviders} from "@app-services/http-interceptors";
 
 
 @NgModule({

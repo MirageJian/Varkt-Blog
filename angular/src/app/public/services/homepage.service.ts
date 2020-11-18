@@ -1,4 +1,4 @@
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "@app-services/base.service";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {ListArticleModel} from "@shared/models";

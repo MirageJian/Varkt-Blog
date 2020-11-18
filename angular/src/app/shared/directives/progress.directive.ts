@@ -2,12 +2,11 @@ import {
   Component,
   ComponentFactoryResolver,
   Directive,
-  ElementRef, HostBinding,
+  ElementRef,
   Input,
   TemplateRef,
   ViewContainerRef
 } from '@angular/core';
-import {loadingAni} from "@shared/animations";
 
 @Directive({
   selector: '[appProgress]'

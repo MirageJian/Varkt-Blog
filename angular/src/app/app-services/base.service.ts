@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {EMPTY, throwError} from 'rxjs';
+import {throwError} from 'rxjs';
 
 @Injectable()
 export class BaseService {

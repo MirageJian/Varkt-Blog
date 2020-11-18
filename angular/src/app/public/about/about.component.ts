@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {AboutService} from "../services/about.service";
 import {AboutModel} from "@shared/models/about.model";
 import {slideFromBottom} from "@shared/animations";
 import {ActivatedRoute} from "@angular/router";

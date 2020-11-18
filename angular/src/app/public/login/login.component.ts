@@ -1,6 +1,6 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '@app-services/login.service';
-import {Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {UserInfoModel} from '@shared/models';
 import {MatSnackBar} from '@angular/material/snack-bar';

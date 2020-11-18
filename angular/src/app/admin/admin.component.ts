@@ -3,7 +3,6 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {LoginService} from '@app-services/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MOBILE_WIDTH} from "@shared/app-const";
-import {UserInfoModel} from "@shared/models";
 
 @Component({
   templateUrl: './admin.component.html',

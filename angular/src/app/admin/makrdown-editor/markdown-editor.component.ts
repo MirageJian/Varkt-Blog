@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, forwardRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, forwardRef, OnDestroy, Renderer2, ViewChild} from '@angular/core';
 import {ResModel} from "@shared/models";
 import {FileUploadService} from "@app-services/file-upload.service";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
