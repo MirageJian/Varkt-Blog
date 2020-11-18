@@ -1,39 +1,13 @@
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {throwError} from 'rxjs';
-import {isPlatformServer} from "@angular/common";
+import {EMPTY, throwError} from 'rxjs';
 
 @Injectable()
 export class BaseService {
-  // Make getting of url dynamic
-  protected get url() {
-    return {
-      main: this.baseUrl + '/',
-      login: this.baseUrl + '/login',
-      about: this.baseUrl + '/about',
-      dashboard: this.baseUrl + '/dashboard',
-      something: this.baseUrl + '/something',
-      collection: this.baseUrl + '/collection',
-      image: this.baseUrl + '/image',
-      article: this.baseUrl + '/article',
-      comment: this.baseUrl + '/comment',
-      comment_managing: this.baseUrl + '/comment_managing',
-      category: this.baseUrl + '/category',
-      searching: this.baseUrl + '/searching',
-      password: this.baseUrl + '/password',
-      publicFiles: this.baseUrl + '/public_files'
-    }
-  };
-  public baseUrl: string;
 
   constructor(
-    protected http: HttpClient,
-    @Inject(PLATFORM_ID) platformId
-  ) {
-    this.baseUrl = '/api';
-    // From sever use server api
-    if (isPlatformServer(platformId)) this.baseUrl = 'http://localhost:8888/api';
-  }
+    protected http: HttpClient
+  ) {}
 
   protected handleError(res: HttpErrorResponse) {
     // A client-side or network error occurred. Handle it accordingly.

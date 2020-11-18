@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {catchError} from 'rxjs/operators';
 import {ArticleModel} from '@shared/models';
-import {ArticleService} from "../../article/article.service";
+import {ArticleService} from "../../public/services/article.service";
 
 @Injectable()
 export class WritingService extends ArticleService {
   addOrUpdateArticle(article: ArticleModel) {
     if (article.id == 0)
-      return this.http.post(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
+      return this.http.post('/api/article', WritingService.prePolish(article)).pipe(catchError(this.handleError));
     else
-      return this.http.put(this.url.article, WritingService.prePolish(article)).pipe(catchError(this.handleError));
+      return this.http.put('/api/article', WritingService.prePolish(article)).pipe(catchError(this.handleError));
   }
 
   // Get the fist image from the content

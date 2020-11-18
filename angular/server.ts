@@ -1,20 +1,21 @@
 import 'zone.js/dist/zone-node';
 
-import { ngExpressEngine } from '@nguniversal/express-engine';
+import {ngExpressEngine} from '@nguniversal/express-engine';
 import * as express from 'express';
-import { join } from 'path';
+import {join} from 'path';
 
-import { AppServerModule } from './src/main.server';
-import { APP_BASE_HREF } from '@angular/common';
-import { existsSync } from 'fs';
+import {AppServerModule} from './src/main.server';
+import {APP_BASE_HREF} from '@angular/common';
+import {existsSync} from 'fs';
 
 import {environment} from './src/environments/environment'
 import {createProxyServer} from 'http-proxy';
+import {LOCAL_API_BASE} from "@shared/app-const";
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/varkt/browser');
+  const distFolder = join(process.cwd(), 'dist/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
@@ -27,17 +28,16 @@ export function app() {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
-
-  // Proxy to back end
-  // if (!environment.production) {
+  // Create a proxy config for dev purpose
+  if (!environment.production) {
     const apiProxy = createProxyServer();
     server.all('/api/**', (req, res) => {
-      apiProxy.web(req, res, { target: 'http://localhost:8888'})
+      apiProxy.web(req, res, {target: LOCAL_API_BASE})
     });
-    server.get('/static/**', (req, res) => {
-      apiProxy.web(req, res, { target: 'http://localhost:8888'})
+    server.all('/static/**', (req, res) => {
+      apiProxy.web(req, res, {target: LOCAL_API_BASE})
     });
-  // }
+  }
 
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
@@ -46,7 +46,7 @@ export function app() {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+    res.render(indexHtml, {req, providers: [{provide: APP_BASE_HREF, useValue: req.baseUrl}]});
   });
 
   return server;

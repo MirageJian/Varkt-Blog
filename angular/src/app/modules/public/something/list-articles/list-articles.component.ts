@@ -1,5 +1,5 @@
 import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {SomethingService} from '../something.service';
+import {SomethingService} from '../../services/something.service';
 import {ListArticleModel} from '@shared/models';
 import {ActivatedRoute, Router} from '@angular/router';
 import {slideFromBottom} from "@shared/animations";

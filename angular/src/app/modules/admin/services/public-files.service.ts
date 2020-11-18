@@ -12,10 +12,10 @@ export class PublicFilesService extends BaseService {
     let headers = new HttpHeaders();
     // headers.append('Content-Type', 'multipart/form-data');
     // headers.append('Accept', 'application/json');
-    return this.http.post(this.url.publicFiles,  formData, { headers: headers }).pipe(catchError(this.handleError));
+    return this.http.post('/api/public_files',  formData, { headers: headers }).pipe(catchError(this.handleError));
   }
 
   getPublicFiles() {
-    return this.http.get(this.url.publicFiles).pipe(catchError(this.handleError));
+    return this.http.get('/api/public_files').pipe(catchError(this.handleError));
   }
 }

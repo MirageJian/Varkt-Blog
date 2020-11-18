@@ -9,6 +9,7 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {ErrorPageComponent} from "./layout/error-page/error-page.component";
 import {isPlatformBrowser} from "@angular/common";
+import {httpInterceptorProviders} from "@app-services/http-interceptors";
 
 @NgModule({
   declarations: [
@@ -28,14 +29,16 @@ import {isPlatformBrowser} from "@angular/common";
     AppRoutingModule
   ],
   bootstrap: [AppComponent],
-  providers: [Title]
+  providers: [
+    Title,
+    httpInterceptorProviders,
+  ]
 })
 export class AppModule {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(APP_ID) private appId: string) {
-    const platform = isPlatformBrowser(platformId) ?
-      'in the browser' : 'on the server';
+    const platform = isPlatformBrowser(platformId) ? 'in the browser' : 'on the server';
     console.log(`Running ${platform} with appId=${appId}`);
   }
 }

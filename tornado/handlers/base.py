@@ -1,12 +1,18 @@
+import json
+from typing import Any
+
 import tornado.web
 from database import Database
 from tools import json_helper
+from tools.json_helper import CJsonEncoder
 
 
 class BaseHandler(tornado.web.RequestHandler):
+    # Database initialization
+    db: Database = Database()
+
     def __init__(self, application, request, **kwargs):
         super().__init__(application, request, **kwargs)
-        self.db: Database = Database()
 
     # When data received, it will be called before PUT and POST
     def data_received(self, chunk):
@@ -20,18 +26,24 @@ class BaseHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "application/json")
 
     def on_finish(self):
-        self.db.cursor.close()
-        self.db.conn.close()
+        pass
+
+    # Override write_error with customization one. Use send_error to set error status and write error.
+    def write_error(self, status_code: int, **kwargs: Any) -> None:
+        self.finish("%(code)d: %(message)s" % {"code": status_code, "message": self._reason})
+
+    def write_json(self, data):
+        self.write(json.dumps(data, cls=CJsonEncoder, ensure_ascii=False))
 
     # Standard response. success 0, fail other number.
     async def write_res(self, code, info=None, data=None):
         data = {"code": code, "message": info, "data": data}
-        json = json_helper.dumps(data)
+        json_data = json_helper.dumps(data)
         # Unacceptable situation
         if code < 0:
             self.set_status(500, info)
-        self.write(json)
-        return json
+        self.write(json_data)
+        return json_data
 
     # If in the development, may need this function. For server side render
     # def set_default_headers(self):

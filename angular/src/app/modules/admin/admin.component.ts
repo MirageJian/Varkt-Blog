@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {LoginService} from '@app-services/login.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MOBILE_WIDTH} from "@shared/app-const";
 import {UserInfoModel} from "@shared/models";
 
@@ -11,7 +11,9 @@ import {UserInfoModel} from "@shared/models";
 })
 export class AdminComponent implements OnInit, OnDestroy {
   title: string;
-  loggedUser: UserInfoModel;
+  get loggedUser() {
+    return this.loginService.user;
+  };
   // check if the device is mobile
   mobileQuery: MediaQueryList;
   mobileQueryListener: () => void;
@@ -22,6 +24,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     private media: MediaMatcher,
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
+    private route: ActivatedRoute
   ) {
     this.mobileQuery = this.media.matchMedia(MOBILE_WIDTH);
     this.mobileQueryListener = () => {
@@ -33,7 +36,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   // Give title a value when browser was refreshed
   ngOnInit() {
-    this.loggedUser = this.loginService.loggedUser;
+    this.route.data.subscribe();
     switch (this.router.url) {
       case '/admin': this.title = 'Dashboard'; break;
       case '/admin/go-markdown': this.title = 'Go Markdown'; break;

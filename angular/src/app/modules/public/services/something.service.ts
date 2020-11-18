@@ -9,19 +9,19 @@ import {CategoryModel, ListArticleModel} from "@shared/models";
 export class SomethingService extends BaseService {
 
   getListCategory(): Observable<CategoryModel[]> {
-    return this.http.get<CategoryModel[]>(this.url.category).pipe(catchError(this.handleError));
+    return this.http.get<CategoryModel[]>('/api/category').pipe(catchError(this.handleError));
   }
 
   getListArticle(category: string): Observable<ListArticleModel[]> {
     // Set category that will be queried
     let params = new HttpParams();
     params = params.set('category', category);
-    return this.http.get(this.url.something, {params: params}).pipe(
+    return this.http.get('/api/something', {params: params}).pipe(
       this.preProcessForArticles(category), catchError(this.handleError));
   }
 
   getAllArticles(): Observable<ListArticleModel[]> {
-    return this.http.get<ListArticleModel[]>(this.url.dashboard).pipe(
+    return this.http.get<ListArticleModel[]>('/api/dashboard').pipe(
       this.preProcessForArticles(), catchError(this.handleError));
   }
 
@@ -30,7 +30,7 @@ export class SomethingService extends BaseService {
     if (!keyword || keyword.length < 1) return of(null);
     // Set search params
     let params = new HttpParams().set('keyword', keyword);
-    return this.http.get(this.url.searching, {params: params}).pipe(
+    return this.http.get('/api/searching', {params: params}).pipe(
       this.preProcessForArticles(), catchError(this.handleError));
   }
 

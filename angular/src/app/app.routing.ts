@@ -12,11 +12,11 @@ const appRoutes: Routes = [
   imports: [
     // RouterModule.forRoot(appRoutes, {}),
     RouterModule.forRoot(appRoutes, {
-    initialNavigation: 'enabled',
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled',
-    relativeLinkResolution: 'legacy'
-})
+      initialNavigation: 'enabled',
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      relativeLinkResolution: 'legacy'
+    })
   ],
   exports: [RouterModule]// 如果在导入Module中要使用router-outlet标签就必须导出
 })

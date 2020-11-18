@@ -4,7 +4,7 @@ import {routerTrans, slideFromBottom} from '@shared/animations';
 import {ArticleModel, CommentModel, ResModel} from '@shared/models';
 import {APP_TILE} from "@shared/app-const";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ArticleService} from "./article.service";
+import {ArticleService} from "../services/article.service";
 import {Title} from "@angular/platform-browser";
 
 @Component({

@@ -11,14 +11,14 @@ import {MatDialog} from "@angular/material/dialog";
   providedIn: 'root'
 })
 export class ArticleService extends BaseService implements Resolve<ArticleModel>{
-  constructor(http: HttpClient, private router: Router, @Inject(PLATFORM_ID) platform, dialog: MatDialog) {
-    super(http, platform);
+  constructor(http: HttpClient, private router: Router, dialog: MatDialog) {
+    super(http);
   }
 
   getArticle(id: number): Observable<ArticleModel> {
     let params = new HttpParams();
     params = params.set('id', id.toString());
-    return this.http.get<ArticleModel>(this.url.article, {params: params}).pipe(map((a: ArticleModel) => {
+    return this.http.get<ArticleModel>('/api/article', {params: params}).pipe(map((a: ArticleModel) => {
       a.category = JSON.parse(a.category as string);
       return a;
     }), catchError(this.handleError));
@@ -26,11 +26,11 @@ export class ArticleService extends BaseService implements Resolve<ArticleModel>
   getComments(id_article: number) {
     let params = new HttpParams();
     params = params.set('id_article', id_article.toString());
-    return this.http.get(this.url.comment, {params: params}).pipe(catchError(this.handleError));
+    return this.http.get('/api/comment', {params: params}).pipe(catchError(this.handleError));
   }
 
   postComment(body) {
-    return this.http.put(this.url.comment, body).pipe(catchError(this.handleError));
+    return this.http.put('/api/comment', body).pipe(catchError(this.handleError));
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ArticleModel> | Promise<ArticleModel> | ArticleModel {

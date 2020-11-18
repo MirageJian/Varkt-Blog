@@ -2,7 +2,6 @@ import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '@app-services/login.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {UserInfoModel} from '@shared/models';
 import {searchBox} from "./navbar-search.animation";
 import {MOBILE_BREAKPOINT} from "@shared/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
@@ -17,7 +16,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   subscriptionBreakpoint: Subscription;
   isShownSearch = false;
   searchContent: string;
-  loggedUser: UserInfoModel;
+  get loggedUser() {
+    return this.loginService.user;
+  }
 
   constructor(
     private router: Router,
@@ -34,13 +35,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log("Current language of browser: " + this.localeId);
     // check login status for loging in automatically
-    this.loginService.userSubject.subscribe((user: UserInfoModel) => this.loggedUser = user);
-    this.loginService.getLoggedUser()?.subscribe();
+    if (!this.loggedUser) this.loginService.getUser().subscribe();
   }
 
   logout() {
     // Logout and delete logged user, then navigate
-    this.loginService.logout().subscribe(() => this.loggedUser = null);
+    this.loginService.logout().subscribe();
     this.router.navigate(['/']).catch();
   }
 

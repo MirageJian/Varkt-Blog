@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ActivatedRoute} from '@angular/router';
-import {SomethingService} from './something.service';
+import {SomethingService} from '../services/something.service';
 import {CategoryModel} from '@shared/models';
 import {MatSidenav} from "@angular/material/sidenav";
 import {MOBILE_WIDTH} from "@shared/app-const";

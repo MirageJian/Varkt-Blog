@@ -10,7 +10,7 @@ import {AboutModel} from "@shared/models/about.model";
 })
 export class AboutService extends BaseService implements Resolve<AboutModel> {
   public getAbout(): Observable<AboutModel> {
-    return this.http.get<AboutModel>(this.url.about).pipe(catchError(this.handleError));
+    return this.http.get<AboutModel>('/api/about').pipe(catchError(this.handleError));
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<AboutModel> | Promise<AboutModel> | AboutModel {

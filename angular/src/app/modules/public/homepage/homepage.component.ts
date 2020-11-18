@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ListArticleModel} from "@shared/models";
-import {HomepageService} from "./homepage.service";
+import {HomepageService} from "../services/homepage.service";
 import {slideFromBottom} from "@shared/animations";
 import {ActivatedRoute, Router} from "@angular/router";
 

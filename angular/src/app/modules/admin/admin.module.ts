@@ -16,10 +16,10 @@ import {AboutManagingComponent} from './about-managing/about-managing.component'
 import {PublicFilesComponent} from './public-files/public-files.component';
 import {PublicFilesService} from "./services/public-files.service";
 import {GoMarkdownComponent} from './go-markdown/go-markdown.component';
-import {SomethingService} from "../something/something.service";
+import {SomethingService} from "../public/services/something.service";
 import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 import {MarkdownEditorComponent} from './makrdown-editor/markdown-editor.component';
-import {ArticleService} from "../article/article.service";
+import {ArticleService} from "../public/services/article.service";
 import {AboutManagingService} from "./services/about-managing.service";
 import {CommonModule} from "@angular/common";
 

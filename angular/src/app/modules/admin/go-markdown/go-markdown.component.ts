@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {slideFromBottom} from "@shared/animations";
 import {ArticleModel, CategoryModel, ResModel} from "@shared/models";
-import {SomethingService} from "../../something/something.service";
+import {SomethingService} from "../../public/services/something.service";
 import {WritingService} from "../services/writing.service";
 import {switchMap} from "rxjs/operators";
 import {ActivatedRoute, ParamMap} from "@angular/router";

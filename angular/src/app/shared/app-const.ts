@@ -7,4 +7,5 @@ export const MOBILE_WIDTH = '(max-width: 960px)';
 export const MOBILE_BREAKPOINT = [Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait, Breakpoints.TabletPortrait];
 export const SNACKBAR_DURATION = {long: 20_000, short: 5_000, middle: 10_000};
 export const DOMAIN_URL = 'https://varkt.com';
+export const LOCAL_API_BASE = 'http://localhost:8888';
 

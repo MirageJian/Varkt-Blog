@@ -31,7 +31,6 @@ import {FormsModule} from "@angular/forms";
   providers: [
     BaseService,
     LoginService,
-    // HttpInterceptorProviders
     FileUploadService
   ]
 })

@@ -4,14 +4,14 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/rou
 import {ListArticleModel} from "@shared/models";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {SomethingService} from "../something/something.service";
+import {SomethingService} from "./something.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomepageService extends BaseService implements Resolve<ListArticleModel[]>{
-  constructor(http: HttpClient, @Inject(PLATFORM_ID) platformId, private _somethingService: SomethingService) {
-    super(http, platformId);
+  constructor(http: HttpClient, private _somethingService: SomethingService) {
+    super(http);
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ListArticleModel[]> | Promise<ListArticleModel[]> | ListArticleModel[] {

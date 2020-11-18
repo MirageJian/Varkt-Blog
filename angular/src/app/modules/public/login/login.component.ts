@@ -1,6 +1,6 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '@app-services/login.service';
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 import {UserInfoModel} from '@shared/models';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -21,10 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // If logged, go to the admin page
-    this._loginService.userSubject.subscribe((user: UserInfoModel) => {
-      if (user) this.router.navigateByUrl(this._loginService.redirectUrl).then()
-    });
   }
 
   // For submit log information. Default url for this._loginService.redirectUrl is './admin'

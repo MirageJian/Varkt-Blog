@@ -3,7 +3,7 @@
                [opened]="!mobileQuery.matches" [fixedTopGap]="56">
     <div class="user">
       <img src="../../../assets/img/test_head.png" alt="User head background">
-      <p>{{loggedUser.username}}<br>Hello! Welcome to admin!</p>
+      <p>{{loggedUser?.username}}<br>Hello! Welcome to admin!</p>
     </div>
     <mat-nav-list>
       <h3 mat-subheader>Admin</h3>
