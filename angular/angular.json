@@ -21,9 +21,12 @@
         }
       },
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": {
+          "code": "en-US",
+          "baseHref": "/"
+        },
         "locales": {
-          "zh": "src/locale/messages.zh.xlf"
+          "zh-Hans": "src/locale/messages.zh-Hans.xlf"
         }
       },
       "architect": {
@@ -67,7 +70,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -87,7 +89,7 @@
                 }
               ]
             },
-            "production-zh": {
+            "production-zh-Hans": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -97,22 +99,20 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
               "serviceWorker": true,
-              "outputPath": "dist/browser/zh",
-              "i18nFile": "src/locale/messages.zh.xlf",
+              "outputPath": "dist/browser/zh-Hans",
+              "i18nFile": "src/locale/messages.zh-Hans.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "zh",
-              "i18nMissingTranslation": "error",
-              "baseHref": "/zh/"
+              "i18nLocale": "zh-Hans",
+              "i18nMissingTranslation": "error"
             },
-            "zh": {
-              "localize": ["zh"]
+            "zh-Hans": {
+              "localize": ["zh-Hans"]
             }
           }
         },
@@ -126,8 +126,8 @@
             "production": {
               "browserTarget": "varkt:build:production"
             },
-            "zh": {
-              "browserTarget": "varkt:build:zh"
+            "zh-Hans": {
+              "browserTarget": "varkt:build:zh-Hans"
             }
           }
         },

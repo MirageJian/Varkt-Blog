@@ -34,9 +34,9 @@
       <span i18n>Go Markdown</span>
     </a>
     <!--use zh to change the language-->
-    <a mat-menu-item [href]="localeId == 'zh'?'https://varkt.com':'https://varkt.com/zh/'">
+    <a mat-menu-item [href]="localeId == 'zh-Hans'?'https://varkt.com':'https://varkt.com/zh-Hans/'">
       <mat-icon>translate</mat-icon>
-      <span>{{localeId == 'zh' ? 'English' : '中文'}}</span>
+      <span>{{localeId == 'zh-Hans' ? 'English' : '中文'}}</span>
     </a>
     <button *ngIf="loggedUser" mat-menu-item (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
