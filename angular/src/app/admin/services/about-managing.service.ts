@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {catchError} from "rxjs/operators";
-import {AboutModel} from "@shared/models/about.model";
+import {AboutModel} from "@const/models/";
 import {AboutService} from "../../public/services/about.service";
 
 @Injectable()

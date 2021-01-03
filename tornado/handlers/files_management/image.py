@@ -9,4 +9,4 @@ class ImageHandler(BaseHandler):
     async def post(self):
         file_metas = self.request.files["imgUpload"]
         url = file_helper.write_upload_img(file_metas[0], 'images')
-        await self.write_res(0, "Post successfully", url)
+        self.write(url)

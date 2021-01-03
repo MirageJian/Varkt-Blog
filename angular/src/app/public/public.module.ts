@@ -33,7 +33,6 @@ import {PublicRouting} from "./public.routing";
     SomethingService,
     AboutService,
     ArticleService,
-    SomethingService,
     CategoriesResolveService,
     ArticlesResolveService,
   ],

@@ -9,7 +9,7 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {ErrorPageComponent} from "./layout/error-page/error-page.component";
 import {isPlatformBrowser} from "@angular/common";
-import {httpInterceptorProviders} from "@app-services/http-interceptors";
+import {httpInterceptorProviders} from "./http-interceptors";
 
 @NgModule({
   declarations: [

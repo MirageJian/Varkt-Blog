@@ -1,9 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {AboutModel} from "@shared/models/about.model";
+import {AboutModel} from "@const/models";
 import {AboutManagingService} from "../services/about-managing.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {ResModel} from "@shared/models";
-import {slideFromBottom} from "@shared/animations";
+import {slideFromBottom} from "@const/animations";
 
 @Component({
   templateUrl: './about-managing.component.html',
@@ -15,8 +13,7 @@ export class AboutManagingComponent implements OnInit {
 
   constructor(
     private elementRef: ElementRef,
-    private _aboutService: AboutManagingService,
-    private snackBar: MatSnackBar
+    private _aboutService: AboutManagingService
   ) { }
 
   ngOnInit() {
@@ -25,8 +22,6 @@ export class AboutManagingComponent implements OnInit {
     })
   }
   public onSubmit() {
-    this._aboutService.updateAbout(this.aboutModel).subscribe((res: ResModel) => {
-      this.snackBar.open(res.message, 'close', {duration: 5_000});
-    });
+    this._aboutService.updateAbout(this.aboutModel).subscribe();
   }
 }

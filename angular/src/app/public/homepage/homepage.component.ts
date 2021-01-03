@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ListArticleModel} from "@shared/models";
+import {ListArticleModel} from "@const/models";
 import {HomepageService} from "../services/homepage.service";
-import {slideFromBottom} from "@shared/animations";
+import {slideFromBottom} from "@const/animations";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({

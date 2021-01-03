@@ -1,6 +1,4 @@
 export class FormatDate {
-    constructor() {
-    }
 
     public static newDatetime() {
         return new Date().toLocaleString('zh-hans', {hour12: false}).replace(/\//g, '-');

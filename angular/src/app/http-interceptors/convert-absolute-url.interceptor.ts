@@ -3,7 +3,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 
 import {Observable} from 'rxjs';
 import {isPlatformServer} from "@angular/common";
-import {LOCAL_API_BASE} from "@shared/app-const";
+import {LOCAL_API_BASE} from '@const/app-const';
 
 /** Pass untouched request through to the next request handler. */
 @Injectable()

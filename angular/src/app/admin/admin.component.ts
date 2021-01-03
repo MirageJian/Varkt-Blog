@@ -1,8 +1,8 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {LoginService} from '@app-services/login.service';
+import {LoginService} from '../layout/services/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MOBILE_WIDTH} from "@shared/app-const";
+import {MOBILE_WIDTH} from "@const/app-const";
 
 @Component({
   templateUrl: './admin.component.html',

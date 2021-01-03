@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommentModel, ResModel} from "@shared/models";
+import {CommentModel} from "@const/models";
 import {AdminDashboardService} from "../services/admin-dashboard.service";
 
 @Component({
@@ -20,12 +20,8 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   checkComment(id: number) {
-    this.adminDashboardService.checkComment(id).subscribe((res: ResModel) => {
-      if (res.code == 0) {
-        this.comments[this.comments.findIndex(ff => ff.id === id)].is_check = true;
-      } else {
-        alert(res.message);
-      }
+    this.adminDashboardService.checkComment(id).subscribe(() => {
+      this.comments[this.comments.findIndex(ff => ff.id === id)].is_check = true;
     })
   }
 }

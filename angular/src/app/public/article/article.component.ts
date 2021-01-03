@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {routerTrans, slideFromBottom} from '@shared/animations';
-import {ArticleModel, CommentModel, ResModel} from '@shared/models';
-import {APP_TILE} from "@shared/app-const";
+import {routerTrans, slideFromBottom} from '@const/animations';
+import {ArticleModel, CommentModel} from '@const/models';
+import {APP_TILE} from "@const/app-const";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ArticleService} from "../services/article.service";
 import {Title} from "@angular/platform-browser";
@@ -54,11 +54,9 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   // Submit a new comment
   onSubmit() {
     this.newComment.id_article = this.article.id;
-    this._articleService.postComment(this.newComment).subscribe((res: ResModel) => {
-      if (res.code === 0) {
-        this.comments.push({...this.newComment});
-        this.snackBar.open('Success', 'Close', {duration: 5_000});
-      } else this.snackBar.open(res.message, 'Close', {duration: 5_000});
+    this._articleService.postComment(this.newComment).subscribe(() => {
+      this.comments.push({...this.newComment});
+      this.snackBar.open('Success', 'Close', {duration: 5_000});
     });
   }
 

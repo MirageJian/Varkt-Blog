@@ -2,9 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {filter} from "rxjs/operators";
-import {BaseService} from "@app-services/base.service";
+import {BaseService} from "./services/base.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {SNACKBAR_DURATION} from "@shared/app-const";
+import {SNACKBAR_DURATION} from "@const/app-const";
 
 @Component({
   template: `
@@ -51,7 +51,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
       }
       else if (event instanceof NavigationError) {
         this.isLoading = false;
-        this.snackBar.open('Navigation fails! Please try again.', 'OK')
+        this.snackBar.open('Navigation fails! Please try again.', 'OK', {duration: SNACKBAR_DURATION.middle})
       }
     });
   }

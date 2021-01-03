@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {CommentModel, ListArticleModel, ResModel} from '@shared/models';
-import {ManagingService} from '../services/managing.service';
+import {CommentModel, ListArticleModel} from '@const/models';
+import {WritingManagingService} from '../services/writing-managing.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SomethingService} from "../../public/services/something.service";
+import {SomethingManagingService} from "../services/something-managing.service";
 
 @Component({
   templateUrl: './managing.component.html',
@@ -19,8 +20,8 @@ export class ManagingComponent implements OnInit, OnDestroy {
     private render: Renderer2,
     private router: Router,
     private route: ActivatedRoute,
-    private managingService: ManagingService,
-    private _somethingService: SomethingService
+    private managingService: WritingManagingService,
+    private _somethingService: SomethingManagingService
   ) {
   }
 
@@ -58,16 +59,11 @@ export class ManagingComponent implements OnInit, OnDestroy {
   openPanel(id: number) {
     this.managingService.getComments(id).subscribe((res: CommentModel[]) => {
       this.comments = res;
-    })
+    });
   }
   deleteComment(c: CommentModel) {
-    this.managingService.deleteComment(c.id).subscribe((res: ResModel) => {
-      if (!res.code) {
-        this.comments.splice(this.comments.findIndex((ff) => ff.id === c.id), 1);
-        alert('success');
-      } else {
-        alert(res.message);
-      }
-    })
+    this.managingService.deleteComment(c.id).subscribe(() => {
+      this.comments.splice(this.comments.findIndex((ff) => ff.id === c.id), 1);
+    });
   }
 }

@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {slideFromBottom} from "@shared/animations";
-import {ArticleModel, CategoryModel, ResModel} from "@shared/models";
-import {SomethingService} from "../../public/services/something.service";
-import {WritingService} from "../services/writing.service";
+import {slideFromBottom} from "@const/animations";
+import {ArticleModel, CategoryModel} from "@const/models";
 import {switchMap} from "rxjs/operators";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {EMPTY} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {SNACKBAR_DURATION} from "@shared/app-const";
+import {SNACKBAR_DURATION} from "@const/app-const";
+import {WritingManagingService} from "../services/writing-managing.service";
+import {SomethingManagingService} from "../services/something-managing.service";
 
 @Component({
   templateUrl: './go-markdown.component.html',
@@ -21,8 +21,8 @@ export class GoMarkdownComponent implements OnInit {
   isPreview: boolean;
 
   constructor(
-    private _somethingService: SomethingService,
-    private _writingService: WritingService,
+    private _somethingService: SomethingManagingService,
+    private _writingService: WritingManagingService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
   ) {
@@ -43,10 +43,8 @@ export class GoMarkdownComponent implements OnInit {
   }
 
   onSubmit() {
-    this._writingService.addOrUpdateArticle(this.article).subscribe((res: ResModel) => {
-      if (res && res.code === 0) {
-        this.snackBar.open('Operation successful.', 'Ok', {duration: SNACKBAR_DURATION.short})
-      }
+    this._writingService.addOrUpdateArticle(this.article).subscribe(() => {
+      this.snackBar.open('Operation successful.', 'Ok', {duration: SNACKBAR_DURATION.short})
     });
   }
 

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import {LoginService} from '@app-services/login.service';
+import {LoginService} from '../layout/services/login.service';
 import {HttpXsrfTokenExtractor} from "@angular/common/http";
 import {map, tap} from "rxjs/operators";
 

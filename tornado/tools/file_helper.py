@@ -1,5 +1,5 @@
-import os
 import hashlib
+import os
 
 static_root_url = '/static'
 

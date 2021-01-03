@@ -108,6 +108,7 @@ export const particlesConfig = {
   },
   retina_detect: true
 };
+
 export const particlesStyle = {
   'position': 'fixed',
   'width': '100%',

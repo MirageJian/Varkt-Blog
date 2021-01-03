@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {MatSidenav} from "@angular/material/sidenav";
-import {MOBILE_BREAKPOINT} from "@shared/app-const";
+import {MOBILE_BREAKPOINT} from "@const/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {Location} from "@angular/common";
 

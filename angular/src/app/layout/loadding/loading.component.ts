@@ -1,5 +1,5 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-import {loadingAni} from "@shared/animations";
+import {loadingAni} from "@const/animations";
 
 @Component({
   selector: 'app-loading',

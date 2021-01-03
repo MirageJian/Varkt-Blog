@@ -1,16 +1,15 @@
-from handlers.homepage import Homepage
-from handlers.something import SomethingHandler
 from handlers.about import AboutHandler
-from handlers.blog_admin.login import LoginHandler
-from handlers.files_management.image import ImageHandler
 from handlers.article import ArticleHandler
-from handlers.comment import CommentHandler
 from handlers.blog_admin.comment_managing import CommentManagingHandler
-from handlers.category import CategoryHandler
-from handlers.searching import SearchingHandler
+from handlers.blog_admin.login import LoginHandler
 from handlers.blog_admin.password import PasswordHandler
+from handlers.category import CategoryHandler
+from handlers.comment import CommentHandler
+from handlers.files_management.image import ImageHandler
 from handlers.files_management.public_files import PublicFilesHandler
-
+from handlers.homepage import Homepage
+from handlers.searching import SearchingHandler
+from handlers.something import SomethingHandler
 
 api_url = r"/api"
 

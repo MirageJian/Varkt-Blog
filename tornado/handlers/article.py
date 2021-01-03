@@ -1,7 +1,6 @@
-from datetime import datetime
+import json
 
 from handlers.base import BaseHandler
-from tools import json_helper
 
 
 class ArticleHandler(BaseHandler):
@@ -17,15 +16,14 @@ class ArticleHandler(BaseHandler):
                 "SELECT a.id,u.username AS author,a.title,a.subhead,a.content,a.category,a.time,a.stick,a.collection"
                 ",a.update_time FROM article a JOIN user u on a.id_user = u.id where a.id=%s", id_article)
             data = self.db.cursor.fetchone()
-        json = json_helper.dumps(data)
-        self.write(json)
+        self.write_json(data)
 
     async def put(self):
         id_user = self.get_login_user()
-        body = json_helper.loads(self.request.body)
+        body = self.loads_request_body()
         # Check if categories is normal
-        if not len(json_helper.loads(body["category"])) > 0:
-            await self.write_res(-1, "Categories cannot be empty")
+        if not len(json.loads(body["category"])) > 0:
+            self.send_error(400, reason="Categories cannot be empty")
             return
 
         self.db.cursor.execute(
@@ -35,14 +33,13 @@ class ArticleHandler(BaseHandler):
                 body["collection"], body["id"]
             ))
         self.db.conn.commit()
-        await self.write_res(0, "put successfully", None)
 
     async def post(self):
         id_user = self.get_login_user()
-        body = json_helper.loads(self.request.body)
+        body = self.loads_request_body()
         # Check if categories is normal
-        if not len(json_helper.loads(body["category"])) > 0:
-            await self.write_res(-1, "Categories cannot be empty")
+        if not len(json.loads(body["category"])) > 0:
+            self.send_error(400, reason="Categories cannot be empty")
             return
 
         self.db.cursor.execute(
@@ -52,11 +49,9 @@ class ArticleHandler(BaseHandler):
                 body["collection"]
             ))
         self.db.conn.commit()
-        await self.write_res(0, "successfully", self.db.cursor.lastrowid)
 
     def delete(self):
         self.get_login_user()
         id_article = self.get_argument("id", None)
         self.db.cursor.execute("DELETE FROM article WHERE id=%s", id_article)
         self.db.conn.commit()
-        self.write_res(0, "delete successfully")

@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {SomethingService} from "./something.service";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {EMPTY, Observable} from "rxjs";
-import {CategoryModel, ListArticleModel} from "@shared/models";
+import {CategoryModel, ListArticleModel} from "@const/models";
 
 @Injectable()
 export class ArticlesResolveService implements Resolve<ListArticleModel[]> {

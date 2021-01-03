@@ -1,7 +1,7 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-import {slideFromBottom} from '@shared/animations';
+import {slideFromBottom} from '@const/animations';
 import {SomethingService} from "../../services/something.service";
-import {ListArticleModel} from "@shared/models";
+import {ListArticleModel} from "@const/models";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 

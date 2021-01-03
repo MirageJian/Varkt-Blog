@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {AboutModel} from "@shared/models/about.model";
-import {slideFromBottom} from "@shared/animations";
+import {AboutModel} from "@const/models";
+import {slideFromBottom} from "@const/animations";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";

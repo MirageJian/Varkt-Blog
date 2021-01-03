@@ -1,9 +1,9 @@
-import {BaseService} from '@app-services/base.service';
+import {BaseService} from '../../layout/services/base.service';
 import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {CategoryModel, ListArticleModel} from "@shared/models";
+import {CategoryModel, ListArticleModel} from "@const/models";
 
 @Injectable()
 export class SomethingService extends BaseService {

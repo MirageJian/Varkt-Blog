@@ -5,23 +5,22 @@ import {AdminComponent} from './admin.component';
 import {AdminRoutingModule} from './admin.routing';
 import {ManagingComponent} from './managing/managing.component';
 import {SharedModule} from '@shared/shared.module';
-import {WritingService} from './services/writing.service';
-import {ManagingService} from './services/managing.service';
+import {WritingManagingService} from './services/writing-managing.service';
 import {AdminDashboardService} from "./services/admin-dashboard.service";
-import {SettingsComponent} from './settings/settings.component';
-import {PasswordComponent} from './settings/password/password.component';
-import {CategoriesManagingComponent} from './settings/categories-managing/categories-managing.component';
+import {SettingsPageComponent} from './settings-page/settings-page.component';
+import {PasswordComponent} from './settings-page/password/password.component';
+import {CategoriesManagingComponent} from './settings-page/categories-managing/categories-managing.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AboutManagingComponent} from './about-managing/about-managing.component';
 import {PublicFilesComponent} from './public-files/public-files.component';
 import {PublicFilesService} from "./services/public-files.service";
 import {GoMarkdownComponent} from './go-markdown/go-markdown.component';
-import {SomethingService} from "../public/services/something.service";
 import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
-import {MarkdownEditorComponent} from './makrdown-editor/markdown-editor.component';
-import {ArticleService} from "../public/services/article.service";
+import {MarkdownEditorComponent} from './go-markdown/makrdown-editor/markdown-editor.component';
 import {AboutManagingService} from "./services/about-managing.service";
 import {CommonModule} from "@angular/common";
+import {SomethingManagingService} from "./services/something-managing.service";
+import {FileUploadService} from "./services/file-upload.service";
 
 @NgModule({
   imports: [
@@ -35,7 +34,7 @@ import {CommonModule} from "@angular/common";
     AdminComponent,
     AdminDashboardComponent,
     ManagingComponent,
-    SettingsComponent,
+    SettingsPageComponent,
     PasswordComponent,
     CategoriesManagingComponent,
     AboutManagingComponent,
@@ -46,13 +45,12 @@ import {CommonModule} from "@angular/common";
   entryComponents: [],
   providers: [
     AdminGuard,
-    WritingService,
-    ManagingService,
+    FileUploadService,
+    WritingManagingService,
     AdminDashboardService,
     PublicFilesService,
-    SomethingService,
-    ArticleService,
     AboutManagingService,
+    SomethingManagingService
   ],
   exports: [
     MarkdownEditorComponent

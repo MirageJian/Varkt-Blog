@@ -1,16 +1,14 @@
 import {Injectable} from '@angular/core';
 import {SomethingService} from "../../public/services/something.service";
-import {CategoryModel} from "@shared/models";
+import {CategoryModel} from "@const/models";
 import {HttpParams} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {Md5} from 'ts-md5';
 import {FormGroup} from "@angular/forms";
 
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SettingsService extends SomethingService{
+@Injectable()
+export class SomethingManagingService extends SomethingService{
   addCategory(c: CategoryModel) {
     return this.http.post('/api/category', {...c}).pipe(catchError(this.handleError));
   }
@@ -18,6 +16,8 @@ export class SettingsService extends SomethingService{
     const params = new HttpParams().append('id', c.id.toString());
     return this.http.delete('/api/category', {params: params}).pipe(catchError(this.handleError));
   }
+
+  // Remember to move this method to a new service file
   changePassword(formGroup: FormGroup) {
     const passwordBody = {
       oldPassword: Md5.hashStr(formGroup.get('oldPassword').value).toString(),

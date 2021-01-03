@@ -6,9 +6,8 @@ import {CommonModule} from "@angular/common";
 import {FooterComponent} from "./footer/footer.component";
 import {SharedModule} from "@shared/shared.module";
 import {LoadingComponent} from './loadding/loading.component';
-import {BaseService} from "@app-services/base.service";
-import {LoginService} from "@app-services/login.service";
-import {FileUploadService} from "@app-services/file-upload.service";
+import {BaseService} from "./services/base.service";
+import {LoginService} from "./services/login.service";
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
@@ -30,8 +29,7 @@ import {FormsModule} from "@angular/forms";
   ],
   providers: [
     BaseService,
-    LoginService,
-    FileUploadService
+    LoginService
   ]
 })
 export class LayoutModule {}

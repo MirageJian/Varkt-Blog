@@ -1,18 +1,19 @@
-import {Injectable} from '@angular/core';
-import {BaseService} from "@app-services/base.service";
+import {Injectable, NgZone} from '@angular/core';
+import {BaseService} from "../../layout/services/base.service";
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs";
-import {ArticleModel} from "@shared/models";
+import {ArticleModel} from "@const/models";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, map} from "rxjs/operators";
 import {MatDialog} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService extends BaseService implements Resolve<ArticleModel>{
-  constructor(http: HttpClient, private router: Router, dialog: MatDialog) {
-    super(http);
+  constructor(http: HttpClient, snackBar: MatSnackBar, zone: NgZone, private router: Router, dialog: MatDialog) {
+    super(http, snackBar, zone);
   }
 
   getArticle(id: number): Observable<ArticleModel> {

@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {PublicFilesService} from "../services/public-files.service";
-import {FileStatModel} from "@shared/models/file-stat.model";
-import {ResModel} from "@shared/models";
-import {DOMAIN_URL} from "@shared/app-const";
+import {FileStatModel} from "@const/models";
+import {DOMAIN_URL} from "@const/app-const";
 
 @Component({
   templateUrl: './public-files.component.html',
@@ -20,8 +19,8 @@ export class PublicFilesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.publicFilesService.getPublicFiles().subscribe((res: ResModel<FileStatModel[]>) => {
-      this.files = res.data;
+    this.publicFilesService.getPublicFiles().subscribe((res: FileStatModel[]) => {
+      this.files = res;
     });
   }
 

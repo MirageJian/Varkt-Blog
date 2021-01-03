@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, ElementRef, forwardRef, OnDestroy, Renderer2, ViewChild} from '@angular/core';
-import {ResModel} from "@shared/models";
-import {FileUploadService} from "@app-services/file-upload.service";
+import {FileUploadService} from "../../services/file-upload.service";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -72,9 +71,9 @@ export class MarkdownEditorComponent implements ControlValueAccessor, AfterViewI
     // If there is no file passed into this method
     if (!file) file = this.imgUploadInput.nativeElement.files[0];
     // console.log(formData);
-    this._fileUpload.uploadArticleImage(file).subscribe((res: ResModel) => {
+    this._fileUpload.uploadArticleImage(file).subscribe((res: string) => {
       // Upload image successfully and get selection cursor
-      this.getEditor().concatStartEnd(`<img src=\"${res.data}\" width=\"100%\" alt=\"\">`);
+      this.getEditor().concatStartEnd(`<img src=\"${res}\" width=\"100%\" alt=\"\">`);
       this.refreshValue();
     });
   }

@@ -10,7 +10,7 @@ import {existsSync} from 'fs';
 
 import {environment} from './src/environments/environment'
 import {createProxyServer} from 'http-proxy';
-import {LOCAL_API_BASE} from "@shared/app-const";
+import {LOCAL_API_BASE} from "@const/app-const";
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {

@@ -1,5 +1,4 @@
 from handlers.base import BaseHandler
-from tools import json_helper
 
 
 class LoginHandler(BaseHandler):
@@ -16,12 +15,12 @@ class LoginHandler(BaseHandler):
                 else:
                     self.send_error(400, reason='User does not exist')
             else:
-                self.send_error(401, reason="No logged in user")
+                self.send_error(200, reason="No logged in user")
         else:
-            self.send_error(401, reason="No xsrf token, request denied")
+            self.send_error(200, reason="No xsrf token, request denied")
 
     async def post(self):
-        body = json_helper.loads(self.request.body)
+        body = self.loads_request_body()
         self.db.cursor.execute("SELECT * FROM user WHERE username = %s OR email = %s", (
             body["account"], body["account"]))
         user = self.db.cursor.fetchone()

@@ -1,5 +1,4 @@
 from handlers.base import BaseHandler
-from tools import json_helper
 
 
 class PasswordHandler(BaseHandler):
@@ -11,12 +10,11 @@ class PasswordHandler(BaseHandler):
         self.user_id = self.get_login_user()
 
     async def put(self):
-        body = json_helper.loads(self.request.body)
+        body = self.loads_request_body()
         self.db.cursor.execute("SELECT * FROM user WHERE id=%s", self.user_id)
         user = self.db.cursor.fetchone()
         if user and user["password"] == body["oldPassword"]:
             self.db.cursor.execute("UPDATE user SET password=%s WHERE id=%s", (body["newPassword"], self.user_id))
             self.db.conn.commit()
-            await self.write_res(0, "Password update successfully", None)
         else:
-            await self.write_res(1, "The user cannot be found or password is wrong", None)
+            self.send_error(400, reason="The user cannot be found or password is wrong")

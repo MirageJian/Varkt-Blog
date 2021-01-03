@@ -1,10 +1,11 @@
+import decimal
 import json
+from datetime import datetime, date, timedelta
 from typing import Any
 
 import tornado.web
+
 from database import Database
-from tools import json_helper
-from tools.json_helper import CJsonEncoder
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -35,15 +36,8 @@ class BaseHandler(tornado.web.RequestHandler):
     def write_json(self, data):
         self.write(json.dumps(data, cls=CJsonEncoder, ensure_ascii=False))
 
-    # Standard response. success 0, fail other number.
-    async def write_res(self, code, info=None, data=None):
-        data = {"code": code, "message": info, "data": data}
-        json_data = json_helper.dumps(data)
-        # Unacceptable situation
-        if code < 0:
-            self.set_status(500, info)
-        self.write(json_data)
-        return json_data
+    def loads_request_body(self):
+        return json.loads(s=self.request.body)
 
     # If in the development, may need this function. For server side render
     # def set_default_headers(self):
@@ -61,3 +55,15 @@ class BaseHandler(tornado.web.RequestHandler):
             return self.send_error(403)
         else:
             return id_user
+
+
+class CJsonEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, decimal.Decimal):
+            return float(obj)
+        elif isinstance(obj, datetime) or isinstance(obj, date):
+            return obj.isoformat()
+        elif isinstance(obj, timedelta):
+            return str(obj)
+        else:
+            return json.JSONEncoder.default(self, obj)

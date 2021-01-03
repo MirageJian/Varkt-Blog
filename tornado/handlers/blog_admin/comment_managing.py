@@ -1,5 +1,4 @@
 from handlers.comment import CommentHandler
-from tools import common_helper, json_helper
 
 
 class CommentManagingHandler(CommentHandler):
@@ -16,18 +15,15 @@ class CommentManagingHandler(CommentHandler):
         data = self.db.cursor.fetchall()
         for d in data:
             d["is_check"] = bool(d["is_check"])
-        json = json_helper.dumps(data)
-        self.write(json)
+        self.write_json(data)
 
     async def post(self, *args, **kwargs):
-        body = json_helper.loads(self.request.body)
+        body = self.loads_request_body()
         self.db.cursor.execute("UPDATE `comment` SET is_check=TRUE WHERE id=%s", (body["id"]))
         self.db.conn.commit()
-        await self.write_res(0, "post successfully", None)
 
     async def delete(self, *args, **kwargs):
         id_comment = self.get_argument("id", None)
         self.db.cursor.execute("DELETE FROM `comment` WHERE id=%s", id_comment)
         self.db.conn.commit()
-        await self.write_res(0, "delete successfully", None)
 

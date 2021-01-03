@@ -1,8 +1,8 @@
 import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {SomethingService} from '../../services/something.service';
-import {ListArticleModel} from '@shared/models';
+import {ListArticleModel} from '@const/models';
 import {ActivatedRoute, Router} from '@angular/router';
-import {slideFromBottom} from "@shared/animations";
+import {slideFromBottom} from "@const/animations";
 
 @Component({
   templateUrl: './list-articles.component.html',

@@ -1,9 +1,9 @@
 import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
-import {LoginService} from '@app-services/login.service';
+import {LoginService} from '../services/login.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {searchBox} from "./navbar-search.animation";
-import {MOBILE_BREAKPOINT} from "@shared/app-const";
+import {MOBILE_BREAKPOINT} from "@const/app-const";
 import {BreakpointObserver} from "@angular/cdk/layout";
 
 @Component({
@@ -40,8 +40,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logout() {
     // Logout and delete logged user, then navigate
-    this.loginService.logout().subscribe();
-    this.router.navigate(['/']).catch();
+    this.loginService.logout().subscribe(() => {
+      this.router.navigate(['/login']).catch();
+    });
   }
 
   submitSearch() {
