@@ -1,4 +1,4 @@
-<mat-card class="card-container" noPadding [@slideFromBottom]>
+<mat-card class="card-container" noPadding>
   <form class="table-toolbar">
     <input #fileInput type="file" (change)="uploadFile($event)" [hidden]="true">
     <button mat-button color="primary" type="button" (click)="fileInput.click()">Upload a File

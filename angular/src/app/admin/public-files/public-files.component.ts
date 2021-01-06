@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {PublicFilesService} from "../services/public-files.service";
 import {FileStatModel} from "@const/models";
@@ -12,6 +12,7 @@ import {slideFromBottom} from "@const/animations";
   animations: [slideFromBottom()]
 })
 export class PublicFilesComponent implements OnInit {
+  @HostBinding('@slideFromBottom')
   tableColumns = ['filename', 'size', 'change_time', 'url'];
   files: Observable<FileStatModel[]>;
 
