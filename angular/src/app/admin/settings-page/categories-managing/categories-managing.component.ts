@@ -7,8 +7,7 @@ import {slideFromBottom} from "@const/animations";
 @Component({
   selector: 'app-categories-managing',
   templateUrl: './categories-managing.component.html',
-  styleUrls: ['./categories-managing.component.css'],
-  animations: [slideFromBottom()]
+  styleUrls: ['./categories-managing.component.css']
 })
 export class CategoriesManagingComponent implements OnInit {
   category = new CategoryModel();

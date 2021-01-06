@@ -44,10 +44,11 @@
 
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <app-header [title]="title" [sidenav]="sidenav"></app-header>
-    <router-outlet></router-outlet>
-
-
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

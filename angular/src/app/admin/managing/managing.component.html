@@ -15,26 +15,24 @@
       </button>
     </mat-form-field>
 </mat-toolbar>
-<div class="container">
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let a of articles" (opened)="openPanel(a.id)">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{a.title}}</mat-panel-title> <!--<mat-panel-description></mat-panel-description>-->
-      </mat-expansion-panel-header>
-      <p>{{a.subhead}}</p>
-      <mat-nav-list *appProgress="comments">
-        <ng-container *ngFor="let c of comments">
-          <mat-list-item>
-            <p matLine>{{c.author}}: {{c.content}}<small>{{c.time}}</small></p>
-            <button mat-raised-button color="warn" (click)="deleteComment(c)">Delete</button>
-          </mat-list-item>
-        </ng-container>
-      </mat-nav-list>
-      <mat-action-row>
-        <mat-panel-description><span>{{a.author}} {{a.time}}</span></mat-panel-description>
-        <a mat-button color="primary" [routerLink]="['../go-markdown', {id: a.id}]">Modify Article</a>
-        <button mat-button color="warn" (click)="deleteArticle(a)">Delete</button>
-      </mat-action-row>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let a of articles" (opened)="openPanel(a.id)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{a.title}}</mat-panel-title> <!--<mat-panel-description></mat-panel-description>-->
+    </mat-expansion-panel-header>
+    <p>{{a.subhead}}</p>
+    <mat-nav-list *appProgress="comments">
+      <ng-container *ngFor="let c of comments">
+        <mat-list-item>
+          <p matLine>{{c.author}}: {{c.content}}<small>{{c.time}}</small></p>
+          <button mat-raised-button color="warn" (click)="deleteComment(c)">Delete</button>
+        </mat-list-item>
+      </ng-container>
+    </mat-nav-list>
+    <mat-action-row>
+      <mat-panel-description><span>{{a.author}} {{a.time}}</span></mat-panel-description>
+      <a mat-button color="primary" [routerLink]="['../go-markdown', {id: a.id}]">Modify Article</a>
+      <button mat-button color="warn" (click)="deleteArticle(a)">Delete</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

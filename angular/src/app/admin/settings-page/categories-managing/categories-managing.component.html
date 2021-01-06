@@ -1,58 +1,56 @@
-<div class="container" [@slideFromBottom]>
-  <mat-card class="card-container">
-    <mat-card-header class="no-avatar-card">
-      <mat-card-title><h3>Add Categories<a mat-button type="button" href="https://material.io/resources/icons/"
-                                           target="_Blank">Icon List</a></h3></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form #theForm="ngForm" (submit)="addCategory(category)">
-        <table>
-          <tr>
-            <td>
-              <mat-form-field style="width: 100%" appearance="fill">
-                <mat-label>Icon from material style</mat-label>
-                <input matInput placeholder="Icon" [(ngModel)]="category.icon" name="icon" required
-                       autocomplete="off">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field style="width: 100%" appearance="fill">
-                <mat-label>Label text</mat-label>
-                <input matInput placeholder="Label text" [(ngModel)]="category.label" name="label"
-                       required autocomplete="off">
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
+<mat-card class="card-container">
+  <mat-card-header class="no-avatar-card">
+    <mat-card-title><h3>Add Categories<a mat-button type="button" href="https://material.io/resources/icons/"
+                                         target="_Blank">Icon List</a></h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form #theForm="ngForm" (submit)="addCategory(category)">
+      <table>
+        <tr>
+          <td>
+            <mat-form-field style="width: 100%" appearance="fill">
+              <mat-label>Icon from material style</mat-label>
+              <input matInput placeholder="Icon" [(ngModel)]="category.icon" name="icon" required
+                     autocomplete="off">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field style="width: 100%" appearance="fill">
+              <mat-label>Label text</mat-label>
+              <input matInput placeholder="Label text" [(ngModel)]="category.label" name="label"
+                     required autocomplete="off">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <span class="flex-spacer"></span>
+      <div class="flex-container">
         <span class="flex-spacer"></span>
-        <div class="flex-container">
-          <span class="flex-spacer"></span>
-          <button mat-button color="accent" type="submit" [disabled]="!theForm.form.valid">Add</button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  <div class="card-container">
-    <table mat-table [dataSource]="categories" class="mat-elevation-z2">
-      <ng-container matColumnDef="icon">
-        <th mat-header-cell *matHeaderCellDef> icon</th>
-        <td mat-cell *matCellDef="let element">
-          <mat-icon>{{element.icon}}</mat-icon>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="{{column}}" *ngFor="let column of categoriesColumns.slice(1, -1)">
-        <th mat-header-cell *matHeaderCellDef> {{column}}</th>
-        <td mat-cell *matCellDef="let element"> {{element.label}}</td>
-      </ng-container>
-      <ng-container matColumnDef="operation">
-        <th mat-header-cell *matHeaderCellDef><span class="float-right">operation</span></th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-button color="warn" class="float-right" (click)="deleteCategory(element)">Delete
-          </button>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="categoriesColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: categoriesColumns;"></tr>
-    </table>
-  </div>
+        <button mat-button color="accent" type="submit" [disabled]="!theForm.form.valid">Add</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<div class="card-container">
+  <table mat-table [dataSource]="categories" class="mat-elevation-z2">
+    <ng-container matColumnDef="icon">
+      <th mat-header-cell *matHeaderCellDef> icon</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon>{{element.icon}}</mat-icon>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of categoriesColumns.slice(1, -1)">
+      <th mat-header-cell *matHeaderCellDef> {{column}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.label}}</td>
+    </ng-container>
+    <ng-container matColumnDef="operation">
+      <th mat-header-cell *matHeaderCellDef><span class="float-right">operation</span></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="warn" class="float-right" (click)="deleteCategory(element)">Delete
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="categoriesColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: categoriesColumns;"></tr>
+  </table>
 </div>

@@ -38,7 +38,7 @@ def list_files(folder):
             stat = os.stat(path + "/" + f)
             result.append({
                 'filename': f,
-                'size': "%.3f" % (stat.st_size / (1024 * 1024)),
+                'size': stat.st_size,
                 'change_time': stat.st_ctime,
                 'url': os.path.join(static_root_url, folder, f)
             })

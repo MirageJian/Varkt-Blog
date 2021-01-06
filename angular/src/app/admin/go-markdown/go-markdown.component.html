@@ -1,48 +1,42 @@
-<div class="container">
-  <form (ngSubmit)="onSubmit()" #markdownForm="ngForm" [@slideFromBottom]>
-    <div class="card-container">
-      <mat-form-field appearance="outline" style="width: 100%">
-        <mat-label>Article Title</mat-label>
-        <input matInput placeholder="Article Title" [(ngModel)]="article.title" name="title" required
-               autocomplete="off">
-      </mat-form-field>
-      <!--Choose categories selection-->
-      <mat-form-field appearance="outline">
-        <mat-label>Choose Categories</mat-label>
-        <mat-select placeholder="Choose Categories" name="category" [(ngModel)]="article.category" [multiple]="true" required>
-          <mat-option *ngFor="let c of categories" [value]="c.label">{{c.label}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <!--Some checkboxes-->
-      <div class="checkbox-group">
-        <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
-        <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
-      </div>
+<form (ngSubmit)="onSubmit()" #markdownForm="ngForm" [@slideFromBottom]>
+  <div class="card-container">
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>Article Title</mat-label>
+      <input matInput placeholder="Article Title" [(ngModel)]="article.title" name="title" required
+             autocomplete="off">
+    </mat-form-field>
+    <!--Choose categories selection-->
+    <mat-form-field appearance="outline">
+      <mat-label>Choose Categories</mat-label>
+      <mat-select placeholder="Choose Categories" name="category" [(ngModel)]="article.category" [multiple]="true" required>
+        <mat-option *ngFor="let c of categories" [value]="c.label">{{c.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!--Some checkboxes-->
+    <div class="checkbox-group">
+      <mat-checkbox name="stick" [(ngModel)]="article.stick">Top Article</mat-checkbox>
+      <mat-checkbox name="collection" [(ngModel)]="article.collection">Collection</mat-checkbox>
     </div>
-    <mat-card class="card-container">
-      <!--Editor and Markdown preview element-->
-      <mat-card-content>
-        <app-markdown-editor [(ngModel)]="article.content" name="articleContent"></app-markdown-editor>
-        <markdown *ngIf="isPreview" [data]="article.content" lineNumbers></markdown>
-      </mat-card-content>
-      <!--Action list-->
-      <mat-card-actions align="end" style="align-items: center">
-        <mat-slide-toggle color="accent" [checked]="isPreview" (toggleChange)="isPreview=!isPreview">
-          <span>Preview</span>
-        </mat-slide-toggle>
-        <button mat-button color="accent" type="submit" [disabled]="!markdownForm.form.valid">Submit</button>
-      </mat-card-actions>
-    </mat-card>
-    <div class="card-container">
+  </div>
+  <mat-card class="card-container">
+    <!--Editor and Markdown preview element-->
+    <mat-card-content>
+      <app-markdown-editor [(ngModel)]="article.content" name="articleContent"></app-markdown-editor>
+      <markdown *ngIf="isPreview" [data]="article.content" lineNumbers></markdown>
+    </mat-card-content>
+    <!--Action list-->
+    <mat-card-actions align="end" style="align-items: center">
+      <mat-slide-toggle color="accent" [checked]="isPreview" (toggleChange)="isPreview=!isPreview">
+        <span>Preview</span>
+      </mat-slide-toggle>
+      <button mat-button color="accent" type="submit" [disabled]="!markdownForm.form.valid">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+  <div class="card-container">
     <mat-form-field appearance="outline" style="width: 100%">
       <mat-label>Subhead Description</mat-label>
       <input matInput placeholder="Subhead Description" [(ngModel)]="article.subhead" name="subhead" autocomplete="off">
     </mat-form-field>
-    </div>
-    <button mat-button color="warn" type="button" (click)="resetArticle()">RESET PAGE!</button>
-  </form>
-</div>
-
-
-
-
+  </div>
+  <button mat-button color="warn" type="button" (click)="resetArticle()">RESET PAGE!</button>
+</form>
