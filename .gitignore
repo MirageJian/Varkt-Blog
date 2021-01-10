@@ -1,5 +1,4 @@
 /backup*
-/varkt_backup.sh
 /documents
 /.angulardoc.json
 *.pem
