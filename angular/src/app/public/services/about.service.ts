@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {BaseService} from "../../layout/services/base.service";
-import {catchError} from "rxjs/operators";
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {Observable} from "rxjs";
-import {AboutModel} from "@const/models";
+import {BaseService} from '../../layout/services/base.service';
+import {catchError} from 'rxjs/operators';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import {Observable} from 'rxjs';
+import {AboutModel} from '@const/models';
 
 @Injectable({
   providedIn: 'root'

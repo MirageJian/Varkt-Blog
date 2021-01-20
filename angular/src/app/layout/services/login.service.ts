@@ -1,12 +1,12 @@
-import {Inject, Injectable, NgZone, PLATFORM_ID} from '@angular/core';
+import {Inject, Injectable, Injector, NgZone, PLATFORM_ID} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map, tap} from 'rxjs/operators';
 import {BaseService} from './base.service';
 import {UserInfoModel} from '@const/models';
-import {Md5} from "ts-md5";
-import {isPlatformBrowser} from "@angular/common";
-import {EMPTY, Observable, of} from "rxjs";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {Md5} from 'ts-md5';
+import {isPlatformBrowser} from '@angular/common';
+import {EMPTY, Observable, of} from 'rxjs';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable()
 export class LoginService extends BaseService {
@@ -15,8 +15,8 @@ export class LoginService extends BaseService {
   user: UserInfoModel;
   // user$: EventEmitter<UserInfoModel>;
 
-  constructor(http: HttpClient, snackBar: MatSnackBar, zone: NgZone, @Inject(PLATFORM_ID) private platformId) {
-    super(http, snackBar, zone);
+  constructor(http: HttpClient, injector: Injector, @Inject(PLATFORM_ID) private platformId) {
+    super(http, injector);
     // this.user$ = new EventEmitter<UserInfoModel>();
   }
 

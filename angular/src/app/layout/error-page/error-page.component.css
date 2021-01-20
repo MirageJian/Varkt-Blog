@@ -8,3 +8,6 @@ a:visited, a:link{
   color: #1976d2;
   text-decoration: none;
 }
+img {
+  margin: 2rem;
+}

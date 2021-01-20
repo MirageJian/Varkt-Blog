@@ -1,4 +1,4 @@
-<app-header [title]="article.title" [is_article]="true"></app-header>
+<app-header [title]="article.title" [isArticle]="true"></app-header>
 <div class="container">
   <mat-card class="card-container">
     <mat-card-header class="no-avatar-card">
@@ -25,9 +25,8 @@
   <!--Comments Loading effects-->
   <div class="card-container">
     <h2 id="commentArea">Comments Area</h2>
-    <div *appProgress="!!comments"></div>
-    <div [@slideFromBottom] *ngFor="let c of comments">
-      <mat-card>
+    <div [@slideFromBottom] *appDataStatus="comments">
+      <mat-card *ngFor="let c of comments">
         <mat-card-header class="no-avatar-card">
           <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time | date}}</span></mat-card-subtitle>
         </mat-card-header>

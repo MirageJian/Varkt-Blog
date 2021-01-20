@@ -1,55 +1,70 @@
 import {
-  Component,
+  Component, ComponentFactory,
   ComponentFactoryResolver,
   Directive,
-  ElementRef,
-  Input,
+  ElementRef, HostBinding,
+  Input, OnChanges, SimpleChanges,
   TemplateRef,
   ViewContainerRef
 } from '@angular/core';
+import {slideFromBottom} from '@const/animations';
 
 @Directive({
-  selector: '[appProgress]'
+  selector: '[appDataStatus]'
 })
-export class ProgressDirective {
-
-  componentFactory;
+export class ProgressDirective implements OnChanges {
+  private readonly dataProcessingFactory: ComponentFactory<DataProgressComponent>;
+  private readonly noDataTipFactory: ComponentFactory<NoDataTipComponent>;
 
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private elementRef: ElementRef,
+    private el: ElementRef,
   ) {
-    this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(DataProgressComponent);
+    this.dataProcessingFactory = this.componentFactoryResolver.resolveComponentFactory(DataProgressComponent);
+    this.noDataTipFactory = this.componentFactoryResolver.resolveComponentFactory(NoDataTipComponent);
   }
 
-  @Input() set appProgress(hasData: boolean) {
+  @Input('appDataStatus') data: Array<unknown> | boolean;
+
+  ngOnChanges(changes: SimpleChanges) {
     this.viewContainer.clear();
-    if (hasData) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
+    if (this.data instanceof Array) {
+      // When there is no data
+      if (!this.data.length) this.viewContainer.createComponent(this.noDataTipFactory);
+      else this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
-      this.viewContainer.createComponent(this.componentFactory);
+      // if (typeof this.data === 'boolean')
+      // When the data is not an array
+      if (!!this.data) {
+        this.viewContainer.createEmbeddedView(this.templateRef);
+      } else {
+        this.viewContainer.createComponent(this.dataProcessingFactory);
+      }
     }
   }
 }
 
 @Component({
   template: `
-    <div class="spinner-container">
-      <mat-spinner color="loading"></mat-spinner>
-    </div>
+    <mat-spinner color="loading"></mat-spinner>
+    <h3 i18n>Loading...</h3>
   `,
-  styles: [`
-    .spinner-container {
-      width: 100%;
-      display: flex;
-      flex: 1 1 auto;
-      justify-content: center;
-      align-items: center;
-    }
-  `],
-  animations: []
+  styleUrls: ['progress.directive.css'],
 })
 export class DataProgressComponent {
 }
+
+@Component({
+  template: `
+    <img src="../../../assets/svg/undraw_barbecue_3x93.svg" alt="No items"/>
+    <h3 i18n>No data right now, try other places</h3>
+  `,
+  styleUrls: ['progress.directive.css'],
+  animations: [slideFromBottom('margin')]
+})
+export class NoDataTipComponent {
+  @HostBinding('@slideFromBottom') _;
+}
+

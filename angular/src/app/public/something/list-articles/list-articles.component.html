@@ -1,22 +1,22 @@
-<div class="container">
+<div class="container" *appDataStatus="articles">
   <div *ngFor="let a of articles" [@slideFromBottom]>
     <mat-card class="card-container">
-        <mat-card-header class="no-avatar-card">
-          <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
-          <mat-card-subtitle>{{a.time|date}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image *ngIf="a.img" src="{{a.img}}" [routerLink]="['../../article', a.id]" alt="list image">
-        <mat-card-content>
-          <p>{{a.subhead}}</p>
-          <mat-chip-list>
-            <mat-chip *ngFor="let c of a.category" [routerLink]="['../', c]">{{c}}</mat-chip>
-          </mat-chip-list>
-        </mat-card-content>
-        <mat-card-actions align="end">
-          <a mat-button color="accent" [routerLink]="['../../article', a.id]" [routerLinkActive]="'active'"
-             [routerLinkActiveOptions]="{ exact: true }" i18n>See More
-          </a>
-        </mat-card-actions>
+      <mat-card-header class="no-avatar-card">
+        <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
+        <mat-card-subtitle>{{a.time|date}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image *ngIf="a.img" src="{{a.img}}" [routerLink]="['../../article', a.id]" alt="list image">
+      <mat-card-content>
+        <p>{{a.subhead}}</p>
+        <mat-chip-list>
+          <mat-chip *ngFor="let c of a.category" [routerLink]="['../', c]">{{c}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a mat-button color="accent" [routerLink]="['../../article', a.id]" [routerLinkActive]="'active'"
+           [routerLinkActiveOptions]="{ exact: true }" i18n>See More
+        </a>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

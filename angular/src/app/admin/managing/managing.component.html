@@ -1,4 +1,4 @@
-<mat-toolbar style="font-size: 1em;">
+<mat-toolbar style="font-size: 1rem;">
     <mat-form-field>
       <!--[(value)]="selected"-->
       <mat-select placeholder="Options">
@@ -15,13 +15,13 @@
       </button>
     </mat-form-field>
 </mat-toolbar>
-<mat-accordion>
+<mat-accordion *appDataStatus="articles">
   <mat-expansion-panel *ngFor="let a of articles" (opened)="openPanel(a.id)">
     <mat-expansion-panel-header>
       <mat-panel-title>{{a.title}}</mat-panel-title> <!--<mat-panel-description></mat-panel-description>-->
     </mat-expansion-panel-header>
     <p>{{a.subhead}}</p>
-    <mat-nav-list *appProgress="comments">
+    <mat-nav-list *appDataStatus="!!comments">
       <ng-container *ngFor="let c of comments">
         <mat-list-item>
           <p matLine>{{c.author}}: {{c.content}}<small>{{c.time}}</small></p>

@@ -4,10 +4,12 @@ import {Component, OnInit} from '@angular/core';
 
 import {UserInfoModel} from '@const/models';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {slideFromBottom} from '@const/animations';
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+    animations: [slideFromBottom()]
 })
 export class LoginComponent implements OnInit {
   info = new UserInfoModel();

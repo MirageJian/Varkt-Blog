@@ -2,24 +2,26 @@
   <mat-chip-list class="card-container" [@slideFromBottom]>
     <mat-chip *ngFor="let c of chips" [routerLink]="['./something', c]">{{c}}</mat-chip>
   </mat-chip-list>
-  <mat-card class="card-container" *ngFor="let a of listArticle" [@slideFromBottom]>
-    <mat-card-header class="no-avatar-card">
-      <!--<div mat-card-avatar></div>-->
-      <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
-      <mat-card-subtitle>{{a.time | date}}</mat-card-subtitle>
-    </mat-card-header>
-    <a *ngIf="a.img" [routerLink]="['./article', a.id]" class="img-block">
-      <img mat-card-image src="{{a.img}}" alt="dashboard image">
-    </a>
-    <!--Category part-->
-    <mat-card-content>
-      <p>{{a.subhead}}</p>
-      <!--<mat-chip-list>
-        <mat-chip *ngFor="let c of a.category" [routerLink]="['./something', c]">{{c}}</mat-chip>
-      </mat-chip-list>-->
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <a mat-button color="accent" [routerLink]="['./article', a.id]" i18n>See More</a>
-    </mat-card-actions>
-  </mat-card>
+  <div [@slideFromBottom]>
+    <mat-card class="card-container" *ngFor="let a of listArticle">
+      <mat-card-header class="no-avatar-card">
+        <!--<div mat-card-avatar></div>-->
+        <mat-card-title><h3>{{a.title}}</h3></mat-card-title>
+        <mat-card-subtitle>{{a.time | date}}</mat-card-subtitle>
+      </mat-card-header>
+      <a *ngIf="a.img" [routerLink]="['./article', a.id]" class="img-block">
+        <img mat-card-image src="{{a.img}}" alt="dashboard image">
+      </a>
+      <!--Category part-->
+      <mat-card-content>
+        <p>{{a.subhead}}</p>
+        <!--<mat-chip-list>
+          <mat-chip *ngFor="let c of a.category" [routerLink]="['./something', c]">{{c}}</mat-chip>
+        </mat-chip-list>-->
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a mat-button color="accent" [routerLink]="['./article', a.id]" i18n>See More</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

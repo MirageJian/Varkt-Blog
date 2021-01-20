@@ -39,5 +39,5 @@ def create_default_category(db: Database):
     db.cursor.execute("SELECT * FROM category")
     categories = db.cursor.fetchall()
     if not categories or len(categories) < 1:
-        db.cursor.execute("INSERT INTO category(label, icon) VALUES (%s,%s)", category, icon)
+        db.cursor.execute("INSERT INTO category(label, icon) VALUES (%s,%s)", (category, icon))
         db.conn.commit()

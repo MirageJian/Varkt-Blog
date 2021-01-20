@@ -1,10 +1,10 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {MatSidenav} from "@angular/material/sidenav";
-import {MOBILE_BREAKPOINT} from "@const/app-const";
-import {BreakpointObserver} from "@angular/cdk/layout";
-import {Location} from "@angular/common";
+import {MatSidenav} from '@angular/material/sidenav';
+import {MOBILE_BREAKPOINT} from '@const/app-const';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() sidenav: MatSidenav;
   matches: boolean;
-  @Input() is_article = false;
+  @Input() isArticle = false;
   // @Output() changeRoute: EventEmitter<string> = new EventEmitter<string>();
   subscription: Subscription;
 

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {catchError} from "rxjs/operators";
-import {BaseService} from "../../layout/services/base.service";
+import {catchError} from 'rxjs/operators';
+import {BaseService} from '../../layout/services/base.service';
 
 @Injectable()
 export class FileUploadService extends BaseService{

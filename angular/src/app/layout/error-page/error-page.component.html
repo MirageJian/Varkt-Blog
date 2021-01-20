@@ -1,13 +1,15 @@
 <div class="container">
   <ng-container *ngIf="!url">
     <h1 i18n>Page Not Found</h1>
-    <p i18n>We're sorry. The page you are looking for cannot be found.</p>
-    <a [routerLink]="['/']" i18n>Back to main site.</a>
+    <img src="assets/svg/undraw_empty_street_sfxm.svg" alt="Some error">
+    <h3 i18n>We're sorry. The page you are looking for cannot be found.</h3>
+    <h3><a [routerLink]="['/']" i18n>Back to main site.</a></h3>
   </ng-container>
   <ng-container *ngIf="url">
     <h1 i18n>Server Not Respond</h1>
-    <p i18n>We're sorry. The request was not responded by the server.</p>
+    <img src="assets/svg/undraw_empty_street_sfxm.svg" alt="Some error">
+    <h3 i18n>We're sorry. The request was not responded by the server.</h3>
     <p i18n>The address: {{url}}</p>
-    <a [routerLink]="[url]" i18n>Click here to try again.</a>
+    <h3><a [routerLink]="[url]" i18n>Click here to try again.</a></h3>
   </ng-container>
 </div>

@@ -6,7 +6,12 @@ class Database:
     def __init__(self):
         # 每次数据库被实例的时候，打开数据库连接，加上charset='utf8'可以读取中文
         try:
-            self.conn = pymysql.connect("localhost", "root", "1793", "varkt", charset='utf8')
+            self.conn = pymysql.connect(
+                host="localhost",
+                user="root",
+                password="17931793",
+                database="varkt",
+            )
             # 使用 cursor() 方法创建一个返回为字典游标对象。不加pymysql.cursors.DictCursor，返回为数组
             self.cursor = self.conn.cursor(pymysql.cursors.DictCursor)
         except():

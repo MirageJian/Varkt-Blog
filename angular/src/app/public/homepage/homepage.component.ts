@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ListArticleModel} from "@const/models";
-import {HomepageService} from "../services/homepage.service";
-import {slideFromBottom} from "@const/animations";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ListArticleModel} from '@const/models';
+import {HomepageService} from '../services/homepage.service';
+import {slideFromBottom} from '@const/animations';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: './homepage.component.html',
@@ -25,7 +25,7 @@ export class HomepageComponent implements OnInit {
       // Add chips/category on the top of articles
       this.chips = this._homeService.getChips(this.listArticle);
       if (this.listArticle.length <= 0) {
-        let a = new ListArticleModel();
+        const a = new ListArticleModel();
         a.title = '啊咧？！';
         a.subhead = '首页似乎没有文章了，空空的';
         this.listArticle.push(a);

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpHeaders, HttpParams} from "@angular/common/http";
-import {catchError} from "rxjs/operators";
-import {BaseService} from "../../layout/services/base.service";
-import {Observable} from "rxjs";
-import {FileStatModel} from "@const/models";
+import {HttpHeaders, HttpParams} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {BaseService} from '../../layout/services/base.service';
+import {Observable} from 'rxjs';
+import {FileStatModel} from '@const/models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,10 @@ import {FileStatModel} from "@const/models";
 export class PublicFilesService extends BaseService {
 
   uploadFiles(formData) {
-    let headers = new HttpHeaders();
+    const headers = new HttpHeaders();
     // headers.append('Content-Type', 'multipart/form-data');
     // headers.append('Accept', 'application/json');
-    return this.http.post('/api/public_files',  formData, { headers: headers }).pipe(catchError(this.handleError));
+    return this.http.post('/api/public_files',  formData, { headers }).pipe(catchError(this.handleError));
   }
 
   getPublicFiles(): Observable<FileStatModel[]> {
@@ -24,6 +24,6 @@ export class PublicFilesService extends BaseService {
   deletePublicFile(filename: string) {
     let params = new HttpParams();
     params = params.append('filename', filename);
-    return this.http.delete('/api/public_files', {params: params}).pipe(catchError(this.handleError));
+    return this.http.delete('/api/public_files', {params}).pipe(catchError(this.handleError));
   }
 }

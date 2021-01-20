@@ -1,13 +1,10 @@
-mat-toolbar{
-  position: -webkit-sticky;
+:host {
   position: sticky;
   top: 0;
   z-index: 7;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  display: block;
+}
+mat-toolbar{
   background: var(--primaryColor);
   color: white;
   height: 56px;

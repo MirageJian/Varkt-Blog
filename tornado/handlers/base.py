@@ -9,11 +9,10 @@ from database import Database
 
 
 class BaseHandler(tornado.web.RequestHandler):
-    # Database initialization
-    db: Database = Database()
-
     def __init__(self, application, request, **kwargs):
         super().__init__(application, request, **kwargs)
+        # Database initialization
+        self.db = Database()
 
     # When data received, it will be called before PUT and POST
     def data_received(self, chunk):
@@ -27,7 +26,9 @@ class BaseHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "application/json")
 
     def on_finish(self):
-        pass
+        # Close cursor and connection of db
+        self.db.cursor.close()
+        self.db.conn.close()
 
     # Override write_error with customization one. Use send_error to set error status and write error.
     def write_error(self, status_code: int, **kwargs: Any) -> None:

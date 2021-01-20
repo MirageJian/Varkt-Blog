@@ -1,10 +1,10 @@
-import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostBinding, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '../services/login.service';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {searchBox} from "./navbar-search.animation";
-import {MOBILE_BREAKPOINT} from "@const/app-const";
-import {BreakpointObserver} from "@angular/cdk/layout";
+import {searchBox} from './navbar-search.animation';
+import {MOBILE_BREAKPOINT} from '@const/app-const';
+import {BreakpointObserver} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +13,7 @@ import {BreakpointObserver} from "@angular/cdk/layout";
   animations: [searchBox]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  @HostBinding('class.mat-elevation-z7') true;
   subscriptionBreakpoint: Subscription;
   isShownSearch = false;
   searchContent: string;
@@ -33,9 +34,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log("Current language of browser: " + this.localeId);
-    // check login status for loging in automatically
-    if (!this.loggedUser) this.loginService.getUser().subscribe();
+    console.log('Current language of browser: ' + this.localeId);
+    // check login status for logging in automatically
+    if (!this.loggedUser) {
+      this.loginService.getUser().subscribe();
+    }
   }
 
   logout() {

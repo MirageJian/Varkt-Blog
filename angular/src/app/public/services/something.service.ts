@@ -3,7 +3,7 @@ import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {CategoryModel, ListArticleModel} from "@const/models";
+import {CategoryModel, ListArticleModel} from '@const/models';
 
 @Injectable()
 export class SomethingService extends BaseService {
@@ -16,7 +16,7 @@ export class SomethingService extends BaseService {
     // Set category that will be queried
     let params = new HttpParams();
     params = params.set('category', category);
-    return this.http.get('/api/something', {params: params}).pipe(
+    return this.http.get('/api/something', {params}).pipe(
       this.preProcessForArticles(category), catchError(this.handleError));
   }
 
@@ -30,7 +30,7 @@ export class SomethingService extends BaseService {
     if (!keyword || keyword.length < 1) return of(null);
     // Set search params
     let params = new HttpParams().set('keyword', keyword);
-    return this.http.get('/api/searching', {params: params}).pipe(
+    return this.http.get('/api/searching', {params}).pipe(
       this.preProcessForArticles(), catchError(this.handleError));
   }
 

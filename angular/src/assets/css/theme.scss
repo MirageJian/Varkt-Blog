@@ -52,7 +52,7 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent, $cand
     //color: mat-color($text);
   }
   .mat-card-content {
-    font-size: 1em;
+    font-size: 1rem;
   }
 }
 @include candy-sidenav-theme($candy-app-theme);

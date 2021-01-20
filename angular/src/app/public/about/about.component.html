@@ -1,6 +1,6 @@
 <app-header i18n>About this, About me</app-header>
-<div class="container">
-  <mat-card class="card-container" [@slideFromBottom] *ngIf="about$ | async as about">
+<div class="container" [@slideFromBottom]>
+  <mat-card class="card-container" *ngIf="about$ | async as about">
     <!--<h5>{{article.author}}</h5>-->
     <markdown [data]="about.content"></markdown>
     <!--Bottom part, such as time-->

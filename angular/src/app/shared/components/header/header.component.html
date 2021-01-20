@@ -3,7 +3,7 @@
     <mat-icon class="material-icons mat-36">menu</mat-icon>
   </button>
   <h2 [ngClass]="{'mobile': matches, 'desktop': !matches}">
-    <button *ngIf="is_article" mat-icon-button (click)="goBack()">
+    <button *ngIf="isArticle" mat-icon-button (click)="goBack()">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
     <ng-container *ngIf="title else ngContent">{{title}}</ng-container>

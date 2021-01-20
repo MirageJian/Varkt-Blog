@@ -13,10 +13,13 @@ export const routerTrans = [
     // ])
   ])
 ];
-export function slideFromBottom() {
+export function slideFromBottom(distanceType: 'padding' | 'margin' = 'padding') {
   return trigger('slideFromBottom', [
-    state('void', style({ 'padding-top': '20px', opacity: '0' })),
-    state('*', style({ 'padding-top': '0px', opacity: '1' })),
+    state('void', style(
+      distanceType === 'padding'
+      ? { 'padding-top': '5%', opacity: '0' }
+      : { 'margin-top': '5%', opacity: '0' })
+    ), state('*', style({ opacity: '1' })),
     transition(':enter', [animate('0.33s ease-out')]),
   ]);
 }
