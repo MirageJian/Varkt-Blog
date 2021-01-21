@@ -44,25 +44,22 @@
   </div>
 
   <form #form="ngForm" (submit)="onSubmit()" class="card-container">
-    <h2 i18n>Leave a comment</h2>
-    <mat-card>
-      <mat-card-content>
-        <mat-form-field style="width: 100%;" appearance="fill">
-          <mat-label i18n>Say something</mat-label>
-          <label>
-            <textarea matInput [(ngModel)]="newComment.content" name="content" autocomplete="off" required></textarea>
-          </label>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label i18n>Your Name</mat-label>
-          <label>
-            <input matInput [(ngModel)]="newComment.author" name="author" autocomplete="off">
-          </label>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-button type="submit" color="primary" [disabled]="!form.valid" i18n>Submit</button>
-      </mat-card-actions>
-    </mat-card>
+    <h2 i18n>Leave a Comment</h2>
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label i18n>What's in your mind?</mat-label>
+      <label>
+        <textarea matInput [(ngModel)]="newComment.content" name="content" autocomplete="off" required></textarea>
+      </label>
+    </mat-form-field>
+    <div class="flex-container">
+      <mat-form-field appearance="fill">
+        <mat-label i18n>Your Name</mat-label>
+        <label>
+          <input matInput [(ngModel)]="newComment.author" name="author" autocomplete="off">
+        </label>
+      </mat-form-field>
+      <span class="flex-spacer"></span>
+      <button mat-button type="submit" color="primary" [disabled]="!form.valid" i18n>Submit and share!</button>
+    </div>
   </form>
 </div>

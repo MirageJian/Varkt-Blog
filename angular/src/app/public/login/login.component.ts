@@ -8,7 +8,7 @@ import {slideFromBottom} from '@const/animations';
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['../../shared/base-page.style.css', './login.component.scss'],
     animations: [slideFromBottom()]
 })
 export class LoginComponent implements OnInit {

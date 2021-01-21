@@ -2,21 +2,19 @@ import {AfterViewInit, Component, HostBinding, OnDestroy, OnInit} from '@angular
 import {ActivatedRoute} from '@angular/router';
 import {routerTrans, slideFromBottom} from '@const/animations';
 import {ArticleModel, CommentModel} from '@const/models';
-import {APP_TILE} from "@const/app-const";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {ArticleService} from "../services/article.service";
-import {Title} from "@angular/platform-browser";
+import {APP_TILE} from '@const/app-const';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ArticleService} from '../services/article.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss'],
+  styleUrls: ['../../shared/base-page.style.css', './article.component.scss'],
   animations: [routerTrans, slideFromBottom()]
 })
 export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding('@routerTrans') routeAnimation = true;
-  @HostBinding('style.display') display = 'flex';
-  @HostBinding('style.flex-direction') direction = 'column';
-  @HostBinding('style.width') width = '100%';
+
   article: ArticleModel;
   comments: CommentModel[];
   newComment = new CommentModel();
@@ -26,8 +24,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     private titleService: Title,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.newComment.author = '';

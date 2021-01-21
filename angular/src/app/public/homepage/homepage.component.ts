@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css'],
+  styleUrls: ['../../shared/base-page.style.css', './homepage.component.css'],
   animations: [slideFromBottom()]
 })
 export class HomepageComponent implements OnInit {

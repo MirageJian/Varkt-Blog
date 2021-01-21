@@ -31,11 +31,12 @@ body {
 ::-webkit-keygen-select{color:#fff;background-color: var(--accentColor);}
 /* common class*/
 .container {
-  max-width: 1024px;
+  max-width: 1280px;
   padding: 16px;
-  margin: 0 auto;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .card-container {
   margin: 16px;
@@ -46,7 +47,6 @@ mat-card.card-container > mat-card-content, .card-container > mat-card > mat-car
 }
 @media (max-width: 960px){
   .container {
-    width: auto;
     padding: 4px;
     margin: 0;
   }
@@ -67,13 +67,15 @@ mat-card-content > p {
 .cursor-pointer{
   cursor: pointer;
 }
-/* right float css*/
+/* When there is only one item to align to right */
 .flex-container {
   display: flex;
+  align-items: center;
 }
 .flex-spacer {
   flex: 1 0 auto;
 }
+/* When there is content and its height is large than the floated item */
 .float-right {
   float: right;
 }

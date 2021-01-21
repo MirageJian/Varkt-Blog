@@ -2,11 +2,11 @@ import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/c
 import {SomethingService} from '../../services/something.service';
 import {ListArticleModel} from '@const/models';
 import {ActivatedRoute, Router} from '@angular/router';
-import {slideFromBottom} from "@const/animations";
+import {slideFromBottom} from '@const/animations';
 
 @Component({
   templateUrl: './list-articles.component.html',
-  styleUrls: ['./list-articles.component.scss'],
+  styleUrls: ['../../../shared/base-page.style.css', './list-articles.component.scss'],
   animations: [slideFromBottom()]
 })
 export class ListArticlesComponent implements OnInit, OnChanges, OnDestroy {
