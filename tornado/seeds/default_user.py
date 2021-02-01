@@ -1,5 +1,6 @@
-from database import Database
+from sqlalchemy.orm import Session
 
+from database import User, About, Category
 
 # user default seed
 username = 'admin'
@@ -7,14 +8,12 @@ password = 'e10adc3949ba59abbe56e057f20f883e'
 email = username + '@yourdomain.com'
 
 
-def create_default_user(db: Database):
-    db.cursor.execute("SELECT * FROM user")
-    users = db.cursor.fetchall()
-    if not users or len(users) < 1:
-        db.cursor.execute("INSERT INTO user(username, password, email, is_admin) VALUES (%s, %s, %s, 1)", (
-            username, password, email
-        ))
-        db.conn.commit()
+def create_default_user(session: Session) -> User:
+    user = session.query(User).first()
+    if not user:
+        user = session.add(User(username=username, password=password, email=email, is_admin=True))
+        session.commit()
+    return user
 
 
 # about default seed
@@ -22,22 +21,20 @@ about_content = 'Insert your about information here, any thing you want.' \
                 ' You also can edit this about in admin dashboard'
 
 
-def create_default_blog_about(db: Database):
-    db.cursor.execute("SELECT * FROM about")
-    abouts = db.cursor.fetchall()
+def create_default_blog_about(session: Session, user: User):
+    abouts = session.query(About).all()
     if not abouts or len(abouts) < 1:
-        db.cursor.execute("INSERT INTO about(content) VALUES (%s)", about_content)
-        db.conn.commit()
+        session.add(About(id_user=user.id, content=about_content))
+        session.commit()
 
 
 # category default seed
 category = 'New Category'
-icon = 'Add'
+icon = 'add'
 
 
-def create_default_category(db: Database):
-    db.cursor.execute("SELECT * FROM category")
-    categories = db.cursor.fetchall()
+def create_default_category(session: Session, user: User):
+    categories = session.query(Category).all()
     if not categories or len(categories) < 1:
-        db.cursor.execute("INSERT INTO category(label, icon) VALUES (%s,%s)", (category, icon))
-        db.conn.commit()
+        session.add(Category(id_user=user.id, label=category, icon=icon))
+        session.commit()

@@ -1,11 +1,12 @@
 import decimal
 import json
 from datetime import datetime, date, timedelta
-from typing import Any
+from typing import Any, Optional
 
 import tornado.web
+from sqlalchemy.orm import Session
 
-from database import Database
+from database import Database, SessionWithEngine
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -13,6 +14,7 @@ class BaseHandler(tornado.web.RequestHandler):
         super().__init__(application, request, **kwargs)
         # Database initialization
         self.db = Database()
+        self.session: Optional[Session] = None
 
     # When data received, it will be called before PUT and POST
     def data_received(self, chunk):
@@ -20,7 +22,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # The connection start
     def prepare(self):
-        pass
+        self.session = SessionWithEngine()
 
     def set_default_headers(self) -> None:
         self.set_header("Content-Type", "application/json")
@@ -29,6 +31,7 @@ class BaseHandler(tornado.web.RequestHandler):
         # Close cursor and connection of db
         self.db.cursor.close()
         self.db.conn.close()
+        self.session.close()
 
     # Override write_error with customization one. Use send_error to set error status and write error.
     def write_error(self, status_code: int, **kwargs: Any) -> None:
