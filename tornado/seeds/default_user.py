@@ -11,7 +11,8 @@ email = username + '@yourdomain.com'
 def create_default_user(session: Session) -> User:
     user = session.query(User).first()
     if not user:
-        user = session.add(User(username=username, password=password, email=email, is_admin=True))
+        user = User(id=1, username=username, password=password, email=email, isAdmin=True)
+        session.add(user)
         session.commit()
     return user
 
@@ -24,7 +25,7 @@ about_content = 'Insert your about information here, any thing you want.' \
 def create_default_blog_about(session: Session, user: User):
     abouts = session.query(About).all()
     if not abouts or len(abouts) < 1:
-        session.add(About(id_user=user.id, content=about_content))
+        session.add(About(idUser=user.id, content=about_content))
         session.commit()
 
 
@@ -36,5 +37,5 @@ icon = 'add'
 def create_default_category(session: Session, user: User):
     categories = session.query(Category).all()
     if not categories or len(categories) < 1:
-        session.add(Category(id_user=user.id, label=category, icon=icon))
+        session.add(Category(idUser=user.id, label=category, icon=icon))
         session.commit()

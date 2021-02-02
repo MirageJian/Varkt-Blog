@@ -1,29 +1,25 @@
+from datetime import datetime
+
+from database import About
 from handlers.base import BaseHandler
-from tools import common_helper
 
 
 class AboutHandler(BaseHandler):
     async def get(self):
-        self.db.cursor.execute("SELECT * FROM about")
-        data = self.db.cursor.fetchone()
+        data = self.session.query(About).first()
         self.write_json(data)
 
     async def put(self):
         self.get_login_user()
 
         body = self.loads_request_body()
-        self.db.cursor.execute("SELECT * FROM about")
-        data = self.db.cursor.fetchone()
+        data = self.session.query(About).first()
         if not data:
             self.send_error(500, reason="There is about info, please restart server")
             return
         # Insert old article for backup
-        self.db.cursor.execute("INSERT INTO about(content, creation_time, update_time) VALUES (%s, %s, %s)",
-                               (data["content"], data["creation_time"], data["update_time"]))
-        self.db.conn.commit()
+        self.session.add(About(content=data["content"], createdAt=data["creation_time"], updatedAt=data["update_time"]))
+        data.content = body["content"]
+        data.updatedAt = datetime.utcnow()
         # Update about
-        self.db.cursor.execute(
-            "UPDATE about SET content=%s,update_time=%s WHERE id=%s", (
-                body["content"], common_helper.get_now(), body["id"]
-            ))
-        self.db.conn.commit()
+        self.session.commit()

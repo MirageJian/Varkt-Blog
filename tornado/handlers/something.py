@@ -1,3 +1,6 @@
+from sqlalchemy.orm import joinedload
+
+from database import Category, Article, User
 from handlers.base import BaseHandler
 
 
@@ -5,15 +8,15 @@ class SomethingHandler(BaseHandler):
     async def get(self):
         category_str = self.get_argument("category")
         # Find category first
-        self.db.cursor.execute("SELECT * FROM category WHERE label=%s", category_str)
-        category_obj = self.db.cursor.fetchone()
+        category_obj = self.session.query(Category).filter(Category.label == category_str).first()
         if not category_obj:
             self.send_error(400, reason="Cannot find category" + category_str)
             return
         # Search
         search_str = '%' + category_str + '%'
-        self.db.cursor.execute(
-            "SELECT a.id,a.title,a.category,a.img,a.subhead,a.time,u.username as author FROM article a "
-            "JOIN user u on a.id_user = u.id WHERE a.category LIKE %s ORDER BY a.time DESC", search_str)
-        data = self.db.cursor.fetchall()
+        data = self.session.query(Article) \
+            .filter(Article.category.like(search_str))\
+            .options(joinedload(Article.user)) \
+            .order_by(Article.createdAt.desc()) \
+            .all()
         self.write_json(data)

@@ -30,7 +30,7 @@ export class ArticleService extends BaseService implements Resolve<ArticleModel>
   }
 
   postComment(body) {
-    return this.http.put('/api/comment', body).pipe(catchError(this.handleError));
+    return this.http.post('/api/comment', body).pipe(catchError(this.handleError));
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ArticleModel> | Promise<ArticleModel> | ArticleModel {

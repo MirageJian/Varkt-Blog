@@ -1,3 +1,6 @@
+from sqlalchemy.orm import joinedload
+
+from database import Article, User
 from handlers.base import BaseHandler
 
 
@@ -6,11 +9,13 @@ class SearchingHandler(BaseHandler):
         keyword = '%' + self.get_argument("keyword") + '%'
         if len(keyword) < 3:
             return
-        self.db.cursor.execute(
-            "SELECT a.id,a.title,a.category,a.img,a.subhead,a.time,u.username as author FROM article a "
-            "JOIN user u on a.id_user = u.id "
-            "WHERE a.category LIKE %s OR a.title LIKE %s OR u.username LIKE %s "
-            "ORDER BY a.time DESC", (keyword, keyword, keyword)
-        )
-        data = self.db.cursor.fetchall()
+        data = self.session.query(Article) \
+            .options(joinedload(Article.user)) \
+            .filter(Article.category.like(keyword) or
+                    Article.title.like(keyword) or
+                    Article.subhead.like(keyword) or
+                    Article.content.like(keyword) or
+                    User.username.like(keyword)) \
+            .order_by(Article.createdAt.desc()) \
+            .all()
         self.write_json(data)

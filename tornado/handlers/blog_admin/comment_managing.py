@@ -1,3 +1,4 @@
+from database import Comment
 from handlers.comment import CommentHandler
 
 
@@ -8,22 +9,20 @@ class CommentManagingHandler(CommentHandler):
 
     async def get(self):
         id_article = self.get_argument("id_article", None)
-        if not id_article:
-            self.db.cursor.execute("SELECT * FROM `comment` WHERE is_check=0")
-        else:
-            self.db.cursor.execute("SELECT * FROM `comment` WHERE id_article=%s", id_article)
-        data = self.db.cursor.fetchall()
-        for d in data:
-            d["is_check"] = bool(d["is_check"])
+        data = self.session.query(Comment)\
+            .filter(not Comment.isChecked if not id_article else Comment.idArticle == id_article)\
+            .all()
+
         self.write_json(data)
 
-    async def post(self, *args, **kwargs):
+    async def put(self, *args, **kwargs):
         body = self.loads_request_body()
-        self.db.cursor.execute("UPDATE `comment` SET is_check=TRUE WHERE id=%s", (body["id"]))
-        self.db.conn.commit()
+        for r in self.session.query(Comment).filter(Comment.id == body["id"]):
+            r.isChecked = True
+        self.session.commit()
 
-    async def delete(self, *args, **kwargs):
+    async def delete(self):
         id_comment = self.get_argument("id", None)
-        self.db.cursor.execute("DELETE FROM `comment` WHERE id=%s", id_comment)
-        self.db.conn.commit()
-
+        comment = self.session.query(Comment).filter(Comment.id == id_comment).first()
+        self.session.delete(comment)
+        self.session.commit()

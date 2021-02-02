@@ -1,3 +1,4 @@
+from database import User
 from handlers.base import BaseHandler
 
 
@@ -11,10 +12,9 @@ class PasswordHandler(BaseHandler):
 
     async def put(self):
         body = self.loads_request_body()
-        self.db.cursor.execute("SELECT * FROM user WHERE id=%s", self.user_id)
-        user = self.db.cursor.fetchone()
+        user = self.session.query(User).filter(User.id == self.user_id).first()
         if user and user["password"] == body["oldPassword"]:
-            self.db.cursor.execute("UPDATE user SET password=%s WHERE id=%s", (body["newPassword"], self.user_id))
-            self.db.conn.commit()
+            user.password = body["newPassword"]
+            self.session.commit()
         else:
             self.send_error(400, reason="The user cannot be found or password is wrong")

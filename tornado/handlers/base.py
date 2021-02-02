@@ -6,14 +6,14 @@ from typing import Any, Optional
 import tornado.web
 from sqlalchemy.orm import Session
 
-from database import Database, SessionWithEngine
+from database import SessionWithEngine
+from tools.json_encoder import create_alchemy_encoder
 
 
 class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
         super().__init__(application, request, **kwargs)
         # Database initialization
-        self.db = Database()
         self.session: Optional[Session] = None
 
     # When data received, it will be called before PUT and POST
@@ -29,16 +29,14 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def on_finish(self):
         # Close cursor and connection of db
-        self.db.cursor.close()
-        self.db.conn.close()
         self.session.close()
 
     # Override write_error with customization one. Use send_error to set error status and write error.
     def write_error(self, status_code: int, **kwargs: Any) -> None:
         self.finish("%(code)d: %(message)s" % {"code": status_code, "message": self._reason})
 
-    def write_json(self, data):
-        self.write(json.dumps(data, cls=CJsonEncoder, ensure_ascii=False))
+    def write_json(self, data, expanded_fields=None):
+        self.write(json.dumps(data, cls=create_alchemy_encoder(expanded_fields)))
 
     def loads_request_body(self):
         return json.loads(s=self.request.body)

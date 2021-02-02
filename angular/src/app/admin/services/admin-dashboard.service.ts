@@ -8,6 +8,6 @@ export class AdminDashboardService extends BaseService {
     return this.http.get('/api/comment_managing').pipe(catchError(this.handleError));
   }
   checkComment(id: number) {
-    return this.http.post('/api/comment_managing', {id}).pipe(catchError(this.handleError));
+    return this.http.put('/api/comment_managing', {id}).pipe(catchError(this.handleError));
   }
 }
