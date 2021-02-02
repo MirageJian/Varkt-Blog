@@ -5,9 +5,9 @@
     <markdown [data]="about.content"></markdown>
     <!--Bottom part, such as time-->
     <mat-chip-list>
-      <mat-chip color="primary" selected="true">{{about.creation_time|date}}</mat-chip>
-      <mat-chip color="accent" selected="true" *ngIf="about.update_time else noUpdate" i18n>
-        Updated on {{about.update_time|date}}
+      <mat-chip color="primary" selected="true">{{about.createdAt|date}}</mat-chip>
+      <mat-chip color="accent" selected="true" *ngIf="about.updatedAt else noUpdate" i18n>
+        Updated on {{about.updatedAt|date}}
       </mat-chip>
       <ng-template #noUpdate>
         <mat-chip color="accent" selected="true" i18n>No updates</mat-chip>

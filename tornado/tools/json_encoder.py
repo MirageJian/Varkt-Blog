@@ -1,4 +1,6 @@
+import decimal
 import json
+from datetime import datetime, date, timedelta
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
 
@@ -7,6 +9,7 @@ def create_alchemy_encoder(extent_fields):
 
     class AlchemyEncoder(json.JSONEncoder):
         def default(self, o):
+            # Alchemy encoder for columns
             if isinstance(o, tuple):
                 data = {}
                 for obj in o:
@@ -28,6 +31,14 @@ def create_alchemy_encoder(extent_fields):
                     # Object not array to expand
                     if extent_fields and any(isinstance(value, e) for e in extent_fields):
                         data[field] = self.default(value)
+                    # Primitive encoder
+                    elif isinstance(value, decimal.Decimal):
+                        data[field] = float(value)
+                    elif isinstance(value, datetime) or isinstance(value, date):
+                        data[field] = value.isoformat()
+                    elif isinstance(value, timedelta):
+                        data[field] = str(value)
+                    # Other types
                     else:
                         json.dumps(value)
                         data[field] = value
@@ -36,3 +47,14 @@ def create_alchemy_encoder(extent_fields):
             return data
 
     return AlchemyEncoder
+
+
+class PrimitiveEncoder(json.JSONEncoder):
+    def default(self, obj):
+        # Primitive encoder
+        if isinstance(obj, decimal.Decimal):
+            return float(obj)
+        elif isinstance(obj, datetime) or isinstance(obj, date):
+            return obj.isoformat()
+        elif isinstance(obj, timedelta):
+            return str(obj)

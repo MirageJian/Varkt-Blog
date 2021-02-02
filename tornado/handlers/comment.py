@@ -19,6 +19,6 @@ class CommentHandler(BaseHandler):
 
     async def post(self, *args, **kwargs):
         body = self.loads_request_body()
-        self.session.add(Comment(idArticle=body["id_article"], content=body["content"], author=body["author"],
+        self.session.add(Comment(idArticle=body["idArticle"], content=body["content"], author=body["author"],
                                  createdAt=datetime.utcnow()))
         self.session.commit()

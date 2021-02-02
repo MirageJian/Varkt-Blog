@@ -4,7 +4,7 @@ from handlers.base import BaseHandler
 
 class PublicFilesHandler(BaseHandler):
     def prepare(self):
-        self.get_login_user()
+        self.auth_user()
 
     async def get(self):
         files_list = tools.file_helper.list_files("public_files")

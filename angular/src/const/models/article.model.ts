@@ -1,3 +1,5 @@
+import {UserInfoModel} from '@const/models/user-info.model';
+
 export class ArticleModel{
   constructor() {
     this.id = 0;
@@ -6,14 +8,16 @@ export class ArticleModel{
     this.content = '';
   }
   public id: number;
-  public author: string;
+  public idUser: number;
   public title: string;
-  public img: string;
-  public subhead: string;
   public content: string | any;
-  public category: string | string[];
-  public time: Date;
-  public update_time: Date;
+  public createdAt: Date;
   public stick: boolean;
   public collection: boolean;
+  public img?: string;
+  public subhead?: string;
+  public category?: string | string[];
+  public updatedAt?: Date;
+
+  public user?: UserInfoModel;
 }

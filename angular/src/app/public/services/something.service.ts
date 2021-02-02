@@ -3,7 +3,7 @@ import {HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {CategoryModel, ListArticleModel} from '@const/models';
+import {CategoryModel, SimpleArticleModel} from '@const/models';
 
 @Injectable()
 export class SomethingService extends BaseService {
@@ -12,7 +12,7 @@ export class SomethingService extends BaseService {
     return this.http.get<CategoryModel[]>('/api/category').pipe(catchError(this.handleError));
   }
 
-  getListArticle(category: string): Observable<ListArticleModel[]> {
+  getListArticle(category: string): Observable<SimpleArticleModel[]> {
     // Set category that will be queried
     let params = new HttpParams();
     params = params.set('category', category);
@@ -20,12 +20,12 @@ export class SomethingService extends BaseService {
       this.preProcessForArticles(category), catchError(this.handleError));
   }
 
-  getAllArticles(): Observable<ListArticleModel[]> {
-    return this.http.get<ListArticleModel[]>('/api/dashboard').pipe(
+  getAllArticles(): Observable<SimpleArticleModel[]> {
+    return this.http.get<SimpleArticleModel[]>('/api/dashboard').pipe(
       this.preProcessForArticles(), catchError(this.handleError));
   }
 
-  getSearchResult(keyword: string): Observable<ListArticleModel[]> {
+  getSearchResult(keyword: string): Observable<SimpleArticleModel[]> {
     // input validation, return observable of null
     if (!keyword || keyword.length < 1) return of(null);
     // Set search params
@@ -35,8 +35,8 @@ export class SomethingService extends BaseService {
   }
 
   private preProcessForArticles(category?: string) {
-    return map((list: ListArticleModel[]) => {
-      list.forEach((a: ListArticleModel) => {
+    return map((list: SimpleArticleModel[]) => {
+      list.forEach((a: SimpleArticleModel) => {
         a.category = JSON.parse(a.category as string);
         // Parse category to array and remove current one querying
         if (category) a.category = (a.category as Array<string>).filter(c => c != category)

@@ -1,6 +1,4 @@
-import decimal
 import json
-from datetime import datetime, date, timedelta
 from typing import Any, Optional
 
 import tornado.web
@@ -14,7 +12,8 @@ class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
         super().__init__(application, request, **kwargs)
         # Database initialization
-        self.session: Optional[Session] = None
+        self.user_id = None
+        self.session: Session = SessionWithEngine()
 
     # When data received, it will be called before PUT and POST
     def data_received(self, chunk):
@@ -22,18 +21,20 @@ class BaseHandler(tornado.web.RequestHandler):
 
     # The connection start
     def prepare(self):
-        self.session = SessionWithEngine()
+        pass
 
     def set_default_headers(self) -> None:
         self.set_header("Content-Type", "application/json")
 
     def on_finish(self):
         # Close cursor and connection of db
-        self.session.close()
+        if self.session:
+            self.session.close()
 
     # Override write_error with customization one. Use send_error to set error status and write error.
     def write_error(self, status_code: int, **kwargs: Any) -> None:
         self.finish("%(code)d: %(message)s" % {"code": status_code, "message": self._reason})
+        raise tornado.web.Finish
 
     def write_json(self, data, expanded_fields=None):
         self.write(json.dumps(data, cls=create_alchemy_encoder(expanded_fields)))
@@ -47,25 +48,13 @@ class BaseHandler(tornado.web.RequestHandler):
     #     self.set_header("Access-Control-Allow-Headers", "x-requested-with")
     #     self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
 
-    def get_current_user(self):
+    def get_current_user(self) -> Optional[int]:
         return self.get_secure_cookie("_user", None)
 
     # if no login send 403, else return id
-    def get_login_user(self):
+    def auth_user(self) -> Optional[int]:
         id_user = self.get_current_user()
         if not id_user:
-            return self.send_error(403)
+            return self.write_error(403)
         else:
             return id_user
-
-
-class CJsonEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, decimal.Decimal):
-            return float(obj)
-        elif isinstance(obj, datetime) or isinstance(obj, date):
-            return obj.isoformat()
-        elif isinstance(obj, timedelta):
-            return str(obj)
-        else:
-            return json.JSONEncoder.default(self, obj)

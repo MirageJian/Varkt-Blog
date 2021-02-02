@@ -1,8 +1,11 @@
+import {UserInfoModel} from '@const/models/user-info.model';
+
 export class AboutModel{
   public id: number;
-  public id_user: number;
-  public username: string;
+  public idUser: number;
   public content: string | any;
-  public creation_time: Date;
-  public update_time: Date;
+  public createdAt: Date;
+  public updatedAt?: Date;
+
+  public user?: UserInfoModel;
 }

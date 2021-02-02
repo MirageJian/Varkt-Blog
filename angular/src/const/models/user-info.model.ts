@@ -3,5 +3,5 @@ export class UserInfoModel {
   username: string;
   password?: string;
   email?: string;
-  is_admin?: string;
+  isAdmin: string;
 }

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {CommentModel, ListArticleModel} from '@const/models';
+import {CommentModel, SimpleArticleModel} from '@const/models';
 import {WritingManagingService} from '../services/writing-managing.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SomethingService} from "../../public/services/something.service";
@@ -11,8 +11,8 @@ import {SomethingManagingService} from "../services/something-managing.service";
 })
 export class ManagingComponent implements OnInit, OnDestroy {
   private destroyer: () => void;
-  articles: ListArticleModel[];
-  originalArticles: ListArticleModel[];
+  articles: SimpleArticleModel[];
+  originalArticles: SimpleArticleModel[];
   comments: CommentModel[];
   searchKeyword: string;
 
@@ -33,7 +33,7 @@ export class ManagingComponent implements OnInit, OnDestroy {
         // your action at there
       }
     });
-    this.managingService.getAllArticle().subscribe((res: ListArticleModel[]) => {
+    this.managingService.getAllArticle().subscribe((res: SimpleArticleModel[]) => {
       // JsonHelper.toAny(res, ['category']);
       this.articles = res;
       this.originalArticles = res;
@@ -42,17 +42,17 @@ export class ManagingComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroyer();
   }
-  deleteArticle(a: ListArticleModel): void {
+  deleteArticle(a: SimpleArticleModel): void {
     this.managingService.deleteArticle(a.id).subscribe(() => {
       this.articles.splice(this.articles.findIndex((ff) => ff.id === a.id), 1);
       this.originalArticles = this.articles;
     });
   }
-  toWriting(a: ListArticleModel) {
+  toWriting(a: SimpleArticleModel) {
     this.router.navigate(['../go-markdown', {id: a.id}], {relativeTo: this.route}).then();
   }
   searchArticle() {
-    this._somethingService.getSearchResult(this.searchKeyword).subscribe((res: ListArticleModel[]) => {
+    this._somethingService.getSearchResult(this.searchKeyword).subscribe((res: SimpleArticleModel[]) => {
       this.articles = res;
     });
   }

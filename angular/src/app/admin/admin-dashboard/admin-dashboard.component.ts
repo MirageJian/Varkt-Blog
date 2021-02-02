@@ -21,7 +21,7 @@ export class AdminDashboardComponent implements OnInit {
 
   checkComment(id: number) {
     this.adminDashboardService.checkComment(id).subscribe(() => {
-      this.comments[this.comments.findIndex(ff => ff.id === id)].is_check = true;
+      this.comments[this.comments.findIndex(ff => ff.id === id)].isChecked = true;
     })
   }
 }

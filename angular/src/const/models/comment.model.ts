@@ -1,9 +1,13 @@
+import {ArticleModel} from '@const/models/article.model';
+
 export class CommentModel {
   id: number;
-  id_article: number;
+  idArticle: number;
   content: string;
-  author: string;
-  time: Date;
+  createdAt: Date;
   likes: number;
-  is_check: boolean;
+  isChecked: boolean;
+  author?: string;
+
+  article?: ArticleModel;
 }

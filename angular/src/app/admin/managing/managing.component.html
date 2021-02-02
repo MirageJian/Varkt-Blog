@@ -24,13 +24,13 @@
     <mat-nav-list *appDataStatus="!!comments">
       <ng-container *ngFor="let c of comments">
         <mat-list-item>
-          <p matLine>{{c.author}}: {{c.content}}<small>{{c.time}}</small></p>
+          <p matLine>{{c.author}}: {{c.content}}<small>{{c.createdAt}}</small></p>
           <button mat-raised-button color="warn" (click)="deleteComment(c)">Delete</button>
         </mat-list-item>
       </ng-container>
     </mat-nav-list>
     <mat-action-row>
-      <mat-panel-description><span>{{a.author}} {{a.time}}</span></mat-panel-description>
+      <mat-panel-description><span>{{a.author}} {{a.createdAt}}</span></mat-panel-description>
       <a mat-button color="primary" [routerLink]="['../go-markdown', {id: a.id}]">Modify Article</a>
       <button mat-button color="warn" (click)="deleteArticle(a)">Delete</button>
     </mat-action-row>

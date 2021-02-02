@@ -39,7 +39,7 @@ def list_files(folder):
             result.append({
                 'filename': f,
                 'size': stat.st_size,
-                'change_time': stat.st_ctime,
+                'updatedAt': stat.st_ctime,
                 'url': os.path.join(static_root_url, folder, f)
             })
     return result

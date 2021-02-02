@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 
 import pymysql
@@ -60,7 +61,7 @@ class Database:
     #     self.conn.close()
 
 
-engine = create_engine("mysql+pymysql://root:17931793@localhost/varkt", echo=True)
+engine = create_engine("mysql+pymysql://root:17931793@localhost/varkt")  # , echo=True
 Base = declarative_base()
 
 
@@ -139,3 +140,5 @@ class Comment(Base):
 
 Base.metadata.create_all(engine)
 SessionWithEngine = sessionmaker(bind=engine)
+# logging.basicConfig()
+# logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)

@@ -1,7 +1,7 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {slideFromBottom} from '@const/animations';
 import {SomethingService} from '../../services/something.service';
-import {ListArticleModel} from '@const/models';
+import {SimpleArticleModel} from '@const/models';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 
@@ -12,7 +12,7 @@ import {switchMap} from 'rxjs/operators';
 })
 export class AssortmentComponent implements OnInit {
   keyword = '';
-  listArticle: ListArticleModel[];
+  listArticle: SimpleArticleModel[];
 
   constructor(
     private _somethingService: SomethingService,
@@ -31,7 +31,7 @@ export class AssortmentComponent implements OnInit {
     this.router.navigate(['/something'], {queryParams: {keyword}}).then();
   }
   // use callback function to improve code reuse
-  private readonly searchCallback = (res: ListArticleModel[]) => {
+  private readonly searchCallback = (res: SimpleArticleModel[]) => {
     if (!res) return;
     this.listArticle = res;
   }

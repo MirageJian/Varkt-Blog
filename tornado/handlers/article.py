@@ -23,7 +23,7 @@ class ArticleHandler(BaseHandler):
         self.write_json(data)
 
     async def put(self):
-        id_user = self.get_login_user()
+        id_user = self.auth_user()
         body = self.loads_request_body()
         # Check if categories is normal
         if not len(json.loads(body["category"])) > 0:
@@ -40,7 +40,7 @@ class ArticleHandler(BaseHandler):
         self.session.commit()
 
     async def post(self):
-        id_user = self.get_login_user()
+        id_user = self.auth_user()
         body = self.loads_request_body()
         # Check if categories is normal
         if not len(json.loads(body["category"])) > 0:
@@ -53,7 +53,7 @@ class ArticleHandler(BaseHandler):
         self.session.commit()
 
     def delete(self):
-        self.get_login_user()
+        self.auth_user()
         id_article = self.get_argument("id", None)
         article = self.session.query(Article).filter(Article.id == id_article).first()
         self.session.delete(article)

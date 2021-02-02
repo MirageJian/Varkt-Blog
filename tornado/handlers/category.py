@@ -8,17 +8,17 @@ class CategoryHandler(BaseHandler):
         self.write_json(data)
 
     async def post(self):
-        self.get_login_user()
+        user_id = self.auth_user()
         body = self.loads_request_body()
-        self.session.add(Category(label=body["label"], icon=body["icon"]))
+        self.session.add(Category(idUser=user_id, label=body["label"], icon=body["icon"]))
         self.session.commit()
 
     async def put(self):
-        self.get_login_user()
+        self.auth_user()
         # Change category, it will search category and article for changing
 
     async def delete(self):
-        self.get_login_user()
+        self.auth_user()
         id_category = self.get_argument("id", None)
         category = self.session.query(Category).filter(Category.id == id_category).first()
         self.session.delete(category)

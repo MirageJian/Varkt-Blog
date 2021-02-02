@@ -2,14 +2,14 @@ import {Injectable} from "@angular/core";
 import {SomethingService} from "./something.service";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {EMPTY, Observable} from "rxjs";
-import {CategoryModel, ListArticleModel} from "@const/models";
+import {CategoryModel, SimpleArticleModel} from "@const/models";
 
 @Injectable()
-export class ArticlesResolveService implements Resolve<ListArticleModel[]> {
+export class ArticlesResolveService implements Resolve<SimpleArticleModel[]> {
   constructor(private something: SomethingService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ListArticleModel[]> | Promise<ListArticleModel[]> | ListArticleModel[] {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<SimpleArticleModel[]> | Promise<SimpleArticleModel[]> | SimpleArticleModel[] {
     const param = route.params['id'];
     return param ? this.something.getListArticle(param) : EMPTY;
   }

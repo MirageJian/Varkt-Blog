@@ -13,8 +13,8 @@
       </mat-chip-list>
       <!--Footer for author info and date-->
       <mat-card-footer>
-        <mat-card-subtitle i18n> {{article.author}} Published on {{article.time|date}}
-          <ng-container *ngIf="article.update_time">Update on {{article.update_time|date}}</ng-container>
+        <mat-card-subtitle i18n> {{article.author}} Published on {{article.createdAt|date}}
+          <ng-container *ngIf="article.updatedAt">Update on {{article.updatedAt|date}}</ng-container>
         </mat-card-subtitle>
       </mat-card-footer>
     </mat-card-content>
@@ -28,7 +28,7 @@
     <div [@slideFromBottom] *appDataStatus="comments">
       <mat-card *ngFor="let c of comments">
         <mat-card-header class="no-avatar-card">
-          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.time | date}}</span></mat-card-subtitle>
+          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.createdAt | date}}</span></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <p>{{c.content}}</p>

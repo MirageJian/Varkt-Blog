@@ -11,10 +11,10 @@ class SearchingHandler(BaseHandler):
             return
         data = self.session.query(Article) \
             .options(joinedload(Article.user)) \
-            .filter(Article.category.like(keyword) or
-                    Article.title.like(keyword) or
-                    Article.subhead.like(keyword) or
-                    Article.content.like(keyword) or
+            .filter(Article.category.like(keyword),
+                    Article.title.like(keyword),
+                    Article.subhead.like(keyword),
+                    Article.content.like(keyword),
                     User.username.like(keyword)) \
             .order_by(Article.createdAt.desc()) \
             .all()

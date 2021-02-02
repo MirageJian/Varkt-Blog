@@ -5,12 +5,11 @@ from handlers.comment import CommentHandler
 class CommentManagingHandler(CommentHandler):
     def prepare(self):
         super(CommentManagingHandler, self).prepare()
-        self.get_login_user()
+        self.auth_user()
 
     async def get(self):
-        id_article = self.get_argument("id_article", None)
         data = self.session.query(Comment)\
-            .filter(not Comment.isChecked if not id_article else Comment.idArticle == id_article)\
+            .filter(Comment.isChecked == 0)\
             .all()
 
         self.write_json(data)

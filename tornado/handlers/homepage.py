@@ -13,5 +13,4 @@ class Homepage(BaseHandler):
             .options(joinedload(Article.user))\
             .order_by(Article.createdAt.desc()) \
             .all()
-        print(data[0].comments)
         self.write_json(data, [User])

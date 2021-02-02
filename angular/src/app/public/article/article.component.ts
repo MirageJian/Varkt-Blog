@@ -50,7 +50,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // Submit a new comment
   onSubmit() {
-    this.newComment.id_article = this.article.id;
+    this.newComment.idArticle = this.article.id;
     this._articleService.postComment(this.newComment).subscribe(() => {
       this.comments.push({...this.newComment});
       this.snackBar.open('Success', 'Close', {duration: 5_000});

@@ -4,7 +4,7 @@ from tools import file_helper
 
 class ImageHandler(BaseHandler):
     def prepare(self):
-        self.get_login_user()
+        self.auth_user()
 
     async def post(self):
         file_metas = self.request.files["imgUpload"]
