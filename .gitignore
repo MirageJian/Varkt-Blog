@@ -1,5 +1,4 @@
 /backup*
 /documents
-/.angulardoc.json
 *.pem
 /varkt-dist*

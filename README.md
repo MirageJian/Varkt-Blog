@@ -18,7 +18,6 @@ There is no multi-users plan for this blog. But the password can be change in ad
 
 ## File description
 
-`varkt_db_struct.sql` is the database script.  
 `varkt.nginx.conf` is nginx conf file. It contains gzip config, https config and url handle.
 
 # Varkt web client

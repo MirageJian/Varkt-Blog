@@ -1,0 +1,9 @@
+Generic single-database configuration.
+
+```python3
+python3 -m alembic revision -m "init"
+```
+
+```python3
+python3 -m alembic upgrade head
+```
