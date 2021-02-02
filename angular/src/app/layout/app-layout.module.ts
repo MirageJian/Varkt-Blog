@@ -1,14 +1,14 @@
+import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {SharedModule} from '@shared/shared.module';
 import {AppLayoutRouting} from './app-layout-routing.module';
 import {AppLayoutComponent} from './app-layout.component';
-import {NavbarComponent} from './navbar/navbar.component';
-import {CommonModule} from '@angular/common';
 import {FooterComponent} from './footer/footer.component';
-import {SharedModule} from '@shared/shared.module';
-import {LoadingComponent} from './loadding/loading.component';
+import {LoadingFloatComponent} from './loadding-float/loading-float.component';
+import {NavbarComponent} from './navbar/navbar.component';
 import {BaseService} from './services/base.service';
 import {LoginService} from './services/login.service';
-import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -21,18 +21,8 @@ import {FormsModule} from '@angular/forms';
     // MatIconModule,
     // MatToolbarModule,
   ],
-  declarations: [
-    AppLayoutComponent,
-    NavbarComponent,
-    FooterComponent,
-    LoadingComponent,
-  ],
-  exports: [
-    AppLayoutComponent
-  ],
-  providers: [
-    BaseService,
-    LoginService
-  ]
+  declarations: [AppLayoutComponent, NavbarComponent, FooterComponent, LoadingFloatComponent],
+  exports: [AppLayoutComponent],
+  providers: [BaseService, LoginService],
 })
 export class AppLayoutModule {}

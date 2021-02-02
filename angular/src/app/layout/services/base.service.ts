@@ -18,26 +18,26 @@ export class BaseService {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
       console.error(`An error occurred: Backend returned code ${res.status}, ` + `body was: ${res.error}`);
-      this.open(res.error, true);
+      this.open(res.error);
       // return an ErrorObservable with a user-facing error message
-      return throwError(`Something bad happened. code ${res.status}`);
+      return throwError(res);
     };
   }
 
   protected get handlePageError() {
+    const router = this.injector.get(Router);
+
     return (res: HttpErrorResponse) => {
-      this.open(res.error, true);
+      router.navigate(['/error-page', {url: router.url}]).then();
       return throwError(`Something bad happened. code ${res.status}`);
     };
   }
 
   // Open snackbar for notification
-  protected open(text: string, redirect = false) {
+  protected open(text: string) {
     const ngZone = this.injector.get(NgZone);
-    const router = this.injector.get(Router);
     const snackBar = this.injector.get(MatSnackBar);
     ngZone.run(() => {
-      if (redirect) router.navigate(['/error-page', {url: router.url}]).then();
       snackBar.open(text, 'Close');
     });
   }

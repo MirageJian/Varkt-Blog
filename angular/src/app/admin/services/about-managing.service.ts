@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {catchError} from "rxjs/operators";
-import {AboutModel} from "@const/models/";
-import {AboutService} from "../../public/services/about.service";
+import {catchError} from 'rxjs/operators';
+import {AboutModel} from '@const/models/';
+import {AboutService} from '../../public/services/about.service';
 
 @Injectable()
 export class AboutManagingService extends AboutService {

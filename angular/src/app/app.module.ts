@@ -1,26 +1,22 @@
-import {BrowserModule, Title} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {isPlatformBrowser} from '@angular/common';
 import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import {APP_ID, Inject, NgModule, PLATFORM_ID} from '@angular/core';
-
-import {AppComponent} from './app.component';
+import {BrowserModule, Title} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
-import {ErrorPageComponent} from './layout/error-page/error-page.component';
-import {isPlatformBrowser} from '@angular/common';
+import {AppComponent} from './app.component';
 import {httpInterceptorProviders} from './http-interceptors';
 import {AppLayoutModule} from './layout/app-layout.module';
-import {RouterModule} from '@angular/router';
+import {ErrorPageComponent} from './layout/error-page/error-page.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ErrorPageComponent
-  ],
+  declarations: [AppComponent, ErrorPageComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     HttpClientModule,
     HttpClientXsrfModule.withOptions({
       cookieName: '_xsrf', // Define your title of xsrf param
@@ -32,19 +28,14 @@ import {RouterModule} from '@angular/router';
       initialNavigation: 'enabled',
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
-      relativeLinkResolution: 'corrected'
-    })
+      relativeLinkResolution: 'corrected',
+    }),
   ],
   bootstrap: [AppComponent],
-  providers: [
-    Title,
-    httpInterceptorProviders,
-  ]
+  providers: [Title, httpInterceptorProviders],
 })
 export class AppModule {
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
-    @Inject(APP_ID) private appId: string) {
+  constructor(@Inject(PLATFORM_ID) private platformId: object, @Inject(APP_ID) private appId: string) {
     const platform = isPlatformBrowser(platformId) ? 'in the browser' : 'on the server';
     console.log(`Running ${platform} with appId=${appId}`);
   }
