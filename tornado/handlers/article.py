@@ -20,7 +20,7 @@ class ArticleHandler(BaseHandler):
                 .filter(Article.id == id_article) \
                 .order_by(Article.createdAt.desc()) \
                 .first()
-        self.write_json(data)
+        self.write_json(data, [User])
 
     async def put(self):
         id_user = self.auth_user()

@@ -23,7 +23,7 @@ export class SomethingService extends BaseService {
   getAllArticles(): Observable<SimpleArticleModel[]> {
     return this.http
       .get<SimpleArticleModel[]>('/api/dashboard')
-      .pipe(this.preProcessForArticles(), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getSearchResult(keyword: string): Observable<SimpleArticleModel[]> {
@@ -37,9 +37,8 @@ export class SomethingService extends BaseService {
   private preProcessForArticles(category?: string) {
     return map((list: SimpleArticleModel[]) => {
       list.forEach((a: SimpleArticleModel) => {
-        a.category = JSON.parse(a.category as string);
         // Parse category to array and remove current one querying
-        if (category) a.category = (a.category as Array<string>).filter(c => c !== category);
+        if (category) a.category = a.category.filter(c => c !== category);
       });
       return list;
     });

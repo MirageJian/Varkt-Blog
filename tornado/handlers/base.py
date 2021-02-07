@@ -1,10 +1,11 @@
 import json
-from typing import Any, Optional
+from typing import Any, Optional, List, Type
 
 import tornado.web
+from sqlalchemy import Column
 from sqlalchemy.orm import Session
 
-from database import SessionWithEngine
+from database import SessionWithEngine, BaseColumn
 from tools.json_encoder import create_alchemy_encoder
 
 
@@ -36,7 +37,7 @@ class BaseHandler(tornado.web.RequestHandler):
         self.finish("%(code)d: %(message)s" % {"code": status_code, "message": self._reason})
         raise tornado.web.Finish
 
-    def write_json(self, data, expanded_fields=None):
+    def write_json(self, data, expanded_fields: List[BaseColumn] = None):
         self.write(json.dumps(data, cls=create_alchemy_encoder(expanded_fields)))
 
     def loads_request_body(self):

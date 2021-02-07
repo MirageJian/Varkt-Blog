@@ -1,11 +1,14 @@
 import decimal
 import json
 from datetime import datetime, date, timedelta
+from typing import List, Type
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
 
+from database import BaseColumn
 
-def create_alchemy_encoder(extent_fields):
+
+def create_alchemy_encoder(extent_fields: List[BaseColumn] = None):
 
     class AlchemyEncoder(json.JSONEncoder):
         def default(self, o):

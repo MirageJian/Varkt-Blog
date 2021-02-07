@@ -32,11 +32,11 @@ try:
     #     tar.add(base_dir, arcname=os.path.basename(base_dir))
 
     print('Transfer the files to server...')
-    subprocess.run(f'scp -i ForStudy.pem -r {base_dir}/* ubuntu@varkt.com:/home/ubuntu/varkt/')
+    subprocess.run(f'scp -i ForStudy.pem -r {base_dir}/* ubuntu@varkt.com:/home/ubuntu/varkt/', shell=True)
 
     print('Start ssh and run script...')
     # Install requirements
-    subprocess.run('ssh -i ForStudy.pem -t ubuntu@varkt.com "sudo supervisorctl restart varkt"')
+    subprocess.run('ssh -i ForStudy.pem -t ubuntu@varkt.com "sudo supervisorctl restart varkt & sudo pip3 install -r ./varkt/tornado/requirements.txt"', shell=True)
     input('You can close the window now')
 
 except Exception as ex:

@@ -62,10 +62,10 @@ class Database:
 
 
 engine = create_engine("mysql+pymysql://root:17931793@localhost/varkt")  # , echo=True
-Base = declarative_base()
+BaseColumn = declarative_base()
 
 
-class User(Base):
+class User(BaseColumn):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
@@ -82,7 +82,7 @@ class User(Base):
         return "<User(name='%s', email='%s')>" % (self.username, self.email)
 
 
-class About(Base):
+class About(BaseColumn):
     __tablename__ = 'abouts'
 
     id = Column(Integer, primary_key=True)
@@ -94,7 +94,7 @@ class About(Base):
     user = relationship("User")
 
 
-class Category(Base):
+class Category(BaseColumn):
     __tablename__ = 'categories'
 
     id = Column(Integer, primary_key=True)
@@ -105,7 +105,7 @@ class Category(Base):
     user = relationship("User")
 
 
-class Article(Base):
+class Article(BaseColumn):
     __tablename__ = 'articles'
 
     id = Column(Integer, primary_key=True)
@@ -124,7 +124,7 @@ class Article(Base):
     user = relationship("User")
 
 
-class Comment(Base):
+class Comment(BaseColumn):
     __tablename__ = 'comments'
 
     id = Column(Integer, primary_key=True)
@@ -138,7 +138,7 @@ class Comment(Base):
     article = relationship("Article")
 
 
-Base.metadata.create_all(engine)
+BaseColumn.metadata.create_all(engine)
 SessionWithEngine = sessionmaker(bind=engine)
 # logging.basicConfig()
 # logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)

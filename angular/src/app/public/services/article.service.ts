@@ -19,13 +19,7 @@ export class ArticleService extends BaseService implements Resolve<ArticleModel>
     params = params.set('id', id.toString());
     return this.http
       .get<ArticleModel>('/api/article', {params})
-      .pipe(
-        map((a: ArticleModel) => {
-          a.category = JSON.parse(a.category as string);
-          return a;
-        }),
-        catchError(this.handleError)
-      );
+      .pipe(catchError(this.handleError));
   }
 
   getComments(idArticle: number) {

@@ -3,7 +3,7 @@ export class SimpleArticleModel {
   author: string;
   title: string;
   createdAt: Date;
-  category?: string | string[];
+  category?: string[];
   img?: string;
   subhead?: string;
 }
