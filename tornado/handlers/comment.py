@@ -10,6 +10,7 @@ class CommentHandler(BaseHandler):
         data = self.session.query(Comment).filter(Comment.idArticle == id_article).all()
         self.write_json(data)
 
+    # Like comment
     async def put(self, *args, **kwargs):
         body = self.loads_request_body()
         comment = self.session.query(Comment).filter(Comment.id == body["id"]).first()
@@ -17,7 +18,8 @@ class CommentHandler(BaseHandler):
             comment.likes = comment.likes + 1
         self.session.commit()
 
-    async def post(self, *args, **kwargs):
+    # Add comment
+    async def post(self):
         body = self.loads_request_body()
         self.session.add(Comment(idArticle=body["idArticle"], content=body["content"], author=body["author"],
                                  createdAt=datetime.utcnow()))

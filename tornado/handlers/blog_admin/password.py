@@ -1,10 +1,11 @@
 from database import User
-from handlers.base import BaseHandler
+from handlers.base import BaseHandler, auth_user
 
 
 class PasswordHandler(BaseHandler):
+    @auth_user
     def prepare(self):
-        self.user_id = self.auth_user()
+        pass
 
     async def put(self):
         body = self.loads_request_body()

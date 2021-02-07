@@ -7,18 +7,15 @@
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-form-field appearance="standard">
           <mat-label i18n>Name or Email</mat-label>
-          <label>
-            <input type="text" matInput [(ngModel)]="info.username" name="account" required>
-          </label>
+          <input type="text" matInput [(ngModel)]="info.username" name="account" required>
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label i18n>Password</mat-label>
-          <label>
-            <input type="password" matInput [(ngModel)]="info.password" name="password" required>
-          </label>
+          <input type="password" matInput [(ngModel)]="info.password" name="password" required>
         </mat-form-field>
         <mat-card-actions align="end">
-          <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent" i18n>
+          <button type="submit" [disabled]="!loginForm.form.valid" class="btn-log" mat-raised-button color="accent"
+                  i18n>
             Log in
           </button>
         </mat-card-actions>

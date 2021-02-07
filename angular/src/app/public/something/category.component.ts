@@ -3,8 +3,8 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ActivatedRoute} from '@angular/router';
 import {SomethingService} from '../services/something.service';
 import {CategoryModel} from '@const/models';
-import {MatSidenav} from "@angular/material/sidenav";
-import {MOBILE_WIDTH} from "@const/app-const";
+import {MatSidenav} from '@angular/material/sidenav';
+import {MOBILE_WIDTH} from '@const/app-const';
 
 @Component({
   templateUrl: './category.component.html',

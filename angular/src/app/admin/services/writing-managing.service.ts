@@ -33,8 +33,6 @@ function prePolish(article: ArticleModel) {
   const copyArticle = {...article};
   const images = article.content.match(/<img[^>]*src="([^"]*)"[^>]*>/);
   copyArticle.img = images && images.length > 1 ? images[1] : null;
-  if (!copyArticle.subhead) copyArticle.subhead = 'He is lazy! Nothing left on description.';
   // Use copy of article because writing component needs to keep original
-  copyArticle.category = JSON.stringify(article.category);
   return copyArticle;
 }

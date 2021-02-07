@@ -1,8 +1,7 @@
 import json
-from typing import Any, Optional, List, Type
+from typing import Any, Optional, List
 
 import tornado.web
-from sqlalchemy import Column
 from sqlalchemy.orm import Session
 
 from database import SessionWithEngine, BaseColumn
@@ -12,8 +11,8 @@ from tools.json_encoder import create_alchemy_encoder
 class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
         super().__init__(application, request, **kwargs)
-        # Database initialization
         self.user_id = None
+        # Database initialization
         self.session: Session = SessionWithEngine()
 
     # When data received, it will be called before PUT and POST
@@ -52,10 +51,15 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self) -> Optional[int]:
         return self.get_secure_cookie("_user", None)
 
-    # if no login send 403, else return id
-    def auth_user(self) -> Optional[int]:
+
+def auth_user(func):
+    def wrapper(self: BaseHandler):
+        # if no login send 403, else return id
         id_user = self.get_current_user()
         if not id_user:
-            return self.write_error(403)
+            self.write_error(403)
+            self.user_id = None
         else:
-            return id_user
+            self.user_id = id_user
+        func(self)
+    return wrapper

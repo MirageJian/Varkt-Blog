@@ -1,11 +1,12 @@
 from database import Comment
+from handlers.base import auth_user
 from handlers.comment import CommentHandler
 
 
 class CommentManagingHandler(CommentHandler):
+    @auth_user
     def prepare(self):
         super(CommentManagingHandler, self).prepare()
-        self.auth_user()
 
     async def get(self):
         data = self.session.query(Comment)\

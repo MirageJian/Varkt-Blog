@@ -1,5 +1,5 @@
 from database import Category
-from handlers.base import BaseHandler
+from handlers.base import BaseHandler, auth_user
 
 
 class CategoryHandler(BaseHandler):
@@ -7,18 +7,19 @@ class CategoryHandler(BaseHandler):
         data = self.session.query(Category).order_by(Category.id.asc()).all()
         self.write_json(data)
 
+    @auth_user
     async def post(self):
-        user_id = self.auth_user()
         body = self.loads_request_body()
-        self.session.add(Category(idUser=user_id, label=body["label"], icon=body["icon"]))
+        self.session.add(Category(idUser=self.user_id, label=body["label"], icon=body["icon"]))
         self.session.commit()
 
+    @auth_user
     async def put(self):
-        self.auth_user()
+        pass
         # Change category, it will search category and article for changing
 
+    @auth_user
     async def delete(self):
-        self.auth_user()
         id_category = self.get_argument("id", None)
         category = self.session.query(Category).filter(Category.id == id_category).first()
         self.session.delete(category)

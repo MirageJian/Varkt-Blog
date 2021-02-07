@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from database import About
-from handlers.base import BaseHandler
+from handlers.base import BaseHandler, auth_user
 
 
 class AboutHandler(BaseHandler):
@@ -9,8 +9,8 @@ class AboutHandler(BaseHandler):
         data = self.session.query(About).first()
         self.write_json(data)
 
+    @auth_user
     async def put(self):
-        self.auth_user()
         body = self.loads_request_body()
         data = self.session.query(About).first()
         if not data:

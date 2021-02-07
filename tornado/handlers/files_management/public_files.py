@@ -1,10 +1,11 @@
 import tools.file_helper
-from handlers.base import BaseHandler
+from handlers.base import BaseHandler, auth_user
 
 
 class PublicFilesHandler(BaseHandler):
+    @auth_user
     def prepare(self):
-        self.auth_user()
+        pass
 
     async def get(self):
         files_list = tools.file_helper.list_files("public_files")

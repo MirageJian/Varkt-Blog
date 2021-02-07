@@ -13,7 +13,8 @@
       </mat-chip-list>
       <!--Footer for author info and date-->
       <mat-card-footer>
-        <mat-card-subtitle i18n> {{article.user.username}} Published on {{article.createdAt|date}}
+        <mat-card-subtitle i18n>
+          {{article.user.username}} Published on {{article.createdAt|date}}
           <ng-container *ngIf="article.updatedAt">Update on {{article.updatedAt|date}}</ng-container>
         </mat-card-subtitle>
       </mat-card-footer>
@@ -25,38 +26,37 @@
   <!--Comments Loading effects-->
   <div class="card-container">
     <h2 id="commentArea">Comments Area</h2>
-    <div [@slideFromBottom] *appDataStatus="comments">
-      <mat-card *ngFor="let c of comments">
-        <mat-card-header class="no-avatar-card">
-          <mat-card-subtitle>{{c.author}} <span style="margin-left: 32px">{{c.createdAt | date}}</span></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{c.content}}</p>
-        </mat-card-content>
-        <!--<mat-card-actions align="end">
-          <button mat-icon-button color="primary" (click)="likeComment(c)">
-            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-            {{c.likes}}
-          </button>
-        </mat-card-actions>-->
-      </mat-card>
-    </div>
+  </div>
+  <div [@slideFromBottom] *appDataStatus="comments">
+    <mat-card class="card-container" *ngFor="let c of comments">
+      <mat-card-header class="no-avatar-card">
+        <mat-card-subtitle>
+          {{c.author}}
+          <span style="margin-left: 16px">{{c.createdAt | date}}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{c.content}}</p>
+      </mat-card-content>
+      <!--<mat-card-actions align="end">
+        <button mat-icon-button color="primary" (click)="likeComment(c)">
+          <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+          {{c.likes}}
+        </button>
+      </mat-card-actions>-->
+    </mat-card>
   </div>
 
   <form #form="ngForm" (submit)="onSubmit()" class="card-container">
     <h2 i18n>Leave a Comment</h2>
     <mat-form-field style="width: 100%;" appearance="fill">
       <mat-label i18n>What's in your mind?</mat-label>
-      <label>
-        <textarea matInput [(ngModel)]="newComment.content" name="content" autocomplete="off" required></textarea>
-      </label>
+      <textarea matInput [(ngModel)]="newComment.content" name="content" autocomplete="off" required></textarea>
     </mat-form-field>
     <div class="flex-container">
       <mat-form-field appearance="fill">
         <mat-label i18n>Your Name</mat-label>
-        <label>
-          <input matInput [(ngModel)]="newComment.author" name="author" autocomplete="off">
-        </label>
+        <input matInput [(ngModel)]="newComment.author" name="author" autocomplete="off" />
       </mat-form-field>
       <span class="flex-spacer"></span>
       <button mat-button type="submit" color="primary" [disabled]="!form.valid" i18n>Submit and share!</button>
