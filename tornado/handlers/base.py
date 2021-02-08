@@ -61,5 +61,5 @@ def auth_user(func):
             self.user_id = None
         else:
             self.user_id = id_user
-        func(self)
+        return func(self)
     return wrapper

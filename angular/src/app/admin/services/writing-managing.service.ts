@@ -23,9 +23,10 @@ export class WritingManagingService extends ArticleService {
     return this.http.delete('/api/comment_managing', {params}).pipe(catchError(this.handleError));
   }
 
-  addOrUpdateArticle(article: ArticleModel) {
-    if (article.id === 0) return this.http.post('/api/article', prePolish(article)).pipe(catchError(this.handleError));
-    else return this.http.put('/api/article', prePolish(article)).pipe(catchError(this.handleError));
+  addOrUpdateArticle(article: ArticleModel): Observable<ArticleModel> {
+    if (article.id === 0)
+      return this.http.post<ArticleModel>('/api/article', prePolish(article)).pipe(catchError(this.handleError));
+    else return this.http.put<ArticleModel>('/api/article', prePolish(article)).pipe(catchError(this.handleError));
   }
 }
 

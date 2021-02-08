@@ -29,7 +29,8 @@ class ArticleHandler(BaseHandler):
         if not len(json.loads(body["category"])) > 0:
             self.send_error(400, reason="Categories cannot be empty")
             return
-        article = self.session.query(Article).filter(Article.idUser == self.user_id and Article.id == body["id"]).first()
+        article = self.session.query(Article).filter(
+            Article.idUser == self.user_id and Article.id == body["id"]).first()
         article.title = body["title"]
         article.img = body["img"]
         article.subhead = body["subhead"]
@@ -43,14 +44,15 @@ class ArticleHandler(BaseHandler):
     async def post(self):
         body = self.loads_request_body()
         # Check if categories is normal
-        if not len(json.loads(body["category"])) > 0:
-            self.send_error(400, reason="Categories cannot be empty")
+        if not len(body["category"]) > 0:
+            self.write_error(400, reason="Categories cannot be empty")
             return
-
-        self.session.add(Article(idUser=self.user_id, title=body["title"], img=body["img"], subhead=body["subhead"],
-                                 content=body["content"], category=body["category"], stick=body["stick"],
-                                 collection=body["collection"]))
+        new_article = Article(idUser=self.user_id, title=body["title"], img=body["img"], subhead=body["subhead"],
+                              content=body["content"], category=body["category"], stick=body["stick"],
+                              collection=body["collection"])
+        self.session.add(new_article)
         self.session.commit()
+        self.write_json(new_article)
 
     @auth_user
     def delete(self):
